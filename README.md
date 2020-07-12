@@ -1,0 +1,35 @@
+# THE FUCKER
+## Files Structure
+- **apollo**
+  - **config**
+    - apollo-config.js (if errorHandling don't work we don't need all this config)
+  - **mutations** (contains all front mutations .gql)
+  - **query** (contains all front queries .gql)
+- **assets** (webpack compiled)
+  - css
+  - editor
+  - logo.svg
+  - variables.scss
+- **componants** (??? componEnts)
+  -  back
+  -  theme
+  -  ThemeLoader.vue (we need this?)
+- **config**
+  - tailwind.config.js
+- **layouts**
+  - back.vue (need to be Back.vue)
+  - Defautl.vue
+  - Front.vue
+- **middleware**
+  - auth.js
+  - guest.js
+- **pages**
+  - ad-admin
+  - index.vue
+- **plugins**
+  - vuex-persist.js
+- **server**
+- **static** (not webpack compiled)
+- **store**
+  - index.js
+  - auth.js

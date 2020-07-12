@@ -1,0 +1,12 @@
+.menu {
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+}
+.is-navbar {
+    background: $color-transparent;
+    padding: 0px $ruler;
+}
+nav .mdi {
+    font-size: 27px;
+}
