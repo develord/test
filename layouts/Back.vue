@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import SideBar from '~/componants/sidebar'
-import NavBar from '~/componants/navbar'
+import SideBar from '~/componants/Sidebar'
+import NavBar from '~/componants/Navbar'
 
 export default {
   name: 'Back',
