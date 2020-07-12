@@ -21,7 +21,8 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "engines": {
-    "node": ">=8.0"
+    "node": ">=13.7",
+    "yarn": ">=1.22.4"
   },
   "dependencies": {
     "@highcharts/map-collection": "^1.1.2",

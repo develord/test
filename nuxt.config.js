@@ -1,3 +1,4 @@
+import path from 'path'
 module.exports = {
   mode: 'universal',
   head: {
@@ -93,6 +94,7 @@ module.exports = {
           loader: 'eslint-loader',
           exclude: /(node_modules)/
         })
+        config.resolve.alias['~'] = path.join(__dirname)
       }
     }
   }
