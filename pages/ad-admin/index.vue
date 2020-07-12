@@ -39,9 +39,9 @@
   </v-main>
 </template>
 <script>
-import Mapchart from '~/componants/Mapchart.vue'
-import Comparisationchart from '~/componants/Comparisationchart.vue'
-import AccountList from '~/componants/AccountList.vue'
+import Mapchart from '@/componants/Mapchart.vue'
+import Comparisationchart from '@/componants/Comparisationchart.vue'
+import AccountList from '@/componants/AccountList.vue'
 import { EventBus } from '~/plugins/event-bus'
 
 export default {
