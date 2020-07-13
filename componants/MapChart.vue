@@ -16,6 +16,7 @@
 import chartMapOption from '~/plugins/chartMapOption'
 
 export default {
+  name: 'Mapchart',
   data () {
     return {
       mapOptions: null
