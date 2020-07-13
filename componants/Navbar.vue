@@ -11,7 +11,7 @@
 <script>
 
 export default {
-  name: 'NavBar',
+  name: 'Navbar',
   data: () => {
     return {
       drawer: null
