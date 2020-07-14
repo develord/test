@@ -1,7 +1,0 @@
-{
-    categories {
-      _id
-      name
-      description
-    }
-}

@@ -26,7 +26,13 @@
           <v-flex xs12>
             <v-card>
               <v-card-title>
-                <h4>Accounts</h4>
+                <v-toolbar-title>Accounts</v-toolbar-title>
+                <v-spacer />
+                <v-divider
+                  class="mx-4"
+                  vertical
+                />
+                <AmountAccount />
               </v-card-title>
               <v-card-text>
                 <AccountList />
@@ -42,7 +48,7 @@
 import Mapchart from '~/componants/MapChart.vue'
 import Comparisationchart from '~/componants/Comparisationchart.vue'
 import AccountList from '~/componants/AccountList.vue'
-import { EventBus } from '~/plugins/event-bus'
+import AmountAccount from '~/componants/AmountAccount.vue'
 
 export default {
   name: 'BackIndex',
@@ -50,6 +56,7 @@ export default {
   middleware: 'auth',
   components: {
     Mapchart,
+    AmountAccount,
     Comparisationchart,
     AccountList
   },
@@ -67,11 +74,9 @@ export default {
       return this.$store.state.selectedCountry
     }
   },
-  created () {
-    this.$vuetify.theme.dark = false
-    EventBus.$on('select-country', (props) => {
-      this.$store.dispatch('setCountrySelected', props)
-    })
+  beforeMount () {
+    this.$store.dispatch('getAccount')
+    this.$store.dispatch('getCross')
   }
 }
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <client-only>
     <v-data-table
       :headers="headers"
       :items="accountList"
       :items-per-page="5"
       class="elevation-1"
     />
-  </div>
+  </client-only>
 </template>
 
 <script>
@@ -38,21 +38,18 @@ export default {
     }
   },
   watch: {
+    accounts: {
+      immediate: true,
+      handler (newVal) {
+        this.accountList = newVal
+      }
+    },
     selectedCountry: {
       immediate: true,
       handler (newVal) {
         this.accountList = this.accounts.filter(el => el.holderBank.address.country.toLowerCase() === (newVal || el.holderBank.address.country.toLowerCase()))
       }
     }
-  },
-  mounted () {
-    const config = {
-      headers: { 'Access-Control-Allow-Origin': '*' }
-    }
-    this.$axios.get('https://platform.ibanfirst.com/js/dataTestDevFront.json', config)
-  },
-  methods: {
-
   }
 }
 </script>

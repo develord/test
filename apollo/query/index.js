@@ -1,5 +1,5 @@
-const categories = require('./categories.gql')
-const posts = require('./posts.gql')
 const statuses = require('./statuses.gql')
+const accounts = require('./accounts.gql')
+const cross = require('./cross.gql')
 
-module.exports = { categories, posts, statuses }
+module.exports = { accounts, statuses, cross }

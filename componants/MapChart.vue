@@ -14,6 +14,7 @@
 
 <script>
 import chartMapOption from '~/plugins/chartMapOption'
+import { EventBus } from '~/plugins/event-bus'
 
 export default {
   name: 'Mapchart',
@@ -31,15 +32,14 @@ export default {
     accounts: {
       immediate: true,
       handler (newVal) {
-        this.mapOptions = chartMapOption(newVal)
+        if (newVal && newVal.length) { this.mapOptions = chartMapOption(newVal) }
       }
     }
   },
-  methods: {
-    async gettest () {
-      const dd = await this.$axios.$get('hhttps://api.ibanfirst.com/PublicAPI/Cross/')
-      return dd
-    }
+  mounted () {
+    EventBus.$on('select-country', (props) => {
+      this.$store.dispatch('setCountrySelected', props)
+    })
   }
 }
 </script>

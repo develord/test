@@ -41,12 +41,6 @@ export default {
         this.mapOptions = chartPieOptions(this.accounts, newVal)
       }
     }
-  },
-  methods: {
-    async gettest () {
-      const dd = await this.$axios.$get('hhttps://api.ibanfirst.com/PublicAPI/Cross/')
-      return dd
-    }
   }
 }
 </script>

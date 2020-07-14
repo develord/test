@@ -1,0 +1,32 @@
+# Write your query or mutation here
+{
+    accounts{
+        id
+        currency
+        accountNumber
+        amount
+        holderBank{
+            bic
+            clearingCode
+            name
+            address{
+                street
+                postCode
+                city
+                state
+                country
+            }
+        }
+        holder {
+            name
+            type
+            address{
+                street
+                postCode
+                city
+                state
+                country
+            }
+        }
+    }
+}
