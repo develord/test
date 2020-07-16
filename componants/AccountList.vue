@@ -16,16 +16,10 @@ export default {
     return {
       accountList: [],
       headers: [
-        {
-          text: 'Account Number',
-          align: 'start',
-          value: 'accountNumber'
-        },
-        { text: 'Currency', value: 'currency' },
-        { text: 'tag', value: 'tag' },
-        { text: 'amount', value: 'amount' },
-        { text: 'address', value: 'holderBank.address.country' },
-        { text: 'Action', value: 'iron' }
+        { text: 'Account Number', align: 'start', value: 'accountNumber' },
+        { text: 'BIC', value: 'holderBank.bic' },
+        { text: 'Amount', value: 'amount' },
+        { text: 'Currency', value: 'currency' }
       ]
     }
   },

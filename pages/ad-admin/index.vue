@@ -16,7 +16,7 @@
           <v-flex xs6 sm4 md4>
             <v-card>
               <v-card-title>
-                <h4>County comparisation</h4>
+                <h4>Country comparisation</h4>
               </v-card-title>
               <v-card-text>
                 <comparisationchart />

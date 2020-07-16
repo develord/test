@@ -16,7 +16,7 @@
           >
             <v-card class="elevation-12" mt-4>
               <v-toolbar
-                color="primary"
+                class="blue-grey darken-3"
                 dark
                 flat
               >
