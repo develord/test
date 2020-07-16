@@ -3,7 +3,7 @@
     <v-layout column color="info">
       <v-container grid-list-lg text-xs-center color="info">
         <v-layout row wrap>
-          <v-flex xs6 sm8 md8>
+          <v-flex xs12 sm12 md8>
             <v-card>
               <v-card-title>
                 <h4>Map World</h4>
@@ -13,7 +13,7 @@
               </v-card-text>
             </v-card>
           </v-flex>
-          <v-flex xs6 sm4 md4>
+          <v-flex xs12 sm12 md4>
             <v-card>
               <v-card-title>
                 <h4>Country comparisation</h4>
