@@ -36,7 +36,6 @@ export const mutations = {
 
 export const actions = {
   async login (context, user) {
-    console.log({ ...user })
     const auth = await getProviderMutate.call(this, login, { ...user })
     if (auth.data.login) {
       user.token = auth.data.login

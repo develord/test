@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-layout column :dark="isDark" secondary>
+    <v-layout column :dark="isDark" color="secondary">
       <v-container grid-list-lg text-xs-center>
         <v-layout row wrap>
           <v-flex xs6 sm8 md8>

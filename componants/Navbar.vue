@@ -2,8 +2,7 @@
   <v-app-bar
     app
     clipped-left
-    color="secondary"
-    :dark="isDark"
+    color="primary"
   >
     <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
     <v-toolbar-title>Application</v-toolbar-title>
@@ -46,11 +45,6 @@ export default {
       drawer: null
     }
   },
-  computed: {
-    isDark () {
-      return this.$store.state.dark
-    }
-  },
   methods: {
     logout () {
       this.$store.commit('auth/LOGOUT_USER')
@@ -62,8 +56,3 @@ export default {
   }
 }
 </script>
-<style scoped>
-.theme--light.v-app-bar.v-toolbar.v-sheet {
-  background: var(--v-primary-base) !important;
-}
-</style>

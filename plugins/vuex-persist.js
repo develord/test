@@ -4,7 +4,10 @@ export default ({ store }) => {
   // window.onNuxtReady(() => {
   new VuexPersistence({
     key: 'tfk',
-    reducer: state => state.auth
+    reducer: state => ({
+      auth: state.auth,
+      dark: state.dark
+    })
   }).plugin(store)
   // })
 }

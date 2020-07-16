@@ -25,7 +25,6 @@
 </template>
 
 <script>
-import colors from 'vuetify/lib/util/colors'
 import SideBar from '~/componants/Sidebar.vue'
 import NavBar from '~/componants/Navbar.vue'
 
@@ -55,7 +54,10 @@ export default {
     newSnackbar (newVal) {
       this.snackbar = newVal
     },
-    themeMap (newVal) {
+    isDark (newVal) {
+      this.$vuetify.theme.dark = newVal
+    }
+  /*  themeMap (newVal) {
       this.$vuetify.theme = {
         light: {
           primary: colors.blue.lighten2,
@@ -70,7 +72,7 @@ export default {
           error: colors.red.accent1
         }
       }
-    }
+    } */
   }
 }
 </script>

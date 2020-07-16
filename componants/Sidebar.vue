@@ -4,7 +4,7 @@
     app
     clipped
     :dark="isDark"
-    primary
+    color="accent"
   >
     <v-list dense>
       <v-list-item link>
