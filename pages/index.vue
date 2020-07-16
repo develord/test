@@ -1,49 +1,73 @@
 <template>
-  <div class="h-screen flex items-center justify-center">
-    <div>
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 m-auto">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2">
-            Email
-          </label>
-          <input
-            v-model="user.email"
-            :class="{'border-red-500': hasError.email}"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            type="text"
-            placeholder="Your email"
+  <v-app id="inspire">
+    <v-main>
+      <v-container
+        class="fill-height"
+        fluid
+      >
+        <v-row
+          align="center"
+          justify="center"
+        >
+          <v-col
+            cols="12"
+            sm="8"
+            md="4"
           >
-          <p v-if="hasError.email" class="text-red-500 text-xs italic">
-            {{ hasError.email }}
-          </p>
-        </div>
-        <div class="mb-6">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-            Password
-          </label>
-          <input
-            id="password"
-            v-model="user.password"
-            class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-            :class="{'border-red-500': hasError.password}"
-            type="password"
-            placeholder="Your secret password"
-          >
-          <p v-if="hasError.password" class="text-red-500 text-xs italic">
-            {{ hasError.password }}
-          </p>
-        </div>
-        <div class="flex items-center justify-between">
-          <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" :disabled="loading" @click="login">
-            Login
-          </button>
-        </div>
-      </form>
-      <p class="text-center text-gray-500 text-xs">
-        &copy;2020 TheFucker Team. All rights reserved.
-      </p>
-    </div>
-  </div>
+            <v-card class="elevation-12" mt-4>
+              <v-toolbar
+                color="primary"
+                dark
+                flat
+              >
+                <v-toolbar-title>Login form</v-toolbar-title>
+              </v-toolbar>
+              <v-card-text>
+                <v-form>
+                  <v-text-field
+                    v-model="user.email"
+                    :error="hasError.email"
+                    :hide-details="hasError.email"
+                    label="Login"
+                    :persistent-hint="hasError.email"
+                    name="login"
+                    prepend-icon="mdi-account"
+                    :loading="loading"
+                    type="text"
+                  />
+                  <p v-if="hasError.email" ml-3>
+                    {{ hasError.email }}
+                  </p>
+
+                  <v-text-field
+                    id="password"
+                    v-model="user.password"
+                    :loading="loading"
+                    :error="hasError.password"
+                    :hide-details="hasError.password"
+                    label="Password"
+                    name="password"
+                    prepend-icon="mdi-lock"
+                    type="password"
+                    @keyup.enter="login()"
+                  />
+                  <p v-if="hasError.password" class="text-red-500 text-xs italic">
+                    {{ hasError.password }}
+                  </p>
+                </v-form>
+              </v-card-text>
+              <v-card-actions>
+                <v-spacer />
+                <v-btn color="primary" :loading="loading" @click="login()">
+                  Login
+                </v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
@@ -53,7 +77,7 @@ export default {
   middleware: 'guest',
   data () {
     return {
-      user: { email: '', password: '' },
+      user: { email: 'test', password: 'test' },
       loading: false,
       hasError: { email: null, password: null }
     }

@@ -1,7 +1,7 @@
 <template>
   <v-main>
-    <v-layout column :dark="isDark" color="secondary">
-      <v-container grid-list-lg text-xs-center>
+    <v-layout column color="info">
+      <v-container grid-list-lg text-xs-center color="info">
         <v-layout row wrap>
           <v-flex xs6 sm8 md8>
             <v-card>
@@ -72,9 +72,6 @@ export default {
   computed: {
     selectedCountry () {
       return this.$store.state.accounts.selectedCountry
-    },
-    isDark () {
-      return this.$store.state.dark
     }
   },
   beforeMount () {
@@ -83,3 +80,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.v-main, .v-main__wrap {
+  background: var(--v-info)!important;
+}
+</style>

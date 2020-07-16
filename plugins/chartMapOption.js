@@ -1,4 +1,5 @@
 import worldMap from '@highcharts/map-collection/custom/world.geo.json'
+import Highcharts from 'highcharts'
 import { EventBus } from './event-bus.js'
 
 const chartMapOption = (data) => {
@@ -63,7 +64,12 @@ const chartMapOption = (data) => {
       }
     },
     colorAxis: {
-      min: 0
+      min: 0,
+      stops: [
+        [0, '#EFEFFF'],
+        [0.5, Highcharts.getOptions().colors[0]],
+        [1, Highcharts.color(Highcharts.getOptions().colors[0]).brighten(-0.5).get()]
+      ]
     },
     responsive: {
       rules: [{

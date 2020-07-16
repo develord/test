@@ -5,7 +5,7 @@
     </template>
     <template v-else>
       <v-skeleton-loader
-        width="950"
+        width="750"
         height="767"
         type="card-heading, image, image"
       />

@@ -1,26 +1,28 @@
 <template>
-  <v-app id="inspire" :dark="isDark">
-    <nav-bar />
-    <side-bar />
-    <nuxt />
-    <v-snackbar
-      :value="snackbar.show"
-      :bottom="snackbar.position"
-      :right="snackbar.right"
-      :left="snackbar.left"
-      :timeout="snackbar.timeout"
-      :color="snackbar.color"
-    >
-      <span v-html="snackbar.text" />
-      <v-btn
-        v-if="snackbar.action"
-        color="pink"
-        flat
-        @click="snackbar.action()"
+  <v-app id="inspire">
+    <client-only>
+      <nav-bar id="#v-step-0" />
+      <side-bar />
+      <nuxt />
+      <v-snackbar
+        :value="snackbar.show"
+        :bottom="snackbar.position"
+        :right="snackbar.right"
+        :left="snackbar.left"
+        :timeout="snackbar.timeout"
+        :color="snackbar.color"
       >
-        Refresh
-      </v-btn>
-    </v-snackbar>
+        <span v-html="snackbar.text" />
+        <v-btn
+          v-if="snackbar.action"
+          color="pink"
+          flat
+          @click="snackbar.action()"
+        >
+          Refresh
+        </v-btn>
+      </v-snackbar>
+    </client-only>
   </v-app>
 </template>
 
@@ -45,9 +47,6 @@ export default {
     },
     newSnackbar () {
       return this.$store.state.snackbar
-    },
-    themeMap () {
-      return this.$store.state.themeMap
     }
   },
   watch: {
@@ -57,22 +56,6 @@ export default {
     isDark (newVal) {
       this.$vuetify.theme.dark = newVal
     }
-  /*  themeMap (newVal) {
-      this.$vuetify.theme = {
-        light: {
-          primary: colors.blue.lighten2,
-          secondary: colors.grey.darken1,
-          accent: colors.shades.black,
-          error: colors.red.accent3
-        },
-        dark: {
-          primary: colors.red.accent1,
-          secondary: colors.grey.darken4,
-          accent: colors.shades.black4,
-          error: colors.red.accent1
-        }
-      }
-    } */
   }
 }
 </script>

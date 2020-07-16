@@ -53,6 +53,7 @@ module.exports = {
     '@nuxtjs/style-resources'
   ],
   vuetify: {
+    treeShake: true,
     theme: {
       dark: false,
       themes: {
@@ -60,19 +61,13 @@ module.exports = {
           primary: '#2196F3',
           accent: '#E8EAF6',
           secondary: '#2196F3',
-          info: '#2196F3',
-          warning: '#2196F3',
-          error: '#2196F3',
-          success: '#2196F3'
+          info: '#000000'
         },
         light: {
           primary: '#182533',
           accent: '#223347',
           secondary: '#FFFFFF',
-          info: '#B388FF',
-          warning: '#B388FF',
-          error: '#B388FF',
-          success: '#B388FF'
+          info: '#000000'
         }
       }
     }

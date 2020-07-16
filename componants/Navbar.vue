@@ -2,13 +2,17 @@
   <v-app-bar
     app
     clipped-left
-    color="primary"
+    class="blue-grey darken-3"
   >
-    <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-    <v-toolbar-title>Application</v-toolbar-title>
+    <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
+    <v-toolbar-title class="white--text">
+      Application
+    </v-toolbar-title>
     <v-spacer />
     <v-btn icon @click="switchMode()">
-      <v-icon>mdi-brightness-4</v-icon>
+      <v-icon class="white--text">
+        mdi-brightness-4
+      </v-icon>
     </v-btn>
     <v-menu offset-y>
       <template v-slot:activator="{ on, attrs }">
@@ -56,3 +60,6 @@ export default {
   }
 }
 </script>
+<style scoped>
+
+</style>

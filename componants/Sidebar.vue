@@ -3,16 +3,19 @@
     v-model="drawer"
     app
     clipped
-    :dark="isDark"
-    color="accent"
+    class="blue-grey darken-4"
   >
     <v-list dense>
       <v-list-item link>
         <v-list-item-action>
-          <v-icon>mdi-view-dashboard</v-icon>
+          <v-icon class="white--text">
+            mdi-view-dashboard
+          </v-icon>
         </v-list-item-action>
         <v-list-item-content>
-          <v-list-item-title>Dashboard</v-list-item-title>
+          <v-list-item-title class="white--text">
+            Dashboard
+          </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -25,11 +28,6 @@ export default {
   name: 'Sidebar',
   data: () => ({
     drawer: null
-  }),
-  computed: {
-    isDark () {
-      return this.$store.state.dark
-    }
-  }
+  })
 }
 </script>

@@ -26,8 +26,22 @@ export default {
   watch: {
     accounts: {
       async handler (newVal) {
+        const sum = await this.sumAccountAmount()
+        this.amount = sum
+      }
+    },
+    instruments: {
+      async handler (newVal) {
+        const sum = await this.sumAccountAmount()
+        this.amount = sum
+      }
+    }
+  },
+  methods: {
+    async sumAccountAmount () {
+      if (this.instruments.length) {
         let sum = 0
-        for (const data of newVal) {
+        for (const data of this.accounts) {
           if (String(data.currency) === 'EUR') {
             sum += parseFloat(data.amount)
           } else {
@@ -39,11 +53,9 @@ export default {
             }
           }
         }
-        this.amount = sum.toFixed(2)
+        return sum.toFixed(2)
       }
-    }
-  },
-  methods: {
+    },
     cenvertAmount (x) {
       return new Promise((resolve, reject) => {
         const instrument = this.instruments.find(el => el.instrument.includes(x.currency) && el.instrument.includes('EUR'))
@@ -75,8 +87,5 @@ export default {
  <style scoped>
 .amount {
     padding: 20px;
-    background: white;
-    border-radius: 7px;
-    box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
 }
  </style>

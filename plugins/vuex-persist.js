@@ -6,7 +6,8 @@ export default ({ store }) => {
     key: 'tfk',
     reducer: state => ({
       auth: state.auth,
-      dark: state.dark
+      dark: state.dark,
+      instruments: state.accounts.instruments
     })
   }).plugin(store)
   // })
