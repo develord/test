@@ -1,7 +1,7 @@
 <template>
   <client-only>
     <div class="amount">
-      <h1>{{ Math.round(amount) }} EUR</h1>
+      <h1>{{ amount }} € </h1>
     </div>
   </client-only>
 </template>
@@ -11,47 +11,64 @@
 export default {
   data () {
     return {
+      loading: true,
+      amount: 0
     }
   },
   computed: {
     accounts () {
-      return this.$store.state.accounts
+      return this.$store.state.accounts.accounts
     },
     instruments () {
-      return this.$store.state.instruments
-    },
-    amount () {
-      if (this.accounts) {
-        const occurrences = this.accounts.reduce((obj, item) => {
-          console.log(Number(item.amount))
-          const ff = Number(obj) + this.cenvertAmount(item)
-          return ff
-        }, 0)
-        return occurrences
-      } else {
-        return 0
-      }
+      return this.$store.state.accounts.instruments
     }
   },
   watch: {
-
-  },
-  methods: {
-    cenvertAmount (data) {
-      if (this.instruments) {
-        const currency = data.currency
-        const instrument = this.instruments.find(el => el.instrument.includes(currency))
-        if (instrument) {
-          if (instrument.instrument.startsWith(currency)) {
-            return Number(data.amount) * 0.99565
+    accounts: {
+      async handler (newVal) {
+        let sum = 0
+        for (const data of newVal) {
+          if (String(data.currency) === 'EUR') {
+            sum += parseFloat(data.amount)
           } else {
-            return Number(data.amount) / 0.99565
+            const response = await this.cenvertAmount(data)
+            if (response.data.getRate.instrument.startsWith(String(data.currency))) {
+              sum += (parseFloat(response.data.getRate.rate) * parseFloat(data.amount))
+            } else {
+              sum += (parseFloat(data.amount) / parseFloat(response.data.getRate.rate))
+            }
           }
         }
+        this.amount = sum.toFixed(2)
       }
-
-      return Number(data.amount)
     }
+  },
+  methods: {
+    cenvertAmount (x) {
+      return new Promise((resolve, reject) => {
+        const instrument = this.instruments.find(el => el.instrument.includes(x.currency) && el.instrument.includes('EUR'))
+        if (!instrument) {
+          this.$store.dispatch('pushNotif', {
+            left: false,
+            position: 'bottom',
+            right: true,
+            show: true,
+            color: 'red',
+            text: '403 Forbiden API limit reached',
+            timeout: 8000
+          })
+          reject(Error('403 Forbiden'))
+        }
+        this.$store.dispatch('accounts/getRate', { instrument: instrument.instrument })
+          .then((response) => {
+            resolve(response)
+          })
+          .catch((err) => {
+            reject(err)
+          })
+      })
+    }
+
   }
 }
 </script>

@@ -1,13 +1,12 @@
 import { ApolloLink, Observable } from 'apollo-link'
-
 const opts = { onlyErrors: false }
 
 const defaultLogger = ({ operation, response, graphQLErrors, networkError }) => {
   if (graphQLErrors) {
-    graphQLErrors.map(({ message, locations, path }) =>
+    graphQLErrors.map(({ message, locations, path }) => {
       // new Error(message)
       console.error(`[GraphQL Error] Message: "${message}", Locations: ${JSON.stringify(locations)}, Path: "${path}"`)
-    )
+    })
   }
 
   if (networkError) {

@@ -1,5 +1,6 @@
 import { login } from '@/apollo/mutations'
 import Cookies from 'js-cookie'
+import { getProviderMutate } from '@/helpers/getProviderQuery'
 
 export const state = () => ({
   email: null,
@@ -35,10 +36,8 @@ export const mutations = {
 
 export const actions = {
   async login (context, user) {
-    const auth = await this.app.apolloProvider.defaultClient.mutate({
-      mutation: login,
-      variables: { ...user }
-    })
+    console.log({ ...user })
+    const auth = await getProviderMutate.call(this, login, { ...user })
     if (auth.data.login) {
       user.token = auth.data.login
       context.commit('auth/SET_USER', user, { root: true })

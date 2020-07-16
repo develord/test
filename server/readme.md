@@ -21,6 +21,10 @@ mutation {
 mutation {
  deleteCategory(_id: "5e74a32de6736533681a0f7a")
 }
+
+mutation {
+ getRate(instrument: "EURGBP")
+}
 ```
 
 # GET Categories #

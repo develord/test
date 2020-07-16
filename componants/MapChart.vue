@@ -6,7 +6,8 @@
     <template v-else>
       <v-skeleton-loader
         width="950"
-        type="card"
+        height="767"
+        type="card-heading, image, image"
       />
     </template>
   </client-only>
@@ -25,7 +26,7 @@ export default {
   },
   computed: {
     accounts () {
-      return this.$store.state.accounts
+      return this.$store.state.accounts.accounts
     }
   },
   watch: {
@@ -38,7 +39,7 @@ export default {
   },
   mounted () {
     EventBus.$on('select-country', (props) => {
-      this.$store.dispatch('setCountrySelected', props)
+      this.$store.dispatch('accounts/setCountrySelected', props)
     })
   }
 }

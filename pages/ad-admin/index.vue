@@ -1,6 +1,6 @@
 <template>
   <v-main>
-    <v-layout column>
+    <v-layout column :dark="isDark" secondary>
       <v-container grid-list-lg text-xs-center>
         <v-layout row wrap>
           <v-flex xs6 sm8 md8>
@@ -71,12 +71,15 @@ export default {
   },
   computed: {
     selectedCountry () {
-      return this.$store.state.selectedCountry
+      return this.$store.state.accounts.selectedCountry
+    },
+    isDark () {
+      return this.$store.state.dark
     }
   },
   beforeMount () {
-    this.$store.dispatch('getAccount')
-    this.$store.dispatch('getCross')
+    this.$store.dispatch('accounts/getCross')
+    this.$store.dispatch('accounts/getAccount')
   }
 }
 </script>

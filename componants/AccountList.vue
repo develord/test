@@ -31,10 +31,10 @@ export default {
   },
   computed: {
     accounts () {
-      return this.$store.state.accounts
+      return this.$store.state.accounts.accounts
     },
     selectedCountry () {
-      return this.$store.state.selectedCountry
+      return this.$store.state.accounts.selectedCountry
     }
   },
   watch: {
