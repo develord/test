@@ -61,13 +61,13 @@ module.exports = {
           primary: '#2196F3',
           accent: '#E8EAF6',
           secondary: '#2196F3',
-          info: '#000000'
+          darkness: '#000000'
         },
         light: {
           primary: '#182533',
           accent: '#223347',
           secondary: '#FFFFFF',
-          info: '#000000'
+          darkness: '#ffffff'
         }
       }
     }

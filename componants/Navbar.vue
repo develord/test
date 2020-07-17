@@ -4,7 +4,7 @@
     clipped-left
     class="blue-grey darken-3"
   >
-    <v-app-bar-nav-icon class="white--text" @click.stop="drawer = !drawer" />
+    <v-app-bar-nav-icon class="white--text" @click.stop="hideDrawer()" />
     <v-toolbar-title class="white--text">
       Application
     </v-toolbar-title>
@@ -44,12 +44,16 @@
 
 export default {
   name: 'Navbar',
-  data: () => {
-    return {
-      drawer: null
+  props: {
+    drawer: {
+      type: Boolean,
+      required: true
     }
   },
   methods: {
+    hideDrawer () {
+      this.$emit('update:drawer', !this.drawer)
+    },
     logout () {
       this.$store.commit('auth/LOGOUT_USER')
       this.$router.push({ name: 'index' })

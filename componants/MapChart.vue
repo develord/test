@@ -6,7 +6,7 @@
     <template v-else>
       <v-skeleton-loader
         width="750"
-        height="767"
+        height="500"
         type="card-heading, image, image"
       />
     </template>
@@ -44,7 +44,7 @@ export default {
   }
 }
 </script>
- <style scoped>
+ <style>
 .map {
   min-height: 500px;
   margin: auto;

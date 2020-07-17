@@ -1,7 +1,7 @@
 <template>
   <v-main>
-    <v-layout column color="info">
-      <v-container grid-list-lg text-xs-center color="info">
+    <v-layout column>
+      <v-container grid-list-lg text-xs-center>
         <v-layout row wrap>
           <v-flex xs12 sm12 md8>
             <v-card>

@@ -1,8 +1,8 @@
 <template>
   <v-app id="inspire">
     <client-only>
-      <nav-bar id="#v-step-0" />
-      <side-bar />
+      <nav-bar id="#v-step-0" :drawer="drawer" @update:drawer="drawer = $event" />
+      <side-bar :drawer="drawer" />
       <nuxt />
       <v-snackbar
         :value="snackbar.show"
@@ -38,7 +38,8 @@ export default {
   },
   data: () => {
     return {
-      snackbar: {}
+      snackbar: {},
+      drawer: true
     }
   },
   computed: {

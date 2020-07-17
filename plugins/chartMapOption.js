@@ -17,7 +17,7 @@ const chartMapOption = (data) => {
     chart: {
       map: worldMap,
       marginBottom: 10,
-      width: 950,
+      width: 750,
       marginTop: 0,
       reflow: true,
       events: {

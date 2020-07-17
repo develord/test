@@ -1,8 +1,17 @@
 <template>
   <client-only>
-    <div class="amount">
-      <h1>{{ amount }} € </h1>
-    </div>
+    <template v-if="amount !== 0">
+      <div class="amount">
+        <h1>{{ amount }} € </h1>
+      </div>
+    </template>
+    <template v-else>
+      <v-skeleton-loader
+        width="250"
+        height="50"
+        type="card-heading"
+      />
+    </template>
   </client-only>
 </template>
 

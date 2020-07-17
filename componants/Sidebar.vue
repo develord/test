@@ -26,8 +26,12 @@
 
 export default {
   name: 'Sidebar',
-  data: () => ({
-    drawer: null
-  })
+  props: {
+    drawer: {
+      type: Boolean,
+      required: true
+    }
+  }
+
 }
 </script>
