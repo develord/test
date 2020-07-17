@@ -15,7 +15,7 @@
 
 <script>
 import chartMapOption from '~/plugins/chartMapOption'
-import { EventBus } from '~/plugins/event-bus'
+import { EventBus } from '~/plugins/eventBus'
 
 export default {
   name: 'Mapchart',
