@@ -1,6 +1,6 @@
 import worldMap from '@highcharts/map-collection/custom/world.geo.json'
 import Highcharts from 'highcharts'
-import { EventBus } from './eventBus.js'
+import { EventBus } from './event-bus.js'
 
 const chartMapOption = (data) => {
   const occurrences = data.reduce((obj, item) => {
