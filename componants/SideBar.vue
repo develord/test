@@ -25,7 +25,6 @@
 <script>
 
 export default {
-  name: 'Sidebar',
   props: {
     drawer: {
       type: Boolean,

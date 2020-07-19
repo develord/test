@@ -31,7 +31,6 @@
     "@nuxtjs/auth": "^4.9.0",
     "@nuxtjs/axios": "^5.12.0",
     "@nuxtjs/dotenv": "^1.4.0",
-    "@nuxtjs/now-builder": "^0.17.3",
     "@nuxtjs/vuetify": "2.0.0-alpha.5",
     "apollo-server-express": "^2.11.0",
     "bcrypt": "^4.0.1",

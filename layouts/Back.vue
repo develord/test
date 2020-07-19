@@ -27,8 +27,8 @@
 </template>
 
 <script>
-import SideBar from '~/componants/Sidebar.vue'
-import NavBar from '~/componants/Navbar.vue'
+import SideBar from '~/componants/SideBar.vue'
+import NavBar from '~/componants/NavBar.vue'
 
 export default {
   name: 'Back',

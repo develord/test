@@ -19,7 +19,7 @@
                 <h4>Country comparisation</h4>
               </v-card-title>
               <v-card-text>
-                <comparisationchart />
+                <comparisation-chart />
               </v-card-text>
             </v-card>
           </v-flex>
@@ -46,7 +46,7 @@
 </template>
 <script>
 import Mapchart from '~/componants/MapChart.vue'
-import Comparisationchart from '~/componants/Comparisationchart.vue'
+import ComparisationChart from '~/componants/ComparisationChart.vue'
 import AccountList from '~/componants/AccountList.vue'
 import AmountAccount from '~/componants/AmountAccount.vue'
 
@@ -57,7 +57,7 @@ export default {
   components: {
     Mapchart,
     AmountAccount,
-    Comparisationchart,
+    ComparisationChart,
     AccountList
   },
   data: () => {
