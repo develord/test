@@ -1,4 +1,4 @@
-const { getAccounts } = require('../../../dataviz/dataviz')
+const { getAccounts } = require('../../../dataviz/getAccounts')
 /**
  * Account Queries
  * - accounts: [Account]

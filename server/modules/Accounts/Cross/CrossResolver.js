@@ -1,5 +1,5 @@
 const { ForbiddenError, ApolloError } = require('apollo-server-express')
-const { getCross } = require('../../../dataviz/crossliste')
+const { getCross } = require('../../../dataviz/crossList')
 const { getRate } = require('../../../dataviz/getRate')
 /**
  * Cross Crosss

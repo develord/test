@@ -75,12 +75,12 @@ module.exports = {
 
   apollo: {
     clientConfigs: {
-      default: '~/apollo/config/apollo-config.js'
+      default: '~/apollo/config/apolloConfig.js'
     }
   },
 
   plugins: [
-    { src: '~/plugins/vuex-persist', mode: 'client' },
+    { src: '~/plugins/vuexPersist', mode: 'client' },
     { src: '~/plugins/highCharts', mode: 'client' },
     { src: '~/plugins/axios', mode: 'client' }
   ],
