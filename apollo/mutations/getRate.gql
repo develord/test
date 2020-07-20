@@ -1,0 +1,6 @@
+mutation($instrument: String!) {
+  getRate(instrument: $instrument){
+  	instrument
+    rate
+	}
+}
