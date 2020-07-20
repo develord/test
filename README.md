@@ -23,6 +23,7 @@ yarn dev (to run dev)
 ```bash
 yarn start (to run prod)
 ```
+Server listen on localhost:3000
 **Nb>This repository configured to auto Deploy on push in master branch.**  
 Link Prod [ibantesting](https://ibantesting.herokuapp.com)
 
