@@ -16,7 +16,7 @@ yarn Install (to install the depondences)
 ```bash
 yarn build
 ```
-create your and .env.local if you want to run dev
+create your (.env.local) if you want to run dev
 ```bash
 yarn dev (to run dev)
 ```
