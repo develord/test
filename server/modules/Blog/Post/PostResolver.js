@@ -7,7 +7,7 @@ const Post = require('.')
 const Query = {
   posts: async () => {
     const posts = await Post.find().populate(['user', 'category', 'status'])
-    console.log('===>', posts.length)
+
     return posts
   },
   post: (_, { _id }) => {
