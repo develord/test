@@ -1,4 +1,6 @@
-const login = require('./login.gql')
-const getRate = require('./getRate.gql')
+const createPost = require('./createPost.gql')
+const deletePost = require('./deletePost.gql')
 
-module.exports = { login, getRate }
+const login = require('./login.gql')
+
+module.exports = { createPost, deletePost, login }

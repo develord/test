@@ -1,36 +1,46 @@
 <template>
-  <v-navigation-drawer
-    v-model="drawer"
-    app
-    clipped
-    class="blue-grey darken-4"
-  >
-    <v-list dense>
-      <v-list-item link>
-        <v-list-item-action>
-          <v-icon class="white--text">
-            mdi-view-dashboard
-          </v-icon>
-        </v-list-item-action>
-        <v-list-item-content>
-          <v-list-item-title class="white--text">
-            Dashboard
-          </v-list-item-title>
-        </v-list-item-content>
-      </v-list-item>
-    </v-list>
-  </v-navigation-drawer>
+  <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
+    <el-submenu index="1">
+      <template slot="title">
+        <i class="el-icon-document" />
+        <span slot="title">Articles</span>
+      </template>
+      <el-menu-item-group>
+        <el-menu-item index="1-1">
+          Gestion Acticle
+        </el-menu-item>
+        <el-menu-item index="1-2">
+          Gestion Page Group
+        </el-menu-item>
+      </el-menu-item-group>
+    </el-submenu>
+    <el-menu-item index="3">
+      <i class="el-icon-setting" />
+      <span slot="title">Users</span>
+    </el-menu-item>
+  </el-menu>
 </template>
 
 <script>
-
 export default {
-  props: {
-    drawer: {
-      type: Boolean,
-      required: true
+  data () {
+    return {
+      isCollapse: false
+    }
+  },
+  methods: {
+    handleOpen (key, keyPath) {
+      console.log(key, keyPath)
+    },
+    handleClose (key, keyPath) {
+      console.log(key, keyPath)
     }
   }
-
 }
 </script>
+<style>
+  .el-menu-vertical-demo:not(.el-menu--collapse) {
+    width: 200px;
+    min-height: 400px;
+  }
+</style>

@@ -1,7 +1,6 @@
 const app = require('express')()
 const { Nuxt, Builder } = require('nuxt')
 const consola = require('consola')
-const cors = require('cors')
 const apollo = require('./apollo/index')
 const { config, dev } = require('./config')
 require('./db')()
@@ -22,8 +21,6 @@ async function start () {
   // apply Apollo middleware
   apollo.applyMiddleware({ app })
 
-  // Allow CORS
-  app.use(cors())
   // Give nuxt middleware to express
   app.use(nuxt.render)
 

@@ -5,7 +5,7 @@ module.exports = async () => {
     await mongoose.connect(
       process.env.DATABASE_URL,
       { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
-      () => { console.log('DB is Connected') }
+      () => { console.log('Connected to db...') }
     )
   } catch (err) {
     console.error('Error while connecting to DB')

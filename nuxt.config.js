@@ -1,3 +1,4 @@
+/* eslint-disable no-template-curly-in-string */
 const path = require('path')
 
 module.exports = {
@@ -16,6 +17,9 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
+
+  css: [
+  ],
 
   router: {
     prefetchLinks: false,
@@ -47,31 +51,8 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
-    '@nuxtjs/color-mode',
-    '@nuxtjs/vuetify',
-    '@nuxtjs/axios',
     '@nuxtjs/style-resources'
   ],
-  vuetify: {
-    treeShake: true,
-    theme: {
-      dark: false,
-      themes: {
-        dark: {
-          primary: '#2196F3',
-          accent: '#E8EAF6',
-          secondary: '#2196F3',
-          darkness: '#000000'
-        },
-        light: {
-          primary: '#182533',
-          accent: '#223347',
-          secondary: '#FFFFFF',
-          darkness: '#ffffff'
-        }
-      }
-    }
-  },
 
   apollo: {
     clientConfigs: {
@@ -81,8 +62,7 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vuexPersist', mode: 'client' },
-    { src: '~/plugins/highCharts', mode: 'client' },
-    { src: '~/plugins/axios', mode: 'client' }
+    { src: '~/plugins/element-ui' }
   ],
 
   render: {

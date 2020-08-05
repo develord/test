@@ -1,0 +1,17 @@
+{
+    posts{
+        _id
+        title
+        description
+        h1
+        content
+        image_large
+        image_small
+        link
+        user {_id, name, image}
+        category {_id, name, description}
+        status {_id, name, desc}
+        created_at
+        updated_at
+    }
+}
