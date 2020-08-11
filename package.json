@@ -21,7 +21,7 @@
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "engines": {
-    "node": ">=12.0",
+    "node": "12.18.3",
     "yarn": ">=1.22.4"
   },
   "resolutions": {
