@@ -1,11 +1,9 @@
 <template>
   <div>
     <!-- navBar Component -->
-
     <el-container>
       <nav-bar :drawer="collapsed" @update:drawer="collapsed = $event" />
     </el-container>
-
     <el-container style="height: 662px;">
       <!-- sideBar Component -->
       <side-bar :drawer="collapsed" />
@@ -16,27 +14,6 @@
         </transition>
       </el-main>
     </el-container>
-
-    <!-- Global Snackbar Component
-    <v-snackbar
-      :value="snackbar.show"
-      :bottom="snackbar.position"
-      :right="snackbar.right"
-      :left="snackbar.left"
-      :timeout="snackbar.timeout"
-      :color="snackbar.color"
-    >
-      <span v-html="snackbar.text" />
-      <v-btn
-        v-if="snackbar.action"
-        color="pink"
-        flat
-        @click="snackbar.action()"
-      >
-        Refresh
-      </v-btn>
-    </v-snackbar>
-    no more Component -->
   </div>
 </template>
 
@@ -84,7 +61,14 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-
+  .page-enter-active,
+  .page-leave-active {
+    transition: opacity 0.5s;
+  }
+  .page-enter,
+  .page-leave-active {
+    opacity: 0;
+  }
   .container {
     position: absolute;
     top: 0px;

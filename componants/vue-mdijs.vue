@@ -7,7 +7,6 @@
     class="mdi-icon"
     :style="{ transform: `rotate(${this.rotate}deg)`, display: 'inline-block' }"
   >
-    <title v-if="title">{{ title }}</title>
     <path :d="iconPath" />
   </svg>
 </template>

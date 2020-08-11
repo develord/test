@@ -7,7 +7,6 @@ const Post = require('.')
 const Query = {
   posts: async () => {
     const posts = await Post.find().populate(['user', 'category', 'status'])
-
     return posts
   },
   post: (_, { _id }) => {
@@ -22,6 +21,7 @@ const Query = {
  * - deleteUser: Int (number of items deleted)
  */
 const Mutation = {
+  // eslint-disable-next-line camelcase
   createPost: async (_, { title, description, h1, content, image_large, image_small, link, user, category, status }) => {
     const postData = { title, description, h1, content, image_large, image_small, link, user, category, status }
     const post = await new Post(postData)
@@ -30,6 +30,7 @@ const Mutation = {
   updatePost: async (_, args) => {
     const { _id } = args
     // if we need to validate more, we destruct the args.data object (fields to update)
+    // eslint-disable-next-line camelcase
     const { title, description, h1, content, image_large, image_small, link, user, category, status } = args.data
 
     /** We can make more validation here **/

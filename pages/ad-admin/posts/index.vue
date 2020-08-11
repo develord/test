@@ -5,7 +5,7 @@
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>Posts List</span>
-          <el-button style="float: right;" type="success" @click="visibleAdd = true">
+          <el-button style="float: right;" type="success" @click="goto('ad-admin-posts-create')">
             Add new post
           </el-button>
         </div>
@@ -96,27 +96,20 @@
           </el-table>
         </div>
       </el-card>
-      <modal-add-post :visible.sync="visibleAdd" title="Adding New Posts" />
     </client-only>
   </div>
 </template>
 <script>
-import modalAddPost from '@/componants/posts/modalAddPost'
 
 export default {
   name: 'BackIndex',
   layout: 'Back',
   middleware: 'auth',
-  components: {
-    modalAddPost
-  },
   data: () => {
     return {
       search: null,
       drawer: null,
       listePost: [],
-      visibleAdd: false,
-      visibleUpdate: false,
       selectedPost: {}
     }
   },
@@ -145,18 +138,15 @@ export default {
           })
         )
       }
-    },
-    visibleAdd (newVal) {
-      if (!newVal) { this.$store.dispatch('getPosts') }
-    },
-    visibleUpdate (newVal) {
-      if (!newVal) { this.$store.dispatch('getPosts') }
     }
   },
   beforeMount () {
     this.$store.dispatch('getPosts')
   },
   methods: {
+    goto (url) {
+      this.$router.push({ name: url })
+    },
     goBack () {
       this.$router.go(-1)
     },

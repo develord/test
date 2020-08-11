@@ -1,6 +1,9 @@
 <template>
-  <el-dialog :visible.sync="visible" :title="title" width="90%">
-    <div class="modal-card bg-modal">
+  <el-card>
+    <div slot="header" class="clearfix">
+      <el-page-header content="Creation post form" @back="closeModale" />
+    </div>
+    <div>
       <el-form ref="form" :model="form" label-width="120px">
         <el-form-item label="Title Post">
           <el-input v-model="post.title" />
@@ -28,24 +31,22 @@
           <imageUploader :file="post.image_large" />
         </el-form-item>
         <el-form-item label="Small Post img">
-          <imageUploader :file="post.image_small" />
-        </el-form-item>
-        <el-form-item label="Content">
-          <editor
-            :content.sync="post.content"
-          />
+          <imageUploader :file="post.image_small" @submit="uploadFile({ variables: { file } })" />
         </el-form-item>
       </el-form>
+      <editor
+        :content.sync="post.content"
+      />
+
       <span slot="footer" class="dialog-footer">
         <el-button @click="closeModale">Cancel</el-button>
         <el-button type="primary" @click="addNewPost">Submit</el-button>
       </span>
     </div>
-  </el-dialog>
+  </el-card>
 </template>
 <script>
 import { categories, statuses } from '@/apollo/query'
-import { createPost } from '@/apollo/mutations'
 import editor from '@/componants/editor'
 import imageUploader from '@/componants/imageUploader'
 
@@ -76,7 +77,7 @@ export default {
         image_large: null,
         image_small: null,
         link: null,
-        user: '5e77d1d25ac5da47466b70fc',
+        user: '5f1067cf51c11630708dc644',
         category: null,
         status: null
       }
@@ -117,15 +118,10 @@ export default {
         .replace(/\-\-+/g, '-') // Replace multiple - with single -
     },
     closeModale () {
-      this.$emit('update:visible', false)
+      this.$router.push({ name: 'ad-admin-posts' })
     },
     addNewPost () {
-      this.$apollo.mutate({
-        mutation: createPost,
-        variables: {
-          ...this.post
-        }
-      }).then((res) => {
+      this.$store.dispatch('addNewPost', this.post).then((res) => {
         this.$notify({
           title: 'Success',
           message: 'Adding Post',

@@ -1,10 +1,11 @@
-import { posts } from '@/apollo/query'
-import { deletePost } from '@/apollo/mutations'
+import { posts, images } from '@/apollo/query'
+import { deletePost, createPost, uploadFile, deleteImage } from '@/apollo/mutations'
 
 export const state = () => ({
   dark: true,
   snackbar: null,
-  listePost: []
+  listePost: [],
+  images: []
 })
 
 export const getters = {
@@ -20,32 +21,63 @@ export const mutations = {
   SET_POSTS (state, data) {
     state.listePost = data
   },
-  SET_SNACKBAR (state, data) {
-    state.snackbar = data
+  SET_IMAGES (state, data) {
+    state.images = data
   }
+
 }
 
 export const actions = {
   switchMode (context) {
     context.commit('INVERT_THEMES')
   },
-  pushNotif (context, snackbar) {
-    context.commit('SET_SNACKBAR', snackbar)
-    /* dispatch your snackbar with this params
-        message: String
-        type: is-primary, is-info, is-success, is-warning, is-danger
-    */
+  async uploadFile (context, file) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: uploadFile,
+      variables: {
+        file
+      },
+      context: {
+        hasUpload: true
+      }
+    })
+    return response
+  },
+  async addNewPost (context, post) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: createPost,
+      variables: {
+        ...post
+      }
+    })
+    context.commit('PUSH_POST', response.data.createPost)
+    return response.data.createPost
   },
   async getPosts (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: posts
     })
-    alert(response)
     context.commit('SET_POSTS', response.data.posts)
+  },
+  async getImages (context) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: images,
+      fetchPolicy: 'network-only'
+    })
+    context.commit('SET_IMAGES', response.data.images)
   },
   async deletePost (context, data) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: deletePost,
+      variables: {
+        _id: data
+      }
+    })
+    return response
+  },
+  async deleteImage (context, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deleteImage,
       variables: {
         _id: data
       }

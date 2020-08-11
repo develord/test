@@ -53,14 +53,6 @@
 
           <button
             class="menubar__button"
-            :class="{ 'is-active': isActive.heading({ level: 1 }) }"
-            @click="commands.heading({ level: 1 })"
-          >
-            <b-icon icon="mdi-format-header-1" />
-          </button>
-
-          <button
-            class="menubar__button"
             :class="{ 'is-active': isActive.heading({ level: 2 }) }"
             @click="commands.heading({ level: 2 })"
           >
@@ -129,7 +121,7 @@
           </button>
           <button
             class="menubar__button"
-            @click="showImagePrompt(commands.image)"
+            @click="modalImageSelector(commands.image)"
           >
             <b-icon icon="mdi-image" />
           </button>
@@ -230,13 +222,13 @@
       <!-- end link bubble part -->
       <editor-content class="editor__content" :editor="editor" />
     </div>
-
+    <modalImageSelector :visible="visible" @update:visible="visible = $event" />
+    <!--
     <div class="actions">
       <button class="button" @click="clearContent">
         Clear Content
       </button>
     </div>
-
     <div class="export">
       <h3>JSON</h3>
       <pre><code v-html="json" /></pre>
@@ -244,6 +236,7 @@
       <h3>HTML</h3>
       <pre><code>{{ html }}</code></pre>
     </div>
+     -->
   </div>
 </template>
 
@@ -273,14 +266,14 @@ import {
   TableRow
 } from 'tiptap-extensions'
 import { Editor, EditorContent, EditorMenuBar, EditorMenuBubble } from 'tiptap'
-import { mdiArrowDownBoldOutline } from '@mdi/js'
 import BIcon from './vue-mdijs.vue'
+import modalImageSelector from './modalImageSelector'
 export default {
   components: {
+    modalImageSelector,
     BIcon,
     EditorContent,
     EditorMenuBar,
-    mdiArrowDownBoldOutline,
     EditorMenuBubble
   },
   props: {
@@ -295,6 +288,7 @@ export default {
   },
   data () {
     return {
+      visible: false,
       editor: new Editor({
         extensions: [
           new Blockquote(),
@@ -302,7 +296,7 @@ export default {
           new CodeBlock(),
           new Image(),
           new HardBreak(),
-          new Heading({ levels: [1, 2, 3] }),
+          new Heading({ levels: [2, 3] }),
           new HorizontalRule(),
           new ListItem(),
           new OrderedList(),
@@ -361,6 +355,9 @@ export default {
     this.editor.destroy()
   },
   methods: {
+    modalImageSelector (command) {
+      this.visible = true
+    },
     // image staff
     showImagePrompt (command) {
       const src = prompt('Enter the url of your image here')
@@ -405,4 +402,7 @@ export default {
 </script>
 
 <style lang="scss" src="@/assets/editor/main.scss">
+.ProseMirror {
+  min-height: 300px;
+}
 </style>

@@ -24,6 +24,9 @@
     "node": ">=12.0",
     "yarn": ">=1.22.4"
   },
+  "resolutions": {
+    "prosemirror-model": "1.9.1"
+  },
   "dependencies": {
     "@mdi/js": "2.4.85",
     "@nuxtjs/apollo": "^4.0.0-rc19",
@@ -46,12 +49,15 @@
     "sass-loader": "^7.2.0",
     "tiptap": "^1.29.3",
     "tiptap-extensions": "^1.31.3",
-    "vuex-persist": "^2.2.0"
+    "vuex-persist": "^2.2.0",
+    "webp-converter": "^2.2.8"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^1.1.2",
     "@nuxtjs/pwa": "3.0.0-beta.8",
     "@nuxtjs/style-resources": "^1.0.0",
+    "apollo-link-batch-http": "^1.2.14",
+    "apollo-upload-client": "^14.1.1",
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.6.0",

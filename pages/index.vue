@@ -88,7 +88,7 @@ export default {
       this.loading = true
       this.$store.dispatch('auth/login', this.user)
         .then((response) => {
-          this.$router.push('/ad-admin')
+          this.$router.push('/ad-admin/posts')
           this.loading = false
         })
         .catch((err) => {

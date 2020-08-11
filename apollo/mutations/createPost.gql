@@ -2,5 +2,14 @@ mutation ($title: String!, $description: String, $h1: String, $content: String, 
     createPost(title: $title, description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, link: $link, user: $user, category: $category, status: $status) {
     _id
     title
+    description
+    h1
+    content
+    image_large
+    image_small
+    link
+    user {_id}
+    category {_id}
+    status {_id}
   }
 }

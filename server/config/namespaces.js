@@ -2,9 +2,10 @@
 module.exports = [
   'Blog/Category',
   'Blog/Status',
+  'Blog/Post',
+  'Blog/Image',
   'Access/User',
   'Access/Permission',
   'Access/Role',
-  'Blog/Post',
   'Access/Auth'
 ]
