@@ -28,7 +28,7 @@
     "prosemirror-model": "1.9.1"
   },
   "dependencies": {
-    "@mdi/js": "2.4.85",
+    "@mdi/js": "^5.5.55",
     "@nuxtjs/apollo": "^4.0.0-rc19",
     "@nuxtjs/auth": "^4.9.0",
     "@nuxtjs/dotenv": "^1.4.0",
