@@ -16,16 +16,16 @@
       <el-col :span="8">
         <el-form ref="form" label-width="40px">
           <el-form-item label="Alt">
-            <el-input v-model="selectedImage.alt" />
+            <el-input v-model="imageSelected.alt" />
           </el-form-item>
           <el-form-item label="Title">
-            <el-input v-model="selectedImage.title" />
+            <el-input v-model="imageSelected.title" />
           </el-form-item>
         </el-form>
       </el-col>
       <el-col :span="8">
         <el-row>
-          <el-button type="primary" style="float: right;">
+          <el-button type="primary" style="float: right;" @click="insertImage">
             Select
           </el-button>
           <el-button type="danger" style="float: right;margin-right: 15px;" @click="deleteImage">
@@ -37,7 +37,7 @@
 
     <el-row :gutter="5">
       <el-col v-for="url in imagesList" :key="url._id" :span="6">
-        <div :class="selectedImage._id === url._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
+        <div :class="imageSelected._id === url._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
           <el-image
             :src="getImage(url.high)"
             fit="cover"
@@ -54,7 +54,6 @@
     </el-row>
     <span slot="footer" class="dialog-footer">
       <el-button @click="closeModal()">Annuler</el-button>
-      <el-button type="primary">Confirmer</el-button>
     </span>
   </el-dialog>
 </template>
@@ -76,10 +75,13 @@ export default {
     return {
       loading: false,
       imagesList: [],
-      selectedImage: {
+      command: null,
+      imageSelected: {
         _id: null,
-        alt: '',
-        title: ''
+        low: null,
+        high: null,
+        alt: null,
+        title: null
       }
     }
   },
@@ -102,9 +104,21 @@ export default {
     this.$store.dispatch('getImages')
   },
   methods: {
+    insertImage () {
+      const imageData = {
+        command: this.command,
+        data: {
+          src: this.getImage(this.imageSelected.high),
+          alt: this.imageSelected.alt,
+          title: this.imageSelected.title
+        }
+      }
+      this.$emit('onConfirm', imageData)
+      this.closeModal()
+    },
     async deleteImage () {
       this.loading = true
-      await this.$store.dispatch('deleteImage', this.selectedImage._id).then((res) => {
+      await this.$store.dispatch('deleteImage', this.imageSelected._id).then((res) => {
         this.$notify({
           title: 'Success',
           message: 'Image Removed',
@@ -117,16 +131,18 @@ export default {
       })
     },
     getImage (url) {
-      try {
-        return require('@/assets/images/' + url)
-      } catch (e) {
-        return 'http://via.placeholder.com/300'
-      }
+      // try {
+      return require('@/assets/images/' + url)
+      // } catch (e) {
+      //  return 'http://via.placeholder.com/300'
+      // }
     },
-    async uploadFile (e) {
+    // async
+    uploadFile (e) {
       this.loading = true
       const files = e.srcElement.files
-      await this.$store.dispatch('uploadFile', files[0]).then((res) => {
+      // await
+      this.$store.dispatch('uploadFile', files[0]).then((res) => {
         setTimeout(() => {
           this.$store.dispatch('getImages')
           this.loading = false
@@ -134,7 +150,9 @@ export default {
       })
     },
     selectImage (img) {
-      this.selectedImage = img
+      this.imageSelected._id = img._id
+      this.imageSelected.low = img.low
+      this.imageSelected.high = img.high
     },
     closeModal () {
       this.$emit('update:visible', false)
