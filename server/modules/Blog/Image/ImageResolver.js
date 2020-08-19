@@ -1,5 +1,5 @@
 const path = require('path')
-const { createWriteStream } = require('fs')
+const { createWriteStream, unlinkSync } = require('fs')
 const webp = require('webp-converter')
 const Image = require('.')
 /**
@@ -33,9 +33,9 @@ const Mutation = {
     // 3. Compress the image.
     // and create the low placehoholder
     await webp.cwebp(path.join(__dirname, '../../../../assets/images', filename), path.join(__dirname, '../../../../assets/images', `${filename.split('.')[0]}-high.webp`), '-q 90')
-    await webp.cwebp(path.join(__dirname, '../../../../assets/images', filename), path.join(__dirname, '../../../../assets/images', `${filename.split('.')[0]}-low.webp`), '-q 30')
+    // await webp.cwebp(path.join(__dirname, '../../../../assets/images', filename), path.join(__dirname, '../../../../assets/images', `${filename.split('.')[0]}-low.webp`), '-q 30')
     // 2. Record the file upload in your DB.
-
+    unlinkSync(path.join(__dirname, '../../../../assets/images', filename))
     const image = await new Image({
       low: `${filename.split('.')[0]}-low.webp`,
       high: `${filename.split('.')[0]}-high.webp`

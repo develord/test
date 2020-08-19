@@ -55,6 +55,7 @@ export default {
   },
   methods: {
     handleSelect (key, keyPath) {
+      // eslint-disable-next-line no-console
       console.log(key, keyPath)
     }
   }

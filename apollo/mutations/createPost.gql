@@ -5,8 +5,8 @@ mutation ($title: String!, $description: String, $h1: String, $content: String, 
     description
     h1
     content
-    image_large
-    image_small
+    image_large {_id}
+    image_small {_id}
     link
     user {_id}
     category {_id}

@@ -6,11 +6,11 @@ const Post = require('.')
  */
 const Query = {
   posts: async () => {
-    const posts = await Post.find().populate(['user', 'category', 'status'])
+    const posts = await Post.find().populate(['user', 'category', 'status', 'image_large', 'image_small'])
     return posts
   },
   post: (_, { _id }) => {
-    return Post.findOne({ _id }).populate(['user', 'category', 'status'])
+    return Post.findOne({ _id }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
   }
 }
 
@@ -27,17 +27,16 @@ const Mutation = {
     const post = await new Post(postData)
     return post.save()
   },
-  updatePost: async (_, args) => {
-    const { _id } = args
+  // eslint-disable-next-line camelcase
+  updatePost: async (_, { _id, title, description, h1, content, image_large, image_small, link, user, category, status }) => {
     // if we need to validate more, we destruct the args.data object (fields to update)
-    // eslint-disable-next-line camelcase
-    const { title, description, h1, content, image_large, image_small, link, user, category, status } = args.data
 
     /** We can make more validation here **/
-
     // it's better to pass a single object to updateOne to avoid checking on undefined
     const data = { title, description, h1, content, image_large, image_small, link, user, category, status }
-    const updated = await Post.updateOne({ _id }, { data })
+    const updated = await Post.findOneAndUpdate({ _id }, data, {
+      new: true
+    })
     return updated.n
   },
   deletePost: async (_, { _id }) => {

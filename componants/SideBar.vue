@@ -1,22 +1,31 @@
 <template>
-  <el-menu default-active="1" class="el-menu-vertical-demo" :collapse="isCollapse" @open="handleOpen" @close="handleClose">
-    <el-submenu index="1">
-      <template slot="title">
-        <i class="el-icon-document" />
-        <span slot="title">Articles</span>
-      </template>
-      <el-menu-item-group>
-        <el-menu-item index="1-1">
-          Gestion Acticle
-        </el-menu-item>
-        <el-menu-item index="1-2">
-          Gestion Page Group
-        </el-menu-item>
-      </el-menu-item-group>
-    </el-submenu>
-    <el-menu-item index="3">
+  <el-menu
+    default-active="1"
+    router
+    class="el-menu-vertical-demo"
+    :collapse="isCollapse"
+    @open="handleOpen"
+    @close="handleClose"
+  >
+    <el-menu-item index="overview">
+      <i class="el-icon-pie-chart" />
+      <span slot="title">Overview</span>
+    </el-menu-item>
+    <el-menu-item index="posts">
+      <i class="el-icon-document" />
+      <span slot="title">Menage Posts</span>
+    </el-menu-item>
+    <el-menu-item index="category">
       <i class="el-icon-setting" />
-      <span slot="title">Users</span>
+      <span slot="title">Menage Group Page</span>
+    </el-menu-item>
+    <el-menu-item index="users">
+      <i class="el-icon-user" />
+      <span slot="title">Menage Users</span>
+    </el-menu-item>
+    <el-menu-item index="mailing">
+      <i class="el-icon-message" />
+      <span slot="title">Mailing</span>
     </el-menu-item>
   </el-menu>
 </template>
@@ -30,9 +39,11 @@ export default {
   },
   methods: {
     handleOpen (key, keyPath) {
+      // eslint-disable-next-line no-console
       console.log(key, keyPath)
     },
     handleClose (key, keyPath) {
+      // eslint-disable-next-line no-console
       console.log(key, keyPath)
     }
   }

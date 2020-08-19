@@ -6,8 +6,8 @@ module.exports = {
       description: String
       h1: String
       content: String
-      image_large: String
-      image_small: String
+      image_large: Image
+      image_small: Image
       link: String
       user: User
       category: Category
@@ -17,6 +17,7 @@ module.exports = {
     }
 
     input UpdatePostData {
+      _id: String!
       title: String!
       description: String
       h1: String
@@ -46,7 +47,19 @@ module.exports = {
       category: String,
       status: String
     ): Post
-    updatePost(_id: String!, data: UpdatePostData): Int
+    updatePost(
+      _id: String!
+      title: String!
+      description: String
+      h1: String
+      content: String
+      image_large: String
+      image_small: String
+      link: String
+      user: String
+      category: String
+      status: String
+    ): Int
     deletePost(_id: String!): Int
   `
 }

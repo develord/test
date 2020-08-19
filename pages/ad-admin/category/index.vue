@@ -1,16 +1,20 @@
 <template>
   <div>
     <client-only>
-      <el-page-header content="Posts" @back="goBack" />
+      <el-page-header content="Page group" @back="goBack" />
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <span>Posts List</span>
+          <span>Category List</span>
           <el-button style="float: right;" type="success" @click="goto('ad-admin-posts-create')">
-            Add new post
+            Add new category
           </el-button>
         </div>
         <div class="text item">
-          <el-table :data="listePost.filter(data => !search || data.title.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
+          <el-table :data="listeCategory.filter(data => !search || data.title.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
+            <el-table-column
+              label="Name"
+              prop="name"
+            />
             <el-table-column
               label="Title"
               prop="title"
@@ -23,22 +27,6 @@
                 {{ extractText(scope.row.description, 0, 30) }}...
               </template>
             </el-table-column>
-            <el-table-column
-              label="Category"
-              prop="category"
-            >
-              <template slot-scope="scope">
-                {{ extractText(scope.row.category, 0, 30) }}
-              </template>
-            </el-table-column>
-            <el-table-column
-              label="Status"
-              prop="status"
-            />
-            <el-table-column
-              label="User"
-              prop="user"
-            />
             <el-table-column
               label="Created"
               prop="created"
@@ -80,7 +68,7 @@
                     icon="el-icon-info"
                     icon-color="red"
                     title="Are you sure to delete this?"
-                    @onConfirm="deletePost(scope.row)"
+                    @onConfirm="deleteCategory(scope.row)"
                   >
                     <el-button
                       slot="reference"
@@ -108,31 +96,28 @@ export default {
     return {
       search: null,
       drawer: null,
-      listePost: [],
-      selectedPost: {}
+      listeCategory: []
     }
   },
   computed: {
-    posts () {
-      return this.$store.state.listePost
+    category () {
+      return this.$store.state.listeCategory
     }
   },
   watch: {
-    posts: {
+    category: {
       immediate: true,
       handler (newVal) {
-        this.listePost = Object.freeze(
-          newVal.map((post, index) => {
+        this.listeCategory = Object.freeze(
+          newVal.map((category, index) => {
             return {
               nb: index,
-              id: post._id,
-              title: post.title,
-              description: post.description,
-              category: post.category ? post.category.name : 'none',
-              status: post.status ? post.status.name : 'none',
-              user: post.user ? post.user.name : 'none',
-              created: post.created_at,
-              updated: post.updated_at
+              id: category._id,
+              name: category.name,
+              title: category.title,
+              description: category.description,
+              created: category.created_at,
+              updated: category.updated_at
             }
           })
         )
@@ -140,7 +125,7 @@ export default {
     }
   },
   beforeMount () {
-    this.$store.dispatch('getPosts')
+    this.$store.dispatch('getCategory')
   },
   methods: {
     goto (url) {
@@ -152,15 +137,15 @@ export default {
     extractText (str, from, to) {
       return str ? str.slice(from, to) : 'None'
     },
-    prepareUpdate (post) {
-      this.$router.push({ name: 'ad-admin-posts-create', query: { post: post.id } })
+    prepareUpdate (category) {
+      this.$router.push({ name: 'ad-admin-category-create', query: { category: category.id } })
     },
-    deletePost (post) {
-      this.$store.dispatch('deletePost', post.id).then((res) => {
-        this.$store.dispatch('getPosts')
+    deleteCategory (category) {
+      this.$store.dispatch('deleteCategory', category.id).then((res) => {
+        this.$store.dispatch('getCategory')
         this.$notify({
           title: 'Success',
-          message: 'Post Removed',
+          message: 'Category Removed',
           type: 'success'
         })
       })

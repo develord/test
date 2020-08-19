@@ -1,78 +1,91 @@
 <template>
-  <el-dialog
-    v-loading="loading"
-    title="Tips"
-    :visible="visible"
-    width="80%"
-  >
-    <el-row>
-      <el-col :span="8">
-        <input
-          type="file"
-          required
-          @change.prevent="uploadFile"
-        >
-      </el-col>
-      <el-col :span="8">
-        <el-form ref="form" label-width="40px">
-          <el-form-item label="Alt">
-            <el-input v-model="imageSelected.alt" />
-          </el-form-item>
-          <el-form-item label="Title">
-            <el-input v-model="imageSelected.title" />
-          </el-form-item>
-        </el-form>
-      </el-col>
-      <el-col :span="8">
-        <el-row>
-          <el-button type="primary" style="float: right;" @click="insertImage">
-            Select
-          </el-button>
-          <el-button type="danger" style="float: right;margin-right: 15px;" @click="deleteImage">
-            Delete
-          </el-button>
-        </el-row>
-      </el-col>
-    </el-row>
-
-    <el-row :gutter="5">
-      <el-col v-for="url in imagesList" :key="url._id" :span="6">
-        <div :class="imageSelected._id === url._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
-          <el-image
-            :src="getImage(url.high)"
-            fit="cover"
-            style="width: 250px;height: 250px;"
-            lazy
-            @click="selectImage(url)"
+  <fragment>
+    <slot>
+      <el-avatar v-if="url" shape="square" :size="100" fit="fill" :src="url" />
+      <el-button v-if="mode === 'form'" type="primary" @click="visible = true">
+        Select Image
+      </el-button>
+    </slot>
+    <el-dialog
+      v-loading="loading"
+      title="Image selector"
+      :visible="visible"
+      width="80%"
+    >
+      <el-row>
+        <el-col :span="8">
+          <input
+            type="file"
+            required
+            @change.prevent="uploadFile"
           >
-            <div slot="error" class="image-slot">
-              <b-icon icon="mdi-link" />
-            </div>
-          </el-image>
-        </div>
-      </el-col>
-    </el-row>
-    <span slot="footer" class="dialog-footer">
-      <el-button @click="closeModal()">Annuler</el-button>
-    </span>
-  </el-dialog>
+        </el-col>
+        <el-col :span="8">
+          <el-form ref="form" label-width="40px">
+            <el-form-item label="Alt">
+              <el-input v-model="imageSelected.alt" />
+            </el-form-item>
+            <el-form-item label="Title">
+              <el-input v-model="imageSelected.title" />
+            </el-form-item>
+          </el-form>
+        </el-col>
+        <el-col :span="8">
+          <el-row>
+            <el-button type="primary" style="float: right;" @click="insertImage">
+              Select
+            </el-button>
+            <el-button type="danger" style="float: right;margin-right: 15px;" @click="deleteImage">
+              Delete
+            </el-button>
+          </el-row>
+        </el-col>
+      </el-row>
+
+      <el-row :gutter="5">
+        <el-col v-for="img in imagesList" :key="img._id" :span="6">
+          <div :class="imageSelected._id === img._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
+            <el-image
+              :src="getImage(img.high)"
+              fit="cover"
+              style="width: 250px;height: 250px;"
+              lazy
+              @click="selectImage(img)"
+            >
+              <div slot="error" class="image-slot">
+                <b-icon icon="mdi-link" />
+              </div>
+            </el-image>
+          </div>
+        </el-col>
+      </el-row>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="closeModal()">Annuler</el-button>
+      </span>
+    </el-dialog>
+  </fragment>
 </template>
 
 <script>
-import BIcon from './vue-mdijs.vue'
 export default {
   name: 'ModalImageSelector',
   components: {
-    BIcon
+    BIcon: () => import('./vue-mdijs.vue')
   },
   props: {
-    visible: {
-      type: Boolean,
-      default: false
+    file: {
+      type: [String, Object],
+      default: ''
+    },
+    mode: {
+      type: String,
+      default: 'form'
     }
   },
   data () {
     return {
+      url: null,
+      visible: false,
       loading: false,
       imagesList: [],
       command: null,
@@ -97,7 +110,14 @@ export default {
         const imgs = [...newVal].reverse()
         this.imagesList = imgs
       }
-
+    },
+    file: {
+      immediate: true,
+      handler (newVal) {
+        if (this.file && this.file.high) {
+          this.url = this.getImage(this.file.high)
+        }
+      }
     }
   },
   beforeMount () {
@@ -105,15 +125,20 @@ export default {
   },
   methods: {
     insertImage () {
-      const imageData = {
-        command: this.command,
-        data: {
-          src: this.getImage(this.imageSelected.high),
-          alt: this.imageSelected.alt,
-          title: this.imageSelected.title
+      if (this.mode === 'form') {
+        this.url = this.getImage(this.imageSelected.high)
+        this.$emit('update:file', this.imageSelected._id)
+      } else {
+        const imageData = {
+          command: this.command,
+          data: {
+            src: this.getImage(this.imageSelected.high),
+            alt: this.imageSelected.alt,
+            title: this.imageSelected.title
+          }
         }
+        this.$emit('onConfirm', imageData)
       }
-      this.$emit('onConfirm', imageData)
       this.closeModal()
     },
     async deleteImage () {
@@ -131,18 +156,26 @@ export default {
       })
     },
     getImage (url) {
-      // try {
-      return require('@/assets/images/' + url)
-      // } catch (e) {
-      //  return 'http://via.placeholder.com/300'
-      // }
+      try {
+        return require('@/assets/images/' + url)
+      } catch (e) {
+        return 'http://via.placeholder.com/300'
+      }
     },
     // async
     uploadFile (e) {
       this.loading = true
-      const files = e.srcElement.files
+      const file = e.srcElement.files[0]
       // await
-      this.$store.dispatch('uploadFile', files[0]).then((res) => {
+      const oldName = file.name
+      const fileExtension = oldName.slice(oldName.lastIndexOf('.') - oldName.length)
+      const str = oldName.slice(0, oldName.lastIndexOf('.')).replace(/[^\w]/gi, '')
+      Object.defineProperty(file, 'name', {
+        writable: true,
+        value: str + fileExtension
+      })
+
+      this.$store.dispatch('uploadFile', file).then((res) => {
         setTimeout(() => {
           this.$store.dispatch('getImages')
           this.loading = false
@@ -155,7 +188,7 @@ export default {
       this.imageSelected.high = img.high
     },
     closeModal () {
-      this.$emit('update:visible', false)
+      this.visible = false
     }
   }
 }

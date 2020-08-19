@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import { ApolloLink, Observable } from 'apollo-link'
 
 const opts = { onlyErrors: false }

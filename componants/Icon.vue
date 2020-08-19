@@ -9,14 +9,16 @@
 <script>
 export default {
   props: {
-    name: {},
+    name: {
+      type: String,
+      default: ''
+    },
     size: {
+      type: String,
       default: 'normal'
     },
-    modifier: {
-      default: null
-    },
     fixAlign: {
+      type: Boolean,
       default: true
     }
   }
@@ -35,7 +37,7 @@ export default {
   fill: currentColor;
 
   // &.has-align-fix {
-  // 	top: -.1rem;
+  // top: -.1rem;
   // }
 
   &__svg {

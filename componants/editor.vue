@@ -120,12 +120,16 @@
             >
               <b-icon icon="mdi-redo-variant" />
             </button>
-            <button
-              class="menubar__button"
-              @click="modalImageSelector(commands.image)"
-            >
-              <b-icon icon="mdi-image" />
-            </button>
+
+            <modalImageSelector ref="ytmodal" mode="editor" @update:visible="visible = $event" @onConfirm="insertImage">
+              <button
+                class="menubar__button"
+                @click="modalImageSelector(commands.image)"
+              >
+                <b-icon icon="mdi-image" />
+              </button>
+            </modalImageSelector>
+
             <button
               class="menubar__button"
               @click="commands.createTable({rowsCount: 3, colsCount: 3, withHeaderRow: false })"
@@ -184,7 +188,6 @@
             </span>
           </div>
         </editor-menu-bar>
-        <!-- link bubble -->
         <editor-menu-bubble v-slot="{ commands, isActive, getMarkAttrs, menu }" class="menububble" :editor="editor" @hide="hideLinkMenu">
           <div
             class="menububble"
@@ -223,20 +226,19 @@
         <!-- end link bubble part -->
         <editor-content class="editor__content" :editor="editor" />
       </div>
-      <modalImageSelector ref="ytmodal" :visible="visible" @update:visible="visible = $event" @onConfirm="insertImage" />
 
       <div class="actions">
         <button class="button" @click="clearContent">
           Clear Content
         </button>
       </div>
-      <div class="export">
+      <!--<div class="export">
         <h3>JSON</h3>
         <pre><code v-html="json" /></pre>
 
         <h3>HTML</h3>
         <pre><code>{{ html }}</code></pre>
-      </div>
+      </div> -->
     </client-only>
   </div>
 </template>
@@ -279,12 +281,8 @@ export default {
   },
   props: {
     content: {
-      type: String,
-      default: ''
-    },
-    initContents: {
-      type: String,
-      default: ''
+      type: Object,
+      default: null
     }
   },
   data () {
@@ -333,23 +331,17 @@ export default {
     }
   },
   watch: {
-    initContents: {
-      immediate: true,
-      handler (newVal) {
-        this.setContent(newVal)
-      }
-    },
     json (newVal) {
-      this.$emit('update:content', JSON.stringify({
+      this.$emit('update:content', {
         json: newVal,
         html: this.html
-      }))
+      })
     },
     html (newVal) {
-      this.$emit('update:content', JSON.stringify({
+      this.$emit('update:content', {
         html: newVal,
         json: this.json
-      }))
+      })
     }
   },
   beforeDestroy () {
@@ -363,7 +355,7 @@ export default {
     },
     modalImageSelector (command) {
       this.$refs.ytmodal.command = command
-      this.visible = true
+      this.$refs.ytmodal.visible = true
     },
     // image staff
     showImagePrompt (command) {
@@ -396,8 +388,7 @@ export default {
     setContent (centent) {
       // you can pass a json document
       try {
-        const val = JSON.parse(centent)
-        this.editor.setContent(val.json, true)
+        this.editor.setContent(centent.json, true)
       } catch (error) {
       }
       // HTML string is also supported

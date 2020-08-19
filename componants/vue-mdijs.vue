@@ -5,7 +5,7 @@
     :height="size"
     :width="size"
     class="mdi-icon"
-    :style="{ transform: `rotate(${this.rotate}deg)`, display: 'inline-block' }"
+    :style="{ transform: `rotate(${rotate}deg)`, display: 'inline-block' }"
   >
     <path :d="iconPath" />
   </svg>
@@ -22,7 +22,10 @@ import { mdiMagnify, mdiFormatBold, mdiFormatParagraph, mdiFormatItalic, mdiForm
 export default {
   name: 'BIcon',
   props: {
-    icon: String,
+    icon: {
+      type: String,
+      default: ''
+    },
     size: {
       type: [String, Number],
       default: 24
@@ -41,6 +44,7 @@ export default {
     iconPath () {
       const icon = this.lib[camelcase(this.icon)]
       if (typeof icon === 'undefined') {
+        // eslint-disable-next-line no-console
         console.error(`[${this.icon}] Name of the icon is incorrect`)
 
         return

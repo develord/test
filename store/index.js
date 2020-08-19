@@ -1,16 +1,21 @@
-import { posts, images } from '@/apollo/query'
-import { deletePost, createPost, uploadFile, deleteImage } from '@/apollo/mutations'
+import { posts, images, categories } from '@/apollo/query'
+import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '@/apollo/mutations'
+const _ = require('lodash')
 
 export const state = () => ({
   dark: true,
   snackbar: null,
   listePost: [],
+  listeCategory: [],
   images: []
 })
 
 export const getters = {
   getPost: state => (id) => {
-    return state.listePost.find(post => post._id === id)
+    const post = state.listePost.find(post => post._id === id)
+    const data = _.cloneDeep(post)
+    data.content = JSON.parse(data.content)
+    return data
   }
 }
 
@@ -23,8 +28,10 @@ export const mutations = {
   },
   SET_IMAGES (state, data) {
     state.images = data
+  },
+  SET_CATEGORY (state, data) {
+    state.listeCategory = data
   }
-
 }
 
 export const actions = {
@@ -50,14 +57,30 @@ export const actions = {
         ...post
       }
     })
-    context.commit('PUSH_POST', response.data.createPost)
     return response.data.createPost
+  },
+  async updatePost (context, post) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: updatePost,
+      variables: {
+        ...post
+      }
+    })
+    return response.data.updatePost
   },
   async getPosts (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
-      query: posts
+      query: posts,
+      fetchPolicy: 'network-only'
     })
     context.commit('SET_POSTS', response.data.posts)
+  },
+  async getCategory (context) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: categories,
+      fetchPolicy: 'network-only'
+    })
+    context.commit('SET_CATEGORY', response.data.categories)
   },
   async getImages (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
