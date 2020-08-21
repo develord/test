@@ -5,7 +5,7 @@
       <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>Category List</span>
-          <el-button style="float: right;" type="success" @click="goto('ad-admin-posts-create')">
+          <el-button style="float: right;" type="success" @click="goto('ad-admin-category-create')">
             Add new category
           </el-button>
         </div>

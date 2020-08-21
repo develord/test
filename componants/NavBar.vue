@@ -30,7 +30,7 @@ export default {
     },
     logout () {
       this.$store.commit('auth/LOGOUT_USER')
-      this.$router.push({ name: 'index' })
+      this.$router.push({ name: 'auth' })
     },
     switchMode () {
       this.$store.dispatch('switchMode')

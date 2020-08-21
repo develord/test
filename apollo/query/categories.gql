@@ -2,6 +2,14 @@
     categories {
       _id
       name
+      title
       description
+      h1
+      content
+      image_large {_id, low, high}
+      image_small {_id, low, high}
+      link
+      created_at
+      updated_at
     }
 }

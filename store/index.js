@@ -1,5 +1,5 @@
 import { posts, images, categories } from '@/apollo/query'
-import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '@/apollo/mutations'
+import { deletePost, createPost, updatePost, uploadFile, deleteImage, createCategory, deleteCategory } from '@/apollo/mutations'
 const _ = require('lodash')
 
 export const state = () => ({
@@ -15,6 +15,17 @@ export const getters = {
     const post = state.listePost.find(post => post._id === id)
     const data = _.cloneDeep(post)
     data.content = JSON.parse(data.content)
+    return data
+  },
+  getCategory: state => (id) => {
+    const category = state.listeCategory.find(category => category._id === id)
+    const data = _.cloneDeep(category)
+    try {
+      const obj = JSON.parse(data.content)
+      if (obj && typeof obj === 'object' && obj !== null) {
+        data.content = JSON.parse(data.content)
+      }
+    } catch (err) {}
     return data
   }
 }
@@ -59,6 +70,15 @@ export const actions = {
     })
     return response.data.createPost
   },
+  async addNewCategory (context, category) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: createCategory,
+      variables: {
+        ...category
+      }
+    })
+    return response.data.createCategory
+  },
   async updatePost (context, post) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updatePost,
@@ -92,6 +112,15 @@ export const actions = {
   async deletePost (context, data) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: deletePost,
+      variables: {
+        _id: data
+      }
+    })
+    return response
+  },
+  async deleteCategory (context, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deleteCategory,
       variables: {
         _id: data
       }

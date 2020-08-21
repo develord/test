@@ -1,16 +1,17 @@
 <template>
-  <Nuxt />
+  <el-container style="height: 662px;">
+    <!-- sideBar Component -->
+    <el-main>
+      <!-- router Component -->
+      <transition name="fade" mode="out-in">
+        <nuxt />
+      </transition>
+    </el-main>
+  </el-container>
 </template>
 <script>
 export default {
-  name: 'Default',
-  head () {
-    return {
-      link: [
-        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css?family=Poppins:500,600,700,900&display=swap' }
-      ]
-    }
-  }
+  name: 'Default'
 }
 </script>
 <style lang="scss">

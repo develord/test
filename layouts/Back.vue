@@ -62,14 +62,6 @@ export default {
 }
 </script>
 <style scoped lang="scss">
-  .page-enter-active,
-  .page-leave-active {
-    transition: opacity 0.5s;
-  }
-  .page-enter,
-  .page-leave-active {
-    opacity: 0;
-  }
   .container {
     position: absolute;
     top: 0px;
@@ -238,7 +230,7 @@ body {
 
 .fade-enter-active,
 .fade-leave-active {
-  transition: all .2s ease;
+  transition: all 1s ease;
 }
 
 .fade-enter,

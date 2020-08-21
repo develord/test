@@ -7,8 +7,8 @@ module.exports = {
       description: String
       h1: String
       content: String
-      image_large: String
-      image_small: String
+      image_large: Image
+      image_small: Image
       link: String
       created_at: Date
       updated_at: Date

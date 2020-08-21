@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <form-add-post :post="post" />
+      <form-add-category :post="category" />
     </client-only>
   </div>
 </template>
@@ -11,29 +11,27 @@ export default {
   layout: 'Back',
   middleware: 'auth',
   components: {
-    formAddPost: () => import('~/componants/formAddPost')
+    formAddCategory: () => import('~/componants/formAddCategory')
   },
   data () {
     return {
-      post: {
+      category: {
         _id: null,
         title: null,
+        name: null,
         description: null,
         h1: null,
         content: null,
         image_large: null,
         image_small: null,
-        link: null,
-        user: '5f1067cf51c11630708dc644',
-        category: null,
-        status: null
+        link: null
       }
     }
   },
   beforeMount () {
-    const postId = this.$route.query.post
-    if (postId) {
-      this.post = this.$store.getters.getPost(postId)
+    const categoryId = this.$route.query.category
+    if (categoryId) {
+      this.category = this.$store.getters.getCategory(categoryId)
     }
   }
 }

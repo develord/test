@@ -15,8 +15,8 @@ const Category = require('.')
 const Query = {
   categories: (_, args, context) => {
     // if (!context.auth) { throw new AuthenticationError('AuthenticationError: not token provided') }
-    const listCategorie = Category.find()
-    return listCategorie
+    const listCategory = Category.find()
+    return listCategory
   },
   category: (_, { _id }) => Category.findOne({ _id })
 }
@@ -28,17 +28,10 @@ const Query = {
  * - deleteCategory: Int (number of items deleted)
  */
 const Mutation = {
-  createCategory: async (_, args, context) => {
-    const category = await new Category({
-      name: args.name,
-      title: args.title,
-      description: args.description,
-      h1: args.h1,
-      content: args.content,
-      image_large: args.image_large,
-      image_small: args.image_small,
-      link: args.link
-    })
+  // eslint-disable-next-line camelcase
+  createCategory: async (_, { title, name, description, h1, content, image_large, image_small, link }) => {
+    const postData = { title, name, description, h1, content, image_large, image_small, link }
+    const category = await new Category(postData)
     return category.save()
   },
   updateCategory: async (_, args) => {

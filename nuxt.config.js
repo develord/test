@@ -80,7 +80,7 @@ module.exports = {
   },
 
   build: {
-    analyze: true,
+    // analyze: true,
     extractCSS: false,
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {

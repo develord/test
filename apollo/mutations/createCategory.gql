@@ -1,0 +1,13 @@
+mutation ($title: String!, $name: String!, $description: String, $h1: String, $content: String, $image_large: String, $image_small: String, $link: String) {
+    createCategory(title: $title, name: $name, description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, link: $link) {
+    _id
+    title
+    name
+    description
+    h1
+    content
+    image_large {_id}
+    image_small {_id}
+    link
+  }
+}

@@ -4,5 +4,7 @@ const deletePost = require('./deletePost.gql')
 const uploadFile = require('./uploadFile.gql')
 const login = require('./login.gql')
 const deleteImage = require('./deleteImage.gql')
+const createCategory = require('./createCategory.gql')
+const deleteCategory = require('./deleteCategory.gql')
 
-module.exports = { createPost, deletePost, login, uploadFile, deleteImage, updatePost }
+module.exports = { createPost, deletePost, login, uploadFile, deleteImage, updatePost, createCategory, deleteCategory }

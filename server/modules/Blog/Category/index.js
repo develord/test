@@ -22,11 +22,13 @@ const categorySchema = new mongoose.Schema({
     default: null
   },
   image_large: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Image',
     default: null
   },
   image_small: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Image',
     default: null
   },
   link: {
