@@ -6,7 +6,7 @@
           <div class="left-column pull-left clearfix">
             <div class="logo-box pull-left">
               <figure class="logo">
-                <a href="" title="Naxly">
+                <a href="#" title="Naxly">
                   <img alt="logo" style=" width:330px" data-src="@/assets/images/LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
                 </a>
               </figure>
@@ -99,7 +99,7 @@
         <div class="outer-box clearfix">
           <div class="left-column pull-left">
             <figure class="logo-box">
-              <a href="" title="amine" />
+              <a href="#" title="amine" />
             </figure>
             <div class="menu-area">
               <nav class="main-menu clearfix" />
@@ -775,7 +775,7 @@
                         <p>Our goal is to help our companies maintain achieve best class posi- tions their respective industries &amp; our team works occur that works have to be repudiated.</p>
                       </div>
                       <figure class="footer-logo">
-                        <a href="">
+                        <a href="#">
                           <img alt="Awesome Image" data-src="LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
                         </a>
                       </figure>
@@ -809,8 +809,8 @@
                     </div>
                     <div class="widget-content">
                       <ul class="clearfix">
-                        <li> <span>Phone:</span> <a href="tel:http://+00%20555%2067%20890">+00 555 67 890</a></li>
-                        <li> <span>Email:</span> <a href="http://info@example.com">info@example.com</a></li>
+                        <li> <span>Phone:</span> <a href="#">+00 555 67 890</a></li>
+                        <li> <span>Email:</span> <a href="#">info@example.com</a></li>
                         <li> <span>Address:</span> 124, Queens 2nd cross, NY</li>
                       </ul>
                     </div>
@@ -825,7 +825,7 @@
                     </div>
                     <div class="widget-content">
                       <div class="subscribe-form">
-                        <form action="http://feedburner.google.com/fb/a/mailverify" accept-charset="utf-8" method="post">
+                        <form action="" accept-charset="utf-8" method="post">
                           <div class="form-group">
                             <input id="uri4" type="hidden" name="uri" value="themeforest"><input type="email" name="email" placeholder="Email Address..." required=""><button type="submit" class="theme-btn style-six">
                               Subscribe
