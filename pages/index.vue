@@ -139,7 +139,7 @@
                       <div class="elementor-element elementor-element-7b1d353 elementor-widget elementor-widget-naxly_banner_v3" data-id="7b1d353" data-element_type="widget" data-widget_type="naxly_banner_v3.default">
                         <div class="elementor-widget-container">
                           <section class="banner-style-three">
-                            <div class="pattern-layer" style="background-image: url(./_nuxt/assets/images/shape-18.png)" />
+                            <div class="pattern-layer" :style="`background-image: url(${backgroundImagePath})`" />
                             <div class="auto-container">
                               <div class="row clearfix align-items-center">
                                 <div class="col-lg-5 col-md-12 col-sm-12 content-column">
@@ -857,8 +857,13 @@
   </fragment>
 </template>
 <script>
-
+import backgroundImagePath from '~/assets/images/shape-18.png'
 export default {
-  layout: 'Default'
+  layout: 'Default',
+  data () {
+    return {
+      backgroundImagePath
+    }
+  }
 }
 </script>
