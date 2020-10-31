@@ -1,0 +1,87 @@
+{
+  "name": "Add Post",
+  "model": "post",
+  "fields": [
+    {
+      "name": "Title Post",
+      "label": "Title Post",
+      "model": "title",
+      "type": "text",
+      "require": true
+    },
+    {
+      "name": "H1 Post",
+      "label": "H1 Post",
+      "model": "h1",
+      "type": "text",
+      "require": true,
+      "placeholder": "H1"
+    },
+    {
+      "name": "H1 Link",
+      "label": "H1 Link",
+      "model": "link",
+      "type": "text",
+      "require": true,
+      "placeholder": "H1",
+      "value": {
+        "from": "h1",
+        "fn": "slugify"
+      },
+      "readonly": true
+    },
+    {
+      "name": "Post Category",
+      "label": "Post Category",
+      "model": "category",
+      "type": {
+        "select": {
+          "options": "categories"
+        }
+      },
+      "require": true,
+      "placeholder": "Category Post"
+    },
+    {
+      "name": "Status Post",
+      "label": "Status Post",
+      "model": "status",
+      "type": {
+        "select": {
+          "options": "status"
+        }
+      },
+      "require": true,
+      "placeholder": "Post Status"
+    },
+    {
+      "name": "Post Description",
+      "label": "Post Description",
+      "model": "description",
+      "type": "textarea",
+      "require": true,
+      "placeholder": "Post Description"
+    },
+    {
+      "name": "Post Cover Image",
+      "label": "Post Cover",
+      "model": "image_large",
+      "type": "image",
+      "require": true
+    },
+    {
+      "name": "Post Small Image",
+      "label": "Post Image",
+      "model": "image_small",
+      "type": "image",
+      "require": true
+    },
+    {
+      "name": "Post Content",
+      "label": "Post Content",
+      "model": "content",
+      "type": "content",
+      "require": true
+    }
+  ]
+}

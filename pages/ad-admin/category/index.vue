@@ -1,145 +1,159 @@
 <template>
-  <div>
-    <client-only>
-      <el-page-header content="Page group" @back="goBack" />
-      <el-card class="box-card">
-        <div slot="header" class="clearfix">
-          <span>Category List</span>
-          <el-button style="float: right;" type="success" @click="goto('ad-admin-category-create')">
-            Add new category
-          </el-button>
-        </div>
-        <div class="text item">
-          <el-table :data="listeCategory.filter(data => !search || data.title.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
-            <el-table-column
-              label="Name"
-              prop="name"
+  <client-only>
+    <el-card>
+      <div slot="header" class="card-header">
+        <span>Category List</span>
+        <el-button
+          class="action-btn"
+          type="success"
+          size="mini"
+          @click="goto('ad-admin-category-create')"
+        >
+          Add new category
+        </el-button>
+      </div>
+      <el-table :data="filtredCategory">
+        <el-table-column
+          label="Name"
+          prop="name"
+        />
+        <el-table-column
+          label="Title"
+          prop="title"
+        />
+        <el-table-column
+          label="Description"
+          prop="description"
+        >
+          <template slot-scope="scope">
+            {{ extractText(scope.row.description, 0, 30) }}...
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="Created"
+          prop="created"
+        >
+          <template slot-scope="scope">
+            {{ extractText(scope.row.created, 0, 10) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          label="Updated"
+          prop="updated"
+        >
+          <template slot-scope="scope">
+            {{ extractText(scope.row.updated, 0, 10) }}
+          </template>
+        </el-table-column>
+        <el-table-column
+          align="right"
+        >
+          <template slot="header">
+            <el-input
+              v-model="search"
+              size="mini"
+              placeholder="Type to search"
             />
-            <el-table-column
-              label="Title"
-              prop="title"
-            />
-            <el-table-column
-              label="Description"
-              prop="description"
-            >
-              <template slot-scope="scope">
-                {{ extractText(scope.row.description, 0, 30) }}...
-              </template>
-            </el-table-column>
-            <el-table-column
-              label="Created"
-              prop="created"
-            >
-              <template slot-scope="scope">
-                {{ extractText(scope.row.created, 0, 10) }}
-              </template>
-            </el-table-column>
-            <el-table-column
-              label="Updated"
-              prop="updated"
-            >
-              <template slot-scope="scope">
-                {{ extractText(scope.row.updated, 0, 10) }}
-              </template>
-            </el-table-column>
-            <el-table-column
-              align="right"
-            >
-              <template slot="header">
-                <el-input
-                  v-model="search"
+          </template>
+          <template slot-scope="scope">
+            <el-row>
+              <el-button
+                size="mini"
+                @click="update(scope.row)"
+              >
+                Edit
+              </el-button>
+
+              <el-popconfirm
+                confirm-button-text="OK"
+                cancel-button-text="No, Thanks"
+                icon="el-icon-info"
+                icon-color="red"
+                title="Are you sure to delete this?"
+                @onConfirm="deleteCategory(scope.row)"
+              >
+                <el-button
+                  slot="reference"
                   size="mini"
-                  placeholder="Type to search"
-                />
-              </template>
-              <template slot-scope="scope">
-                <el-row>
-                  <el-button
-                    size="mini"
-                    @click="prepareUpdate(scope.row)"
-                  >
-                    Edit
-                  </el-button>
-
-                  <el-popconfirm
-                    confirm-button-text="OK"
-                    cancel-button-text="No, Thanks"
-                    icon="el-icon-info"
-                    icon-color="red"
-                    title="Are you sure to delete this?"
-                    @onConfirm="deleteCategory(scope.row)"
-                  >
-                    <el-button
-                      slot="reference"
-                      size="mini"
-                      type="danger"
-                    >
-                      Delete
-                    </el-button>
-                  </el-popconfirm>
-                </el-row>
-              </template>
-            </el-table-column>
-          </el-table>
-        </div>
-      </el-card>
-    </client-only>
-  </div>
+                  type="danger"
+                >
+                  Delete
+                </el-button>
+              </el-popconfirm>
+            </el-row>
+          </template>
+        </el-table-column>
+      </el-table>
+    </el-card>
+  </client-only>
 </template>
-<script>
 
+<script>
 export default {
+  name: 'CategoryIndex',
   layout: 'Back',
   middleware: 'auth',
-  data: () => {
+  data () {
     return {
-      search: null,
+      search: '',
       drawer: null,
-      listeCategory: []
+      listeCategory: [],
+      query: ''
     }
+  },
+  meta: {
+    pageName: 'FUCKER'
   },
   computed: {
     category () {
-      return this.$store.state.listeCategory
-    }
-  },
-  watch: {
-    category: {
-      immediate: true,
-      handler (newVal) {
-        this.listeCategory = Object.freeze(
-          newVal.map((category, index) => {
-            return {
-              nb: index,
-              id: category._id,
-              name: category.name,
-              title: category.title,
-              description: category.description,
-              created: category.created_at,
-              updated: category.updated_at
-            }
-          })
-        )
+      return this.$store.state.category.listeCategory
+    },
+
+    filtredCategory () {
+      if (this.search.length === 0) {
+        return this.category
+      } else {
+        return this.category.filter(cat => !this.search || cat.name.toLowerCase().includes(this.search.toLowerCase()))
       }
     }
   },
-  beforeMount () {
-    this.$store.dispatch('getCategory')
+  watch: {
+    // category: {
+    //   immediate: true,
+    //   handler (newVal) {
+    //     this.listeCategory = Object.freeze(
+    //       newVal.map((category, index) => {
+    //         return {
+    //           nb: index,
+    //           id: category._id,
+    //           name: category.name,
+    //           title: category.title,
+    //           description: category.description,
+    //           created: category.created_at,
+    //           updated: category.updated_at
+    //         }
+    //       })
+    //     )
+    //   }
+    // }
+  },
+  async mounted () {
+    await this.$store.dispatch('category/getCategories')
   },
   methods: {
+    /** //TODO// Maybe we can extract goto and extractText to a mixin //TODO// */
     goto (url) {
       this.$router.push({ name: url })
-    },
-    goBack () {
-      this.$router.go(-1)
     },
     extractText (str, from, to) {
       return str ? str.slice(from, to) : 'None'
     },
-    prepareUpdate (category) {
+    /** //ENDTODO// -- END REFACTOR -- //ENDTODO// */
+
+    update (category) {
       this.$router.push({ name: 'ad-admin-category-create', query: { category: category.id } })
     },
+
     deleteCategory (category) {
       this.$store.dispatch('deleteCategory', category.id).then((res) => {
         this.$store.dispatch('getCategory')
@@ -153,26 +167,3 @@ export default {
   }
 }
 </script>
-<style>
-  .text {
-    font-size: 14px;
-  }
-
-  .item {
-    margin-bottom: 18px;
-  }
-
-  .clearfix:before,
-  .clearfix:after {
-    display: table;
-    content: "";
-  }
-  .clearfix:after {
-    clear: both
-  }
-
-  .box-card {
-    margin-top: 25px;
-    width: 100%;
-  }
-</style>

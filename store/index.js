@@ -39,10 +39,10 @@ export const mutations = {
   },
   SET_IMAGES (state, data) {
     state.images = data
-  },
-  SET_CATEGORY (state, data) {
-    state.listeCategory = data
   }
+  // SET_CATEGORY (state, data) {
+  //   state.listeCategory = data
+  // }
 }
 
 export const actions = {
@@ -70,15 +70,15 @@ export const actions = {
     })
     return response.data.createPost
   },
-  async addNewCategory (context, category) {
-    const response = await this.app.apolloProvider.defaultClient.mutate({
-      mutation: createCategory,
-      variables: {
-        ...category
-      }
-    })
-    return response.data.createCategory
-  },
+  // async addNewCategory (context, category) {
+  //   const response = await this.app.apolloProvider.defaultClient.mutate({
+  //     mutation: createCategory,
+  //     variables: {
+  //       ...category
+  //     }
+  //   })
+  //   return response.data.createCategory
+  // },
   async updatePost (context, post) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updatePost,
@@ -95,13 +95,13 @@ export const actions = {
     })
     context.commit('SET_POSTS', response.data.posts)
   },
-  async getCategory (context) {
-    const response = await this.app.apolloProvider.defaultClient.query({
-      query: categories,
-      fetchPolicy: 'network-only'
-    })
-    context.commit('SET_CATEGORY', response.data.categories)
-  },
+  // async getCategory (context) {
+  //   const response = await this.app.apolloProvider.defaultClient.query({
+  //     query: categories,
+  //     fetchPolicy: 'network-only'
+  //   })
+  //   context.commit('SET_CATEGORY', response.data.categories)
+  // },
   async getImages (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: images,
