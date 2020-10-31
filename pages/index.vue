@@ -6,7 +6,7 @@
           <div class="left-column pull-left clearfix">
             <div class="logo-box pull-left">
               <figure class="logo">
-                <a href="naxly.html" title="Naxly">
+                <a href="" title="Naxly">
                   <img alt="logo" style=" width:330px" data-src="@/assets/images/LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
                 </a>
               </figure>
@@ -99,12 +99,12 @@
         <div class="outer-box clearfix">
           <div class="left-column pull-left">
             <figure class="logo-box">
-              <a href="naxly.html" title="amine" />
+              <a href="" title="amine" />
             </figure>
             <div class="menu-area">
               <nav class="main-menu clearfix" />
               <div class="search-box-outer">
-                <form action="http://el.commonsupport.com/newwp/naxly/" method="post" class="search-btn">
+                <form action="" method="post" class="search-btn">
                   <button type="button" class="search-toggler">
                     <i class="flaticon-search" />Search
                   </button>
@@ -488,7 +488,7 @@
                                           data-sizes="(max-width: 370px) 100vw, 370px"
                                           class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyload"
                                         >
-                                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-1.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
+                                        <a href="wp-content/uploads/2020/03/news-1.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                                       </figure>
                                       <div class="lower-content">
                                         <div class="file-box">
@@ -525,7 +525,7 @@
                                           data-sizes="(max-width: 370px) 100vw, 370px"
                                           class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyload"
                                         >
-                                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-2.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
+                                        <a href="wp-content/uploads/2020/03/news-2.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                                       </figure>
                                       <div class="lower-content">
                                         <div class="file-box">
@@ -562,7 +562,7 @@
                                           data-sizes="(max-width: 370px) 100vw, 370px"
                                           class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyload"
                                         >
-                                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-3.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
+                                        <a href="wp-content/uploads/2020/03/news-3.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                                       </figure>
                                       <div class="lower-content">
                                         <div class="file-box">
@@ -775,7 +775,7 @@
                         <p>Our goal is to help our companies maintain achieve best class posi- tions their respective industries &amp; our team works occur that works have to be repudiated.</p>
                       </div>
                       <figure class="footer-logo">
-                        <a href="naxly.html">
+                        <a href="">
                           <img alt="Awesome Image" data-src="LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
                         </a>
                       </figure>
