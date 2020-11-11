@@ -1,4 +1,4 @@
-import { createCategory } from '@/apollo/mutations'
+import { createCategory, deleteCategory } from '@/apollo/mutations'
 import { categories } from '@/apollo/query'
 
 export const state = () => ({
@@ -25,17 +25,28 @@ export const actions = {
       query: categories,
       fetchPolicy: 'network-only'
     })
-
+    console.log(response.data.categories)
     commit('SET_CATEGORIES', response.data.categories)
   },
-
+  async deleteCategory (context, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deleteCategory,
+      variables: {
+        _id: data
+      }
+    })
+    return response
+  },
   /** New Category */
   async createCategory ({ commit }, category) {
     try {
+      const { content, ...data } = category
+      const str = JSON.stringify(content)
       const response = await this.app.apolloProvider.defaultClient.mutate({
         mutation: createCategory,
         variables: {
-          ...category
+          ...data,
+          str
         }
       })
       commit('ADD_CATEGORY', response.data.createCategory)

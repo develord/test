@@ -1,10 +1,11 @@
 <template>
   <client-only>
-    <el-card>
-      <div slot="header" class="card-header">
+    <el-card class="box-card">
+      <div slot="header" class="clearfix">
         <span>Category List</span>
         <el-button
           class="action-btn"
+          style="float: right;"
           type="success"
           size="mini"
           @click="goto('ad-admin-category-create')"
@@ -59,7 +60,7 @@
             <el-row>
               <el-button
                 size="mini"
-                @click="update(scope.row)"
+                @click="prepareUpdate(scope.row)"
               >
                 Edit
               </el-button>
@@ -108,7 +109,6 @@ export default {
     category () {
       return this.$store.state.category.listeCategory
     },
-
     filtredCategory () {
       if (this.search.length === 0) {
         return this.category
@@ -117,28 +117,8 @@ export default {
       }
     }
   },
-  watch: {
-    // category: {
-    //   immediate: true,
-    //   handler (newVal) {
-    //     this.listeCategory = Object.freeze(
-    //       newVal.map((category, index) => {
-    //         return {
-    //           nb: index,
-    //           id: category._id,
-    //           name: category.name,
-    //           title: category.title,
-    //           description: category.description,
-    //           created: category.created_at,
-    //           updated: category.updated_at
-    //         }
-    //       })
-    //     )
-    //   }
-    // }
-  },
-  async mounted () {
-    await this.$store.dispatch('category/getCategories')
+  mounted () {
+    this.$store.dispatch('category/getCategories')
   },
   methods: {
     /** //TODO// Maybe we can extract goto and extractText to a mixin //TODO// */
@@ -150,17 +130,18 @@ export default {
     },
     /** //ENDTODO// -- END REFACTOR -- //ENDTODO// */
 
-    update (category) {
-      this.$router.push({ name: 'ad-admin-category-create', query: { category: category.id } })
+    prepareUpdate (category) {
+      this.$router.push({ name: 'ad-admin-category-create', query: { category: category._id } })
     },
 
     deleteCategory (category) {
-      this.$store.dispatch('deleteCategory', category.id).then((res) => {
-        this.$store.dispatch('getCategory')
-        this.$notify({
-          title: 'Success',
-          message: 'Category Removed',
-          type: 'success'
+      this.$store.dispatch('category/deleteCategory', category._id).then((res) => {
+        this.$store.dispatch('category/getCategories').then(() => {
+          this.$notify({
+            title: 'Success',
+            message: 'Category Removed',
+            type: 'success'
+          })
         })
       })
     }

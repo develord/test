@@ -1,5 +1,5 @@
-import { posts, images, categories } from '@/apollo/query'
-import { deletePost, createPost, updatePost, uploadFile, deleteImage, createCategory, deleteCategory } from '@/apollo/mutations'
+import { posts, images, page } from '@/apollo/query'
+import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '@/apollo/mutations'
 const _ = require('lodash')
 
 export const state = () => ({
@@ -118,11 +118,12 @@ export const actions = {
     })
     return response
   },
-  async deleteCategory (context, data) {
-    const response = await this.app.apolloProvider.defaultClient.mutate({
-      mutation: deleteCategory,
+  async findPage (context, data) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: page,
+      fetchPolicy: 'network-only',
       variables: {
-        _id: data
+        link: data
       }
     })
     return response

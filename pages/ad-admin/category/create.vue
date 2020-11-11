@@ -7,7 +7,6 @@
       @cancelForm="cancel"
       @submitForm="save"
     />
-    <!-- <form-add-category :post="category" /> -->
   </client-only>
 </template>
 <script>
@@ -20,7 +19,6 @@ export default {
   layout: 'Back',
   middleware: 'auth',
   components: {
-    // formAddCategory: () => import('~/components/formAddCategory'),
     FormBase
   },
   apollo: {
@@ -35,12 +33,12 @@ export default {
         _id: null,
         title: null,
         name: null,
+        link: null,
         description: null,
         h1: null,
         content: null,
         image_large: null,
-        image_small: null,
-        link: null
+        image_small: null
       },
       formObject
     }
@@ -75,18 +73,22 @@ export default {
     cancel () {
       this.$router.go(-1)
     },
-    save () {
+    async save () {
       try {
-        this.$store.dispatch('category/createCategory', this.category).then((res) => {
-          this.$router.push({ name: 'ad-admin-category' })
+        const page = {
+          ...this.category,
+          content: JSON.stringify(this.category.content)
+        }
+        await this.$store.dispatch('category/createCategory', page).then(async (res) => {
+          await this.$router.push({ name: 'ad-admin-category' })
           this.$notify({
             title: 'Success',
-            message: 'Adding Category',
+            message: 'Adding New Page Group',
             type: 'success'
           })
         })
       } catch (error) {
-        console.log('AAAA', error)
+        console.log('error adding new page', error)
       }
     }
   }

@@ -13,6 +13,10 @@ const categorySchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  componentName: {
+    type: String,
+    default: 'Base'
+  },
   h1: {
     type: String,
     default: null

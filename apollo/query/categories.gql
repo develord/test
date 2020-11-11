@@ -3,6 +3,7 @@
       _id
       name
       title
+      componentName
       description
       h1
       content

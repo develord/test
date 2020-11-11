@@ -5,6 +5,7 @@ module.exports = {
       title: String!
       description: String
       h1: String
+      componentName: String,
       content: String
       image_large: Image
       image_small: Image
@@ -12,6 +13,21 @@ module.exports = {
       user: User
       category: Category
       status: Status
+      created_at: Date
+      updated_at: Date
+    }
+
+    type Page {
+      _id: ID!
+      title: String!
+      description: String
+      h1: String
+      componentName: String,
+      content: String
+      image_large: Image
+      image_small: Image
+      link: String
+      user: User
       created_at: Date
       updated_at: Date
     }
@@ -33,6 +49,7 @@ module.exports = {
   query: `
     posts: [Post]
     post(_id: String!): Post
+    page(link: String): Page
   `,
   mutation: `
     createPost(
@@ -40,6 +57,7 @@ module.exports = {
       description: String,
       h1: String,
       content: String,
+      componentName: String,
       image_large: String,
       image_small: String,
       link: String,

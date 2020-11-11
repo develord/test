@@ -62,6 +62,7 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vuexPersist', mode: 'client' },
+    { src: '~/plugins/getPageContent' },
     { src: '~/plugins/element-ui' }
   ],
 

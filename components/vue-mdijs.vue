@@ -42,7 +42,7 @@ export default {
   lib: {},
   computed: {
     iconPath () {
-      const icon = this.lib[(this.icon)]
+      const icon = this.lib[camelcase(this.icon)]
       if (typeof icon === 'undefined') {
         // eslint-disable-next-line no-console
         console.error(`[${this.icon}] Name of the icon is incorrect`)

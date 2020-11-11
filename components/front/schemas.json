@@ -1,0 +1,10 @@
+{
+    "index": {
+        "componentName": "Footer",
+        "components":{
+            "header": "header1",
+            "footer": "footer1"
+        },
+        "data": [""]
+    }
+}

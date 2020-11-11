@@ -4,6 +4,7 @@ module.exports = {
       _id: String
       name: String
       title: String
+      componentName: String
       description: String
       h1: String
       content: String
@@ -34,6 +35,7 @@ module.exports = {
       name: String!,
       title: String,
       description: String,
+      componentName: String
       h1: String,
       content: String,
       image_large: String,

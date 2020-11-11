@@ -22,19 +22,20 @@
       "model": "h1",
       "type": "text",
       "require": true,
-      "placeholder": "h1 slug",
+      "placeholder": "h1 slug"
+    },
+    {
+      "name": "Link",
+      "label": "Link",
+      "model": "link",
+      "type": "text",
+      "require": true,
+      "placeholder": "H1",
       "value": {
-        "from": "name",
+        "from": "h1",
         "fn": "slugify"
       },
       "readonly": true
-    },
-    {
-      "name": "Link Category",
-      "label": "Link Category",
-      "model": "link",
-      "type": "text",
-      "require": true
     },
     {
       "name": "Status Post",
@@ -43,6 +44,23 @@
       "type": {
         "select": {
           "options": "status"
+        }
+      },
+      "require": true,
+      "placeholder": "Category Status"
+    },
+    {
+      "name": "Type Component",
+      "label": "Type Component",
+      "model": "componentName",
+      "type": {
+        "select": {
+          "options": [
+            "news",
+            "category",
+            "article",
+            "other"
+          ]
         }
       },
       "require": true,

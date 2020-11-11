@@ -1,6 +1,5 @@
 <template>
   <client-only>
-    <!-- <el-page-header content="Posts" @back="goBack" /> -->
     <el-card class="box-card">
       <div slot="header" class="clearfix">
         <span>Posts List</span>

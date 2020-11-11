@@ -1,3 +1,4 @@
+const Category = require('../Category')
 const Post = require('.')
 /**
  * User Queries
@@ -11,6 +12,14 @@ const Query = {
   },
   post: (_, { _id }) => {
     return Post.findOne({ _id }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
+  },
+  page: (_, { link }) => {
+    if (!link.includes('/', 1)) {
+      return Category.findOne({ link })
+    } else {
+      link = link.replace('/', '')
+      return Post.findOne({ link }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
+    }
   }
 }
 
@@ -22,8 +31,8 @@ const Query = {
  */
 const Mutation = {
   // eslint-disable-next-line camelcase
-  createPost: async (_, { title, description, h1, content, image_large, image_small, link, user, category, status }) => {
-    const postData = { title, description, h1, content, image_large, image_small, link, user, category, status }
+  createPost: async (_, { title, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
+    const postData = { title, description, h1, componentName, content, image_large, image_small, link, user, category, status }
     const post = await new Post(postData)
     return post.save()
   },
