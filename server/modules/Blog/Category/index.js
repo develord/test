@@ -17,6 +17,14 @@ const categorySchema = new mongoose.Schema({
     type: String,
     default: 'Base'
   },
+  status: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Status'
+  },
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User'
+  },
   h1: {
     type: String,
     default: null

@@ -1,5 +1,5 @@
-mutation ($title: String!, $name: String!,$componentName: String, $description: String, $h1: String, $content: String, $image_large: String, $image_small: String, $link: String) {
-    createCategory(title: $title, name: $name, componentName: $componentName, description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, link: $link) {
+mutation ($title: String!, $name: String!,$componentName: String, $user: String, $status: String, $description: String, $h1: String, $content: String, $image_large: String, $image_small: String, $link: String) {
+    createCategory(title: $title, name: $name, ,user: $user, status: $status, componentName: $componentName, description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, link: $link) {
     _id
     title
     name
@@ -9,6 +9,8 @@ mutation ($title: String!, $name: String!,$componentName: String, $description: 
     content
     image_large {_id}
     image_small {_id}
+    user {_id}
+    status {_id}
     link
   }
 }

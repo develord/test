@@ -6,15 +6,21 @@ export const state = () => ({
 })
 
 export const getters = {
+  getCategory: state => (id) => {
+    const category = state.listCategory.find(category => category._id === id)
+    return {
+      ...category,
+      content: JSON.parse(category.content)
+    }
+  }
 }
 
 export const mutations = {
   SET_CATEGORIES (state, categories) {
-    state.listeCategory = categories
+    state.listCategory = categories
   },
-
   ADD_CATEGORY (state, category) {
-    state.listeCategory.push(category)
+    state.listCategory.push(category)
   }
 }
 
@@ -25,7 +31,6 @@ export const actions = {
       query: categories,
       fetchPolicy: 'network-only'
     })
-    console.log(response.data.categories)
     commit('SET_CATEGORIES', response.data.categories)
   },
   async deleteCategory (context, data) {
@@ -46,7 +51,7 @@ export const actions = {
         mutation: createCategory,
         variables: {
           ...data,
-          str
+          content: str
         }
       })
       commit('ADD_CATEGORY', response.data.createCategory)

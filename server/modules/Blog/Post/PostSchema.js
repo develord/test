@@ -22,7 +22,7 @@ module.exports = {
       title: String!
       description: String
       h1: String
-      componentName: String,
+      componentName: String
       content: String
       image_large: Image
       image_small: Image
@@ -53,16 +53,16 @@ module.exports = {
   `,
   mutation: `
     createPost(
-      title: String!,
-      description: String,
-      h1: String,
-      content: String,
-      componentName: String,
-      image_large: String,
-      image_small: String,
-      link: String,
-      user: String,
-      category: String,
+      title: String!
+      description: String
+      h1: String
+      content: String
+      componentName: String
+      image_large: String
+      image_small: String
+      link: String
+      user: String
+      category: String
       status: String
     ): Post
     updatePost(

@@ -114,8 +114,13 @@ export default {
     file: {
       immediate: true,
       handler (newVal) {
-        if (this.file && this.file.high) {
+        if (newVal && newVal.high) {
           this.url = this.getImage(this.file.high)
+        } else if (newVal) {
+          const ff = this.images.find(img => img._id === newVal._id)
+          if (ff) {
+            this.url = this.getImage(ff.high)
+          }
         }
       }
     }

@@ -1,4 +1,6 @@
 
+import {_} from 'lodash'
+
 export default {
   async asyncData(ctx) {
     const page = await ctx.app.$getPageContent({}, ctx)
@@ -8,8 +10,8 @@ export default {
   },
   computed: {
     pageComponent() {
-      if (this.page && this.page.index.componentName) {
-        return () => import(`~/components/front/${this.page.index.componentName}`)
+      if (this.page && this.page.componentName) {
+        return () => import(`~/components/front/${_.startCase(_.camelCase(this.page.componentName)).replace(/ /g, '')}.vue`)
       } else {
         return () => import(`~/components/front/Basic`)
       }
@@ -19,12 +21,15 @@ export default {
     page:{
         immediate: true,
         handler(newVal) {
-            // console.log('ffffffffffffffff', newVal)
+            // set the head that head need
         }
     }
   },
   head() {
     return {
+      /* here load the head staff desc and title ....
+      /* and olso define de Dataschemas model json
+      */
     }
   },
   mounted() {

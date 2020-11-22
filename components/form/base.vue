@@ -1,7 +1,7 @@
 <template>
   <div>
     <client-only>
-      <el-form ref="form" label-width="120px">
+      <el-form v-if="formObject.fields" ref="form" label-width="120px">
         <el-form-item v-for="f in formObject.fields" :key="f.model" :label="f.label">
           <modalImageSelector v-if="f.type === 'image'" :file.sync="formModel[f.model]" />
           <el-input v-else-if="f.value" v-model="formModel[f.model]" :readonly="f.readonly" :placeholder="f.placeholder" />

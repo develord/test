@@ -14,11 +14,12 @@ const Query = {
     return Post.findOne({ _id }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
   },
   page: (_, { link }) => {
-    if (!link.includes('/', 1)) {
-      return Category.findOne({ link })
+    link = link.substring(1)
+    if (!link.includes('/')) {
+      return Category.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
     } else {
-      link = link.replace('/', '')
-      return Post.findOne({ link }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
+      link = link.split('/')[1]
+      return Post.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
     }
   }
 }

@@ -348,7 +348,9 @@ export default {
     this.editor.destroy()
   },
   mounted () {
-    if (this.content) { this.setContent(this.content) }
+    if (this.content) {
+      this.setContent(this.content)
+    }
   },
   methods: {
     insertImage (data) {

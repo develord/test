@@ -6,7 +6,6 @@ export const state = () => ({
   dark: true,
   snackbar: null,
   listePost: [],
-  listeCategory: [],
   images: []
 })
 
@@ -15,17 +14,6 @@ export const getters = {
     const post = state.listePost.find(post => post._id === id)
     const data = _.cloneDeep(post)
     data.content = JSON.parse(data.content)
-    return data
-  },
-  getCategory: state => (id) => {
-    const category = state.listeCategory.find(category => category._id === id)
-    const data = _.cloneDeep(category)
-    try {
-      const obj = JSON.parse(data.content)
-      if (obj && typeof obj === 'object' && obj !== null) {
-        data.content = JSON.parse(data.content)
-      }
-    } catch (err) {}
     return data
   }
 }
@@ -70,15 +58,6 @@ export const actions = {
     })
     return response.data.createPost
   },
-  // async addNewCategory (context, category) {
-  //   const response = await this.app.apolloProvider.defaultClient.mutate({
-  //     mutation: createCategory,
-  //     variables: {
-  //       ...category
-  //     }
-  //   })
-  //   return response.data.createCategory
-  // },
   async updatePost (context, post) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updatePost,
@@ -95,13 +74,6 @@ export const actions = {
     })
     context.commit('SET_POSTS', response.data.posts)
   },
-  // async getCategory (context) {
-  //   const response = await this.app.apolloProvider.defaultClient.query({
-  //     query: categories,
-  //     fetchPolicy: 'network-only'
-  //   })
-  //   context.commit('SET_CATEGORY', response.data.categories)
-  // },
   async getImages (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: images,

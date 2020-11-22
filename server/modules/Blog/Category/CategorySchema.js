@@ -8,6 +8,8 @@ module.exports = {
       description: String
       h1: String
       content: String
+      user: User
+      status: Status
       image_large: Image
       image_small: Image
       link: String
@@ -20,6 +22,8 @@ module.exports = {
       title: String
       description: String
       h1: String
+      user: String
+      status: String
       content: String
       image_large: String
       image_small: String
@@ -32,14 +36,16 @@ module.exports = {
   `,
   mutation: `
     createCategory(
-      name: String!,
-      title: String,
-      description: String,
+      name: String!
+      title: String
+      description: String
       componentName: String
-      h1: String,
-      content: String,
-      image_large: String,
-      image_small: String,
+      user: String
+      status: String
+      h1: String
+      content: String
+      image_large: String
+      image_small: String
       link: String
     ): Category
     updateCategory(_id: String!, data: UpdateCategoryData): Int

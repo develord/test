@@ -5,6 +5,37 @@ mutation {
 	{name}
 }
 ```
+5fada613106f8a370c32c848 canRead
+5fada665106f8a370c32c849 wanWrite
+5fada682106f8a370c32c84a canDelete
+
+5fada749106f8a370c32c84b permission admin
+
+	createCategory(
+    name: "test",
+    h1: "my h1",
+    title: "my title",
+    componentName: "news",
+    description: "my description",
+    user: "5f1067cf51c11630708dc644",
+    status: "5e7639fbf98c87dd31e3be39",
+    link: "my link"
+  ),
+	{
+    name
+    h1
+    title
+    componentName
+    description
+    user {
+      name
+    }
+    status {
+      name
+    }
+    link
+  }
+}
 
 # Update Category #
 ```

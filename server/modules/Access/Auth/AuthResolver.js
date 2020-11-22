@@ -46,7 +46,7 @@ const Mutation = {
       { expiresIn: '1y' }
     )
 
-    return token
+    return { token, user }
   }
 }
 

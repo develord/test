@@ -1,10 +1,18 @@
 {
-    "index": {
-        "componentName": "Footer",
+    "config": {
         "components":{
             "header": "header1",
             "footer": "footer1"
         },
-        "data": [""]
+        "color": [""]
+    },
+    "category": {
+        "components": {
+            "subHeader": "subHeaderSample",
+            "centents": "cententsSample",
+            "raking": "rakingSample",
+            "commentSample": "commentSample",
+            "linkedPost": "linkedPostSample"
+        }
     }
 }

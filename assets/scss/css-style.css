@@ -8287,7 +8287,7 @@ h3 a{
 .page-title{
 	position: relative;
 	overflow: hidden;
-	padding: 210px 0px 110px 0px;
+	padding: 210px 0px 31px 0px;
 	width: 100%;
 	background-size: cover;
 	background-position: center;
@@ -8339,6 +8339,7 @@ h3 a{
 	line-height: 60px;
 	color: #fff;
 	font-weight: 700;
+	text-align: left;
 	margin-bottom: 5px;
 }
 

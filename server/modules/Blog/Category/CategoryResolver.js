@@ -29,9 +29,9 @@ const Query = {
  */
 const Mutation = {
   // eslint-disable-next-line camelcase
-  createCategory: async (_, { title, name, description, componentName, h1, content, image_large, image_small, link }) => {
-    const postData = { title, name, description, h1, content, componentName, image_large, image_small, link }
-    const category = await new Category(postData)
+  createCategory: async (_, { title, name, description, componentName, h1, user, status, content, image_large, image_small, link }) => {
+    const postData = { title, name, description, h1, content, componentName, image_large, image_small, link, user, status }
+    const category = await new Category(postData).populate(['user', 'status', 'image_large', 'image_small'])
     return category.save()
   },
   updateCategory: async (_, args) => {

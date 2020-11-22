@@ -33,6 +33,8 @@ export default {
         _id: null,
         title: null,
         name: null,
+        status: null,
+        user: this.$store.state.auth._id,
         link: null,
         description: null,
         h1: null,
@@ -45,13 +47,15 @@ export default {
   },
   watch: {
     statuses (newVal) {
+      console.log(this.$store.state)
       this.listStatus = newVal
     }
   },
   beforeMount () {
     const categoryId = this.$route.query.category
     if (categoryId) {
-      this.category = this.$store.getters.getCategory(categoryId)
+      const category = this.$store.getters['category/getCategory'](categoryId)
+      this.category = category
     }
   },
 
@@ -75,11 +79,7 @@ export default {
     },
     async save () {
       try {
-        const page = {
-          ...this.category,
-          content: JSON.stringify(this.category.content)
-        }
-        await this.$store.dispatch('category/createCategory', page).then(async (res) => {
+        await this.$store.dispatch('category/createCategory', this.category).then(async (res) => {
           await this.$router.push({ name: 'ad-admin-category' })
           this.$notify({
             title: 'Success',

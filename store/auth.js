@@ -5,7 +5,8 @@ import { getProviderMutate } from '@/helpers/getProviderQuery'
 export const state = () => ({
   email: null,
   token: '',
-  loggedIn: false
+  loggedIn: false,
+  _id: ''
 })
 
 export const getters = {
@@ -22,6 +23,7 @@ export const mutations = {
   SET_USER (state, user) {
     state.email = user.email
     state.token = user.token
+    state._id = user._id
     state.loggedIn = true
     Cookies.set('user', JSON.stringify({ user: { token: state.token } }))
   },
@@ -35,10 +37,14 @@ export const mutations = {
 }
 
 export const actions = {
-  async login (context, user) {
-    const auth = await getProviderMutate.call(this, login, { ...user })
+  async login (context, logpass) {
+    const auth = await getProviderMutate.call(this, login, { ...logpass })
     if (auth.data.login) {
-      user.token = auth.data.login
+      const token = auth.data.login.token
+      const user = {
+        ...auth.data.login.user,
+        token
+      }
       context.commit('auth/SET_USER', user, { root: true })
       return auth
     } else {

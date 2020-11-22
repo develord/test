@@ -1,5 +1,6 @@
 // const { AuthenticationError } = require('apollo-server-express')
 // const Role = require('../Role')
+const bcrypt = require('bcrypt')
 const Role = require('../Role')
 const User = require('.')
 /**
@@ -39,8 +40,14 @@ const Mutation = {
      * }
      */
     const role = await Role.findOne({ _id: roleId })
-
-    const userData = { name, email, password, role }
+    const saltRounds = 10
+    const salt = bcrypt.genSaltSync(saltRounds)
+    const hashpassword = bcrypt.hashSync(password, salt)
+    const userData = {
+      name,
+      email,
+      password: hashpassword,
+      role }
     const usr = await new User(userData)
     return usr.save()
   },

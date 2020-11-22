@@ -98,7 +98,7 @@ export default {
     return {
       search: '',
       drawer: null,
-      listeCategory: [],
+      listCategory: [],
       query: ''
     }
   },
@@ -107,7 +107,7 @@ export default {
   },
   computed: {
     category () {
-      return this.$store.state.category.listeCategory
+      return this.$store.state.category.listCategory
     },
     filtredCategory () {
       if (this.search.length === 0) {
@@ -119,6 +119,7 @@ export default {
   },
   mounted () {
     this.$store.dispatch('category/getCategories')
+    this.$store.dispatch('getImages')
   },
   methods: {
     /** //TODO// Maybe we can extract goto and extractText to a mixin //TODO// */

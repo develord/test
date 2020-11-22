@@ -22,7 +22,6 @@ export default {
   layout: 'Back',
   middleware: 'auth',
   components: {
-    // formAddPost: () => import('~/components/formAddPost')
     FormBase
   },
   apollo: {
