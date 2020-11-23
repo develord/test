@@ -51,8 +51,18 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
+    'nuxt-compress',
     '@nuxtjs/style-resources'
   ],
+
+  'nuxt-compress': {
+    gzip: {
+      cache: true
+    },
+    brotli: {
+      threshold: 10240
+    }
+  },
 
   apollo: {
     clientConfigs: {
