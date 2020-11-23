@@ -1,21 +1,18 @@
 <template>
   <section class="page-title text-center style-two">
-    <div class="pattern-layer" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/shape/shape-62.png?lossy=1&amp;strip=1&amp;webp=1);" /><div class="auto-container">
+    <div class="pattern-layer" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/_nuxt/assets/images/shape/shape-62.png?lossy=1&amp;strip=1&amp;webp=1);" /><div class="auto-container">
       <div class="content-box">
         <h1>{{ h1 }}</h1>
         <!-- block auther -->
         <div class="article-content-meta">
           <div class="author-avatar">
             <a href="#">
-              <img
-                alt="Avatar of Neale Van Fleet"
-                src="https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg"
-                srcset="https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=160&amp;d=retro&amp;r=pg 2x"
-                class="avatar avatar-80 photo skip-lazy"
-                height="80"
-                width="80"
-                loading="lazy"
-              >
+              <lasy-image
+                :height="50"
+                :width="59"
+                :lazy-src="'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg'"
+                :lazy-srcset="`https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=160&amp;d=retro&amp;r=pg 2x`"
+              />
             </a>
             <div class="half-circle" width="80px" height="80px" />
           </div>
@@ -36,52 +33,52 @@
         </div>
         <div class="article-tags">
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-biology.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-biology.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-biology.png 2x`"
+            />
           </div>
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-genomis.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-genomis.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-genomis.png 2x`"
+            />
           </div>
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-cancer.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-cancer.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-cancer.png 2x`"
+            />
           </div>
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-fetus.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-fetus.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-fetus.png 2x`"
+            />
           </div>
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-cell.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-cell.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-cell.png 2x`"
+            />
           </div>
           <div class="tag-avatar">
-            <img
-              height="50"
-              width="50"
-              loading="lazy"
-              src="@/assets/images/tag-oncology.png"
-            >
+            <lasy-image
+              :height="50"
+              :width="50"
+              :lazy-src="'/_nuxt/assets/images/tag-oncology.png'"
+              :lazy-srcset="`/_nuxt/assets/images/tag-oncology.png 2x`"
+            />
           </div>
         </div>
       <!-- ending -->
@@ -92,6 +89,9 @@
 <script>
 import page from '~/mixins/page.js'
 export default {
+  components: {
+    'lasy-image': () => import('./LasyImage.vue')
+  },
   mixins: [page]
 }
 </script>

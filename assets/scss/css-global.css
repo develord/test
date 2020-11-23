@@ -118,7 +118,7 @@ p{
   font-weight: 500;
   font-family: 'Muli', sans-serif;
   color: #666666;
-  margin: 0px;
+  padding: 0px 0px 42px 0px;
   transition: all 500ms ease;
 }
 

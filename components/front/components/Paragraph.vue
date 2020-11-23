@@ -1,18 +1,26 @@
 <template>
-  <fragment>
+  <p>
     <template v-for="(item, i) in test">
       <template v-if="item.type === 'text'">
-        <p :key="i">
-          {{ item.text }}
-        </p>
+        {{ item.text }}
+      </template>
+      <template v-if="item.type === 'image'">
+        <lasy-image
+          :key="i"
+          :lazy-src="item.attrs.src"
+          :lazy-srcset="`${item.attrs.src} 2x`"
+        />
       </template>
     </template>
-  </fragment>
+  </p>
 </template>
 <script>
 
 export default {
   name: 'Paragraph',
+  components: {
+    'lasy-image': () => import('./LasyImage.vue')
+  },
   props: {
     content: {
       type: [Object, Array],
