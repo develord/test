@@ -6,7 +6,7 @@ export default ({ app }, inject) => {
     // const component = res.data?.page?.componentName do not work for older node version
     let component
     if (res && res.data && res.data.page) {
-      component = res.data?.page?.componentName
+      component = res.data.page.componentName
     }
     const config = (await import('~/components/front/schemas.json')).default
     const pageName = component || route.name
