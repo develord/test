@@ -6,7 +6,7 @@
           <div class="logo-box pull-left">
             <figure class="logo">
               <a href="#" title="Naxly">
-                <img alt="logo" style=" width:330px" data-src="@/assets/images/LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
+                <img alt="logo" style=" width:330px" data-src="/images/LogoValidation.png" class="lazyload" src="/images/LogoValidation.png">
               </a>
             </figure>
           </div>

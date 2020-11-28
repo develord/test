@@ -162,7 +162,7 @@ export default {
     },
     getImage (url) {
       try {
-        return require('@/assets/images/' + url)
+        return require('@/static/images/' + url)
       } catch (e) {
         return 'http://via.placeholder.com/300'
       }

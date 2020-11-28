@@ -2,8 +2,8 @@
   <footer class="footer-style-three">
     <div class="footer-top">
       <div class="pattern-layer">
-        <div v-lazy:background-image="chap60" class="pattern-1" />
-        <div v-lazy:background-image="chap61" class="pattern-2 wow slideInDown" data-wow-delay="00ms" data-wow-duration="3500ms" />
+        <div v-lazy:background-image="'/img/shape-60.png'" class="pattern-1" />
+        <div v-lazy:background-image="'/img/shape-61.png'" class="pattern-2 wow slideInDown" data-wow-delay="00ms" data-wow-duration="3500ms" />
       </div>
       <div class="auto-container">
         <div class="widget-section">
@@ -20,7 +20,7 @@
                     </div>
                     <figure class="footer-logo">
                       <a href="#">
-                        <img alt="Awesome Image" data-src="LogoValidation.png" class="lazyload" src="@/assets/images/LogoValidation.png">
+                        <img alt="Awesome Image" data-src="LogoValidation.png" class="lazyload" src="/images/LogoValidation.png">
                       </a>
                     </figure>
                   </div>
@@ -100,15 +100,8 @@
   </footer>
 </template>
 <script>
-import chap60 from '~/static/img/shape-60.png'
-import chap61 from '~/static/img/shape-61.png'
+
 export default {
-  name: 'Footer',
-  data () {
-    return {
-      chap60,
-      chap61
-    }
-  }
+  name: 'Footer'
 }
 </script>

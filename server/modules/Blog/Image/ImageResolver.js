@@ -25,23 +25,23 @@ const Mutation = {
     createReadStream()
       .pipe(
         createWriteStream(
-          path.join(__dirname, '../../../../assets/images', filename)
+          path.join(__dirname, '../../../../static/images', filename)
         )
       )
     setTimeout(async () => {
-      const img = `./assets/images/${filename}`
+      const img = `./static/images/${filename}`
       Jimp.read(img, (err, lenna) => {
         if (err) { throw err }
         lenna
           .quality(20) // set JPEG quality
           .greyscale() // set greyscale
           .blur(15)
-          .write(`./assets/images/low-${filename}`) // save
+          .write(`./static/images/low-${filename}`) // save
       })
-      await webp.cwebp(path.join(__dirname, '../../../../assets/images', filename), path.join(__dirname, '../../../../assets/images', `${filename.split('.')[0]}-high.webp`))
-      await webp.cwebp(path.join(__dirname, '../../../../assets/images', `low-${filename}`), path.join(__dirname, '../../../../assets/images', `${filename.split('.')[0]}-low.webp`))
-      await unlinkSync(path.join(__dirname, '../../../../assets/images', filename))
-      await unlinkSync(path.join(__dirname, '../../../../assets/images', `low-${filename}`))
+      await webp.cwebp(path.join(__dirname, '../../../../static/images', filename), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-high.webp`))
+      await webp.cwebp(path.join(__dirname, '../../../../static/images', `low-${filename}`), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-low.webp`))
+      await unlinkSync(path.join(__dirname, '../../../../static/images', filename))
+      await unlinkSync(path.join(__dirname, '../../../../static/images', `low-${filename}`))
       const image = new Image({
         low: `${filename.split('.')[0]}-low.webp`,
         high: `${filename.split('.')[0]}-high.webp`

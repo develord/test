@@ -1,6 +1,6 @@
 <template>
   <section class="page-title text-center style-two">
-    <div v-lazy:background-image="{src: image, loading: image}" class="pattern-layer" /><div class="auto-container">
+    <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
       <div class="content-box">
         <h1>{{ h1 }}</h1>
         <!-- block auther -->
@@ -102,14 +102,8 @@
 </template>
 <script>
 import page from '~/mixins/page.js'
-import image from '~/static/img/shape-62.webp'
 export default {
   mixins: [page],
-  data () {
-    return {
-      image
-    }
-  },
   methods: {
     reverseLink (link) {
       return link.replace(/-/g, ' ')
