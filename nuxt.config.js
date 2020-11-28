@@ -29,7 +29,7 @@ module.exports = {
       routes.push({
         name: '404',
         path: '*',
-        component: resolve(__dirname, 'pages/404.vue')
+        component: resolve(__dirname, 'components/404.vue')
       })
     }
   },
