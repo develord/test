@@ -1,8 +1,8 @@
 <template>
-  <fragment>
+  <div>
     <SubHeaderSample />
     <h1>im  a Home page</h1>
-  </fragment>
+  </div>
 </template>
 <script>
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
@@ -10,7 +10,6 @@ import page from '~/mixins/page.js'
 
 export default {
   layout: 'Default',
-  transition: 'slide-bottom',
   components: {
     SubHeaderSample
   },

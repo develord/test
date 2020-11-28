@@ -1,18 +1,15 @@
 <template>
-  <fragment>
-    <div
-      :is="pageComponent"
-      v-if="pageComponent"
-      v-bind="page"
-    />
-  </fragment>
+  <div
+    :is="pageComponent"
+    v-if="pageComponent"
+    v-bind="page"
+  />
 </template>
 
 <script>
 import content from '~/mixins/cententsLoader.js'
 export default {
   layout: 'Default',
-  transition: 'slide-bottom',
   mixins: [content]
 }
 </script>

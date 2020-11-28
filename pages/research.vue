@@ -1,14 +1,13 @@
 <template>
-  <fragment>
+  <div>
     <SubHeaderSample />
     <h1>im  a research page</h1>
-  </fragment>
+  </div>
 </template>
 <script>
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
   layout: 'Default',
-  transition: 'slide-bottom',
   components: {
     SubHeaderSample
   },

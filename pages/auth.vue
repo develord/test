@@ -32,9 +32,10 @@
 
 <script>
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
+import elementUi from '~/plugins/element-ui'
+
 export default {
   name: 'Login',
-  transition: 'slide-bottom',
   layout: 'Default',
   middleware: 'guest',
   components: {
@@ -46,6 +47,9 @@ export default {
       loading: false,
       hasError: { email: null, password: null }
     }
+  },
+  beforeMount () {
+    elementUi()
   },
   methods: {
     login () {

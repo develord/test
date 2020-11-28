@@ -3,9 +3,7 @@
     <div class="boxed_wrapper">
       <Header />
       <!-- router Component -->
-      <transition name="fade" mode="out-in">
-        <nuxt />
-      </transition>
+      <nuxt />
       <Footer />
     </div>
   </div>
@@ -29,33 +27,6 @@ export default {
 @import '~/assets/scss/css-style.css';
 @import '~/assets/scss/css-styles.css';
 @import '~/assets/scss/css-header.css';
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s;
-}
-.page-enter,
-.page-leave-to {
-  opacity: 0;
-}
-
-.layout-enter-active,
-.layout-leave-active {
-  transition: opacity 0.5s;
-}
-.layout-enter,
-.layout-leave-to {
-  opacity: 0;
-}
-
-.slide-bottom-enter-active,
-.slide-bottom-leave-active {
-  transition: opacity 0.25s ease-in-out, transform 0.25s ease-in-out;
-}
-.slide-bottom-enter,
-.slide-bottom-leave-to {
-  opacity: 0;
-  transform: translate3d(0, 15px, 0);
-}
 </style>
 
 <style lang="scss" scoped>
