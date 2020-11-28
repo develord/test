@@ -11,6 +11,7 @@ import cententsLoader from '~/mixins/cententsLoader.js'
 
 export default {
   layout: 'Default',
+  transition: 'slide-bottom',
   components: {
     SubHeaderSample
   },

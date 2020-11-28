@@ -12,6 +12,7 @@
 import content from '~/mixins/cententsLoader.js'
 export default {
   layout: 'Default',
+  transition: 'slide-bottom',
   mixins: [content]
 }
 </script>

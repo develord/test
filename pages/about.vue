@@ -8,6 +8,7 @@
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
   layout: 'Default',
+  transition: 'slide-bottom',
   components: {
     SubHeaderSample
   },

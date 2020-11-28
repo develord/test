@@ -34,6 +34,7 @@
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
   name: 'Login',
+  transition: 'slide-bottom',
   layout: 'Default',
   middleware: 'guest',
   components: {

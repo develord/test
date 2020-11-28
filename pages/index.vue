@@ -10,6 +10,7 @@ import page from '~/mixins/page.js'
 
 export default {
   layout: 'Default',
+  transition: 'slide-bottom',
   components: {
     SubHeaderSample
   },
