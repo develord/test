@@ -22,6 +22,7 @@ module.exports = {
       title: String
       description: String
       h1: String
+      componentName: String
       user: String
       status: String
       content: String
@@ -33,6 +34,7 @@ module.exports = {
   query: `
     categories: [Category]
     category(_id: String!): Category
+    categoryElements(link: String!): [Post]
   `,
   mutation: `
     createCategory(
@@ -48,7 +50,20 @@ module.exports = {
       image_small: String
       link: String
     ): Category
-    updateCategory(_id: String!, data: UpdateCategoryData): Int
+    updateCategory(
+      _id: String!
+      name: String!
+      title: String
+      description: String
+      componentName: String
+      user: String
+      status: String
+      h1: String
+      content: String
+      image_large: String
+      image_small: String
+      link: String
+    ): Int
     deleteCategory(_id: String!): Int
   `
 }

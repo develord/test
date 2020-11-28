@@ -37,6 +37,7 @@ module.exports = {
       title: String!
       description: String
       h1: String
+      componentName: String
       content: String
       image_large: String
       image_small: String
@@ -69,6 +70,7 @@ module.exports = {
       _id: String!
       title: String!
       description: String
+      componentName: String
       h1: String
       content: String
       image_large: String

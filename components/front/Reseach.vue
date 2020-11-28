@@ -14,9 +14,8 @@
 import {_} from 'lodash'
 import page from '~/mixins/page.js'
 
-
 export default {
-  name: 'Category',
+  name: 'Reseach',
   mixins: [page],
   computed: {
     componentsDef() {

@@ -65,8 +65,13 @@ export default {
     updateGen (event, model) {
       for (const f in this.formObject.fields) {
         if (this.formObject.fields[f].value && (this.formObject.fields[f].value.from === model)) {
-          const ink = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
-          this.formModel[this.formObject.fields[f].model] = ink
+          let str = ''
+          if (this.formObject.fields[f].value.params) {
+            str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].title) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+          } else {
+            str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+          }
+          this.formModel[this.formObject.fields[f].model] = str
         }
       }
     },

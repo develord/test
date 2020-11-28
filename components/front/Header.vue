@@ -15,67 +15,33 @@
               <div id="navbarSupportedContent" class="collapse navbar-collapse show clearfix">
                 <ul class="navigation clearfix">
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <a
-                      title="About"
-                      href="#"
-                      data-toggle="dropdown1"
-                      class="hvr-underline-from-left1"
-                      aria-expanded="false"
-                      data-scroll
-                      data-options="easing: easeOutQuart"
-                    >About</a>
+                    <NuxtLink to="/" title="home" class="hvr-underline-from-left1">
+                      Home
+                    </NuxtLink>
                   </li>
-                  <li id="menu-item-353" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-353 dropdown">
-                    <a
-                      title="Company"
-                      href="#"
-                      data-toggle="dropdown1"
-                      class="hvr-underline-from-left1"
-                      aria-expanded="false"
-                      data-scroll
-                      data-options="easing: easeOutQuart"
-                    >Team</a>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/team" title="team" class="hvr-underline-from-left1">
+                      Team
+                    </NuxtLink>
                   </li>
-                  <li id="menu-item-354" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-354 dropdown">
-                    <a
-                      title="Services"
-                      href="#"
-                      data-toggle="dropdown1"
-                      class="hvr-underline-from-left1"
-                      aria-expanded="false"
-                      data-scroll
-                      data-options="easing: easeOutQuart"
-                    >Research</a>
-                    <ul role="menu" class="submenu">
-                      <li id="menu-item-525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-525">
-                        <a title="Our Services" href="our-services.html">Our Services</a>
-                      </li>
-                      <li id="menu-item-703" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-703">
-                        <a title="Service Details" href="service-details.html">Service Details</a>
-                      </li>
-                    </ul>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/news" title="news" class="hvr-underline-from-left1">
+                      Publications
+                    </NuxtLink>
+                  </li><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/research" title="research" class="hvr-underline-from-left1">
+                      Research
+                    </NuxtLink>
                   </li>
-                  <li id="menu-item-355" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-355 dropdown">
-                    <a
-                      title="Works"
-                      href="#"
-                      data-toggle="dropdown1"
-                      class="hvr-underline-from-left1"
-                      aria-expanded="false"
-                      data-scroll
-                      data-options="easing: easeOutQuart"
-                    >Publications</a>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
+                      Contact
+                    </NuxtLink>
                   </li>
-                  <li id="menu-item-358" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children menu-item-358 dropdown">
-                    <a
-                      title="Pages"
-                      href="#"
-                      data-toggle="dropdown1"
-                      class="hvr-underline-from-left1"
-                      aria-expanded="false"
-                      data-scroll
-                      data-options="easing: easeOutQuart"
-                    >Contact</a>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/about" title="About" class="hvr-underline-from-left1">
+                      About
+                    </NuxtLink>
                   </li>
                 </ul>
               </div>

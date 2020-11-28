@@ -1,4 +1,4 @@
-import { posts, images, page } from '@/apollo/query'
+import { posts, images, page, categoryElements } from '@/apollo/query'
 import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '@/apollo/mutations'
 const _ = require('lodash')
 
@@ -50,22 +50,38 @@ export const actions = {
     return response
   },
   async addNewPost (context, post) {
+    const { content, ...data } = post
+    const str = JSON.stringify(content)
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: createPost,
       variables: {
-        ...post
+        ...data,
+        content: str
       }
     })
     return response.data.createPost
   },
   async updatePost (context, post) {
+    const { content, ...data } = post
+    const str = JSON.stringify(content)
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updatePost,
       variables: {
-        ...post
+        ...data,
+        content: str
       }
     })
     return response.data.updatePost
+  },
+  async getCategoryElement (context, url) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: categoryElements,
+      fetchPolicy: 'network-only',
+      variables: {
+        link: url
+      }
+    })
+    return response.data.categoryElements
   },
   async getPosts (context) {
     const response = await this.app.apolloProvider.defaultClient.query({

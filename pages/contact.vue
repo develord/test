@@ -1,19 +1,16 @@
 <template>
   <fragment>
     <SubHeaderSample />
-    <h1>im  a Home page</h1>
+    <h1>im  a contact page</h1>
   </fragment>
 </template>
 <script>
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
-import page from '~/mixins/page.js'
-
 export default {
   layout: 'Default',
   components: {
     SubHeaderSample
   },
-  mixins: [page],
   data () {
     return {
     }

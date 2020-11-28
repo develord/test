@@ -13,13 +13,13 @@ const Query = {
   post: (_, { _id }) => {
     return Post.findOne({ _id }).populate(['user', 'category', 'status', 'image_large', 'image_small'])
   },
-  page: (_, { link }) => {
+  page: async (_, { link }) => {
     link = link.substring(1)
     if (!link.includes('/')) {
       return Category.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
     } else {
-      link = link.split('/')[1]
-      return Post.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
+      const post = await Post.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
+      return post
     }
   }
 }
@@ -38,12 +38,11 @@ const Mutation = {
     return post.save()
   },
   // eslint-disable-next-line camelcase
-  updatePost: async (_, { _id, title, description, h1, content, image_large, image_small, link, user, category, status }) => {
+  updatePost: async (_, { _id, title, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
     // if we need to validate more, we destruct the args.data object (fields to update)
-
     /** We can make more validation here **/
     // it's better to pass a single object to updateOne to avoid checking on undefined
-    const data = { title, description, h1, content, image_large, image_small, link, user, category, status }
+    const data = { title, description, h1, content, componentName, image_large, image_small, link, user, category, status }
     const updated = await Post.findOneAndUpdate({ _id }, data, {
       new: true
     })

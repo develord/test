@@ -24,14 +24,14 @@ module.exports = {
   router: {
     prefetchLinks: false,
     trailingSlash: false,
-    linkActiveClass: 'active-link'
-    // extendRoutes (routes, resolve) {
-    //   routes.push({
-    //     name: 'notfound',
-    //     path: '*',
-    //     component: resolve(__dirname, 'pages/404.vue')
-    //   })
-    // }
+    linkActiveClass: 'active-link',
+    extendRoutes (routes, resolve) {
+      routes.push({
+        name: '404',
+        path: '*',
+        component: resolve(__dirname, 'pages/404.vue')
+      })
+    }
   },
 
   loading: {
@@ -72,8 +72,8 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vuexPersist', mode: 'client' },
-    { src: '~/plugins/getPageContent' },
-    { src: '~/plugins/element-ui' }
+    { src: '~/plugins/vue-progressive-image', mode: 'client' },
+    { src: '~/plugins/getPageContent' }
   ],
 
   render: {
@@ -91,7 +91,7 @@ module.exports = {
   },
 
   build: {
-    // analyze: true,
+    analyze: true,
     extractCSS: false,
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {

@@ -1,5 +1,6 @@
 <template>
   <fragment>
+    <SubHeaderSample />
     <el-form ref="ruleForm" :loading="loading" status-icon label-width="120px">
       <el-form-item label="Login" prop="login">
         <el-input
@@ -30,11 +31,14 @@
 </template>
 
 <script>
-
+import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
   name: 'Login',
   layout: 'Default',
   middleware: 'guest',
+  components: {
+    SubHeaderSample
+  },
   data () {
     return {
       user: { email: 'test', password: 'test' },

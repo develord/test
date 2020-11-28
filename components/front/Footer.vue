@@ -2,8 +2,8 @@
   <footer class="footer-style-three">
     <div class="footer-top">
       <div class="pattern-layer">
-        <div class="pattern-1" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/shape/shape-60.png?lossy=1&amp;strip=1&amp;webp=1);" />
-        <div class="pattern-2 wow slideInDown" data-wow-delay="00ms" data-wow-duration="3500ms" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/shape/shape-61.png?lossy=1&amp;strip=1&amp;webp=1);" />
+        <div v-lazy:background-image="chap60" class="pattern-1" />
+        <div v-lazy:background-image="chap61" class="pattern-2 wow slideInDown" data-wow-delay="00ms" data-wow-duration="3500ms" />
       </div>
       <div class="auto-container">
         <div class="widget-section">
@@ -100,7 +100,15 @@
   </footer>
 </template>
 <script>
+import chap60 from '~/static/img/shape-60.png'
+import chap61 from '~/static/img/shape-61.png'
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data () {
+    return {
+      chap60,
+      chap61
+    }
+  }
 }
 </script>

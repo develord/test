@@ -6,6 +6,7 @@
 // ForbiddenError,
 // UserInputError
 // } = require('apollo-server-express')
+const Post = require('./../Post')
 const Category = require('.')
 /**
  * Category Queries
@@ -18,7 +19,14 @@ const Query = {
     const listCategory = Category.find()
     return listCategory
   },
-  category: (_, { _id }) => Category.findOne({ _id })
+  category: (_, { _id }) => Category.findOne({ _id }),
+  categoryElements: async (_, { link }) => {
+    const cat = await Category.findOne({ link })
+    if (cat) {
+      const posts = await Post.find({ 'category': cat._id }).populate(['user', 'status', 'image_large', 'image_small'])
+      return posts
+    }
+  }
 }
 
 /**
@@ -34,12 +42,13 @@ const Mutation = {
     const category = await new Category(postData).populate(['user', 'status', 'image_large', 'image_small'])
     return category.save()
   },
-  updateCategory: async (_, args) => {
-    const { _id } = args._id
-    const { name, desc } = args.data
+  // eslint-disable-next-line camelcase
+  updateCategory: async (_, { _id, title, name, description, componentName, h1, user, status, content, image_large, image_small, link }) => {
     /** Make more validation **/
-    const data = { name, desc }
-    const updated = await Category.updateOne(_id, data)
+    const data = { title, name, description, componentName, h1, user, status, content, image_large, image_small, link }
+    const updated = await Category.findOneAndUpdate({ _id }, data, {
+      new: true
+    })
     return updated.n
   },
   deleteCategory: async (_, args) => {

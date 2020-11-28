@@ -47,18 +47,15 @@ export default {
   },
   watch: {
     statuses (newVal) {
-      console.log(this.$store.state)
       this.listStatus = newVal
     }
   },
   beforeMount () {
     const categoryId = this.$route.query.category
     if (categoryId) {
-      const category = this.$store.getters['category/getCategory'](categoryId)
-      this.category = category
+      this.category = this.$store.getters['category/getCategory'](categoryId)
     }
   },
-
   methods: {
     slugify (text) {
       const from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;'
@@ -79,7 +76,20 @@ export default {
     },
     async save () {
       try {
-        await this.$store.dispatch('category/createCategory', this.category).then(async (res) => {
+        let mut
+        if (this.category._id) {
+          mut = 'updateCategory'
+        } else {
+          mut = 'createCategory'
+        }
+        // eslint-disable-next-line camelcase
+        const { status, image_large, image_small, ...y } = this.category
+        if (typeof this.category.status === 'object') { y.status = this.category.status._id } else { y.status = this.category.status }
+        if (typeof this.category.status === 'object') { y.status = this.category.status._id } else { y.status = this.category.status }
+        if (typeof this.category.image_small === 'object') { y.image_small = this.category.image_small._id } else { y.image_small = this.category.image_small }
+        if (typeof this.category.image_large === 'object') { y.image_large = this.category.image_large._id } else { y.image_small = this.category.image_large }
+        await this.$store.dispatch(`category/${mut}`, y).then(async (res) => {
+          this.$store.dispatch('category/getCategories')
           await this.$router.push({ name: 'ad-admin-category' })
           this.$notify({
             title: 'Success',

@@ -26,6 +26,7 @@
       "placeholder": "H1",
       "value": {
         "from": "h1",
+        "params": "category",
         "fn": "slugify"
       },
       "readonly": true
@@ -41,6 +42,23 @@
       },
       "require": true,
       "placeholder": "Category Post"
+    },
+    {
+      "name": "Type Component",
+      "label": "Type Component",
+      "model": "componentName",
+      "type": {
+        "select": {
+          "options": [
+            "news",
+            "category",
+            "research",
+            "other"
+          ]
+        }
+      },
+      "require": true,
+      "placeholder": "Category Status"
     },
     {
       "name": "Status Post",

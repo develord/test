@@ -44,7 +44,7 @@ export default {
         image_large: null,
         image_small: null,
         link: null,
-        user: '5f1067cf51c11630708dc644',
+        user: this.$store.state.auth._id,
         category: null,
         status: null
       },
@@ -60,10 +60,13 @@ export default {
       this.listStatus = newVal
     }
   },
-  beforeMount () {
+  async beforeMount () {
     const postId = this.$route.query.post
+    const post = await this.$store.getters.getPost(postId)
     if (postId) {
-      this.post = this.$store.getters.getPost(postId)
+      const { user, ...data } = post
+      data.user = this.post.user
+      this.post = data
     }
   },
   methods: {
@@ -84,8 +87,32 @@ export default {
     cancel () {
       this.$router.go(-1)
     },
-    save () {
-      //
+    async save () {
+      try {
+        let mut
+        if (this.post._id) {
+          mut = 'updatePost'
+        } else {
+          mut = 'addNewPost'
+        }
+        // eslint-disable-next-line camelcase
+        const { status, image_large, image_small, category, ...y } = this.post
+        if (typeof this.post.category === 'object') { y.category = this.post.category._id } else { y.category = this.post.category }
+        if (typeof this.post.status === 'object') { y.status = this.post.status._id } else { y.status = this.post.status }
+        if (typeof this.post.image_small === 'object') { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
+        if (typeof this.post.image_large === 'object') { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
+        await this.$store.dispatch(`${mut}`, y).then(async (res) => {
+          await this.$store.dispatch('getPosts')
+          await this.$router.push({ name: 'ad-admin-posts' })
+          this.$notify({
+            title: 'Success',
+            message: 'Adding New Page Group',
+            type: 'success'
+          })
+        })
+      } catch (error) {
+        console.log('error adding new page', error)
+      }
     }
   }
 }

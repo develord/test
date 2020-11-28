@@ -10,9 +10,23 @@
         "components": {
             "subHeader": "subHeaderSample",
             "centents": "cententsSample",
+            "listPage": "listPageFullWidth"
+        }
+    },
+    "news": {
+        "components": {
+            "subHeader": "subHeaderInfo",
+            "centents": "cententsSample",
             "raking": "rakingSample",
             "commentSample": "commentSample",
             "linkedPost": "linkedPostSample"
         }
+    },
+    "team": {
+        "components": {
+            "subHeader": "SubHeaderSample"
+        }
     }
+
+    
 }

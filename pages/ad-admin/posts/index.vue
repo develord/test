@@ -65,13 +65,8 @@
             </template>
             <template slot-scope="scope">
               <el-row>
-                <el-button
-                  size="mini"
-                  @click="prepareUpdate(scope.row)"
-                >
-                  Edit
-                </el-button>
-
+                <el-button type="success" icon="el-icon-view" circle @click="gotoLink(scope.row.link)" />
+                <el-button icon="el-icon-edit" circle @click="prepareUpdate(scope.row)" />
                 <el-popconfirm
                   confirm-button-text="OK"
                   cancel-button-text="No, Thanks"
@@ -80,13 +75,7 @@
                   title="Are you sure to delete this?"
                   @onConfirm="deletePost(scope.row)"
                 >
-                  <el-button
-                    slot="reference"
-                    size="mini"
-                    type="danger"
-                  >
-                    Delete
-                  </el-button>
+                  <el-button slot="reference" type="danger" icon="el-icon-delete" circle />
                 </el-popconfirm>
               </el-row>
             </template>
@@ -125,6 +114,7 @@ export default {
               nb: index,
               id: post._id,
               title: post.title,
+              link: './../' + post.link,
               description: post.description,
               category: post.category ? post.category.name : 'none',
               status: post.status ? post.status.name : 'none',
@@ -141,6 +131,9 @@ export default {
     this.$store.dispatch('getPosts')
   },
   methods: {
+    gotoLink (url) {
+      this.$router.push(url)
+    },
     goto (url) {
       this.$router.push({ name: url })
     },

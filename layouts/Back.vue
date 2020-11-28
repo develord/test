@@ -23,6 +23,7 @@ import SideBar from '~/components/SideBar.vue'
 import NavBar from '~/components/NavBar.vue'
 import 'element-ui/lib/theme-chalk/index.css'
 import '~/assets/css/main.scss'
+import elementUi from '~/plugins/element-ui'
 
 export default {
   name: 'Back',
@@ -57,6 +58,9 @@ export default {
     isDark (newVal) {
       this.$vuetify.theme.dark = newVal
     }
+  },
+  beforeCreate () {
+    elementUi()
   },
   methods: {
     handleSelect (key, keyPath) {

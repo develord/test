@@ -5,11 +5,14 @@
         {{ item.text }}
       </template>
       <template v-if="item.type === 'image'">
-        <lasy-image
+        <img
           :key="i"
-          :lazy-src="item.attrs.src"
-          :lazy-srcset="`${item.attrs.src} 2x`"
-        />
+          v-lazy="{ src: item.attrs.src, loading: item.attrs.src.replace('high','low') }"
+          :src="item.attrs.src.replace('high','low')"
+          :alt="item.attrs.alt"
+          :title="item.attrs.title"
+          class="is-lazy"
+        >
       </template>
     </template>
   </p>
@@ -19,7 +22,6 @@
 export default {
   name: 'Paragraph',
   components: {
-    'lasy-image': () => import('./LasyImage.vue')
   },
   props: {
     content: {
