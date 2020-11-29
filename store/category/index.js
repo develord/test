@@ -8,9 +8,14 @@ export const state = () => ({
 export const getters = {
   getCategory: state => (id) => {
     const category = state.listCategory.find(category => category._id === id)
+    if (category) {
+      return {
+        ...category,
+        content: JSON.parse(category.content)
+      }
+    }
     return {
-      ...category,
-      content: JSON.parse(category.content)
+      ...category
     }
   }
 }

@@ -2,16 +2,16 @@
 .page-leave-active,
 .layout-enter-active, 
 .layout-leave-active {
-    animation: coming .2s;
+   /* animation: coming .2s;
     animation-delay: .2s;
-    opacity: 0;
+    opacity: 0; */
 }
 
 .page-enter,
 .page-leave-active,
 .layout-enter, 
 .layout-leave-active {
-    animation: going 0.2s;
+  /*  animation: going 0.2s; */
 }
   @keyframes going {
     from {

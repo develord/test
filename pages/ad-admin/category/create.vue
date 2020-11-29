@@ -83,11 +83,12 @@ export default {
           mut = 'createCategory'
         }
         // eslint-disable-next-line camelcase
-        const { status, image_large, image_small, ...y } = this.category
+        const { status, image_large, image_small, user, ...y } = this.category
+        if (typeof this.category.user === 'object') { y.status = this.category.user._id } else { y.status = this.category.status }
         if (typeof this.category.status === 'object') { y.status = this.category.status._id } else { y.status = this.category.status }
         if (typeof this.category.status === 'object') { y.status = this.category.status._id } else { y.status = this.category.status }
         if (typeof this.category.image_small === 'object') { y.image_small = this.category.image_small._id } else { y.image_small = this.category.image_small }
-        if (typeof this.category.image_large === 'object') { y.image_large = this.category.image_large._id } else { y.image_small = this.category.image_large }
+        if (typeof this.category.image_large === 'object') { y.image_large = this.category.image_large._id } else { y.image_large = this.category.image_large }
         await this.$store.dispatch(`category/${mut}`, y).then(async (res) => {
           this.$store.dispatch('category/getCategories')
           await this.$router.push({ name: 'ad-admin-category' })

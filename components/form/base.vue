@@ -5,7 +5,7 @@
         <el-form-item v-for="f in formObject.fields" :key="f.model" :label="f.label">
           <modalImageSelector v-if="f.type === 'image'" :file.sync="formModel[f.model]" />
           <el-input v-else-if="f.value" v-model="formModel[f.model]" :readonly="f.readonly" :placeholder="f.placeholder" />
-          <el-select v-else-if="f.type.hasOwnProperty('select')" v-model="formModel[f.model]" remote :placeholder="f.placeholder">
+          <el-select v-else-if="f.type.hasOwnProperty('select')" v-model="formModel[f.model]" remote :placeholder="f.placeholder" @change="updateGen($event, f.model)">
             <template v-if="typeof f.type.select.options === 'object'">
               <el-option v-for="item in f.type.select.options" :key="item" :value="item" :label="item" />
             </template>
@@ -64,10 +64,17 @@ export default {
   methods: {
     updateGen (event, model) {
       for (const f in this.formObject.fields) {
-        if (this.formObject.fields[f].value && (this.formObject.fields[f].value.from === model)) {
+        if ((this.formObject.fields[f].value && (this.formObject.fields[f].value.from === model)) || (this.formObject.fields[f].value && (this.formObject.fields[f].value.params === model))) {
           let str = ''
           if (this.formObject.fields[f].value.params) {
-            str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].title) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+            if (this.formModel[this.formObject.fields[f].value.params] && this.formModel[this.formObject.fields[f].value.from]) {
+              if (typeof this.formModel[this.formObject.fields[f].value.params] === 'object') {
+                str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].h1) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+              } else {
+                const paramVal = this.data[this.formObject.fields[f].value.params].find(el => el._id === this.formModel[this.formObject.fields[f].value.params])
+                str = this.$parent[this.formObject.fields[f].value.fn](paramVal.name) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+              }
+            }
           } else {
             str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
           }

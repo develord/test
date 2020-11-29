@@ -5,7 +5,7 @@
       <FormBase
         :form-object="formObject"
         :form-model="post"
-        :data="{categories: listCategories, status: listStatus}"
+        :data="{category: listCategories, status: listStatus}"
         @cancelForm="cancel"
         @submitForm="save"
       />
@@ -62,8 +62,8 @@ export default {
   },
   async beforeMount () {
     const postId = this.$route.query.post
-    const post = await this.$store.getters.getPost(postId)
     if (postId) {
+      const post = await this.$store.getters.getPost(postId)
       const { user, ...data } = post
       data.user = this.post.user
       this.post = data
@@ -97,6 +97,7 @@ export default {
         }
         // eslint-disable-next-line camelcase
         const { status, image_large, image_small, category, ...y } = this.post
+        if (typeof this.post.user === 'object') { y.status = this.post.user._id } else { y.status = this.post.status }
         if (typeof this.post.category === 'object') { y.category = this.post.category._id } else { y.category = this.post.category }
         if (typeof this.post.status === 'object') { y.status = this.post.status._id } else { y.status = this.post.status }
         if (typeof this.post.image_small === 'object') { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }

@@ -48,50 +48,50 @@
         <div class="article-tags">
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-biology.png', loading: '/_nuxt/assets/images/tag-biology.png' }"
+              v-lazy="{ src: '/images/tag-biology.png', loading: '/images/tag-biology.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-biology.png'"
+              :src="'/images/tag-biology.png'"
             >
           </div>
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-genomis.png', loading: '/_nuxt/assets/images/tag-genomis.png' }"
+              v-lazy="{ src: '/images/tag-genomis.png', loading: '/images/tag-genomis.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-genomis.png'"
+              :src="'/images/tag-genomis.png'"
             >
           </div>
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-cancer.png', loading: '/_nuxt/assets/images/tag-cancer.png' }"
+              v-lazy="{ src: '/images/tag-cancer.png', loading: '/images/tag-cancer.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-cancer.png'"
+              :src="'/images/tag-cancer.png'"
             >
           </div>
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-fetus.png', loading: '/_nuxt/assets/images/tag-fetus.png' }"
+              v-lazy="{ src: '/images/tag-fetus.png', loading: '/images/tag-fetus.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-fetus.png'"
+              :src="'/images/tag-fetus.png'"
             >
           </div>
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-cell.png', loading: '/_nuxt/assets/images/tag-cell.png' }"
+              v-lazy="{ src: '/images/tag-cell.png', loading: '/images/tag-cell.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-cell.png'"
+              :src="'/images/tag-cell.png'"
             >
           </div>
           <div class="tag-avatar">
             <img
-              v-lazy="{ src: '/_nuxt/assets/images/tag-oncology.png', loading: '/_nuxt/assets/images/tag-oncology.png' }"
+              v-lazy="{ src: '/images/tag-oncology.png', loading: '/images/tag-oncology.png' }"
               class="is-lazy"
               width="50"
-              :src="'/_nuxt/assets/images/tag-oncology.png'"
+              :src="'/images/tag-oncology.png'"
             >
           </div>
         </div>
