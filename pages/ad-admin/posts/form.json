@@ -45,7 +45,7 @@
     },
     {
       "name": "Type Component",
-      "label": "Type Component",
+      "label": "TTemplate",
       "model": "componentName",
       "type": {
         "select": {

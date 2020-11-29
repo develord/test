@@ -51,7 +51,7 @@
     },
     {
       "name": "Type Component",
-      "label": "Type Component",
+      "label": "Template",
       "model": "componentName",
       "type": {
         "select": {

@@ -33,8 +33,8 @@ export const actions = {
   /** Get all Categories */
   async getCategories ({ commit }) {
     const response = await this.app.apolloProvider.defaultClient.query({
-      query: categories
-      // fetchPolicy: 'network-only'
+      query: categories,
+      fetchPolicy: 'network-only'
     })
     commit('SET_CATEGORIES', response.data.categories)
   },

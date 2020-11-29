@@ -76,7 +76,7 @@ export const actions = {
   async getCategoryElement (context, url) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: categoryElements,
-      // fetchPolicy: 'network-only',
+      fetchPolicy: 'network-only',
       variables: {
         link: url
       }
@@ -85,8 +85,8 @@ export const actions = {
   },
   async getPosts (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
-      query: posts
-      // fetchPolicy: 'network-only'
+      query: posts,
+      fetchPolicy: 'network-only'
     })
     context.commit('SET_POSTS', response.data.posts)
   },
@@ -109,7 +109,7 @@ export const actions = {
   async findPage (context, data) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: page,
-      // fetchPolicy: 'network-only',
+      fetchPolicy: 'network-only',
       variables: {
         link: data
       }
