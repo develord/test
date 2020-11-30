@@ -1319,6 +1319,7 @@
 	position: relative;
 	display: block;
 	overflow: hidden;
+	height: 180px;
 	border-radius: 5px;
 }
 
