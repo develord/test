@@ -92,7 +92,7 @@ module.exports = {
   },
 
   build: {
-    analyze: true,
+    analyze: false,
     extractCSS: false,
     extend (config, ctx) {
       if (ctx.dev && ctx.isClient) {
