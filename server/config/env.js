@@ -8,7 +8,7 @@ const path = config.dev
   ? '.env.local'
   : '.env'
 
-dotenv.config({ path })
+// dotenv.config({ path })
 
 module.exports = {
   config,
