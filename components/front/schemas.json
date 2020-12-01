@@ -13,6 +13,13 @@
             "listPage": "listPageFullWidth"
         }
     },
+    "publication": {
+        "components": {
+            "subHeader": "subHeaderSample",
+            "centents": "cententsSample",
+            "listPage": "listPageFullWidth"
+        }
+    },
     "news": {
         "components": {
             "subHeader": "subHeaderInfo",

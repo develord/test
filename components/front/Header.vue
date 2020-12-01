@@ -25,7 +25,7 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/news" title="news" class="hvr-underline-from-left1">
+                    <NuxtLink to="/publication" title="news" class="hvr-underline-from-left1">
                       Publications
                     </NuxtLink>
                   </li><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
@@ -34,13 +34,13 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
-                      Contact
+                    <NuxtLink to="/news" title="research" class="hvr-underline-from-left1">
+                      News
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/about" title="About" class="hvr-underline-from-left1">
-                      About
+                    <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
+                      Contact
                     </NuxtLink>
                   </li>
                 </ul>

@@ -13,7 +13,9 @@
           >
         </figure><h2>Page is not found</h2>
         <p>We're not being able to find the page you're looking for</p>
-        <a href="naxly.html" class="theme-btn style-one">Back To Home<span>+</span></a>
+        <NuxtLink to="/" title="home" class="theme-btn style-one">
+          Back To Home<span>+</span>
+        </NuxtLink>
       </div>
     </div>
   </fragment>

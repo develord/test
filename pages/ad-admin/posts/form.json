@@ -45,15 +45,14 @@
     },
     {
       "name": "Type Component",
-      "label": "TTemplate",
+      "label": "Template",
       "model": "componentName",
       "type": {
         "select": {
           "options": [
             "news",
             "category",
-            "research",
-            "other"
+            "research"
           ]
         }
       },
