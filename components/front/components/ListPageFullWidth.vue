@@ -32,7 +32,7 @@
         </div>
       </div>
 
-      <div class="auto-container dflex flex-wrap justify-content-start">
+      <div v-else class="auto-container d-flex flex-wrap justify-content-start">
         <div v-for="post in listPost" :key="post._id" class="owl-item cloned" style="width: 30%; margin-right: 30px;">
           <div class="news-block-one wow fadeInUp animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
             <div class="inner-box">

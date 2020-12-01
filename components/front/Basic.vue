@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <h1>Holder</h1>
-  </div>
+  <div />
 </template>
 <script>
 export default {
