@@ -69,7 +69,7 @@ export default {
           if (this.formObject.fields[f].value.params) {
             if (this.formModel[this.formObject.fields[f].value.params] && this.formModel[this.formObject.fields[f].value.from]) {
               if (typeof this.formModel[this.formObject.fields[f].value.params] === 'object') {
-                str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].h1) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+                str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].name) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
               } else {
                 const paramVal = this.data[this.formObject.fields[f].value.params].find(el => el._id === this.formModel[this.formObject.fields[f].value.params])
                 str = this.$parent[this.formObject.fields[f].value.fn](paramVal.name) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])

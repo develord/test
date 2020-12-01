@@ -5,6 +5,7 @@
         <editor-menu-bar v-slot="{ commands, isActive }" :editor="editor">
           <div class="menubar">
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.bold() }"
               @click="commands.bold"
@@ -13,6 +14,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.italic() }"
               @click="commands.italic"
@@ -21,6 +23,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.strike() }"
               @click="commands.strike"
@@ -29,6 +32,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.underline() }"
               @click="commands.underline"
@@ -37,6 +41,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.code() }"
               @click="commands.code"
@@ -45,6 +50,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.paragraph() }"
               @click="commands.paragraph"
@@ -53,6 +59,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.heading({ level: 2 }) }"
               @click="commands.heading({ level: 2 })"
@@ -61,6 +68,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.heading({ level: 3 }) }"
               @click="commands.heading({ level: 3 })"
@@ -69,6 +77,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.bullet_list() }"
               @click="commands.bullet_list"
@@ -77,6 +86,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.ordered_list() }"
               @click="commands.ordered_list"
@@ -85,6 +95,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.blockquote() }"
               @click="commands.blockquote"
@@ -93,6 +104,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               :class="{ 'is-active': isActive.code_block() }"
               @click="commands.code_block"
@@ -101,6 +113,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               @click="commands.horizontal_rule"
             >
@@ -108,6 +121,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               @click="commands.undo"
             >
@@ -115,6 +129,7 @@
             </button>
 
             <button
+              type="button"
               class="menubar__button"
               @click="commands.redo"
             >
@@ -123,6 +138,7 @@
 
             <modalImageSelector ref="ytmodal" mode="editor" @update:visible="visible = $event" @onConfirm="insertImage">
               <button
+                type="button"
                 class="menubar__button"
                 @click="modalImageSelector(commands.image)"
               >
@@ -131,6 +147,7 @@
             </modalImageSelector>
 
             <button
+              type="button"
               class="menubar__button"
               @click="commands.createTable({rowsCount: 3, colsCount: 3, withHeaderRow: false })"
             >
@@ -138,48 +155,56 @@
             </button>
             <span v-if="isActive.table()">
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.deleteTable"
               >
                 <b-icon icon="mdi-table-edit" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.addColumnBefore"
               >
                 <b-icon icon="mdi-table-column-plus-before" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.addColumnAfter"
               >
                 <b-icon icon="mdi-table-column-plus-after" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.deleteColumn"
               >
                 <b-icon icon="mdi-table-column-remove" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.addRowBefore"
               >
                 <b-icon icon="mdi-table-row-plus-before" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.addRowAfter"
               >
                 <b-icon icon="mdi-table-row-plus-after" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.deleteRow"
               >
                 <b-icon icon="mdi-table-row-remove" />
               </button>
               <button
+                type="button"
                 class="menubar__button"
                 @click="commands.toggleCellMerge"
               >
@@ -206,13 +231,14 @@
                 placeholder="https://"
                 @keydown.esc="hideLinkMenu"
               >
-              <button class="menububble__button" type="button" @click="setLinkUrl(commands.link, null)">
+              <button type="button" class="menububble__button" @click="setLinkUrl(commands.link, null)">
                 <b-icon icon="mdi-delete" />
               </button>
             </form>
 
             <template v-else>
               <button
+                type="button"
                 class="menububble__button"
                 :class="{ 'is-active': isActive.link() }"
                 @click="showLinkMenu(getMarkAttrs('link'))"

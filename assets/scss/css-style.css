@@ -1410,6 +1410,10 @@
 
 .news-block-one .inner-box .lower-content .title-box h4{
 	line-height: 28px;
+	display: block;
+    height: 85px;
+    overflow: hidden;
+
 }
 
 .news-block-one .inner-box .lower-content .text{
