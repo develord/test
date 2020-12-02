@@ -30,7 +30,7 @@ Vue.use(Router)
 
 export const routerOptions = {
   mode: 'history',
-  base: decodeURI('/'),
+  base: '/',
   linkActiveClass: 'active-link',
   linkExactActiveClass: 'nuxt-link-exact-active',
   scrollBehavior,
@@ -116,5 +116,16 @@ export const routerOptions = {
 }
 
 export function createRouter () {
-  return new Router(routerOptions)
+  const router = new Router(routerOptions)
+  const resolve = router.resolve.bind(router)
+
+  // encodeURI(decodeURI()) ~> support both encoded and non-encoded urls
+  router.resolve = (to, current, append) => {
+    if (typeof to === 'string') {
+      to = encodeURI(decodeURI(to))
+    }
+    return resolve(to, current, append)
+  }
+
+  return router
 }
