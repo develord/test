@@ -102,7 +102,7 @@ export default {
         if (typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
         if (typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
         if (typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
-        console.log(y)
+        // console.log(y)
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getPosts')
           await this.$router.push({ name: 'ad-admin-posts' })
@@ -113,7 +113,7 @@ export default {
           })
         })
       } catch (error) {
-        console.log('error adding new page', error)
+        // console.log('error adding new page', error)
       }
     }
   }

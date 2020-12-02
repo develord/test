@@ -6,8 +6,7 @@
     "chunkName": "pages/404",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_67bf92c6"
+    }
   },
   {
     "name": "about",
@@ -16,8 +15,7 @@
     "chunkName": "pages/about",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_48eadf32"
+    }
   },
   {
     "name": "ad-admin",
@@ -26,8 +24,7 @@
     "chunkName": "pages/ad-admin/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_1a40dbf2"
+    }
   },
   {
     "name": "auth",
@@ -36,8 +33,7 @@
     "chunkName": "pages/auth",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_a65f81da"
+    }
   },
   {
     "name": "contact",
@@ -46,8 +42,7 @@
     "chunkName": "pages/contact",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_87a6a1f6"
+    }
   },
   {
     "name": "team",
@@ -56,8 +51,7 @@
     "chunkName": "pages/team",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_18057d70"
+    }
   },
   {
     "name": "ad-admin-category",
@@ -66,8 +60,7 @@
     "chunkName": "pages/ad-admin/category/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_11334eb4"
+    }
   },
   {
     "name": "ad-admin-mailling",
@@ -76,8 +69,7 @@
     "chunkName": "pages/ad-admin/mailling/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_01cf73b6"
+    }
   },
   {
     "name": "ad-admin-overview",
@@ -86,8 +78,7 @@
     "chunkName": "pages/ad-admin/overview/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_5c399359"
+    }
   },
   {
     "name": "ad-admin-posts",
@@ -96,8 +87,7 @@
     "chunkName": "pages/ad-admin/posts/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_485df6af"
+    }
   },
   {
     "name": "ad-admin-users",
@@ -106,8 +96,7 @@
     "chunkName": "pages/ad-admin/users/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_3f043d4c"
+    }
   },
   {
     "name": "ad-admin-category-create",
@@ -116,8 +105,7 @@
     "chunkName": "pages/ad-admin/category/create",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_3cead28a"
+    }
   },
   {
     "name": "ad-admin-posts-create",
@@ -126,8 +114,7 @@
     "chunkName": "pages/ad-admin/posts/create",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_29d5ac22"
+    }
   },
   {
     "name": "index",
@@ -136,8 +123,7 @@
     "chunkName": "pages/index",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_68a2b9f7"
+    }
   },
   {
     "name": "slug-req",
@@ -146,7 +132,6 @@
     "chunkName": "pages/_slug/_req",
     "pathToRegexpOptions": {
       "strict": true
-    },
-    "_name": "_dfc95164"
+    }
   }
 ]

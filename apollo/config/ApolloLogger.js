@@ -7,7 +7,7 @@ const defaultLogger = ({ operation, response, graphQLErrors, networkError }) => 
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) =>
       // new Error(message)
-      console.log('Youssef')
+      //console.log('Youssef')
       // console.error(`[GraphQL Error] Message: "${message}", Locations: ${JSON.stringify(locations)}, Path: "${path}"`)
     )
   }
@@ -21,7 +21,7 @@ const loggerLink = (logger) => {
   return new ApolloLink((operation, forward) => {
     return new Observable((observer) => {
       let sub
-      console.log('LOGGERRR')
+      //console.log('LOGGERRR')
       try {
         sub = forward(operation).subscribe({
           next: (result) => {

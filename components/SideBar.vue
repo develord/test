@@ -25,11 +25,11 @@ export default {
   methods: {
     handleOpen (key, keyPath) {
       // eslint-disable-next-line no-console
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     },
     handleClose (key, keyPath) {
       // eslint-disable-next-line no-console
-      console.log(key, keyPath)
+      // console.log(key, keyPath)
     }
   }
 }

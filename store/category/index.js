@@ -62,7 +62,7 @@ export const actions = {
       commit('ADD_CATEGORY', response.data.createCategory)
       return response.data.createCategory
     } catch (error) {
-      console.log('EEEEEEEE', error)
+      // console.log('EEEEEEEE', error)
     }
   },
   async updateCategory (context, post) {

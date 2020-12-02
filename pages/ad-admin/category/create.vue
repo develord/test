@@ -100,7 +100,7 @@ export default {
           })
         })
       } catch (error) {
-        console.log('error adding new page', error)
+        // console.log('error adding new page', error)
       }
     }
   }
