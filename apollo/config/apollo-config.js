@@ -7,7 +7,7 @@ import ApolloLogger from './ApolloLogger'
 export default (ctx) => {
   const loggerLink = process.env.NODE_ENV !== 'production' ? [new ApolloLogger()] : []
   const httpLink = new HttpLink({
-    uri: process.env.BASE_URL_GQL
+    uri: '0.0.0.0:8080/graphql'
   })
 
   const authLink = setContext.call(ctx, (_, { headers, ...context }) => {

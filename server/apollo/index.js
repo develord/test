@@ -25,7 +25,7 @@ module.exports = new ApolloServer({
     // return new Error(err) // to delete after handel all error
   },
   context: async ({ req }) => {
-    const SECRET = process.env.SECRET
+    const SECRET = '$9283ueyduSJé1$2okklofo0APO39is8iIisd82sd-sq2dd$'
     let auth = null
 
     const token = req.headers.authorization

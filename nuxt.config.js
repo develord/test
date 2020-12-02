@@ -83,6 +83,10 @@ module.exports = {
       }
     }
   },
+  server: {
+    port: 8080, // default: 3000
+    host: '0.0.0.0' // default: localhost
+  },
 
   build: {
     analyze: false,
