@@ -5,8 +5,8 @@
       <div class="inner-box centred">
         <figure class="image-box">
           <img
-            v-lazy="{ src: '/static/images/error-1.png', loading: '/static/images/error-1.png' }"
-            :src="'/static/images/error-1.png'"
+            v-lazy="{ src: '/images/error-1.png', loading: '/images/error-1.png' }"
+            :src="'/images/error-1.png'"
             :alt="'404 not found'"
             :title="'404 not found'"
             class="is-lazy"

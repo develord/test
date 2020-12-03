@@ -1,5 +1,8 @@
 <template>
   <section class="page-title text-center style-two">
+    <div v-lazy:background-image="{src: '/images/'+image_small.high, loading: '/images/'+image_small.low}" class="image-couverture">
+      <div class="wallpaper-overlay" />
+    </div>
     <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
       <div class="content-box">
         <h1>{{ h1 }}</h1>
@@ -112,6 +115,20 @@ export default {
 }
 </script>
 <style scoped>
+.wallpaper-overlay {
+  background-image: radial-gradient(ellipse closest-side, rgba(15, 14, 22, 0.5), #110b44);
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.image-couverture {
+    z-index: 0;
+    width: 75%;
+    height: 439px;
+    position: absolute;
+    right: 0;
+    top: 46px;
+}
 .article-tags {
   display: flex;
   align-items: stretch;

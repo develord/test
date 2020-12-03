@@ -28,11 +28,6 @@
             "commentSample": "commentSample",
             "linkedPost": "linkedPostSample"
         }
-    },
-    "team": {
-        "components": {
-            "subHeader": "SubHeaderSample"
-        }
     }
 
     
