@@ -39,6 +39,36 @@ mutation {
 
 # Update Category #
 ```
+	mutation{createPost(
+    title: "ttgh ghjs dfy sd",
+    description: "vv",
+    h1: "ttgh ghjs dfy sd",
+    dateTag: "2029",
+    content:null,
+    image_large: "5fc56e0d0101bc2e94e9c0c2",
+    image_small: "5fc56e0d0101bc2e94e9c0c2",
+    link: "news/ttgh-ghjs-dfy-sd",
+    user: "5fadbe45dc53340198b2cbac",
+    category: "5fc6c61dc64380458091c11a",
+    status: "5fadac52dc53340198b2cba8",
+    componentName: "news"
+  ),
+	{
+    title
+    h1
+    title
+    componentName
+    dateTag
+    description
+    user {
+      _id
+    }
+    status {
+      _id
+    }
+    link
+  }
+}
 mutation {
   updateCategory(
     _id: "5e74da81d1883d569f733da2"

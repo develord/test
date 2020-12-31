@@ -162,15 +162,12 @@
 </template>
 <script>
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
-import page from '~/mixins/page.js'
-import cententsLoader from '~/mixins/cententsLoader.js'
 
 export default {
   layout: 'Default',
   components: {
     SubHeaderSample
   },
-  mixins: [page, cententsLoader],
   data () {
     return {
     }

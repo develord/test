@@ -1,5 +1,5 @@
-import { posts, images, page, categoryElements } from '@/apollo/query'
-import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '@/apollo/mutations'
+import { posts, images, page, categoryElements } from '~/apollo/query'
+import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '~/apollo/mutations'
 const _ = require('lodash')
 
 export const state = () => ({

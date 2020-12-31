@@ -23,7 +23,7 @@ const Query = {
   categoryElements: async (_, { link }) => {
     const cat = await Category.findOne({ link })
     if (cat) {
-      const posts = await Post.find({ 'category': cat._id }).populate(['user', 'status', 'image_large', 'image_small'])
+      const posts = await Post.find({ 'category': cat._id }).populate(['user', 'tags', 'status', 'image_large', 'image_small'])
       return posts
     }
   }

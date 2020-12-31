@@ -5,7 +5,7 @@
       <FormBase
         :form-object="formObject"
         :form-model="post"
-        :data="{category: listCategories, status: listStatus}"
+        :data="{category: listCategories, status: listStatus, tags: listTags}"
         @cancelForm="cancel"
         @submitForm="save"
       />
@@ -13,7 +13,7 @@
   </fragment>
 </template>
 <script>
-import { categories, statuses } from '@/apollo/query'
+import { categories, statuses, tags } from '@/apollo/query'
 import formObject from './form.json'
 import FormBase from '~/components/form/base'
 
@@ -30,6 +30,9 @@ export default {
     },
     statuses: {
       query: statuses
+    },
+    tags: {
+      query: tags
     }
   },
   data () {
@@ -40,6 +43,8 @@ export default {
         title: null,
         description: null,
         h1: null,
+        tags: null,
+        published: null,
         content: null,
         image_large: null,
         image_small: null,
@@ -49,6 +54,7 @@ export default {
         status: null
       },
       listStatus: [],
+      listTags: [],
       listCategories: []
     }
   },
@@ -58,6 +64,9 @@ export default {
     },
     statuses (newVal) {
       this.listStatus = newVal
+    },
+    tags (newVal) {
+      this.listTags = newVal
     }
   },
   async beforeMount () {
@@ -102,7 +111,6 @@ export default {
         if (typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
         if (typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
         if (typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
-        // console.log(y)
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getPosts')
           await this.$router.push({ name: 'ad-admin-posts' })
