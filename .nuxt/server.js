@@ -48,7 +48,7 @@ const createNext = ssrContext => (opts) => {
     opts.path = urlJoin(routerBase, opts.path)
   }
   // Avoid loop redirect
-  if (encodeURI(decodeURI(opts.path)) === ssrContext.url) {
+  if (opts.path === ssrContext.url) {
     ssrContext.redirected = false
     return
   }
@@ -119,8 +119,6 @@ export default async (ssrContext) => {
     app.context.error({ statusCode: 404, path: ssrContext.url, message: 'This page could not be found' })
     return renderErrorPage()
   }
-
-  const s = Date.now()
 
   // Components are already resolved by setContext -> getRouteData (app/utils.js)
   const Components = getMatchedComponents(router.match(ssrContext.url))
@@ -275,8 +273,6 @@ export default async (ssrContext) => {
 
     return Promise.all(promises)
   }))
-
-  if (process.env.DEBUG && asyncDatas.length) console.debug('Data fetching ' + ssrContext.url + ': ' + (Date.now() - s) + 'ms')
 
   // datas are the first row of each
   ssrContext.nuxt.data = asyncDatas.map(r => r[0] || {})
