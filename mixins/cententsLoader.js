@@ -11,7 +11,7 @@ export default {
   computed: {
     pageComponent() {
       if (this.page && this.page.componentName) {
-        return () => import(`~/components/front/${_.startCase(_.camelCase(this.page.componentName)).replace(/ /g, '')}.vue`)
+        return () => import(`~/components/front/${_.startCase(_.camelCase(this.page.componentName.replace('-',''))).replace(/ /g, '')}.vue`)
       } else {
         return () => import(`~/components/front/Basic`)
       }
@@ -21,7 +21,7 @@ export default {
     page:{
         immediate: true,
         handler(newVal) {
-            // set the head that head need
+          // set the head that head need
         }
     }
   },

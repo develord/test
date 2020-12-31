@@ -10,14 +10,33 @@
         "components": {
             "subHeader": "subHeaderSample",
             "centents": "cententsSample",
-            "listPage": "listPageFullWidth"
+            "listPage": "listPagesGrid"
         }
     },
     "publication": {
         "components": {
             "subHeader": "subHeaderSample",
             "centents": "cententsSample",
-            "listPage": "listPageFullWidth"
+            "listPage": "listPagesGrid"
+        }
+    },
+    "research-list": {
+        "components": {
+            "subHeader": "subHeaderSample",
+            "main": [
+                "cententsSample",
+                "listPageFullWidth"
+            ],
+            "rigthSide": [
+                "filterResearch"
+            ]
+        }
+    },
+    "research": {
+        "components": {
+            "subHeader": "SubHeaderInfoTags",
+            "centents": "cententsSample",
+            "linkedPost": "linkedPostSample"
         }
     },
     "news": {
@@ -29,6 +48,4 @@
             "linkedPost": "linkedPostSample"
         }
     }
-
-    
 }

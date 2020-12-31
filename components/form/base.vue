@@ -5,18 +5,34 @@
         <el-form-item v-for="f in formObject.fields" :key="f.model" :label="f.label">
           <modalImageSelector v-if="f.type === 'image'" :file.sync="formModel[f.model]" />
           <el-input v-else-if="f.value" v-model="formModel[f.model]" :readonly="f.readonly" :placeholder="f.placeholder" />
-          <el-select v-else-if="f.type.hasOwnProperty('select')" v-model="formModel[f.model]" remote :placeholder="f.placeholder" @change="updateGen($event, f.model)">
+          <el-select
+            v-else-if="f.type.hasOwnProperty('select')"
+            v-model="formModel[f.model]"
+            :multiple="f.multiple"
+            remote
+            :placeholder="f.placeholder"
+            @change="updateGen($event, f.model)"
+          >
             <template v-if="typeof f.type.select.options === 'object'">
               <el-option v-for="item in f.type.select.options" :key="item" :value="item" :label="item" />
             </template>
-            <template v-if="typeof f.type.select.options === 'string'">
+            <template v-if="typeof f.type.select.options === 'string' && !f.multiple">
               <el-option v-for="item in data[f.type.select.options]" :key="item._id" :value="item._id" :label="item.h1 || item.name" />
+            </template>
+            <template v-else-if="f.multiple">
+              <el-option v-for="(item, i) in data[f.type.select.options]" :key="i" :value="item._id" :label="item.name || item.h1" />
             </template>
           </el-select>
           <editor
             v-else-if="f.type === 'content'"
             ref="editor"
             :content.sync="formModel[f.model]"
+          />
+          <el-date-picker
+            v-else-if="f.type === 'date'"
+            v-model="formModel[f.model]"
+            type="year"
+            :placeholder="f.placeholder ? f.placeholder : 'Input Date'"
           />
           <el-input
             v-else
@@ -59,6 +75,20 @@ export default {
     data: {
       type: [Object, Array],
       default: () => []
+    }
+  },
+  data () {
+    return {
+      formAdapter: {}
+    }
+  },
+  watch: {
+    formModel: {
+      handler (newVal) {
+        Object.keys(newVal).forEach((et) => {
+          this.formAdapter[et] = Array.isArray(newVal[et]) ? newVal[et].map(el => el._id) : newVal[et]
+        })
+      }
     }
   },
   methods: {

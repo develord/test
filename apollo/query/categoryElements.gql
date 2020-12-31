@@ -3,6 +3,7 @@ query ($link: String!) {
         _id
         title
         description
+        tags {name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}
         link

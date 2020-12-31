@@ -58,10 +58,10 @@
     "webp-converter": "^2.3.1"
   },
   "devDependencies": {
-    "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/eslint-config": "^1.1.2",
     "@nuxtjs/pwa": "3.0.0-beta.8",
     "@nuxtjs/style-resources": "^1.0.0",
+    "dotenv": "^8.2.0",
     "babel-eslint": "^10.0.3",
     "babel-plugin-component": "^1.1.1",
     "eslint": "^6.6.0",

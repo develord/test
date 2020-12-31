@@ -56,10 +56,9 @@
       "type": {
         "select": {
           "options": [
-            "news",
             "category",
-            "research",
-            "other"
+            "research-list",
+            "news"
           ]
         }
       },

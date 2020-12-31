@@ -38,6 +38,18 @@ export default {
         return {}
       }
     },
+    published: {
+      type: [String],
+      default () {
+        return null
+      }
+    },
+    tags: {
+      type: Array,
+      default () {
+        return []
+      }
+    },
     link: {
       type: [String],
       default () {
@@ -69,12 +81,6 @@ export default {
       }
     },
     structuredData: {
-      type: Object,
-      default () {
-        return {}
-      }
-    },
-    tags: {
       type: Object,
       default () {
         return {}

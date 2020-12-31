@@ -5,7 +5,7 @@
       <FormBase
         :form-object="formObject"
         :form-model="post"
-        :data="{category: listCategories, status: listStatus}"
+        :data="{category: listCategories, status: listStatus, tags: listTags}"
         @cancelForm="cancel"
         @submitForm="save"
       />
@@ -13,7 +13,7 @@
   </fragment>
 </template>
 <script>
-import { categories, statuses } from '@/apollo/query'
+import { categories, statuses, tags } from '@/apollo/query'
 import formObject from './form.json'
 import FormBase from '~/components/form/base'
 
@@ -30,6 +30,9 @@ export default {
     },
     statuses: {
       query: statuses
+    },
+    tags: {
+      query: tags
     }
   },
   data () {
@@ -40,7 +43,8 @@ export default {
         title: null,
         description: null,
         h1: null,
-        dateTag: null,
+        tags: null,
+        published: null,
         content: null,
         image_large: null,
         image_small: null,
@@ -50,6 +54,7 @@ export default {
         status: null
       },
       listStatus: [],
+      listTags: [],
       listCategories: []
     }
   },
@@ -59,6 +64,9 @@ export default {
     },
     statuses (newVal) {
       this.listStatus = newVal
+    },
+    tags (newVal) {
+      this.listTags = newVal
     }
   },
   async beforeMount () {

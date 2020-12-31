@@ -5,6 +5,8 @@
         description
         h1
         content
+        published
+        tags {_id, name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}
         link

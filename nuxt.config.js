@@ -43,7 +43,6 @@ module.exports = {
 
   buildModules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
     'nuxt-compress',
     '@nuxtjs/style-resources'
