@@ -32,6 +32,14 @@
       "readonly": true
     },
     {
+      "name": "published",
+      "label": "published",
+      "model": "published",
+      "type": "date",
+      "require": true,
+      "placeholder": "published"
+    },
+    {
       "name": "Post Category",
       "label": "Post Category",
       "model": "category",
@@ -58,6 +66,19 @@
       },
       "require": true,
       "placeholder": "Category Status"
+    },
+    {
+      "name": "Tags Post",
+      "label": "Tags Post",
+      "model": "tags",
+      "type": {
+        "select": {
+          "options": "tags"
+        }
+      },
+      "multiple": true,
+      "require": true,
+      "placeholder": "Post Tags"
     },
     {
       "name": "Status Post",

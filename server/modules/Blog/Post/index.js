@@ -9,6 +9,10 @@ const postSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  published: {
+    type: String,
+    default: null
+  },
   h1: {
     type: String,
     default: null
@@ -27,6 +31,13 @@ const postSchema = new mongoose.Schema({
     ref: 'Image',
     default: null
   },
+  tags: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Tag',
+      default: null
+    }
+  ],
   link: {
     type: String,
     default: null

@@ -44,8 +44,18 @@
             <div class="date-prefix">
               Published
             </div>
-            <time datetime="">
-              {{ created_at.substring(0, 10) }} </time>
+            <time v-if="published">
+              {{ published.substring(0,4) }} </time>
+          </div>
+        </div>
+        <div class="article-tags">
+          <div v-for="(tag, i) in tags" :key="i" class="tag-avatar">
+            <img
+              v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
+              class="is-lazy"
+              width="50"
+              :src="'/images/' + tag.slug"
+            >
           </div>
         </div>
       <!-- ending -->

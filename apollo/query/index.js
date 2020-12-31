@@ -4,5 +4,6 @@ const statuses = require('./statuses.gql')
 const images = require('./images.gql')
 const page = require('./page.gql')
 const categoryElements = require('./categoryElements.gql')
+const tags = require('./tags.gql')
 
-module.exports = { categories, posts, statuses, images, page, categoryElements }
+module.exports = { categories, posts, statuses, images, page, categoryElements, tags }

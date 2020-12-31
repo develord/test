@@ -3,9 +3,11 @@ module.exports = {
     type Post {
       _id: ID!
       title: String!
+      published: String
       description: String
       h1: String
-      componentName: String,
+      tags: [Tag]
+      componentName: String
       content: String
       image_large: Image
       image_small: Image
@@ -24,6 +26,8 @@ module.exports = {
       h1: String
       componentName: String
       content: String
+      published: String
+      tags: [Tag]
       image_large: Image
       image_small: Image
       link: String
@@ -55,8 +59,10 @@ module.exports = {
   mutation: `
     createPost(
       title: String!
+      published: String
       description: String
       h1: String
+      tags: [String]
       content: String
       componentName: String
       image_large: String
@@ -68,8 +74,10 @@ module.exports = {
     ): Post
     updatePost(
       _id: String!
+      published: String
       title: String!
       description: String
+      tags: [String]
       componentName: String
       h1: String
       content: String

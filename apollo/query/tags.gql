@@ -1,0 +1,7 @@
+{
+    tags {
+	  _id
+      name
+      slug
+    }
+}

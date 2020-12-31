@@ -43,7 +43,6 @@ module.exports = {
 
   buildModules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/dotenv',
     '@nuxtjs/apollo',
     'nuxt-compress',
     '@nuxtjs/style-resources'
@@ -83,11 +82,15 @@ module.exports = {
       }
     }
   },
-
   build: {
     analyze: false,
     extractCSS: false,
     extend (config, ctx) {
+      const isProd = process.env.NODE_ENV === 'production'
+      if (isProd && ctx.isClient) {
+        config.optimization.splitChunks.maxSize = 149856 // 244 Kib
+        config.optimization.splitChunks.maxAsyncRequests = 30
+      }
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',

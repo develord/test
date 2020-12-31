@@ -2,6 +2,7 @@
 module.exports = [
   'Blog/Category',
   'Blog/Status',
+  'Blog/Tag',
   'Blog/Post',
   'Blog/Image',
   'Access/User',
