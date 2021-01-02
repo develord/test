@@ -28,7 +28,7 @@ module.exports = {
     user(_id: String!): User
   `,
   mutation: `
-    createUser(name: String!, email: String!, password: String!,image: String, roleId: String!): User
+    createUser(name: String!, email: String!, password: String!,image: String, role: String!): User
     updateUser(_id: String!, data: UpdateUserData): Int
     deleteUser(_id: String!): Int
   `
