@@ -25,7 +25,7 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/publication" title="news" class="hvr-underline-from-left1">
+                    <NuxtLink to="/publications" title="news" class="hvr-underline-from-left1">
                       Publications
                     </NuxtLink>
                   </li><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
