@@ -32,6 +32,9 @@ export default (ctx) => {
   })
 
   return {
+    httpEndpoint: 'http://localhost:3000',
+    // override HTTP endpoint in browser only
+    browserHttpEndpoint: '/graphql',
     link: ApolloLink.from([
       ...loggerLink,
       authLink,

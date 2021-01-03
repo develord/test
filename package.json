@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "@mdi/js": "^5.5.55",
-    "@nuxtjs/apollo": "^4.0.0-rc19",
+    "@nuxtjs/apollo": "^4.0.1-rc5",
     "@nuxtjs/auth": "^4.9.0",
     "apollo-server-express": "^2.11.0",
     "bcrypt": "^5.0.0",
