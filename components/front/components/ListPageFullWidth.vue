@@ -61,7 +61,7 @@
                 >
               </div>
             </div>
-            <NuxtLink class="article-save" :to="post.link">
+            <NuxtLink class="artice-save" :to="post.link">
               Read More
             </NuxtLink>
           </div>
@@ -98,6 +98,14 @@ export default {
  display: flex;
  flex-wrap: wrap;
  align-items: center;
+}
+.artice-save {
+  position: absolute;
+  color: #3b2042;
+  right: 55px;
+  bottom: 10%;
+  padding: 10px 20px;
+  border: 1px solid #fff;
 }
 .tag-avatar{
   width: 60px;

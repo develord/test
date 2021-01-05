@@ -4,13 +4,11 @@
       <h3>Categories</h3>
     </div><ul>
       <li class="cat-item cat-item-27">
-        <a href="blog-masonry.html">Blog Masonry</a> (2)
+        <a href="blog-masonry.html">2020</a>
       </li><li class="cat-item cat-item-7">
-        <a href="latest-news.html">Latest News</a> (10)
+        <a href="latest-news.html">tag cell</a>
       </li><li class="cat-item cat-item-1">
-        <a href="our-blog.html">Our Blog</a> (7)
-      </li><li class="cat-item cat-item-50">
-        <a href="%d9%87%d9%86%d8%af%d8%b3%d8%a9-%d8%a7%d9%84%d8%a8%d9%8a%d8%a7%d9%86%d8%a7%d8%aa.html">هندسة البيانات</a> (3)
+        <a href="our-blog.html">tag biology</a>
       </li>
     </ul>
   </div>

@@ -15,7 +15,7 @@ import {_} from 'lodash'
 import page from '~/mixins/page.js'
 
 export default {
-  name: 'Reseach',
+  name: 'Publications',
   mixins: [page],
   computed: {
     componentsDef() {

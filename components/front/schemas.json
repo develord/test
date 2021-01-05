@@ -32,7 +32,7 @@
             ]
         }
     },
-    "research": {
+    "publications": {
         "components": {
             "subHeader": "SubHeaderInfoTags",
             "centents": "cententsSample",

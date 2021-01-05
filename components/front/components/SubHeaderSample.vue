@@ -2,11 +2,8 @@
   <section class="page-title text-center style-two">
     <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
       <div class="content-box">
-        <h1 v-if="h1">
-          {{ h1 }}
-        </h1>
-        <h1 v-else>
-          {{ $route.fullPath.replace('/','').charAt(0).toUpperCase() +$route.fullPath.slice(2) }}
+        <h1>
+          {{ h1 || $route.fullPath.replace('/','').charAt(0).toUpperCase() +$route.fullPath.slice(2) }}
         </h1>
       </div>
     </div>
@@ -15,11 +12,7 @@
 <script>
 import page from '~/mixins/page.js'
 export default {
-  mixins: [page],
-  data () {
-    return {
-    }
-  }
+  mixins: [page]
 }
 </script>
 <style scoped>

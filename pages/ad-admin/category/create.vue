@@ -52,6 +52,7 @@ export default {
   },
   beforeMount () {
     const categoryId = this.$route.query.category
+    this.$store.dispatch('getImages')
     if (categoryId) {
       this.category = this.$store.getters['category/getCategory'](categoryId)
     }
