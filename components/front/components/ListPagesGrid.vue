@@ -91,7 +91,7 @@ export default {
     }
   },
   async beforeMount () {
-    const url = this.$route.fullPath.replace('/', '')
+    const url = this.$route.path.replace('/', '')
     this.listPost = await this.$store.dispatch('getCategoryElement', url)
     this.loading = false
   }

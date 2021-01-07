@@ -4,7 +4,7 @@
       <div class="upper-box">
         <div class="auto-container">
           <div class="row clearfix">
-            <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+            <div class="col-lg-11 col-md-12 col-sm-12 content-side">
               <div class="project-details-content">
                 <template v-for="(item, i) in contents">
                   <component

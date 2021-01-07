@@ -6,6 +6,7 @@ export const state = () => ({
   dark: true,
   snackbar: null,
   listePost: [],
+  listPublication: [],
   images: []
 })
 
@@ -27,6 +28,9 @@ export const mutations = {
   },
   SET_IMAGES (state, data) {
     state.images = data
+  },
+  SET_PUBLICATION (state, data) {
+    state.listPublication = data
   }
   // SET_CATEGORY (state, data) {
   //   state.listeCategory = data
@@ -81,6 +85,7 @@ export const actions = {
         link: url
       }
     })
+    context.commit('SET_PUBLICATION', response.data.categoryElements)
     return response.data.categoryElements
   },
   async getPosts (context) {

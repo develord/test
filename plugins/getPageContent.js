@@ -1,7 +1,7 @@
 
 export default ({ app }, inject) => {
   inject('getPageContent', async (settings, { params, route, app, error, store, payload, $payloadURL, redirect }) => {
-    const res = await store.dispatch('findPage', route.fullPath)
+    const res = await store.dispatch('findPage', route.path)
     // if (res.data.page && res.data.page.componentName) {
     // const component = res.data?.page?.componentName do not work for older node version
     if (res && res.data && res.data.page && res.data.page.componentName) {

@@ -1,24 +1,46 @@
 <template>
-  <div class="widget sidebar-widget widget_categories">
+  <div class="widget sidebar-widget">
     <div class="widget-title">
       <h3>Categories</h3>
     </div><ul>
-      <li class="cat-item cat-item-27">
-        <a href="blog-masonry.html">2020</a>
-      </li><li class="cat-item cat-item-7">
-        <a href="latest-news.html">tag cell</a>
-      </li><li class="cat-item cat-item-1">
-        <a href="our-blog.html">tag biology</a>
+      <li v-for="item in listTag" :key="item.name" class="cat-item cat-item-27">
+        <a :href="'#'+item">{{ item }}</a>
+      </li>
+      <li v-for="item in listDate" :key="item.name" class="cat-item cat-item-27">
+        <a :href="'#'+item">{{ item }}</a>
       </li>
     </ul>
   </div>
-  </divclass="widget>
 </template>
 <script>
 export default {
+  data () {
+    return {
+      listTag: [],
+      listDate: []
+    }
+  },
+  computed: {
+    listPublication () {
+      return this.$store.state.listPublication.map(el => ({ tags: el.tags, published: el.published })).flat()
+    }
+  },
+  watch: {
+    listPublication: {
+      immediate: true,
+      handler (newVal) {
+        this.listTag = [...new Set(newVal.map(el => el.tags).flat().map(el => el.name))]
+        this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el.substring(0, 4)))]
+      }
+    }
+  }
 }
 </script>
+
 <style>
+ul {
+  margin-top: 12px;
+}
 .widget ul li {
     position: relative;
     display: block;
@@ -37,9 +59,12 @@ export default {
     top: 10px;
     transition: all 500ms ease;
 }
-.sidebar .sidebar-widget {
+.sidebar-widget {
     position: relative;
     margin-bottom: 55px;
+    border: solid 1px #dcdcdccc;
+    padding: 43px;
+    margin-top: 28px;
 }
 .sidebar .widget-title h3 {
     font-weight: 600;

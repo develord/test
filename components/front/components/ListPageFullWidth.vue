@@ -81,13 +81,29 @@ export default {
   mixins: [page],
   data () {
     return {
-      listPost: null,
-      loading: true
+      loading: true,
+      listPost: []
     }
   },
-  async beforeMount () {
-    const url = this.$route.fullPath.replace('/', '')
-    this.listPost = await this.$store.dispatch('getCategoryElement', url)
+  computed: {
+    listPublication () {
+      return this.$store.state.listPublication
+    }
+  },
+  watch: {
+    '$route.hash': {
+      immediate: true,
+      handler (newVal) {
+        this.listPost = this.listPublication
+      }
+    },
+    listPublication (newval) {
+      this.listPost = this.listPublication
+    }
+  },
+  beforeMount () {
+    const url = this.$route.path.replace('/', '')
+    this.$store.dispatch('getCategoryElement', url)
     this.loading = false
   }
 }

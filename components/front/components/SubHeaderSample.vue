@@ -3,7 +3,7 @@
     <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
       <div class="content-box">
         <h1>
-          {{ h1 || $route.fullPath.replace('/','').charAt(0).toUpperCase() +$route.fullPath.slice(2) }}
+          {{ h1 || $route.path.replace('/','').charAt(0).toUpperCase() +$route.path.slice(2) }}
         </h1>
       </div>
     </div>
