@@ -17,7 +17,7 @@
           <input
             type="file"
             required
-            @change.prevent="uploadFile"
+            @change="uploadFile"
           >
         </el-col>
         <el-col :span="8">
@@ -45,17 +45,14 @@
       <el-row :gutter="5">
         <el-col v-for="img in imagesList" :key="img._id" :span="6">
           <div :class="imageSelected._id === img._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
-            <el-image
-              :src="getImage(img.high)"
-              fit="cover"
+            <img
+              v-lazy="{ src: '../../images/' + img.high, loading: '../../images/' + img.high.replace('high','low') }"
+              :src=" '../../images/' + img.high.replace('high','low')"
               style="width: 250px;height: 250px;"
-              lazy
+              class="is-lazy"
               @click="selectImage(img)"
             >
-              <div slot="error" class="image-slot">
-                <b-icon icon="mdi-link" />
-              </div>
-            </el-image>
+            <div slot="error" class="image-slot" />
           </div>
         </el-col>
       </el-row>
@@ -129,9 +126,9 @@ export default {
     this.$store.dispatch('getImages')
   },
   methods: {
-    insertImage () {
+    async insertImage () {
       if (this.mode === 'form') {
-        this.url = this.getImage(this.imageSelected.high)
+        this.url = await this.getImage(this.imageSelected.high)
         this.$emit('update:file', this.imageSelected._id)
       } else {
         const imageData = {
@@ -168,7 +165,7 @@ export default {
       }
     },
     // async
-    uploadFile (e) {
+    async uploadFile (e) {
       this.loading = true
       const file = e.srcElement.files[0]
       // await
@@ -179,13 +176,9 @@ export default {
         writable: true,
         value: str + fileExtension
       })
-
-      this.$store.dispatch('uploadFile', file).then((res) => {
-        setTimeout(() => {
-          this.$store.dispatch('getImages')
-          this.loading = false
-        }, 2000)
-      })
+      await this.$store.dispatch('uploadFile', file)
+      await this.$store.dispatch('getImages')
+      this.loading = false
     },
     selectImage (img) {
       this.imageSelected._id = img._id
@@ -227,9 +220,10 @@ export default {
     content: '✅';
     position: absolute;
     color: #50af2b;
-    margin-left: -28px;
-    margin-top: 5px;
+    margin-left: 8px;
+    margin-top: 13px;
     font-size: 20px;
     border-radius: 3px;
+    top: 0;
 }
 </style>

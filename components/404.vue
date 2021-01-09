@@ -3,10 +3,11 @@
     <SubHeaderSample />
     <div class="auto-container">
       <div class="inner-box centred">
+        <br>
         <figure class="image-box">
           <img
-            v-lazy="{ src: '/images/error-1.png', loading: '/images/error-1.png' }"
-            :src="'/images/error-1.png'"
+            v-lazy="{ src: '/images/error-404.PNG', loading: '/images/error-404.PNG' }"
+            :src="'/images/error-404.PNG'"
             :alt="'404 not found'"
             :title="'404 not found'"
             class="is-lazy"
@@ -16,6 +17,7 @@
         <NuxtLink to="/" title="home" class="theme-btn style-one">
           Back To Home<span>+</span>
         </NuxtLink>
+        <br><br>
       </div>
     </div>
   </fragment>
