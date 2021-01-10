@@ -1,5 +1,8 @@
 <template>
   <section class="page-title text-center style-two">
+    <div v-if="image_large.high" v-lazy:background-image="{src: '/images/'+image_large.high, loading: '/images/'+image_large.low}" class="image-couverture">
+      <div class="wallpaper-overlay" />
+    </div>
     <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
       <div class="content-box">
         <h1>

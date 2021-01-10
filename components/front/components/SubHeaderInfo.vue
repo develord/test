@@ -1,6 +1,6 @@
 <template>
   <section class="page-title text-center style-two">
-    <div v-lazy:background-image="{src: '/images/'+image_small.high, loading: '/images/'+image_small.low}" class="image-couverture">
+    <div v-lazy:background-image="{src: '/images/'+image_large.high, loading: '/images/'+image_large.low}" class="image-couverture">
       <div class="wallpaper-overlay" />
     </div>
     <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">

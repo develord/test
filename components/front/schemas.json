@@ -47,5 +47,16 @@
             "commentSample": "commentSample",
             "linkedPost": "linkedPostSample"
         }
+    },
+    "research": {
+        "components": {
+            "subHeader": "SubHeaderResearch",
+            "main": [
+                "cententsSample"
+            ],
+            "rigthSide": [
+                "imageResearch"
+            ]
+        }
     }
 }

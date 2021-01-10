@@ -60,7 +60,8 @@
           "options": [
             "news",
             "category",
-            "publications"
+            "publications",
+            "research"
           ]
         }
       },

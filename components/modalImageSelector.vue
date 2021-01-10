@@ -66,9 +66,6 @@
 <script>
 export default {
   name: 'ModalImageSelector',
-  components: {
-    BIcon: () => import('./vue-mdijs.vue')
-  },
   props: {
     file: {
       type: [String, Object],
@@ -224,6 +221,6 @@ export default {
     margin-top: 13px;
     font-size: 20px;
     border-radius: 3px;
-    top: 0;
+    margin: -244px 50px 30px 0;
 }
 </style>

@@ -3,7 +3,7 @@
     <div class="boxed_wrapper">
       <Header />
       <!-- router Component -->
-      <nuxt />
+      <nuxt style="background: #fff;" />
       <Footer />
     </div>
   </div>
@@ -28,7 +28,6 @@ export default {
 @import '~/assets/scss/css-styles.css';
 @import '~/assets/scss/css-header.css';
 </style>
-
 <style lang="scss" scoped>
   $animation-speed-default: 0.25s !default;
   img[lazy=loading] {

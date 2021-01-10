@@ -18,6 +18,9 @@ export default {
     }
   },
   watch: {
+    '$route' () {
+      this.page = null
+    },
     page:{
         immediate: true,
         handler(newVal) {

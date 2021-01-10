@@ -33,42 +33,37 @@
       </div>
 
       <div v-else class="auto-container d-flex flex-wrap justify-content-start">
-        <div v-for="post in listPost" :key="post._id" class="owl-item cloned" style="width: 30%; margin-right: 30px;">
-          <div class="news-block-one wow fadeInUp animated" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-            <div class="inner-box">
-              <figure class="image-box">
-                <img
-                  v-lazy="{ src: '/images/' + post.image_small.high, loading: '/images/' + post.image_small.low}"
-                  width="370"
-                  height="250"
-                  class="is-lazy"
-                  :alt="post.title"
-                  :title="post.title"
-                  :src="'/images/' + post.image_small.low"
-                >
-              </figure>
-              <div class="lower-content">
-                <div class="title-box">
-                  <div class="post-date">
-                    <p>13</p>
-                    <span>Mar</span>
-                  </div>
-                  <h4>
-                    <NuxtLink class="btn-style-four" :to="post.link">
-                      {{ post.title }}
-                    </NuxtLink>
-                  </h4>
-                </div>
-                <div class="text">
-                  <p>{{ post.description }}</p>
-                </div>
-                <div class="link">
-                  <NuxtLink class="btn-style-four" :to="post.link">
-                    Read More
-                  </NuxtLink>
-                </div>
-              </div>
-            </div>
+        <div v-for="post in listPost" :key="post._id" class="first hero">
+          <img
+            v-lazy="{ src: '/images/' + post.image_large.high, loading: '/images/' + post.image_large.low}"
+            class="is-lazy hero-profile-img"
+            :alt="post.title"
+            :title="post.title"
+            :src="'/images/' + post.image_large.low"
+          >
+          <div class="hero-description-bk" />
+          <div class="hero-logo">
+            <img
+              v-lazy="{ src: '/images/' + post.image_small.high, loading: '/images/' + post.image_small.low}"
+              class="is-lazy"
+              :alt="post.title"
+              :title="post.title"
+              style="background:black"
+              :src="'/images/' + post.image_small.low"
+            >
+          </div>
+          <div class="hero-description">
+            <h5>
+              {{ post.title }}
+            </h5>
+          </div>
+          <div class="hero-date">
+            <p>20.02.2019</p>
+          </div>
+          <div class="hero-btn">
+            <NuxtLink class="btn-style-four" :to="post.link">
+              Read More
+            </NuxtLink>
           </div>
         </div>
       </div>
@@ -98,5 +93,104 @@ export default {
 }
 </script>
 <style scoped>
+/* BEGIN CARD DESIGN */
+h5 {
+  color: #eee;
+}
+.hero-date p {
+  color: #eee;
+}
+.hero {
+  display: inline-block;
+  position: relative;
+  width: 280px;
+  min-width: 28%;
+  height: 400px;
+  border-radius: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  margin: 30px;
+}
 
+.hero-profile-img {
+  height: 70%;
+}
+
+.hero-description-bk {
+  background-image: linear-gradient(0deg , #3f5efb, #fc466b);
+  border-radius: 30px;
+  position: absolute;
+  top: 55%;
+  left: -5px;
+  height: 65%;
+  width: 108%;
+  transform: skew(19deg, -9deg);
+}
+
+.second .hero-description-bk {
+  background-image: linear-gradient(-20deg , #bb7413, #e7d25c)
+}
+
+.hero-logo {
+  height: 222px;
+  width: 85px;
+  border-radius: 20px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 30%;
+  left: 30px;
+  overflow:hidden;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.7);
+}
+
+.hero-logo img {
+  height: 100%;
+}
+
+.hero-description {
+  position: absolute;
+  color: #fff;
+  font-weight: 900;
+  left: 150px;
+  bottom: 26%;
+}
+
+.hero-btn {
+  position: absolute;
+  color: #fff;
+  right: 30px;
+  bottom: 10%;
+  padding: 10px 20px;
+  border: 1px solid #fff;
+}
+
+.hero-btn a {
+  color: #fff;
+}
+
+.hero-date {
+  position: absolute;
+  color: #fff;
+  left: 30px;
+  bottom: 10%;
+}
+/* END CARD DESIGN */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background-color: #eee;
+  min-height: 100vh;
+}
+.btn i:before {
+  width: 14px;
+  height: 14px;
+  position: fixed;
+  color: #fff;
+  background: #0077B5;
+  padding: 10px;
+  border-radius: 50%;
+  top:5px;
+  right:5px;
+}
 </style>

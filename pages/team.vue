@@ -17,141 +17,49 @@
                   We only work with professionals committed  to our values and those of our clients.
                 </p>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-12 team-block">
+              <div v-for="(item, i) in teams" :key="i" class="col-lg-3 col-md-6 col-sm-12 team-block">
                 <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                   <div class="inner-box">
                     <div class="image-box">
                       <img
-                        v-lazy="{ src: '/images/ankur.png', loading: '/images/ankur.png' }"
+                        v-lazy="{ src: item.img, loading: item.img }"
                         width="140"
                         height="140"
                         alt="ankur"
-                        class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image is-lazy"
-                        :src="'/images/ankur.png'"
+                        class="wp-post-image is-lazy"
+                        :src="item.img"
+                        @click="descption = i"
                       >
                       <ul class="contact-box clearfix">
                         <li class="email">
-                          <a href="mailto:http://info@example.com"> <i class="flaticon-gmail" /> <span>info@example.com</span> </a>
+                          <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
                         </li>
-                        <li class="social-links">
-                          <a href="javascript:void(0)" class="share"><i class="flaticon-share-1" /></a>
+                        <li v-if="item.linkedin || item.researchgate||item.github" class="social-links">
+                          <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
                           <ul class="list clearfix">
-                            <li><a href="https://www.facebook.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-facebook" /></a></li>
-                            <li><a href="https://www.skype.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-skype" /></a></li>
-                            <li><a href="https://www.twitter.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-twitter" /></a></li>
+                            <li v-if="item.linkedin">
+                              <a :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
+                            </li>
+                            <li v-if="item.researchgate">
+                              <a :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
+                            </li>
+                            <li v-if="item.github">
+                              <a :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
+                            </li>
                           </ul>
                         </li>
                       </ul>
                     </div>
                     <div class="lower-content">
-                      <h4><a href="meet-our-team.html">ankur</a></h4>
-                      <span class="designation">Director</span>
+                      <h4>{{ item.name }}</h4>
+                      <span class="designation">{{ item.title }}</span>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                  <div class="inner-box">
-                    <div class="image-box">
-                      <img
-                        v-lazy="{ src: '/images/ahmed.jpeg', loading: '/images/ahmed.jpeg' }"
-                        width="140"
-                        height="140"
-                        alt="ankur"
-                        class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image is-lazy"
-                        :src="'/images/ahmed.jpeg'"
-                      >
-                      <ul class="contact-box clearfix">
-                        <li class="email">
-                          <a href="mailto:http://info@example.com"> <i class="flaticon-gmail" /> <span>info@example.com</span> </a>
-                        </li>
-                        <li class="social-links">
-                          <a href="javascript:void(0)" class="share"><i class="flaticon-share-1" /></a>
-                          <ul class="list clearfix">
-                            <li><a href="https://www.facebook.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-facebook" /></a></li>
-                            <li><a href="https://www.skype.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-skype" /></a></li>
-                            <li><a href="https://www.twitter.com/" style="background-color:rgb(255, 255, 255); color: rgb(249,+50,+110)"><i class="fab fa-twitter" /></a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="lower-content">
-                      <h4><a href="meet-our-team.html">Ahmed</a></h4>
-                      <span class="designation">Collaborator</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                  <div class="inner-box">
-                    <div class="image-box">
-                      <img
-                        width="140"
-                        height="140"
-                        alt=""
-                        data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/team-3.png?lossy=1&amp;strip=1&amp;webp=1"
-                        class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image lazyloaded"
-                        src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/team-3.png?lossy=1&amp;strip=1&amp;webp=1"
-                        loading="lazy"
-                      >
-                      <noscript><img width="140" height="140" src="images/03-team-3.png" class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image" alt=""></noscript>
-                      <ul class="contact-box clearfix">
-                        <li class="email">
-                          <a href="mailto:http://info@example.com"> <i class="flaticon-gmail" /> <span>info@example.com</span> </a>
-                        </li>
-                        <li class="social-links">
-                          <a href="javascript:void(0)" class="share"><i class="flaticon-share-1" /></a>
-                          <ul class="list clearfix">
-                            <li><a href="https://www.facebook.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-facebook" /></a></li>
-                            <li><a href="https://www.skype.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-skype" /></a></li>
-                            <li><a href="https://www.twitter.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-twitter" /></a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="lower-content">
-                      <h4><a href="meet-our-team.html">Teddy Dylan</a></h4>
-                      <span class="designation">Manager</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 col-sm-12 team-block">
-                <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                  <div class="inner-box">
-                    <div class="image-box">
-                      <img
-                        width="140"
-                        height="140"
-                        alt=""
-                        data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/team-4.png?lossy=1&amp;strip=1&amp;webp=1"
-                        class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image lazyloaded"
-                        src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/team-4.png?lossy=1&amp;strip=1&amp;webp=1"
-                        loading="lazy"
-                      >
-                      <noscript><img width="140" height="140" src="images/03-team-4.png" class="attachment-naxly_140x140 size-naxly_140x140 wp-post-image" alt=""></noscript>
-                      <ul class="contact-box clearfix">
-                        <li class="email">
-                          <a href="mailto:http://info@example.com"> <i class="flaticon-gmail" /> <span>info@example.com</span> </a>
-                        </li>
-                        <li class="social-links">
-                          <a href="javascript:void(0)" class="share"><i class="flaticon-share-1" /></a>
-                          <ul class="list clearfix">
-                            <li><a href="https://www.facebook.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-facebook" /></a></li>
-                            <li><a href="https://www.skype.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-skype" /></a></li>
-                            <li><a href="https://www.twitter.com/" style="background-color:rgb(255, 255, 255); color: rgb(249, 50, 110)"><i class="fab fa-twitter" /></a></li>
-                          </ul>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="lower-content">
-                      <h4><a href="meet-our-team.html">Harley Jude</a></h4>
-                      <span class="designation">HR</span>
-                    </div>
-                  </div>
-                </div>
+              <div class="col-lg-12 col-md-12 col-sm-12 team-description">
+                <h2>Biography</h2>
+                <p>{{ teams[descption].description }}</p>
               </div>
             </div>
           </div>
@@ -170,11 +78,60 @@ export default {
   },
   data () {
     return {
+      descption: 0,
+      teams: [
+        {
+          name: 'Ankur',
+          title: 'Director',
+          img: './images/ankur.png',
+          email: 'asharmatelome@gmail.com',
+          description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
+        },
+        {
+          name: 'ahmed',
+          title: 'Collaborator',
+          email: 'ahmed.ibrahim@ntu.edu.sg',
+          img: './images/ahmed.jpeg',
+          linkedin: ' www.linkedin.com/in/ahmed-i-s-khalil',
+          researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
+          github: 'https://github.com/AISKhalil/',
+          description: `Ahmed Khalil is a Postdoctoral Research Fellow at the School of Computer Science and Engineering, Nanyang Technological University in Singapore. He received the Ph.D. degree from the same school in 2020 when he introduced methods for accurate profiling of cancer cell lines. Earlier, he got a B.Sc. degree in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from Cairo University in Egypt. From early 2021, he will join Harry Perkins Institute of Medical Research to study the tumor evolution and ecosystem using single cell multi-omics data. Khalil’s research interests include a broad range of topics around computational biology, data science, and hardware acceleration.`
+        },
+        {
+          name: 'Shivani',
+          title: 'Collaborator',
+          email: 'shivani1996srivastava1996@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',
+          researchgate: 'https://www.researchgate.net/profile/Shivani_Srivastava9',
+          img: './images/Shivani_pic.jpg',
+          description: `Shivani is a research intern at Sharmaalab. Her research interest includes applying computational approaches to understand heterogeneity of tumor tissues and cell-cell interactions, to discover the phenomenon causing togetherness of the different cells and what leads to selection of the driving mutations. She is currently tracking the pre and post treatment cell interactions in breast cancer. She completed her masters in bioinformatics from University of Allahabad, India. She recieved her Bachelor of Biotechnology degree from CSJM University, India. Apart from research, she is a zoophilist.`
+        },
+        {
+          name: 'Rhea',
+          title: 'Collaborator',
+          email: 'rheakedar@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',
+          img: './images/Rhea_pic.png',
+          description: `Rhea is a Research Officer at Genome Institute of Singapore (GIS), A*STAR. She received her B.Sc. degree in Biotechnology from Northumbria University in 2018.  She has worked extensively over the last two years in liver and breast cancer related projects primarily focused on optimizing single cell RNA-seq experiments on patient samples. She has also ventured into spatial transcriptomics and attained expertise in the area of multicolor fluorescent in situ mRNA hybridization (FISH) images. Her research interest is in studying tumor heterogeneity and evolution using single cell genomics. Rhea will be joining Sharmaalab at Harry Perkins Institute in early 2021. `
+        }
+      ]
     }
   }
 }
 </script>
 
 <style>
-
+.team-description {
+    position: relative;
+    display: block;
+    background: #fff;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px 50px 30px 50px;
+    box-shadow: 0 0px 50px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+.wp-post-image,.wp-post-image:hover  {
+  cursor: pointer;
+}
 </style>

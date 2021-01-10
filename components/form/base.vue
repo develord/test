@@ -9,8 +9,8 @@
             v-else-if="f.type.hasOwnProperty('select')"
             v-model="formModel[f.model]"
             :multiple="f.multiple"
-            remote
             :placeholder="f.placeholder"
+            clearable
             @change="updateGen($event, f.model)"
           >
             <template v-if="typeof f.type.select.options === 'object'">

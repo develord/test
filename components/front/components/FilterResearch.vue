@@ -2,11 +2,14 @@
   <div class="widget sidebar-widget">
     <div class="widget-title">
       <h3>Categories</h3>
-    </div><ul>
-      <li v-for="item in listTag" :key="item.name" class="cat-item cat-item-27">
+    </div><ul v-if="listTag">
+      <li class="cat-item cat-item-27">
+        <a :href="'#all'">All</a>
+      </li>
+      <li v-for="item in listTag" :key="item" class="cat-item cat-item-27">
         <a :href="'#'+item">{{ item }}</a>
       </li>
-      <li v-for="item in listDate" :key="item.name" class="cat-item cat-item-27">
+      <li v-for="item in listDate" :key="item" class="cat-item cat-item-27">
         <a :href="'#'+item">{{ item }}</a>
       </li>
     </ul>
@@ -16,8 +19,8 @@
 export default {
   data () {
     return {
-      listTag: [],
-      listDate: []
+      listTag: null,
+      listDate: null
     }
   },
   computed: {
@@ -29,8 +32,10 @@ export default {
     listPublication: {
       immediate: true,
       handler (newVal) {
-        this.listTag = [...new Set(newVal.map(el => el.tags).flat().map(el => el.name))]
-        this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el.substring(0, 4)))]
+        if (newVal) {
+          this.listTag = [...new Set(newVal.map(el => el.tags).flat().map(el => el.name))]
+          this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el?.substring(0, 4)))]
+        }
       }
     }
   }

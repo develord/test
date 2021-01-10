@@ -17,6 +17,7 @@ module.exports = {
       { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
     ]
   },
+
   server: {
     port: 3000, // par défaut : 3000
     host: '0.0.0.0' // par défaut : localhost
@@ -42,6 +43,13 @@ module.exports = {
     description: 'Create beautiful business proposals',
     theme_color: '#188269',
     background_color: '#000'
+  },
+  pageTransition: {
+    name: 'my-page',
+    mode: 'out-in',
+    beforeEnter (el) {
+      console.log('Before enter...')
+    }
   },
 
   buildModules: [
@@ -71,7 +79,12 @@ module.exports = {
     { src: '~/plugins/vue-progressive-image', mode: 'client' },
     { src: '~/plugins/getPageContent' }
   ],
-
+  serverMiddleware: [
+    (req, res, next) => {
+      res.setHeader('Cache-Control', 's-maxage=10, stale-while-revalidate')
+      next()
+    }
+  ],
   render: {
     http2: {
       push: true

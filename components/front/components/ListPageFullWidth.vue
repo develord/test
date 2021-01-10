@@ -33,7 +33,7 @@
     <div v-else class="auto-container d-flex flex-wrap justify-content-start">
       <div v-for="post in listPost" :key="post._id" class="big">
         <article class="article">
-          <div class=" artice-box">
+          <div class="artice-box">
             <img
               v-lazy="{ src: '/images/' + post.image_small.high, loading: '/images/' + post.image_small.low}"
               class="is-lazy"
@@ -61,9 +61,6 @@
                 >
               </div>
             </div>
-            <NuxtLink class="artice-save" :to="post.link">
-              Read More
-            </NuxtLink>
           </div>
         </article>
       </div>
@@ -94,11 +91,23 @@ export default {
     '$route.hash': {
       immediate: true,
       handler (newVal) {
-        this.listPost = this.listPublication
+        if (newVal === '#all') {
+          this.listPost = this.listPublication
+        } else if (!newVal) {
+          this.listPost = this.listPublication
+        } else {
+          this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
+            '#' + (this.$route.hash.substring(1, 5) === el.published.substring(0, 4) ? el.published.substring(0, 4) : tag.name) === newVal
+          ).length > 0)
+        }
       }
     },
     listPublication (newval) {
-      this.listPost = this.listPublication
+      if (this.$route.hash && this.$route.hash !== '#all') {
+        this.listPost = this.listPublication.filter(el => el.tags.filter(tag => '#' + (tag.name) === this.$route.hash).length > 0)
+      } else {
+        this.listPost = this.listPublication
+      }
     }
   },
   beforeMount () {
@@ -147,7 +156,7 @@ export default {
 
 .article {
  border: 2px solid #F2F2F2;
- border-radius: 8px;
+ border-radius: 16px;
  overflow: hidden;
 
  &-content {
