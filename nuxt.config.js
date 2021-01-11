@@ -48,7 +48,6 @@ module.exports = {
     name: 'my-page',
     mode: 'out-in',
     beforeEnter (el) {
-      console.log('Before enter...')
     }
   },
 

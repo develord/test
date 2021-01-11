@@ -5,9 +5,15 @@
         <div class="left-column pull-left clearfix">
           <div class="logo-box pull-left">
             <figure class="logo">
-              <a href="#" title="Naxly">
-                <img alt="logo" style=" width:330px" data-src="/images/LogoValidation.png" class="lazyload" src="/images/LogoValidation.png">
-              </a>
+              <NuxtLink to="/" title="home" class="hvr-underline-from-left1">
+                <img
+                  alt="logo"
+                  style="width: 223px;margin-left: 52px;"
+                  data-src="/images/LogoValidation.png"
+                  class="lazyload"
+                  src="/images/LogoValidation.png"
+                >
+              </NuxtLink>
             </figure>
           </div>
           <div class="menu-area pull-right clearfix">
@@ -39,8 +45,8 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
-                      Contact
+                    <NuxtLink to="/about" title="about" class="hvr-underline-from-left1">
+                      About
                     </NuxtLink>
                   </li>
                 </ul>

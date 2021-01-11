@@ -3048,8 +3048,7 @@
 
 .news-section.style-two{
 	position: relative;
-	padding: 125px 0px;
-}
+	padding: 7px 9px 99px 15px;}
 
 .news-section.home-boxed{
 	background: #fff;
@@ -8662,13 +8661,13 @@ h3 a{
 
 .chooseus-style-four{
 	position: relative;
-	padding: 125px 0px 130px 0px;
+	padding: 125px 0px 70px 0px;
 }
 
 .chooseus-style-four .image-box{
 	position: relative;
 	display: block;
-	padding-right: 200px;
+	height: 470px;
 	margin-top: 6px;
 }
 
