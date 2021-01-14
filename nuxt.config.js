@@ -28,9 +28,16 @@ module.exports = {
       short_name: 'CharmaLab',
       description: 'CharmaLab',
       lang: 'en',
+      start_url: '/',
+      display: 'standalone',
       useWebmanifestExtension: false,
       theme_color: '#188269',
       background_color: '#000'
+    },
+    workbox: {
+      /* workbox options */
+      dev: false,
+      offlineStrategy: 'StaleWhileRevalidate'
     }
   },
 
