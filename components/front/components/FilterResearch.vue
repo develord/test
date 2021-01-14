@@ -4,13 +4,19 @@
       <h3>Categories</h3>
     </div><ul v-if="listTag">
       <li class="cat-item cat-item-27">
-        <a :href="'#all'">All</a>
+        <nuxt-link :to="{ name: 'slug-req', query: { req: 'all' }}">
+          All
+        </nuxt-link>
       </li>
       <li v-for="item in listTag" :key="item" class="cat-item cat-item-27">
-        <a :href="'#'+item">{{ item }}</a>
+        <nuxt-link :to="{ name: 'slug-req', query: { req: item }}">
+          {{ item }}
+        </nuxt-link>
       </li>
       <li v-for="item in listDate" :key="item" class="cat-item cat-item-27">
-        <a :href="'#'+item">{{ item }}</a>
+        <nuxt-link :to="{ name: 'slug-req', query: { req: item }}">
+          {{ item }}
+        </nuxt-link>
       </li>
     </ul>
   </div>

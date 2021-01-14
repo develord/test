@@ -8,7 +8,7 @@
               <NuxtLink to="/" title="home" class="hvr-underline-from-left1">
                 <img
                   alt="logo"
-                  style="width: 223px;margin-left: 52px;"
+                  style="width: 223px;margin-left: 52px;margin-top: 21px;"
                   data-src="/images/LogoValidation.png"
                   class="lazyload"
                   src="/images/LogoValidation.png"

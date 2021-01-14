@@ -26,8 +26,6 @@ export default {
           componentList.push(cmp)
         })
         return componentList
-      } else {
-        return () => import(`~/components/front/Basic`)
       }
     } 
   }

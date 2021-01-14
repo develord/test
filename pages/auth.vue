@@ -2,32 +2,36 @@
   <div>
     <client-only>
       <SubHeaderSample />
-      <el-form ref="ruleForm" :loading="loading" status-icon label-width="120px">
-        <el-form-item label="Login" prop="login">
-          <el-input
-            v-model="user.email"
-            type="text"
-            autocomplete="off"
-            :show-message="hasError.email"
-            :error="hasError.email"
-          />
-        </el-form-item>
-        <el-form-item label="Password" prop="Password">
-          <el-input
-            v-model="user.password"
-            type="password"
-            autocomplete="off"
-            :show-message="hasError.password"
-            :error="hasError.password"
-            @keyup.enter="login()"
-          />
-        </el-form-item>
-        <el-form-item size="large">
-          <el-button type="primary" :loading="loading" @click="login()">
-            Login
-          </el-button>
-        </el-form-item>
-      </el-form>
+      <div class="elementor-container elementor-column-gap-default">
+        <div class="d-flex justify-content-center">
+          <el-form ref="ruleForm" :loading="loading" status-icon label-width="120px">
+            <el-form-item label="Login" prop="login">
+              <el-input
+                v-model="user.email"
+                type="text"
+                autocomplete="off"
+                :show-message="hasError.email"
+                :error="hasError.email"
+              />
+            </el-form-item>
+            <el-form-item label="Password" prop="Password">
+              <el-input
+                v-model="user.password"
+                type="password"
+                autocomplete="off"
+                :show-message="hasError.password"
+                :error="hasError.password"
+                @keyup.enter="login()"
+              />
+            </el-form-item>
+            <el-form-item size="large">
+              <el-button type="primary" :loading="loading" @click="login()">
+                Login
+              </el-button>
+            </el-form-item>
+          </el-form>
+        </div>
+      </div>
     </client-only>
   </div>
 </template>

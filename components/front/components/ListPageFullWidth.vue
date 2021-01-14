@@ -57,6 +57,8 @@
                   v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
                   class="is-lazy"
                   width="50"
+                  :alt="tag.name"
+                  :title="tag.name"
                   :src="'/images/' + tag.slug"
                 >
               </div>
@@ -72,6 +74,7 @@ import vueContentLoading from 'vue-content-loading'
 import page from '~/mixins/page.js'
 
 export default {
+  name: 'ListPageFullWidth',
   components: {
     vueContentLoading
   },
@@ -88,23 +91,23 @@ export default {
     }
   },
   watch: {
-    '$route.hash': {
+    '$route.fullPath': {
       immediate: true,
+      deep: true,
       handler (newVal) {
-        if (newVal === '#all') {
-          this.listPost = this.listPublication
-        } else if (!newVal) {
+        newVal = this.$route.query.req
+        if (newVal === 'all' || !newVal) {
           this.listPost = this.listPublication
         } else {
           this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
-            '#' + (this.$route.hash.substring(1, 5) === el.published.substring(0, 4) ? el.published.substring(0, 4) : tag.name) === newVal
+            (this.$route.query.req === el.published.substring(0, 4) ? el.published.substring(0, 4) : tag.name) === newVal
           ).length > 0)
         }
       }
     },
     listPublication (newval) {
-      if (this.$route.hash && this.$route.hash !== '#all') {
-        this.listPost = this.listPublication.filter(el => el.tags.filter(tag => '#' + (tag.name) === this.$route.hash).length > 0)
+      if (this.$route.query.req && this.$route.query.req !== 'all') {
+        this.listPost = this.listPublication.filter(el => el.tags.filter(tag => (tag.name) === this.$route.query.req).length > 0)
       } else {
         this.listPost = this.listPublication
       }

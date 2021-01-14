@@ -3,20 +3,6 @@ const path = require('path')
 
 module.exports = {
   mode: 'universal',
-  head: {
-    titleTemplate: 'Amine',
-    meta: [
-      { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'TheFucker Content Generator' },
-      { property: 'og:image', content: 'https://user-images.githubusercontent.com/904724/58238637-f189ca00-7d47-11e9-8213-ae072d7cd3aa.png' },
-      { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:site', content: '@nuxt_js' }
-    ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/icon.png' }
-    ]
-  },
 
   server: {
     port: 3000, // par défaut : 3000
@@ -27,7 +13,7 @@ module.exports = {
   ],
 
   router: {
-    prefetchLinks: false,
+    prefetchLinks: true,
     trailingSlash: false,
     linkActiveClass: 'active-link'
   },
@@ -36,14 +22,18 @@ module.exports = {
     color: '#00C48D'
   },
 
-  manifest: {
-    name: 'ProposalMate',
-    short_name: 'ProposalMate',
-    lang: 'fr',
-    description: 'Create beautiful business proposals',
-    theme_color: '#188269',
-    background_color: '#000'
+  pwa: {
+    manifest: {
+      name: 'CharmaLab',
+      short_name: 'CharmaLab',
+      description: 'CharmaLab',
+      lang: 'en',
+      useWebmanifestExtension: false,
+      theme_color: '#188269',
+      background_color: '#000'
+    }
   },
+
   pageTransition: {
     name: 'my-page',
     mode: 'out-in',

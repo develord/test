@@ -74,12 +74,3 @@ export default {
   }
 }
 </script>
-
-<style>
-  #layout-container {
-    padding-bottom: 50px;
-  }
-  .main-container {
-    padding-bottom: 50px;
-  }
-</style>
