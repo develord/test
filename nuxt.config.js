@@ -11,7 +11,11 @@ module.exports = {
   css: [
     '~/assets/css/main.css'
   ],
-
+  head: {
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/logo.png' }
+    ]
+  },
   router: {
     prefetchLinks: true,
     trailingSlash: false,

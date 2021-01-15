@@ -45,8 +45,18 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/giving" title="giving" class="hvr-underline-from-left1">
+                      Giving
+                    </NuxtLink>
+                  </li>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
                     <NuxtLink to="/about" title="about" class="hvr-underline-from-left1">
                       About
+                    </NuxtLink>
+                  </li>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
+                      Contact
                     </NuxtLink>
                   </li>
                 </ul>

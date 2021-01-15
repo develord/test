@@ -14,17 +14,14 @@
                         <div class="row clearfix">
                           <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                             <div class="image-box">
-                              <figure class="image image-1 wow slideInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: slideInLeft;">
-                                <img alt="Awesome Image" data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/choose-1.jpg?lossy=1&amp;strip=1&amp;webp=1" class=" lazyloaded" src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/choose-1.jpg?lossy=1&amp;strip=1&amp;webp=1" loading="lazy">
-                              </figure>
-                              <figure
-                                class="image image-2 wow slideInLeft animated"
-                                data-wow-delay="00ms"
-                                data-wow-duration="1500ms"
-                                style="right: 184px; bottom: 87px;visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: slideInLeft;"
-                              >
-                                <img v-lazy="{ src: './images/ankur.png', loading: './images/ankur.png' }" style="width: 180px;" :src="'./images/ankur.png'" class="is-lazy">
-                              </figure>
+                              <iframe
+                                width="560"
+                                height="315"
+                                src="https://www.youtube.com/embed/Ev3Q3O-3tpo"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                              />
                             </div>
                           </div>
                           <div class="col-lg-6 col-md-12 col-sm-12 content-column">
@@ -64,6 +61,11 @@
 import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
   layout: 'Default',
+  head () {
+    return {
+      title: 'About Us'
+    }
+  },
   components: {
     SubHeaderSample
   },

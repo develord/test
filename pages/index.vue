@@ -12,7 +12,7 @@
                       <div class="elementor-element elementor-element-7b1d353 elementor-widget elementor-widget-naxly_banner_v3" data-id="7b1d353" data-element_type="widget" data-widget_type="naxly_banner_v3.default">
                         <div class="elementor-widget-container">
                           <section class="banner-style-three">
-                            <div v-lazy:background-image="{src: './images/EXshape18-high.webp', loading: './images/EXshape18-low.webp'}" class="pattern-layer" />
+                            <div v-lazy:background-image="{src: './images/shape18-high.webp', loading: './images/shape18-low.webp'}" class="pattern-layer" />
                             <div class="auto-container">
                               <div class="row clearfix align-items-center">
                                 <div class="col-lg-5 col-md-12 col-sm-12 content-column">
@@ -67,7 +67,7 @@
                                   <div id="content_block_12">
                                     <div class="content-box">
                                       <div class="sec-title text-left">
-                                        <p>From Cells to Systems</p>
+                                        <br><br>
                                         <h2>About Sharma Lab</h2>
                                         <div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
                                       </div>
@@ -187,9 +187,13 @@
           <section class="elementor-element elementor-element-cd01a5e elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section">
             <div class="elementor-element elementor-element-f79df3f elementor-widget elementor-widget-naxly_our_team_v2" data-id="f79df3f" data-element_type="widget" data-widget_type="naxly_our_team_v2.default">
               <div class="elementor-widget-container">
-                <section id="team" class="team-style-two bg-color-1">
+                <section id="team" class="team-style-two">
                   <div class="pattern-layer" style="background-image: url();" />
                   <div class="auto-container">
+                    <div class="sec-title text-left mb-60">
+                      <h2>THE TEAM</h2>
+                      <div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
+                    </div>
                     <div class="row clearfix">
                       <div v-for="(item, i) in teams" :key="i" class="col-lg-3 col-md-6 col-sm-12 team-block">
                         <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
@@ -243,12 +247,12 @@
           </section>
           <section class="news-section style-two style-three">
             <div class="auto-container">
+              <div class="sec-title text-left pull-left">
+                <h2>Latest news &amp; updates</h2>
+                <div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
+              </div>
               <div class="upper-box clearfix mb-40">
-                <div class="btn-box pull-right mt-60">
-                  <NuxtLink to="/news" title="research" class="btn-style-eight">
-                    Read More
-                  </NuxtLink>
-                </div>
+                <div class="btn-box pull-right mt-60" />
               </div>
               <div class="row clearfix">
                 <div class="col-lg-4 col-md-6 col-sm-12 news-block">
@@ -268,7 +272,6 @@
                           sizes="(max-width: 370px) 100vw, 370px"
                           srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
                         >
-                        <noscript><img width="370" height="250" src="images/03-news-1.jpg" class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image" alt="" srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w" sizes="(max-width: 370px) 100vw, 370px"></noscript>
                         <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-1.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                       </figure>
                       <div class="lower-content">
@@ -306,7 +309,6 @@
                           sizes="(max-width: 370px) 100vw, 370px"
                           srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
                         >
-                        <noscript><img width="370" height="250" src="images/03-news-2.jpg" class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image" alt="" srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w" sizes="(max-width: 370px) 100vw, 370px"></noscript>
                         <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-2.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                       </figure>
                       <div class="lower-content">
@@ -344,7 +346,6 @@
                           sizes="(max-width: 370px) 100vw, 370px"
                           srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
                         >
-                        <noscript><img width="370" height="250" src="images/03-news-3.jpg" class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image" alt="" srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w" sizes="(max-width: 370px) 100vw, 370px"></noscript>
                         <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-3.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                       </figure>
                       <div class="lower-content">
@@ -366,6 +367,16 @@
                   </div>
                 </div>
               </div>
+              <div class="more-btn">
+                <NuxtLink
+                  to="/news"
+                  title="research"
+                  style="margin: auto;margin-top: 35px; display: block; width: 169px;"
+                  class="btn-style-eight"
+                >
+                  Read More
+                </NuxtLink>
+              </div>
             </div>
           </section>
         </div>
@@ -378,6 +389,11 @@ import VueHorizontalList from '@/components/front/components/vue-horizontal-list
 import page from '~/mixins/page.js'
 export default {
   layout: 'Default',
+  head () {
+    return {
+      title: 'Sharma Lab'
+    }
+  },
   components: { VueHorizontalList },
   mixins: [page],
   data () {
@@ -420,10 +436,13 @@ export default {
       ],
       items: [
         {
-          image: './images/perth-high.webp'
+          image: './images/2_curtinuniv.png'
         },
         {
-          image: './images/perth-high.webp'
+          image: './images/3.perkins.png'
+        },
+        {
+          image: './images/1_perth.png'
         }
       ],
       options: {
