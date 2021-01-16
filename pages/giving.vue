@@ -41,7 +41,10 @@ export default {
   layout: 'Default',
   head () {
     return {
-      title: 'Contact Us'
+      title: 'Contact Us',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/logo.png' }
+      ]
     }
   },
   components: {

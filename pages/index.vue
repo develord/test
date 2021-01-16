@@ -391,7 +391,10 @@ export default {
   layout: 'Default',
   head () {
     return {
-      title: 'Sharma Lab'
+      title: 'Sharma Lab',
+      link: [
+        { rel: 'icon', type: 'image/x-icon', href: '/logo.png' }
+      ]
     }
   },
   components: { VueHorizontalList },
@@ -436,13 +439,13 @@ export default {
       ],
       items: [
         {
-          image: './images/2_curtinuniv.png'
+          image: './images/3.perkins-min.png'
         },
         {
-          image: './images/3.perkins.png'
+          image: './images/2_curtinuniv-min.png'
         },
         {
-          image: './images/1_perth.png'
+          image: './images/1_perth-min.png'
         }
       ],
       options: {
