@@ -439,13 +439,13 @@ export default {
       ],
       items: [
         {
-          image: './images/3.perkins-min.png'
+          image: './images/perkins.png'
         },
         {
-          image: './images/2_curtinuniv-min.png'
+          image: './images/curtinuniv.png'
         },
         {
-          image: './images/1_perth-min.png'
+          image: './images/perth.png'
         }
       ],
       options: {
