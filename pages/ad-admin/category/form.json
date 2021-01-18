@@ -3,16 +3,18 @@
   "model": "category",
   "fields": [
     {
-      "name": "Title Category",
-      "label": "Title Category",
+      "name": "Category Post",
+      "label": "Category Post",
       "model": "title",
       "type": "text",
-      "require": true
+      "require": true,
+      "placeholder": "Category Post"
     },
     {
       "name": "Name Category",
       "label": "Name Category",
       "model": "name",
+      "placeholder": "Category Name",
       "type": "text",
       "require": true
     },
@@ -22,7 +24,7 @@
       "model": "h1",
       "type": "text",
       "require": true,
-      "placeholder": "h1 slug"
+      "placeholder": "H1"
     },
     {
       "name": "Link",
@@ -30,7 +32,7 @@
       "model": "link",
       "type": "text",
       "require": true,
-      "placeholder": "H1",
+      "placeholder": "Link Category",
       "value": {
         "from": "h1",
         "fn": "slugify"

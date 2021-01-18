@@ -30,7 +30,7 @@
               />
             </v-col>
             <v-col cols="4">
-              <v-form ref="form" v-model="valid" lazy-validation>
+              <v-form ref="form">
                 <v-text-field
                   v-model="imageSelected.alt"
                   label="Alt"
@@ -195,9 +195,9 @@ export default {
       }
     },
     // async
-    async uploadFile (e) {
+    async uploadFile (files) {
       this.loading = true
-      const file = e.srcElement.files[0]
+      const file = files
       // await
       const oldName = file.name
       const fileExtension = oldName.slice(oldName.lastIndexOf('.') - oldName.length)
@@ -257,6 +257,6 @@ export default {
     margin-top: 13px;
     font-size: 20px;
     border-radius: 3px;
-    margin: -370px 50px 30px 0;
+    margin: -257px 49px 29px 4px;
 }
 </style>
