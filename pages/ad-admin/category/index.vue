@@ -1,91 +1,73 @@
 <template>
   <client-only>
-    <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span>Category List</span>
-        <el-button
-          class="action-btn"
-          style="float: right;"
-          type="success"
-          size="mini"
-          @click="goto('ad-admin-category-create')"
-        >
-          Add new category
-        </el-button>
-      </div>
-      <el-table :data="filtredCategory">
-        <el-table-column
-          label="Name"
-          prop="name"
-        />
-        <el-table-column
-          label="Title"
-          prop="title"
-        />
-        <el-table-column
-          label="Description"
-          prop="description"
-        >
-          <template slot-scope="scope">
-            {{ extractText(scope.row.description, 0, 30) }}...
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Created"
-          prop="created"
-        >
-          <template slot-scope="scope">
-            {{ extractText(scope.row.created, 0, 10) }}
-          </template>
-        </el-table-column>
-        <el-table-column
-          label="Updated"
-          prop="updated"
-        >
-          <template slot-scope="scope">
-            {{ extractText(scope.row.updated, 0, 10) }}
-          </template>
-        </el-table-column>
-        <el-table-column
-          align="right"
-        >
-          <template slot="header">
-            <el-input
-              v-model="search"
-              size="mini"
-              placeholder="Type to search"
-            />
-          </template>
-          <template slot-scope="scope">
-            <el-row>
-              <el-button
-                size="mini"
-                @click="prepareUpdate(scope.row)"
-              >
-                Edit
-              </el-button>
-
-              <el-popconfirm
-                confirm-button-text="OK"
-                cancel-button-text="No, Thanks"
-                icon="el-icon-info"
-                icon-color="red"
-                title="Are you sure to delete this?"
-                @onConfirm="deleteCategory(scope.row)"
-              >
-                <el-button
-                  slot="reference"
-                  size="mini"
-                  type="danger"
-                >
-                  Delete
-                </el-button>
-              </el-popconfirm>
-            </el-row>
-          </template>
-        </el-table-column>
-      </el-table>
-    </el-card>
+    <v-row>
+      <v-col cols="12">
+        <v-card class="mx-auto">
+          <v-card-title>
+            <span>Category List</span>
+            <v-btn
+              fab
+              absolute
+              top
+              right
+              color="blue lighten-4"
+              @click="goto('ad-admin-category-create')"
+            >
+              <v-icon color="white">
+                mdi-plus
+              </v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-text>
+            <v-data-table
+              :headers="headers"
+              :items="category"
+              :items-per-page="10"
+              class="elevation-1"
+            >
+              <template v-slot:[`item.users`]="{ item }">
+                {{ item.users }}
+              </template>
+              <template v-slot:[`item.status`]="{ item }">
+                {{ item.status }}
+              </template>
+              <template v-slot:[`item.created`]="{ item }">
+                {{ extractText(item.created_at, 0, 10) }}
+              </template>
+              <template v-slot:[`item.actions`]="{ item }">
+                <div class="text-center">
+                  <v-btn
+                    class="ma-2"
+                    fab
+                    small
+                    color="light-blue"
+                    @click="prepareUpdate(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-circle-edit-outline
+                    </v-icon>
+                  </v-btn>
+                  <v-btn
+                    class="ma-2"
+                    fab
+                    small
+                    color="red accent-3"
+                    @click="deleteCategory(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-trash-can-outline
+                    </v-icon>
+                  </v-btn>
+                </div>
+              </template>
+              <template v-slot:no-data>
+                No Data
+              </template>
+            </v-data-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </client-only>
 </template>
 
@@ -98,8 +80,12 @@ export default {
     return {
       search: '',
       drawer: null,
-      listCategory: [],
-      query: ''
+      query: '',
+      headers: [
+        { text: 'Title', value: 'title' },
+        { text: 'Created', value: 'created' },
+        { text: 'Actions', value: 'actions', sortable: false }
+      ]
     }
   },
   meta: {

@@ -1,13 +1,26 @@
 <template>
-  <client-only>
-    <FormBase
-      :form-object="formObject"
-      :form-model="category"
-      :data="{status: listStatus}"
-      @cancelForm="cancel"
-      @submitForm="save"
-    />
-  </client-only>
+  <fragment>
+    <client-only>
+      <v-row>
+        <v-col cols="12">
+          <v-card class="mx-auto">
+            <v-card-title>
+              <span>Form Category Page:</span>
+            </v-card-title>
+            <v-card-text>
+              <FormBase
+                :form-object="formObject"
+                :form-model="category"
+                :data="{status: listStatus}"
+                @cancelForm="cancel"
+                @submitForm="save"
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
+    </client-only>
+  </fragment>
 </template>
 <script>
 import { statuses } from '@/apollo/query'

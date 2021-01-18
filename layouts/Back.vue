@@ -1,28 +1,24 @@
 <template>
-  <div id="layout-container">
+  <v-app id="inspire">
     <!-- navBar Component -->
-    <el-container>
-      <nav-bar :drawer="collapsed" @update:drawer="collapsed = $event" />
-    </el-container>
-    <el-container class="main-container">
-      <!-- sideBar Component -->
-      <side-bar :drawer="collapsed" />
-      <el-main>
-        <!-- router Component -->
-        <el-page-header :content="pageTitle" class="header-action" @back="goBack" />
-        <transition name="fade" mode="out-in">
-          <nuxt style="padding-bottom: 50px !important;" />
-        </transition>
-      </el-main>
-    </el-container>
-  </div>
+    <side-bar :drawer="collapsed" />
+    <nav-bar :drawer="collapsed" @update:drawer="collapsed = $event" />
+    <!-- router Component -->
+    <v-main>
+      <v-container
+        class="py-8 px-6"
+        fluid
+      >
+        <nuxt style="padding-bottom: 50px !important;" />
+      </v-container>
+    </v-main>
+  </v-app>
 </template>
 
 <script>
 import SideBar from '~/components/SideBar.vue'
 import NavBar from '~/components/NavBar.vue'
 import 'element-ui/lib/theme-chalk/index.css'
-import '~/assets/css/main.scss'
 import elementUi from '~/plugins/element-ui'
 
 export default {
@@ -74,3 +70,9 @@ export default {
   }
 }
 </script>
+
+<style >
+body {
+  margin: 0;
+}
+</style>

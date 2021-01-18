@@ -353,6 +353,7 @@ export default {
       json: 'Update content to see changes',
       html: 'Update content to see changes',
       linkUrl: null,
+      Notloaded: true,
       linkMenuIsActive: false
     }
   },
@@ -368,15 +369,19 @@ export default {
         html: newVal,
         json: this.json
       })
+    },
+    content: {
+      immediate: true,
+      handler (newVal) {
+        if (newVal && this.Notloaded) {
+          this.setContent(newVal)
+          this.Notloaded = false
+        }
+      }
     }
   },
   beforeDestroy () {
     this.editor.destroy()
-  },
-  mounted () {
-    if (this.content) {
-      this.setContent(this.content)
-    }
   },
   methods: {
     insertImage (data) {

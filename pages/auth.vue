@@ -1,7 +1,6 @@
 <template>
   <div>
     <client-only>
-      <SubHeaderSample />
       <div class="elementor-container elementor-column-gap-default">
         <div class="d-flex justify-content-center">
           <el-form ref="ruleForm" :loading="loading" status-icon label-width="120px">
@@ -37,16 +36,12 @@
 </template>
 
 <script>
-import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 import elementUi from '~/plugins/element-ui'
 
 export default {
   name: 'Login',
   layout: 'Default',
   middleware: 'guest',
-  components: {
-    SubHeaderSample
-  },
   data () {
     return {
       user: { email: 'test', password: 'test' },

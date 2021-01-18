@@ -3,7 +3,6 @@ module.exports = {
     type Post {
       _id: ID!
       title: String!
-      published: String
       description: String
       h1: String
       tags: [Tag]
@@ -26,7 +25,6 @@ module.exports = {
       h1: String
       componentName: String
       content: String
-      published: String
       tags: [Tag]
       image_large: Image
       image_small: Image
@@ -53,13 +51,12 @@ module.exports = {
   `,
   query: `
     posts: [Post]
-    post(_id: String!): Post
+    post(_id: String): Post
     page(link: String): Page
   `,
   mutation: `
     createPost(
       title: String!
-      published: String
       description: String
       h1: String
       tags: [String]
@@ -74,7 +71,6 @@ module.exports = {
     ): Post
     updatePost(
       _id: String!
-      published: String
       title: String!
       description: String
       tags: [String]

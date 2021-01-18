@@ -1,6 +1,5 @@
 <template>
   <fragment>
-    <SubHeaderSample />
     <div class="auto-container">
       <div class="inner-box centred">
         <br>
@@ -23,16 +22,8 @@
   </fragment>
 </template>
 <script>
-import SubHeaderSample from '~/components/front/components/SubHeaderSample.vue'
 export default {
-  layout: 'Default',
-  components: {
-    SubHeaderSample
-  },
-  data () {
-    return {
-    }
-  }
+  layout: 'Default'
 }
 </script>
 

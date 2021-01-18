@@ -1,4 +1,4 @@
-import { posts, images, page, categoryElements } from '~/apollo/query'
+import { postById, posts, images, page, categoryElements } from '~/apollo/query'
 import { deletePost, createPost, updatePost, uploadFile, deleteImage } from '~/apollo/mutations'
 const _ = require('lodash')
 
@@ -12,10 +12,12 @@ export const state = () => ({
 
 export const getters = {
   getPost: state => (id) => {
-    const post = state.listePost.find(post => post._id === id)
-    const data = _.cloneDeep(post)
-    data.content = JSON.parse(data.content)
-    return data
+    if (state.listePost.length > 0) {
+      const post = state.listePost.find(post => post._id === id)
+      const data = _.cloneDeep(post)
+      data.content = JSON.parse(data.content)
+      return data
+    }
   }
 }
 
@@ -94,6 +96,18 @@ export const actions = {
       fetchPolicy: 'network-only'
     })
     context.commit('SET_POSTS', response.data.posts)
+  },
+  async getPost (context, postId) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: postById,
+      fetchPolicy: 'network-only',
+      variables: {
+        _id: postId
+      }
+    })
+    const { content, ...post } = response.data.post
+    post.content = JSON.parse(content)
+    return post
   },
   async getImages (context) {
     const response = await this.app.apolloProvider.defaultClient.query({

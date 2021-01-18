@@ -1,0 +1,19 @@
+query($_id: String) {
+    post(_id: $_id) {
+        _id
+        title
+        componentName
+        description
+        h1
+        content
+        tags {_id, name, slug}
+        image_large {_id, low, high}
+        image_small {_id, low, high}
+        category {_id, name, description, title}
+        status {_id, name, desc}
+        link
+        user {_id, name, image}
+        created_at
+        updated_at
+    }
+  }

@@ -7,7 +7,6 @@ query ($link: String!) {
         image_large {_id, low, high}
         image_small {_id, low, high}
         link
-        published
         created_at
         updated_at
     }

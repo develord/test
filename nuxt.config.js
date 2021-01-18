@@ -5,11 +5,11 @@ module.exports = {
   mode: 'universal',
 
   server: {
-    port: 3000, // par défaut : 3000
+    port: 8000, // par défaut : 3000
     host: '0.0.0.0' // par défaut : localhost
   },
   css: [
-    '~/assets/css/main.css'
+    // '~/assets/css/main.css'
   ],
   head: {
     link: [
@@ -56,6 +56,7 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     'nuxt-compress',
+    '@nuxtjs/vuetify',
     '@nuxtjs/style-resources'
   ],
 
@@ -76,8 +77,7 @@ module.exports = {
 
   plugins: [
     { src: '~/plugins/vuexPersist', mode: 'client' },
-    { src: '~/plugins/vue-progressive-image', mode: 'client' },
-    { src: '~/plugins/getPageContent' }
+    { src: '~/plugins/vue-progressive-image', mode: 'client' }
   ],
   serverMiddleware: [
     (req, res, next) => {

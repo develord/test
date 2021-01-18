@@ -5,7 +5,6 @@ query($link: String) {
         componentName
         description
         h1
-        published
         content
         tags {_id, name, slug}
         image_large {_id, low, high}

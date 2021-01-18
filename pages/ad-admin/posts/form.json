@@ -7,7 +7,8 @@
       "label": "Title Post",
       "model": "title",
       "type": "text",
-      "require": true
+      "require": true,
+      "placeholder": "Title Post"
     },
     {
       "name": "H1 Post",
@@ -15,7 +16,7 @@
       "model": "h1",
       "type": "text",
       "require": true,
-      "placeholder": "H1"
+      "placeholder": "H1 Post"
     },
     {
       "name": "H1 Link",
@@ -23,21 +24,13 @@
       "model": "link",
       "type": "text",
       "require": true,
-      "placeholder": "H1",
+      "placeholder": "Link Page",
       "value": {
         "from": "h1",
         "params": "category",
         "fn": "slugify"
       },
       "readonly": true
-    },
-    {
-      "name": "published",
-      "label": "published",
-      "model": "published",
-      "type": "date",
-      "require": true,
-      "placeholder": "published"
     },
     {
       "name": "Post Category",

@@ -1,65 +1,98 @@
 <template>
   <fragment>
     <slot>
-      <el-avatar v-if="url" shape="square" :size="100" fit="fill" :src="url" />
-      <el-button v-if="mode === 'form'" type="primary" @click="visible = true">
+      <v-avatar
+        v-if="url"
+        class="profile"
+        color="grey"
+        size="164"
+        tile
+      >
+        <v-img :src="url" />
+      </v-avatar>
+      <v-btn
+        v-if="mode === 'form'"
+        color="primary"
+        elevation="1"
+        @click="visible = true"
+      >
         Select Image
-      </el-button>
+      </v-btn>
     </slot>
-    <el-dialog
-      v-loading="loading"
-      title="Image selector"
-      :visible="visible"
-      width="80%"
-    >
-      <el-row>
-        <el-col :span="8">
-          <input
-            type="file"
-            required
-            @change="uploadFile"
-          >
-        </el-col>
-        <el-col :span="8">
-          <el-form ref="form" label-width="40px">
-            <el-form-item label="Alt">
-              <el-input v-model="imageSelected.alt" />
-            </el-form-item>
-            <el-form-item label="Title">
-              <el-input v-model="imageSelected.title" />
-            </el-form-item>
-          </el-form>
-        </el-col>
-        <el-col :span="8">
-          <el-row>
-            <el-button type="primary" style="float: right;" @click="insertImage">
-              Select
-            </el-button>
-            <el-button type="danger" style="float: right;margin-right: 15px;" @click="deleteImage">
-              Delete
-            </el-button>
-          </el-row>
-        </el-col>
-      </el-row>
-
-      <el-row :gutter="5">
-        <el-col v-for="img in imagesList" :key="img._id" :span="6">
-          <div :class="imageSelected._id === img._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
-            <img
-              v-lazy="{ src: '../../images/' + img.high, loading: '../../images/' + img.high.replace('high','low') }"
-              :src=" '../../images/' + img.high.replace('high','low')"
-              style="width: 250px;height: 250px;"
-              class="is-lazy"
-              @click="selectImage(img)"
-            >
-            <div slot="error" class="image-slot" />
-          </div>
-        </el-col>
-      </el-row>
-      <span slot="footer" class="dialog-footer">
-        <el-button @click="closeModal()">Annuler</el-button>
-      </span>
-    </el-dialog>
+    <v-dialog v-model="visible" :loading="loading" persistent max-width="1200">
+      <v-card>
+        <v-card-title class="headline">
+          <v-row>
+            <v-col cols="4">
+              <v-file-input
+                truncate-length="15"
+                @change="uploadFile"
+              />
+            </v-col>
+            <v-col cols="4">
+              <v-form ref="form" v-model="valid" lazy-validation>
+                <v-text-field
+                  v-model="imageSelected.alt"
+                  label="Alt"
+                  required
+                />
+                <v-text-field
+                  v-model="imageSelected.title"
+                  label="Title"
+                  required
+                />
+              </v-form>
+            </v-col>
+            <v-col cols="4">
+              <div class="text-center">
+                <div class="my-2">
+                  <v-btn rounded color="primary" dark @click="insertImage">
+                    Select
+                  </v-btn>
+                  <v-btn rounded color="error" dark @click="deleteImage">
+                    Delete
+                  </v-btn>
+                </div>
+              </div>
+            </v-col>
+          </v-row>
+        </v-card-title>
+        <v-card-text>
+          <v-row>
+            <v-col v-for="img in imagesList" :key="img._id" class="d-flex child-flex" cols="3">
+              <div :class="imageSelected._id === img._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
+                <v-img
+                  :src="'../../images/' + img.high"
+                  :lazy-src=" '../../images/' + img.high.replace('high','low')"
+                  aspect-ratio="1"
+                  class="grey lighten-2"
+                  @click="selectImage(img)"
+                >
+                  <template v-slot:placeholder>
+                    <v-row
+                      class="fill-height ma-0"
+                      align="center"
+                      justify="center"
+                    >
+                      <v-progress-circular
+                        indeterminate
+                        color="grey lighten-5"
+                      />
+                    </v-row>
+                  </template>
+                </v-img>
+              </div>
+            </v-col>
+          </v-row>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn color="gray darken-1" text @click="closeModal()">
+            Annuler
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </fragment>
 </template>
 
@@ -188,7 +221,10 @@ export default {
   }
 }
 </script>
-<style scoped>
+<style>
+.v-dialog--active {
+  overflow-x: hidden !important;
+}
 .vue-select-image__thumbnail--active {
     background: #50af2b;
 }
@@ -221,6 +257,6 @@ export default {
     margin-top: 13px;
     font-size: 20px;
     border-radius: 3px;
-    margin: -244px 50px 30px 0;
+    margin: -370px 50px 30px 0;
 }
 </style>

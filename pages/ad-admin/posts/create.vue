@@ -1,14 +1,24 @@
 <template>
   <fragment>
     <client-only>
-      <!-- <form-add-post :post="post" /> -->
-      <FormBase
-        :form-object="formObject"
-        :form-model="post"
-        :data="{category: listCategories, status: listStatus, tags: listTags}"
-        @cancelForm="cancel"
-        @submitForm="save"
-      />
+      <v-row>
+        <v-col cols="12">
+          <v-card class="mx-auto">
+            <v-card-title>
+              <span>Form Post:</span>
+            </v-card-title>
+            <v-card-text>
+              <FormBase
+                :form-object="formObject"
+                :form-model="post"
+                :data="{category: listCategories, status: listStatus, tags: listTags}"
+                @cancelForm="cancel"
+                @submitForm="save"
+              />
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-row>
     </client-only>
   </fragment>
 </template>
@@ -44,7 +54,6 @@ export default {
         description: null,
         h1: null,
         tags: null,
-        published: null,
         content: null,
         image_large: null,
         image_small: null,
@@ -72,7 +81,7 @@ export default {
   async beforeMount () {
     const postId = this.$route.query.post
     if (postId) {
-      const post = await this.$store.getters.getPost(postId)
+      const post = await this.$store.dispatch('getPost', postId)
       const { user, ...data } = post
       data.user = this.post.user
       this.post = data
