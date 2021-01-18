@@ -90,7 +90,7 @@ export default {
       descption: 0,
       teams: [
         {
-          name: 'Ankur Charma',
+          name: 'Ankur Sharma',
           title: 'Head of Lab',
           img: './images/ankur.png',
           link: '/team/ahmed-khalil',
