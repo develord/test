@@ -42,16 +42,6 @@
             :src="'/images/' + post.image_large.low"
           >
           <div class="hero-description-bk" />
-          <div class="hero-logo">
-            <img
-              v-lazy="{ src: '/images/' + post.image_small.high, loading: '/images/' + post.image_small.low}"
-              class="is-lazy"
-              :alt="post.title"
-              :title="post.title"
-              style="background:black"
-              :src="'/images/' + post.image_small.low"
-            >
-          </div>
           <div class="hero-description">
             <h5>
               {{ post.title }}
@@ -125,6 +115,7 @@ h5 {
   height: 65%;
   width: 108%;
   transform: skew(19deg, -9deg);
+
 }
 
 .second .hero-description-bk {
@@ -148,11 +139,12 @@ h5 {
 }
 
 .hero-description {
-  position: absolute;
-  color: #fff;
-  font-weight: 900;
-  left: 150px;
-  bottom: 26%;
+      position: absolute;
+    color: #fff;
+    font-weight: 900;
+    left: 19px;
+    bottom: 26%;
+    width: 100% !important;
 }
 
 .hero-btn {
