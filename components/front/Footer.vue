@@ -62,22 +62,17 @@
               </div>
             </div>
             <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-              <div class="footer-widget widget_naxly_subscribe_form_two">
-                <div class="subscribe-widget">
+              <div class="footer-widget widget_naxly_contact_us_two">
+                <div class="contact-widget">
                   <div class="widget-title">
-                    <h3>Subscribe</h3>
+                    <h3>Social</h3>
                   </div>
                   <div class="widget-content">
-                    <div class="subscribe-form">
-                      <form action="" accept-charset="utf-8" method="post">
-                        <div class="form-group">
-                          <input id="uri4" type="hidden" name="uri" value="themeforest"><input type="email" name="email" placeholder="Email Address..." required=""><button type="submit" class="theme-btn style-six">
-                            Subscribe
-                          </button>
-                        </div>
-                      </form>
-                    </div>
-                    <ul class="social-links clearfix" />
+                    <ul class="clearfix">
+                      <li> <a target="_blank" href="https://www.facebook.com/"><span>Facebook</span></a></li>
+                      <li> <a target="_blank" href="https://www.twitter.com/"><span>Twitter</span> </a></li>
+                      <li> <a target="_blank" href="https://www.linkedin.com/feed/"><span>LinkedIn</span> </a></li>
+                    </ul>
                   </div>
                 </div>
               </div>

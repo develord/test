@@ -74,7 +74,7 @@
                                       <div class="inner-box">
                                         <div class="single-item">
                                           <div class="box">
-                                            <p>From January 2021, I will start as Laboratory Head at Harry Perkins Institute of Medical Research and women’s cancer senior fellow/Senior lecture at Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.</p>
+                                            <p>Sharma Lab focuses on the triquetra of early development, regeneration, and cancer. We are interested in understanding the developmental origin of cancer by uncovering the similarities between embryogenesis and tumor development. In close association with our clinical collaborators, we study how tumors co-evolve with their microenvironment, especially in the context of tumor initiation and drug-resistance. To address these questions, we combine single-cell genomics, spatial transcriptomics, and machine learning approaches. We are expanding our collaborations to integrate experimental, computational, and clinical knowledge to exhume the ‘seeds’ of cancer development.</p>
                                             <div class="btn-box">
                                               <NuxtLink class="theme-btn style-six" to="/about">
                                                 Details
@@ -184,67 +184,7 @@
               </div>
             </div>
           </section>
-          <section class="elementor-element elementor-element-cd01a5e elementor-section-full_width elementor-section-height-default elementor-section-height-default elementor-section elementor-top-section">
-            <div class="elementor-element elementor-element-f79df3f elementor-widget elementor-widget-naxly_our_team_v2" data-id="f79df3f" data-element_type="widget" data-widget_type="naxly_our_team_v2.default">
-              <div class="elementor-widget-container">
-                <section id="team" class="team-style-two">
-                  <div class="pattern-layer" style="background-image: url();" />
-                  <div class="auto-container">
-                    <div class="sec-title text-left mb-60">
-                      <h2>THE TEAM</h2>
-                      <div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
-                    </div>
-                    <div class="row clearfix">
-                      <div v-for="(item, i) in teams" :key="i" class="col-lg-3 col-md-6 col-sm-12 team-block">
-                        <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                          <div class="inner-box">
-                            <div class="image-box">
-                              <img
-                                v-lazy="{ src: item.img, loading: item.img }"
-                                width="140"
-                                height="140"
-                                alt="ankur"
-                                class="wp-post-image is-lazy"
-                                :src="item.img"
-                              >
-                              <ul class="contact-box clearfix">
-                                <li class="email">
-                                  <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
-                                </li>
-                                <li v-if="item.linkedin || item.researchgate||item.github" class="social-links">
-                                  <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
-                                  <ul class="list clearfix">
-                                    <li v-if="item.linkedin">
-                                      <a :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
-                                    </li>
-                                    <li v-if="item.researchgate">
-                                      <a :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
-                                    </li>
-                                    <li v-if="item.github">
-                                      <a :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
-                                    </li>
-                                  </ul>
-                                </li>
-                              </ul>
-                            </div>
-                            <div class="lower-content">
-                              <h4>{{ item.name }}</h4>
-                              <span class="designation">{{ item.title }}</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="more-btn">
-                      <NuxtLink to="/team" title="research" class="btn-style-eight">
-                        All Members
-                      </NuxtLink>
-                    </div>
-                  </div>
-                </section>
-              </div>
-            </div>
-          </section>
+
           <section class="news-section style-two style-three">
             <div class="auto-container">
               <div class="sec-title text-left pull-left">
@@ -439,13 +379,13 @@ export default {
       ],
       items: [
         {
+          image: './images/2s_curtin.png'
+        },
+        {
+          image: './images/1s_perth.png'
+        },
+        {
           image: './images/perkins.png'
-        },
-        {
-          image: './images/curtinuniv.png'
-        },
-        {
-          image: './images/perth.png'
         }
       ],
       options: {
@@ -463,5 +403,7 @@ export default {
 </script>
 
 <style scoped>
-
+.news-section.style-three {
+  margin-top: 35px;
+}
 </style>

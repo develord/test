@@ -77,7 +77,8 @@ module.exports = {
   plugins: [
     { src: '~/plugins/vuexPersist', mode: 'client' },
     { src: '~/plugins/vue-progressive-image', mode: 'client' },
-    { src: '~/plugins/getPageContent' }
+    { src: '~/plugins/getPageContent' },
+    { src: '~/plugins/menuBuerger.js', mode: 'client' }
   ],
   serverMiddleware: [
     (req, res, next) => {

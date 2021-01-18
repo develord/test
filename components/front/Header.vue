@@ -65,13 +65,10 @@
           </div>
         </div>
         <div class="right-column pull-right clearfix">
-          <div class="btn-box">
-            <a href="get-in-touch.html" class="theme-btn style-six">Get in Touch</a>
-          </div>
           <ul class="social-links clearfix">
-            <li><a href="https://www.facebook.com/" style="background-color:rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255)"><i class="fab fa-facebook" /></a></li>
-            <li><a href="https://www.skype.com/" style="background-color:rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255)"><i class="fab fa-skype" /></a></li>
-            <li><a href="https://www.twitter.com/" style="background-color:rgba(255, 255, 255, 0.3); color: rgb(255, 255, 255)"><i class="fab fa-twitter" /></a></li>
+            <li><a target="_blank" href="https://www.facebook.com/" style=" color: rgb(255, 255, 255)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
+            <li><a target="_blank" href="https://www.skype.com/" style=" color: rgb(255, 255, 255)"><img src="/images/fb.png"></a></li>
+            <li><a target="_blank" href="https://www.twitter.com/" style=" color: rgb(255, 255, 255)"><img src="/images/twitter.png"></a></li>
           </ul>
         </div>
       </div>
