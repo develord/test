@@ -44,7 +44,7 @@ export default {
   middleware: 'guest',
   data () {
     return {
-      user: { email: 'test', password: 'test' },
+      user: { email: 'amine', password: 'amine' },
       loading: false,
       hasError: { email: null, password: null }
     }

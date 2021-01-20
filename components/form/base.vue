@@ -2,6 +2,7 @@
   <v-form v-if="formObject.fields" ref="form">
     <template v-for="f in formObject.fields">
       <v-col v-if="f.type === 'image'" :key="f.model" cols="12" sm="12">
+        {{ f.model }}
         <modalImageSelector :file.sync="formModel[f.model]" />
       </v-col>
       <v-col v-else-if="f.value" :key="f.model" cols="12" sm="12">

@@ -34,6 +34,13 @@ const postSchema = new mongoose.Schema({
       default: null
     }
   ],
+  galery: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Image',
+      default: null
+    }
+  ],
   link: {
     type: String,
     default: null

@@ -13,6 +13,12 @@ const imageSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  posts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post'
+    }
+  ],
   created_at: {
     type: Date,
     default: Date.now()
