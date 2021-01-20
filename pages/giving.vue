@@ -12,16 +12,14 @@
                     <div class="top-inner mb-55">
                       <div class="sec-title text-center">
                         <h4>
-                          If you would like to support our collaborative efforts in the Boston research community and beyond, please consider making a contribution.
+                          If you would like to support our collaborative efforts in the Sharma Lab research community and beyond, please consider making a contribution.
                         </h4><div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
                       </div><div class="text text-center">
                         <p>
-                          Gifts can be made by check (payable to the Broad Institute) and mailed to:<br>
-                          Broad Institute<br>
-                          Attn: Alex K. Shalek<br>
-                          75 Ames Street<br>
-                          Cambridge, MA 02142<br>
-                          Please note indicate the gift designation (Shalek Lab) on the memo line or with an attached note.
+                          Gifts can be made by check (payable to Perkins Institute) and mailed to:<br>
+                          Harry Perkins Institute of Medical Research<br>
+                          Attn: Ankur sharma<br>
+                          Please note indicate the gift designation (Sharma Lab) on the memo line or with an attached note.
                         </p>
                       </div>
                     </div>

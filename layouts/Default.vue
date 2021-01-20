@@ -2,7 +2,7 @@
   <div class="page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-205 menu-layer elementor-default elementor-kit-16 elementor-page elementor-page-205">
     <div class="boxed_wrapper">
       <client-only>
-        <SlideMenu width="300" :no-overlay="false" :burger-icon="true" left :is-open="isOpen">
+        <SlideMenu width="300" :no-overlay="true" :burger-icon="true" left :is-open="isOpen">
           <NuxtLink to="/" title="home" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Home</span>
           </NuxtLink>

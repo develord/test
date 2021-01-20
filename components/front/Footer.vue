@@ -12,11 +12,11 @@
               <div class="footer-widget widget_naxly_about_company_two">
                 <div class="about-widget">
                   <div class="widget-title">
-                    <h3>About Company</h3>
+                    <h3>About Sharma Lab</h3>
                   </div>
                   <div class="widget-content">
                     <div class="text">
-                      <p>Our goal is to help our companies maintain achieve best class posi- tions their respective industries &amp; our team works occur that works have to be repudiated.</p>
+                      <p>In close association with our clinical collaborators, we study how tumors co-evolve with their microenvironment in the context of tumor initiation and drug-resistance.</p>
                     </div>
                     <figure class="footer-logo">
                       <a href="#">
@@ -35,11 +35,11 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li><a href="#">Advertising &amp;<br> Marketing</a></li>
-                      <li><a href="#">Healthcare &amp;<br> Medicine</a></li>
-                      <li><a href="#">Financials &amp;<br> Banking</a></li>
-                      <li><a href="#">Travel &amp;<br> Hospitality</a></li>
-                      <li><a href="#">Media &amp;<br> Entertainment</a></li>
+                      <li><a target="_blank" href="https://perkins.org.au/">Perkins Institute</a></li>
+                      <li><a target="_blank" href="https://cancerdiscovery.aacrjournals.org/content/10/12/1788.1">Cancer Discovery</a></li>
+                      <li><a target="_blank" href="https://www.biospectrumasia.com/news/26/16864/singapore-identifies-pivotal-fetal-like-reprogramming-of-tumour-ecosystem.html?fbclid=IwAR20KpDw6Skq_aBtWZxcaKxhghDFLWpVxBjL0qaY-YkSWLWlrAe2d--9jyk">Cancer Development</a></li>
+                      <li><a target="_blank" href="https://www.singhealth.com.sg/news/tomorrows-medicine/singapore-scientists-discovered-how-liver-cancer-cells-hide-from-the-immune-system?fbclid=IwAR3nGMtLlmokVgoCdbUa4dXh4o7Xu6c_S6xD1ZNFDwsQZHQAdAdZhGSX2ZE">Tomorrows Medicine</a></li>
+                      <li><a target="_blank" href="https://bioturing.com/bbrowser/datasets?search=Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma%20(14%20HCC)">Dataset on Bioturning server</a></li>
                     </ul>
                   </div>
                 </div>
@@ -53,8 +53,8 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li> <span>Phone:</span> <a href="#">+00 555 67 890</a></li>
-                      <li> <span>Email:</span> <a href="#">info@example.com</a></li>
+                      <li> <span>Phone:</span> <a href="#">+65 8670 1153</a></li>
+                      <li> <span>Email:</span> <a href="mailto:asharmatelome@gmail.com">asharmatelome@gmail.com</a></li>
                       <li> <span>Address:</span> 124, Queens 2nd cross, NY</li>
                     </ul>
                   </div>
@@ -83,13 +83,11 @@
     </div>
     <div class="footer-bottom">
       <div class="auto-container clearfix">
-        <div class="copyright pull-left">
-          <p>&copy; <a href="#">SharmaLab</a> 2020, All Rights Reserved.</p>
+        <div class="copyright">
+          <p style="text-align: center !important;">
+            &copy; SharmaLab 2021, All Rights Reserved.
+          </p>
         </div>
-        <ul class="footer-nav pull-right">
-          <li><a href="#">Privacy Policy</a></li>
-          <li><a href="#">Terms &amp; Conditions</a></li>
-        </ul>
       </div>
     </div>
   </footer>

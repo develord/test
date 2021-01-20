@@ -110,67 +110,19 @@
                             <div class="auto-container">
                               <div class="title-inner mb-35 clearfix">
                                 <div class="sec-title light text-left pull-left">
-                                  <p>Why Join Us</p>
-                                  <h2>Reason for researchers joining our Laboratory</h2>
-                                  <div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-5.png?lossy=1&amp;strip=1&amp;webp=1);" />
-                                </div>
-                                <div class="text pull-right">
-                                  <p>When our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed every pain avoided but in certain circumstances.</p>
-                                </div>
-                              </div>
-                              <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
-                                  <div class="single-item wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                    <div class="inner-box">
-                                      <h4>Research Experience</h4>
-                                      <div class="box">
-                                        <div class="icon-box">
-                                          <img
-                                            v-lazy="{ src: './images/glob.png', loading: './images/glob.png' }"
-                                            :src="'./images/glob.png'"
-                                            class="is-lazy"
-                                            style="width: 68px;margin-top: -10px;"
-                                          >
-                                        </div>
-                                        <p>Nor again is there anyone who loves or pursues or desires</p>
+                                  <br>
+                                  <h2>Subscribe to our Newsletter to get our latest news and articles.</h2>
+                                  <div class="decor" style="background-image: url(./images/LogoValidation.png);" />
+                                  <div class="subscribe-box">
+                                    <form accept-charset="utf-8">
+                                      <div class="form-group">
+                                        <input type="email" name="email" placeholder="Email Address..." required="">
                                       </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
-                                  <div class="single-item wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                    <div class="inner-box">
-                                      <h4>Research Results</h4>
-                                      <div class="box">
-                                        <div class="icon-box">
-                                          <img
-                                            v-lazy="{ src: './images/research-icon.png', loading: './images/research-icon.png' }"
-                                            :src="'./images/research-icon.png'"
-                                            class="is-lazy"
-                                            style="width: 68px;margin-top: -10px;"
-                                          >
-                                        </div>
-                                        <p>Except to obtain some advantage from who has any right to find.</p>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 single-column">
-                                  <div class="single-item wow slideInUp" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                    <div class="inner-box">
-                                      <h4>High-Quality Results</h4>
-                                      <div class="box">
-                                        <div class="icon-box">
-                                          <img
-                                            v-lazy="{ src: './images/analise-icon.png', loading: './images/analise-icon.png' }"
-                                            :src="'./images/analise-icon.png'"
-                                            class="is-lazy"
-                                            style="width: 68px;margin-top: -10px;"
-                                          >
-                                        </div>
-                                        <p>This mistakens idea of denouncing and was born complete system.</p>
-                                      </div>
-                                    </div>
+                                      <button type="submit" class="theme-btn style-one">
+                                        Subscribe
+                                      </button>
+                                      <br><br><br>
+                                    </form>
                                   </div>
                                 </div>
                               </div>
@@ -402,7 +354,115 @@ export default {
 }
 </script>
 
-<style scoped>
+<style >
+.footer-widget .logo {
+  margin-top: 0px;
+}
+.chooseus-style-two .title-inner .text {
+  margin-top: 8px;
+}
+.chooseus-style-two .title-inner {
+  padding: 53px 0px;
+}
+.sec-title input {
+      position: relative;
+    width: calc(100% - 165px);
+    height: 55px;
+    background: rgba(255,255,255,.1);
+    color: rgba(255,255,255,.6);
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: 1px solid #1e2332;
+}
+.bg-layer {
+  background-size: initial;
+}
+p {
+  text-align: justify !important;
+}
+.main-header.style-three .right-column .social-links li a {
+  border-radius: 16%;
+}
+.chooseus-style-two {
+  padding: 0px;
+}
+.sec-title.pull-left {
+  padding-top: 53px;
+}
+@media screen and (max-width: 484px) {
+  .logo {
+    margin-right: 0 !important;
+    margin-top: 0 !important;
+  }
+  .logo .hvr-underline-from-left1 img{
+    width: 161px !important;
+    margin-top: 0 !important;
+  }
+}
+@media screen and (max-width: 1069px) {
+  .chooseus-style-two .auto-container{
+    padding: 0px 32px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: #000000;
+  }
+}
+@media only screen and (max-width: 731px) {
+  .sec-title input {
+    width: 100%;
+  }
+  #content_block_12 .content-box .inner-box .single-item .box{
+    padding: 18px;
+  }
+  .chooseus-style-two .title-inner .sec-title {
+    width: 100% !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .chooseus-style-two .title-inner .sec-title {
+    width: 70%;
+  }
+  .header-upper .pull-left {
+    float: right;
+  }
+  .bm-burger-button {
+      display: block !important;
+  }
+  .banner-style-three {
+      padding: 200px 0px 100px 0px;
+      background: #ffffff !important;
+  }
+  .banner-style-three .content-box h1, .banner-style-three .content-box p {
+    color:  rgb(0, 0, 0);
+  }
+  .chooseus-style-four {
+    padding: 0;
+  }
+  .chooseus-style-four .image-box {
+    margin-top: 0px;
+    height: 193px;
+  }
+  .inner-box {
+    margin-bottom: 58px;
+  }
+}
+@media screen and (max-width: 1069px) {
+  .main-header.style-three .header-upper .logo {
+    margin-right: 50px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  .main-menu .navigation > li {
+    margin: 0px 12px
+  }
+  .hvr-underline-from-left1 img {
+        margin-left: 22px !important;
+  }
+}
+.banner-style-three .pattern-layer {
+  background-size: contain;
+}
 .news-section.style-three {
   margin-top: 35px;
 }
