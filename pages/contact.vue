@@ -12,8 +12,6 @@
                     <div class="top-inner mb-55">
                       <div class="sec-title text-center">
                         <p>Contact Information</p><h2>We’d love to hear from you anytime</h2><div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
-                      </div><div class="text text-center">
-                        <p>Always holds in these matters to this principle of selection he rejects pleasures to secure other greater<br>pleasures, or else he endures pains to avoid</p>
                       </div>
                     </div><div class="info-inner">
                       <div class="row clearfix">
