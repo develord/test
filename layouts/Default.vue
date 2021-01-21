@@ -37,9 +37,14 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
 import Header from '~/components/front/Header'
 import Footer from '~/components/front/Footer'
-
+const ComponentContext = require.context('../components/front/components/', true, /\.vue$/i, 'lazy')
+ComponentContext.keys().forEach((componentFilePath) => {
+  const componentName = componentFilePath.split('/').pop().split('.')[0]
+  Vue.component(componentName, () => ComponentContext(componentFilePath))
+})
 export default {
   name: 'Default',
   head () {
@@ -58,6 +63,9 @@ export default {
     return {
       isOpen: false
     }
+  },
+  mounted () {
+
   }
 
 }
