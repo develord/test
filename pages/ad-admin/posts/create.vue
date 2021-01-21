@@ -43,6 +43,9 @@ export default {
         title: null,
         description: null,
         h1: null,
+        journal: null,
+        authors: null,
+        exterlink: null,
         tags: null,
         published: null,
         content: null,
@@ -72,7 +75,7 @@ export default {
   async beforeMount () {
     const postId = this.$route.query.post
     if (postId) {
-      const post = await this.$store.getters.getPost(postId)
+      const post = await this.$store.dispatch('getPost', postId)
       const { user, ...data } = post
       data.user = this.post.user
       this.post = data
@@ -105,12 +108,18 @@ export default {
           mut = 'addNewPost'
         }
         // eslint-disable-next-line camelcase
-        const { status, image_large, image_small, category, ...y } = this.post
+        const { status, image_large, image_small, tags, category, ...y } = this.post
         if (typeof this.post.user === 'object' && this.post.user._id) { y.user = this.post.user._id } else { y.user = this.post.user }
         if (typeof this.post.category === 'object' && this.post.category._id) { y.category = this.post.category._id } else { y.category = this.post.category }
         if (typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
         if (typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
         if (typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
+        if (typeof this.post.tags === 'object' && typeof this.post.tags[0] === 'object') {
+          y.tags = this.post.tags.map(el => el._id)
+        } else {
+          y.tags = this.post.tags
+        }
+
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getPosts')
           await this.$router.push({ name: 'ad-admin-posts' })

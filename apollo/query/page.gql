@@ -5,6 +5,9 @@ query($link: String) {
         componentName
         description
         h1
+        journal
+        authors
+        exterlink
         published
         content
         tags {_id, name, slug}

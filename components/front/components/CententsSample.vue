@@ -14,6 +14,7 @@
                     v-bind="doc.json.content[i]"
                   />
                 </template>
+                <a class="journal-website" target="_blank" :href="exterlink">journal Website</a>
               </div>
             </div>
           </div>
@@ -52,3 +53,14 @@ export default {
   }
 }
 </script>
+<style >
+.journal-website {
+  margin-top: 18px;
+  width: 166px;
+  display: block;
+  background-image: linear-gradient(to right, #582ead 0%, #952ed0 50%, #582ead 100%);
+  border-radius: 30px;
+  padding: 11px 26px;
+  color: #fff;
+}
+</style>

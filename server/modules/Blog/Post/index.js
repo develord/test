@@ -31,6 +31,20 @@ const postSchema = new mongoose.Schema({
     ref: 'Image',
     default: null
   },
+  // new entity
+  authors: {
+    type: [String],
+    default: null
+  },
+  journal: {
+    type: String,
+    default: null
+  },
+  exterlink: {
+    type: String,
+    default: null
+  },
+  // end
   tags: [
     {
       type: mongoose.Schema.Types.ObjectId,

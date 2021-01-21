@@ -14,6 +14,24 @@ export default {
         return null
       }
     },
+    exterlink: {
+      type: String,
+      default () {
+        return null
+      }
+    },
+    journal: {
+      type: String,
+      default () {
+        return null
+      }
+    },
+    authors: {
+      type: Array,
+      default () {
+        return null
+      }
+    },
     created_at: {
       type: String,
       default () {

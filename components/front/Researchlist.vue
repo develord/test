@@ -11,7 +11,7 @@
     <section class="sidebar-page-container blog-details">
         <div class="auto-container">
             <div class="row clearfix">
-                <div class="content-side col-md-12 col-sm-12" :class="{'col-lg-8': componentsRigthDef}">
+                <div class="content-side col-md-12 col-sm-12" :class="{'col-lg-9': componentsRigthDef}">
                     <template v-for="(customComponents, i) in componentsMainDef" >
                         <div
                             :key="i"
@@ -21,7 +21,7 @@
                         />
                     </template>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side" v-if="componentsRigthDef">
+                <div class="col-lg-3 col-md-12 col-sm-12 sidebar-side" v-if="componentsRigthDef">
                     <template v-for="(customComponents, i) in componentsRigthDef" >
                         <div
                             :key="i"

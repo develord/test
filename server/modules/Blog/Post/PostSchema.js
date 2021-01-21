@@ -6,6 +6,9 @@ module.exports = {
       published: String
       description: String
       h1: String
+      journal: String
+      authors: [String]
+      exterlink: String
       tags: [Tag]
       componentName: String
       content: String
@@ -24,6 +27,9 @@ module.exports = {
       title: String!
       description: String
       h1: String
+      journal: String
+      authors: [String]
+      exterlink: String
       componentName: String
       content: String
       published: String
@@ -42,6 +48,9 @@ module.exports = {
       description: String
       h1: String
       componentName: String
+      journal: String
+      authors: [String]
+      exterlink: String
       content: String
       image_large: String
       image_small: String
@@ -53,7 +62,7 @@ module.exports = {
   `,
   query: `
     posts: [Post]
-    post(_id: String!): Post
+    post(_id: String): Post
     page(link: String): Page
   `,
   mutation: `
@@ -62,6 +71,9 @@ module.exports = {
       published: String
       description: String
       h1: String
+      journal: String
+      authors: [String]
+      exterlink: String
       tags: [String]
       content: String
       componentName: String
@@ -79,6 +91,9 @@ module.exports = {
       description: String
       tags: [String]
       componentName: String
+      journal: String
+      authors: [String]
+      exterlink: String
       h1: String
       content: String
       image_large: String

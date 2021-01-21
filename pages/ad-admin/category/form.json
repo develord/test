@@ -63,7 +63,7 @@
         }
       },
       "require": true,
-      "placeholder": "Category Status"
+      "placeholder": "Category Template"
     },
     {
       "name": "Desc Category",

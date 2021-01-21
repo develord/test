@@ -6,6 +6,7 @@
       "name": "Title Post",
       "label": "Title Post",
       "model": "title",
+      "placeholder": "Title Post",
       "type": "text",
       "require": true
     },
@@ -23,7 +24,7 @@
       "model": "link",
       "type": "text",
       "require": true,
-      "placeholder": "H1",
+      "placeholder": "Link",
       "value": {
         "from": "h1",
         "params": "category",
@@ -38,6 +39,28 @@
       "type": "date",
       "require": true,
       "placeholder": "published"
+    },
+    {
+      "name": "journal",
+      "label": "journal",
+      "model": "journal",
+      "type": "text",
+      "placeholder": "Journal"
+    },
+    {
+      "name": "exterlink",
+      "label": "exterlink",
+      "model": "exterlink",
+      "type": "text",
+      "placeholder": "exterlink"
+    },
+    
+    {
+      "name": "Authors",
+      "label": "Authors",
+      "model": "authors",
+      "type": "array",
+      "placeholder": "Authors"
     },
     {
       "name": "Post Category",

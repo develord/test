@@ -1,7 +1,7 @@
 <template>
   <div class="widget sidebar-widget">
     <div class="widget-title">
-      <h3>Categories</h3>
+      <h3>Filters</h3>
     </div><ul v-if="listTag">
       <li class="cat-item cat-item-27">
         <nuxt-link :to="{ name: 'slug-req', query: { req: 'all' }}">

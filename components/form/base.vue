@@ -1,61 +1,107 @@
 <template>
-  <div>
-    <client-only>
-      <el-form v-if="formObject.fields" ref="form" label-width="120px">
-        <el-form-item v-for="f in formObject.fields" :key="f.model" :label="f.label">
-          <modalImageSelector v-if="f.type === 'image'" :file.sync="formModel[f.model]" />
-          <el-input v-else-if="f.value" v-model="formModel[f.model]" :readonly="f.readonly" :placeholder="f.placeholder" />
-          <el-select
-            v-else-if="f.type.hasOwnProperty('select')"
-            v-model="formModel[f.model]"
-            :multiple="f.multiple"
-            :placeholder="f.placeholder"
-            clearable
-            @change="updateGen($event, f.model)"
-          >
-            <template v-if="typeof f.type.select.options === 'object'">
-              <el-option v-for="item in f.type.select.options" :key="item" :value="item" :label="item" />
-            </template>
-            <template v-if="typeof f.type.select.options === 'string' && !f.multiple">
-              <el-option v-for="item in data[f.type.select.options]" :key="item._id" :value="item._id" :label="item.h1 || item.name" />
-            </template>
-            <template v-else-if="f.multiple">
-              <el-option v-for="(item, i) in data[f.type.select.options]" :key="i" :value="item._id" :label="item.name || item.h1" />
-            </template>
-          </el-select>
-          <editor
-            v-else-if="f.type === 'content'"
-            ref="editor"
-            :content.sync="formModel[f.model]"
-          />
-          <el-date-picker
-            v-else-if="f.type === 'date'"
-            v-model="formModel[f.model]"
-            type="year"
-            :placeholder="f.placeholder ? f.placeholder : 'Input Date'"
-          />
-          <el-input
-            v-else
-            v-model="formModel[f.model]"
-            :type="f.type ? f.type : 'text'"
-            :placeholder="f.placeholder ? f.placeholder : 'Input'"
-            @change="updateGen($event, f.model)"
-          />
-        </el-form-item>
-        <el-row>
-          <el-button size="mini" @click="cancelForm">
-            Cancel
-          </el-button>
-          <el-button size="mini" type="primary" @click="submitForm">
-            Submit
-          </el-button>
-        </el-row>
-      </el-form>
-    </client-only>
-  </div>
+  <v-form v-if="formObject.fields" ref="form">
+    <template v-for="f in formObject.fields">
+      <v-col v-if="f.type === 'image'" :key="f.model" cols="12" sm="12">
+        <modalImageSelector :file.sync="formModel[f.model]" />
+      </v-col>
+      <v-col v-else-if="f.value" :key="f.model" cols="12" sm="12">
+        <v-text-field
+          v-model="formModel[f.model]"
+          :readonly="f.readonly"
+          :label="f.placeholder ? f.placeholder : 'Input'"
+          :placeholder="f.placeholder ? f.placeholder : 'Input'"
+        />
+      </v-col>
+      <v-col v-else-if="f.type.hasOwnProperty('select')" :key="f.model" cols="12" sm="12">
+        <v-select
+          v-if="typeof f.type.select.options === 'object'"
+          v-model="formModel[f.model]"
+          :items="f.type.select.options"
+          :multiple="f.multiple"
+          attach
+          chips
+          :label="f.placeholder ? f.placeholder : 'Input'"
+        />
+        <v-select
+          v-if="typeof f.type.select.options === 'string'"
+          v-model="formModel[f.model]"
+          item-text="name"
+          :item-value="'_id'"
+          :items="data[f.type.select.options]"
+          :multiple="f.multiple"
+          attach
+          chips
+          :label="f.placeholder ? f.placeholder : 'Input'"
+        />
+      </v-col>
+      <v-col v-else-if="f.type === 'array'" :key="f.model" cols="12" sm="12">
+        <v-combobox
+          v-model="formModel[f.model]"
+          :search-input.sync="search"
+          hide-selected
+          :label="f.placeholder"
+          multiple
+          persistent-hint
+          small-chips
+        >
+          <template v-slot:no-data>
+            <v-list-item>
+              <v-list-item-content>
+                <v-list-item-title>
+                  No results matching "<strong>{{ search }}</strong>". Press <kbd>enter</kbd> to create a new one
+                </v-list-item-title>
+              </v-list-item-content>
+            </v-list-item>
+          </template>
+        </v-combobox>
+      </v-col>
+      <v-col v-else-if="f.type === 'content'" :key="f.model" cols="12" sm="12">
+        <editor
+          ref="editor"
+          :content.sync="formModel[f.model]"
+        />
+      </v-col>
+      <v-col v-else-if="f.type === 'date'" :key="f.model" cols="12" sm="12">
+        <el-date-picker
+          v-model="formModel[f.model]"
+          type="year"
+          :placeholder="f.placeholder ? f.placeholder : 'Input Date'"
+        />
+      </v-col>
+      <v-col v-else-if="f.type === 'textarea'" :key="f.model" cols="12" sm="12">
+        <v-textarea
+          v-model="formModel[f.model]"
+          :label="f.placeholder ? f.placeholder : 'Input'"
+          value="The Woodman set to work at once, and so sharp was his axe that the tree was soon chopped nearly through."
+          :hint="f.placeholder ? f.placeholder : 'Input'"
+        />
+      </v-col>
+      <v-col v-else :key="f.model" cols="12" sm="12">
+        <v-text-field
+          v-model="formModel[f.model]"
+          :label="f.placeholder ? f.placeholder : 'Input'"
+          :placeholder="f.placeholder ? f.placeholder : 'Input'"
+          @change="updateGen($event, f.model)"
+        />
+      </v-col>
+    </template>
+    <v-btn
+      color="error"
+      class="mr-4"
+      @click="cancelForm"
+    >
+      Cancel
+    </v-btn>
+
+    <v-btn
+      color="primary"
+      @click="submitForm"
+    >
+      Submit
+    </v-btn>
+  </v-form>
 </template>
 <script>
-
 export default {
   layout: 'Back',
   middleware: 'auth',
@@ -79,7 +125,8 @@ export default {
   },
   data () {
     return {
-      formAdapter: {}
+      formAdapter: {},
+      search: null
     }
   },
   watch: {
@@ -92,6 +139,20 @@ export default {
     }
   },
   methods: {
+    slugify (text) {
+      const from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;'
+      const to = 'aaaaaeeeeeiiiiooooouuuunc------'
+      const newText = text.split('').map(
+        (letter, i) => letter.replace(new RegExp(from.charAt(i), 'g'), to.charAt(i)))
+      return newText
+        .toString() // Cast to string
+        .toLowerCase() // Convert the string to lowercase letters
+        .trim() // Remove whitespace from both sides of a string
+        .replace(/\s+/g, '-') // Replace spaces with -
+        .replace(/&/g, '-y-') // Replace & with 'and'
+        .replace(/[^\w\\-]+/g, '') // Remove all non-word chars
+        .replace(/\\-\\-+/g, '-') // Replace multiple - with single -
+    },
     updateGen (event, model) {
       for (const f in this.formObject.fields) {
         if ((this.formObject.fields[f].value && (this.formObject.fields[f].value.from === model)) || (this.formObject.fields[f].value && (this.formObject.fields[f].value.params === model))) {
@@ -99,14 +160,14 @@ export default {
           if (this.formObject.fields[f].value.params) {
             if (this.formModel[this.formObject.fields[f].value.params] && this.formModel[this.formObject.fields[f].value.from]) {
               if (typeof this.formModel[this.formObject.fields[f].value.params] === 'object') {
-                str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].name) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+                str = this[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.params].name) + '/' + this[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
               } else {
                 const paramVal = this.data[this.formObject.fields[f].value.params].find(el => el._id === this.formModel[this.formObject.fields[f].value.params])
-                str = this.$parent[this.formObject.fields[f].value.fn](paramVal.name) + '/' + this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+                str = this[this.formObject.fields[f].value.fn](paramVal.name) + '/' + this[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
               }
             }
           } else {
-            str = this.$parent[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
+            str = this[this.formObject.fields[f].value.fn](this.formModel[this.formObject.fields[f].value.from])
           }
           this.formModel[this.formObject.fields[f].model] = str
         }

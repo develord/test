@@ -21,31 +21,28 @@
             {{ reverseLink(link.split('/')[1]) }}
           </li>
         </ul>
-
+        <div class="bread-crumb text-left clearfix">
+          <p v-if="journal">
+            {{ journal }}
+          </p>
+        </div>
         <div class="article-content-meta">
-          <div class="author-avatar">
-            <a href="#">
-              <img
-                v-lazy="{ src: 'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg', loading: 'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=160&amp;d=retro&amp;r=pg' }"
-                class="is-lazy"
-                :src="'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg'"
-              >
-            </a>
-            <div class="half-circle" width="80px" height="80px" />
-          </div>
           <div class="author-name-area">
             <div class="author-name-prefix">
-              Author
+              Published
             </div>
-            <a class="author-name" href="#">
-              {{ user.name }} </a>
+            <a v-if="published" class="author-name" href="#">
+              {{ published.substring(0,4) }} </a>
           </div>
           <div class="date">
             <div class="date-prefix">
-              Published
+              Author
             </div>
-            <time v-if="published">
-              {{ published.substring(0,4) }} </time>
+            <p class="article-desc" style="flex-wrap: wrap;flex-direction: column;margin: 0;padding: 0;">
+              <span v-for="(item, i) in authors" :key="i" class="tag-name">
+                <template v-if="i < 3">{{ item }}</template>
+              </span>
+            </p>
           </div>
         </div>
         <div class="article-tags">
@@ -117,6 +114,7 @@ a {
 }
 .author-name-prefix, .comments-prefix, .date-prefix, .shared-by-prefix, .type-of-guide {
     font-style: normal;
+    text-align: left;
     font-weight: 700;
     color: #7a7a8c;
 }
@@ -146,8 +144,8 @@ img {
 .article-content-meta {
     font-size: .7rem;
     display: grid;
-    grid-template-columns: 80px -webkit-min-content -webkit-min-content;
-    grid-template-columns: 80px min-content min-content;
+    grid-template-columns: 0px -webkit-min-content -webkit-min-content;
+    grid-template-columns: 0px min-content min-content;
     grid-template-areas: "avatar author date comments";
     grid-gap: .25rem 1rem;
     align-items: center;
@@ -182,5 +180,24 @@ img {
 }
 svg:not(:root) {
     overflow: hidden;
+}
+.breadcrumb-item {
+  overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    max-width: 381px;
+}
+.tag-name {
+    background-color: #a7a2a2;
+    color: #fff;
+    padding: 1px 7px;
+    display: block;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+    flex: 1;
+    display: inline-block;
+    border-radius: 24px;
+    margin: 0px 6px;
 }
 </style>

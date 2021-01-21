@@ -56,6 +56,7 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/apollo',
     'nuxt-compress',
+    '@nuxtjs/vuetify',
     '@nuxtjs/style-resources'
   ],
 

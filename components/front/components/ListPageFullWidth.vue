@@ -48,21 +48,16 @@
                 {{ post.title }}
               </NuxtLink>
             </h2>
-            <p class="article-desc">
-              {{ post.description }}
+            <p class="article-desc" style="margin-top: 9px;flex-wrap: wrap;flex-direction: column;">
+              <span v-for="(item, i) in post.authors" :key="i" class="tag-name">
+                <template v-if="i < 3">{{ item }}</template>
+              </span>
             </p>
-            <div class="tags-box">
-              <div v-for="(tag, i) in post.tags" :key="i" class="tag-avatar">
-                <img
-                  v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
-                  class="is-lazy"
-                  width="50"
-                  :alt="tag.name"
-                  :title="tag.name"
-                  :src="'/images/' + tag.slug"
-                >
-              </div>
-            </div>
+            <p class="article-desc">
+              {{ post.journal }} ,<template v-if=" post.published">
+                {{ post.published.substring(0,4) }}
+              </template>
+            </p>
           </div>
         </article>
       </div>
@@ -121,6 +116,23 @@ export default {
 }
 </script>
 <style lang="scss">
+.tag-name {
+  background-color: #d2d2d2;
+  color: #fff;
+  padding: 5px;
+  display: block;
+  width: max-content;
+  flex: 1;
+  display: inline-block;
+  border-radius: 24px;
+  margin: 0px 6px;
+}
+.article a {
+  font-size: 21px;
+}
+.article-title {
+ line-height: 24px;
+}
 .article,
 .artice-box {
  display: flex;
@@ -139,8 +151,8 @@ export default {
   width: 60px;
 }
 .artice-box {
- flex: 3 1 30ch;
- height: calc(196px + 5vw);
+ flex: 3 1 0ch;
+ height: calc(106px + 5vw);
  overflow: hidden;
 
  img {
