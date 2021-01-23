@@ -209,6 +209,11 @@ export default {
   padding: 24px;
   margin-top: 56px;
 }
+@media only screen and (max-width: 1200px){
+  .team-block-two .inner-box .image-box .contact-box{
+    right: -60px !important;
+  }
+}
 .emp-profile{
     padding: 3%;
     margin-bottom: 3%;

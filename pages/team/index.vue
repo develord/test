@@ -21,15 +21,17 @@
                 <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                   <div class="inner-box">
                     <div class="image-box">
-                      <img
-                        v-lazy="{ src: item.img, loading: item.img }"
-                        width="140"
-                        height="140"
-                        alt="ankur"
-                        class="wp-post-image is-lazy"
-                        :src="item.img"
-                        @click="descption = i"
-                      >
+                      <NuxtLink :to="item.link">
+                        <img
+                          v-lazy="{ src: item.img, loading: item.img }"
+                          width="140"
+                          height="140"
+                          alt="ankur"
+                          class="wp-post-image is-lazy"
+                          :src="item.img"
+                          @click="descption = i"
+                        >
+                      </NuxtLink>
                       <ul class="contact-box clearfix">
                         <li class="email">
                           <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
@@ -58,6 +60,62 @@
                         <h4>{{ item.name }}</h4>
                       </NuxtLink>
                       <span class="designation">{{ item.title }}</span>
+                      <div class="designation">
+                        <img
+                          width="45"
+                          alt="cell"
+                          title="cell"
+                          :src="'./images/tag-cell.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-cell.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          alt="genomis"
+                          title="genomis"
+                          :src="'./images/tag-genomis.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-genomis.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          alt="oncology"
+                          title="oncology"
+                          :src="'./images/tag-oncology.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-oncology.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          alt="fetus"
+                          title="fetus"
+                          :src="'./images/tag-fetus.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-cell.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          alt="cancer"
+                          title="cancer"
+                          :src="'./images/tag-cancer.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-cancer.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          alt="biology"
+                          title="biology"
+                          :src="'./images/tag-biology.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/tag-biology.png"
+                          lazy="loaded"
+                        >
+                      </div>
                     </div>
                   </div>
                 </div>

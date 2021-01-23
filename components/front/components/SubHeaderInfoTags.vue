@@ -71,9 +71,30 @@ export default {
   }
 }
 </script>
+<style >
+
+@media screen and (max-width: 850px) {
+  .article-desc {
+    width: 415px !important;
+  }
+}
+@media (max-width:930px) and (min-width:850px) {
+  .article-desc {
+    width: 615px !important;
+  }
+}
+@media (max-width:1131px) and (min-width:930px) {
+  .article-content-meta {
+    display: block  !important;
+  }
+  .article-desc {
+    width: 829px !important;
+  }
+}
+</style>
 <style scoped>
 .article-desc {
-  width: 1035px;
+ width: calc(633% - 100px)
 }
 .wallpaper-overlay {
   background-image: radial-gradient(ellipse closest-side, rgba(15, 14, 22, 0.5), #110b44);
@@ -152,7 +173,6 @@ img {
     grid-template-columns: 0px min-content min-content;
     grid-template-areas: "avatar author date comments";
     grid-gap: .25rem 1rem;
-    align-items: center;
     margin: 0 0 1.5rem;
 }
 .author-avatar {

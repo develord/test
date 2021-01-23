@@ -55,7 +55,7 @@
                     <ul class="clearfix">
                       <li> <span>Phone:</span> <a href="#">+65 8670 1153</a></li>
                       <li> <span>Email:</span> <a href="mailto:asharmatelome@gmail.com">asharmatelome@gmail.com</a></li>
-                      <li> <span>Address:</span> 124, Queens 2nd cross, NY</li>
+                      <li> <span>Address:</span> 6 Verdun St, Nedlands WA 6009, Australia</li>
                     </ul>
                   </div>
                 </div>

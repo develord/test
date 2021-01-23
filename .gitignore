@@ -3,6 +3,8 @@ node_modules
 /dist
 /src/lang
 .nuxt
+/static/images
+/static/pdf
 nuxt
 sw.*
 # local env files

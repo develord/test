@@ -6,17 +6,10 @@
           <div class="row clearfix">
             <div class="col-lg-11 col-md-12 col-sm-12 content-side">
               <div class="project-details-content">
-                <template v-for="(item, i) in contents">
-                  <component
-                    v-if="item"
-                    :is="item"
-                    :key="i"
-                    v-bind="doc.json.content[i]"
-                  />
-                </template>
+                <div v-html="contents">
+                </div>
                 <a v-if="exterlink" class="journal-website" target="_blank" :href="exterlink">journal Website</a>
                 <a v-if="pdf" class="journal-website" target="_blank" :href="'../pdf/' + pdf">PDF</a>
-                
               </div>
             </div>
           </div>
@@ -30,6 +23,7 @@ import page from '~/mixins/page.js'
 import {_} from 'lodash'
 
 export default {
+  name: 'CententsSample',
   mixins: [page],
   data: () => {
     return {
@@ -41,7 +35,8 @@ export default {
       return doc
     },
     contents () {
-      if (this.doc && this.doc.json && this.doc.json.content && this.doc.html && this.doc.html.length > 20) {
+      if (this.doc.html && this.doc.html.length > 20) {
+        return this.doc.html
       const componentList = []
       this.doc.json.content.forEach(item => {
         const cmp = () => import(`~/components/front/components/${_.startCase(_.camelCase(item.type)).replace(/ /g, '')}.vue`)

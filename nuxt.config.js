@@ -28,9 +28,9 @@ module.exports = {
 
   pwa: {
     manifest: {
-      name: 'CharmaLab',
-      short_name: 'CharmaLab',
-      description: 'CharmaLab',
+      name: 'Sharma Lab',
+      short_name: 'Sharma Lab',
+      description: 'Sharma Lab',
       lang: 'en',
       start_url: '/',
       display: 'standalone',

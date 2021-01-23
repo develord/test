@@ -1,5 +1,32 @@
 <template>
   <div>
+    <v-speed-dial
+      v-model="fab"
+      fixed
+      top
+      right
+      direction="bottom"
+      :open-on-hover="true"
+    >
+      <template v-slot:activator>
+        <v-btn
+          v-model="fab"
+          color="purple"
+          dark
+          fab
+        >
+          <v-icon v-if="fab">
+            mdi-close
+          </v-icon>
+          <v-icon v-else>
+            mdi-share-variant
+          </v-icon>
+        </v-btn>
+      </template>
+      <a target="_blank" href="https://www.skype.com/" style=" color: rgb(255, 255, 255)"><img style="width: 46px;" src="/images/fb.png"></a>
+      <a target="_blank" href="https://www.twitter.com/" style=" color: rgb(255, 255, 255)"><img style="width: 52px; margin-top: 3px;" src="/images/twitter.png"></a>
+      <a target="_blank" href="https://www.facebook.com/" style=" color: rgb(255, 255, 255)"><img style="width: 46px;" src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
+    </v-speed-dial>
     <div data-elementor-type="wp-page" data-elementor-id="205" class="elementor elementor-205" data-elementor-settings="[]">
       <div class="elementor-inner">
         <div class="elementor-section-wrap">
@@ -76,7 +103,7 @@
                                           <div class="box">
                                             <p>Sharma Lab focuses on the triquetra of early development, regeneration, and cancer. We are interested in understanding the developmental origin of cancer by uncovering the similarities between embryogenesis and tumor development. In close association with our clinical collaborators, we study how tumors co-evolve with their microenvironment, especially in the context of tumor initiation and drug-resistance. To address these questions, we combine single-cell genomics, spatial transcriptomics, and machine learning approaches. We are expanding our collaborations to integrate experimental, computational, and clinical knowledge to exhume the ‘seeds’ of cancer development.</p>
                                             <div class="btn-box">
-                                              <NuxtLink class="theme-btn style-six" to="/about">
+                                              <NuxtLink class="theme-btn style-six" to="/presentation">
                                                 Details
                                               </NuxtLink>
                                             </div>
@@ -111,18 +138,16 @@
                               <div class="title-inner mb-35 clearfix">
                                 <div class="sec-title light text-left pull-left">
                                   <br>
-                                  <h2>Subscribe to our Newsletter to get our latest news and articles.</h2>
+                                  <h2>Subscribe to our Newsletter to get our latest blogs and articles.</h2>
                                   <div class="decor" style="background-image: url(./images/LogoValidation.png);" />
                                   <div class="subscribe-box">
-                                    <form accept-charset="utf-8">
-                                      <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email Address..." required="">
-                                      </div>
-                                      <button type="submit" class="theme-btn style-one">
-                                        Subscribe
-                                      </button>
-                                      <br><br><br>
-                                    </form>
+                                    <div class="form-group">
+                                      <input v-model="email" type="email" name="email" placeholder="Email Address..." required="">
+                                    </div>
+                                    <button class="theme-btn style-one" @click="subscribe">
+                                      Subscribe
+                                    </button>
+                                    <br><br><br>
                                   </div>
                                 </div>
                               </div>
@@ -201,6 +226,27 @@
               </div>
             </div>
           </section>
+          <v-snackbar
+            v-model="snackbar"
+            :timeout="timeout"
+            right
+            rounded="pill"
+            color="deep-purple accent-4"
+            shaped
+            top
+          >
+            {{ text }}
+            <template v-slot:action="{ attrs }">
+              <v-btn
+                color="blue"
+                text
+                v-bind="attrs"
+                @click="snackbar = false"
+              >
+                Close
+              </v-btn>
+            </template>
+          </v-snackbar>
         </div>
       </div>
     </div>
@@ -223,6 +269,11 @@ export default {
   mixins: [page],
   data () {
     return {
+      fab: false,
+      email: '',
+      text: 'Welcome to our universe you will have a mail every time we update our news',
+      timeout: 3000,
+      snackbar: false,
       teams: [
         {
           name: 'Ankur',
@@ -297,11 +348,22 @@ export default {
   },
   beforeMount () {
     this.$store.dispatch('getPosts')
+  },
+  methods: {
+    subscribe () {
+      if (this.email) { this.snackbar = true }
+    }
   }
 }
 </script>
 
-<style >
+<style>
+.purple {
+background-color: var(--purple)  !important;
+}
+.v-speed-dial--top {
+   top: 42px  !important;
+}
 .footer-widget .logo {
   margin-top: 0px;
 }

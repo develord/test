@@ -235,7 +235,10 @@
   }
 
   .team-block-two .inner-box .image-box .contact-box{
-    display: none;
+    right: -105px !important;
+  }
+  .team-block-two {
+    padding-right: 0px !important;
   }
 
   .team-block-two{

@@ -26,6 +26,11 @@
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
+                    <NuxtLink to="/research" title="research" class="hvr-underline-from-left1">
+                      Research
+                    </NuxtLink>
+                  </li>
+                  <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
                     <NuxtLink to="/team" title="team" class="hvr-underline-from-left1">
                       Team
                     </NuxtLink>
@@ -33,10 +38,6 @@
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
                     <NuxtLink to="/publication" title="news" class="hvr-underline-from-left1">
                       Publications
-                    </NuxtLink>
-                  </li><li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
-                    <NuxtLink to="/research" title="research" class="hvr-underline-from-left1">
-                      Research
                     </NuxtLink>
                   </li>
                   <li id="menu-item-15" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-ancestor current-menu-parent menu-item-has-children menu-item-15 dropdown current">
@@ -63,13 +64,6 @@
               </div>
             </nav>
           </div>
-        </div>
-        <div class="right-column pull-right clearfix">
-          <ul class="social-links clearfix">
-            <li><a target="_blank" href="https://www.facebook.com/" style=" color: rgb(255, 255, 255)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
-            <li><a target="_blank" href="https://www.skype.com/" style=" color: rgb(255, 255, 255)"><img src="/images/fb.png"></a></li>
-            <li><a target="_blank" href="https://www.twitter.com/" style=" color: rgb(255, 255, 255)"><img src="/images/twitter.png"></a></li>
-          </ul>
         </div>
       </div>
     </div>

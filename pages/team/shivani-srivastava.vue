@@ -207,6 +207,11 @@ export default {
 }
 </script>
 <style scoped>
+@media only screen and (max-width: 1200px){
+  .team-block-two .inner-box .image-box .contact-box{
+    right: -60px !important;
+  }
+}
 .biography {
   padding: 24px;
   margin-top: 56px;

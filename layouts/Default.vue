@@ -2,9 +2,19 @@
   <div class="page-template page-template-tpl-default-elementor page-template-tpl-default-elementor-php page page-id-205 menu-layer elementor-default elementor-kit-16 elementor-page elementor-page-205">
     <div class="boxed_wrapper">
       <client-only>
-        <SlideMenu width="300" :no-overlay="true" :burger-icon="true" left :is-open="isOpen">
+        <SlideMenu
+          width="300"
+          :close-on-navigation="true"
+          :no-overlay="true"
+          :burger-icon="true"
+          left
+          :is-open="isOpen"
+        >
           <NuxtLink to="/" title="home" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Home</span>
+          </NuxtLink>
+          <NuxtLink to="/research" title="research" class="hvr-underline-from-left1" @click="isOpen = false">
+            <span>Research</span>
           </NuxtLink>
           <NuxtLink to="/team" title="team" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Team</span>
@@ -12,17 +22,14 @@
           <NuxtLink to="/publication" title="news" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Publications</span>
           </NuxtLink>
-          <NuxtLink to="/research" title="research" class="hvr-underline-from-left1" @click="isOpen = false">
-            <span>Research</span>
-          </NuxtLink>
           <NuxtLink to="/news" title="research" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>News</span>
           </NuxtLink>
+          <NuxtLink to="/presentation" title="presentation" class="hvr-underline-from-left1" @click="isOpen = false">
+            <span>Presentation</span>
+          </NuxtLink>
           <NuxtLink to="/giving" title="giving" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Giving</span>
-          </NuxtLink>
-          <NuxtLink to="/about" title="about" class="hvr-underline-from-left1" @click="isOpen = false">
-            <span>About</span>
           </NuxtLink>
           <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1" @click="isOpen = false">
             <span>Contact </span>
@@ -63,11 +70,7 @@ export default {
     return {
       isOpen: false
     }
-  },
-  mounted () {
-
   }
-
 }
 </script>
 <style>
