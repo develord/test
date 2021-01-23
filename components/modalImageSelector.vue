@@ -158,7 +158,7 @@ export default {
       try {
         return require('@/static/images/' + url)
       } catch (e) {
-        return 'http://via.placeholder.com/300'
+        return require('@/static/images/' + url.replace('-high'))
       }
     },
     // async

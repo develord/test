@@ -53,7 +53,7 @@ const Mutation = {
       await webp.cwebp(path.join(__dirname, '../../../../static/images', filename), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-high.webp`))
       await webp.cwebp(path.join(__dirname, '../../../../static/images', `low-${filename}`), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-low.webp`))
       await unlinkSync(path.join(__dirname, '../../../../static/images', filename))
-      await unlinkSync(path.join(__dirname, '../../../../static/images', `low-${filename}`))
+      // await unlinkSync(path.join(__dirname, '../../../../static/images', `low-${filename}`))
       const image = new Image({
         low: `${filename.split('.')[0]}-low.webp`,
         high: `${filename.split('.')[0]}-high.webp`
