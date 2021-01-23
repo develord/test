@@ -50,6 +50,11 @@ export default {
   }
 }
 </script>
+<style scoped>
+.project-details-content li {
+  list-style: circle !important;
+}
+</style>
 <style >
 .journal-website {
   margin-top: 18px;
