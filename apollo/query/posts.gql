@@ -8,6 +8,7 @@
         published
         journal
         authors
+        pdf
         exterlink
         tags {_id, name, slug}
         image_large {_id, low, high}

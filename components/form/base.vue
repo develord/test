@@ -61,6 +61,15 @@
           :content.sync="formModel[f.model]"
         />
       </v-col>
+      <v-col v-else-if="f.type === 'file'" :key="f.model" cols="12" sm="12">
+        {{ formModel[f.model] }}
+        <v-file-input
+          ref="file"
+          type="file"
+          required
+          @change="uploadFile($event, f.model)"
+        />
+      </v-col>
       <v-col v-else-if="f.type === 'date'" :key="f.model" cols="12" sm="12">
         <el-date-picker
           v-model="formModel[f.model]"
@@ -139,6 +148,10 @@ export default {
     }
   },
   methods: {
+    async uploadFile (e, model) {
+      this.formModel[model] = e.name
+      await this.$store.dispatch('uploadFile', e)
+    },
     slugify (text) {
       const from = 'ãàáäâẽèéëêìíïîõòóöôùúüûñç·/_,:;'
       const to = 'aaaaaeeeeeiiiiooooouuuunc------'

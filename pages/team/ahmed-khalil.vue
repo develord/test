@@ -1,106 +1,64 @@
 <template>
   <div>
     <section class="page-title text-center style-two">
-      <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container">
-        <div class="content-box">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="profile-img">
-                <img style="width: 132px;" :src="'../../images/ahmed.jpeg'" alt="">
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="profile-head text-left">
-                <h2 style="    margin-top: 60px;">
-                  Ahmed Ibrahim Samir Khalil
-                </h2>
-                <h6>
-                  Postdoc researcher
-                </h6>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container" />
     </section>
-    <div class="container emp-profile">
-      <form method="post">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="profile-work">
-              <p style="margin-top: 0;">
-                Address: SCSE NTU, 639798, Singapore.
-                Phone: (+65) 9358-9415
-                Email: ahmed.ibrahim@ntu.edu.sg
-                Github: https://github.com/AISKhalil/
-              </p>
-              <p>SKILLS</p>
-
-              <a href=""><b>Languages: </b>Arabic and English</a><br>
-              <a href=""><b>CAD Tools : </b>ModelSim, ISE, Vivado.</a><br>
-              <a href=""><b>Programming : </b>VHDL/Verilog, C++, TCL scripting, R, Python,
-                MATLAB.</a>
-              <a href=""><b>Machine learning:</b> Scikit-learn, TensorFlow, PyTorch.</a><br>
-              <a href=""><b>Bioinformatics:</b> Seurat, Scanpy.</a><br>
-            </div>
-          </div>
-          <div class="col-md-8">
-            <div id="myTabContent" class="tab-content profile-tab">
-              <div id="home" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
-                <div class="row">
-                  <div class="row">
-                    <div class="col-md-8">
-                      <label>Research Interests</label>
-                      <ul>
-                        <li>
-                          <p>
-                            <b>•  Computational biology:</b> Single-cell multi-omics data
-                            integration and annotation, Copy number variations, data
-                            Genome structure modeling, Discovery of functional regulatory
-                            elements.
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            <b>•  Data science:</b> Data integration, Data visualization, Statistics,
-                            Machine learning, Unsupervised clustering, Deep learning.
-                          </p>
-                        </li>
-
-                        <li>
-                          <p>
-                            <b>•  Hardware acceleration:</b> FPGA, GPU, Heterogeneous-
-                            hardware acceleration.
-                          </p>
-                        </li>
-                      </ul>
-                      <label style="margin-top: 15px;">Academic
-                        Records</label>
-                      <ul>
-                        <li>
-                          <p>
-                            <b>•  PhD in School of Computer Science and Engineering,
-                              NTU, Singapore.
-                            </b>
-                          </p>
-                        </li>
-                        <li>
-                          <p>
-                            <b>•  M.Sc. in Electronics and Electrical Communications,
-                              Engineering Department, Cairo University, Egypt.
-                            </b>
-                          </p>
-                        </li>
-
-                        <li>
-                          <p>
-                            <b>• Distinction with honor Bachelor in Electronics and
-                              Electrical Communications, Engineering Department,
-                              Cairo University, Egypt.
-                            </b>
-                          </p>
-                        </li>
-                      </ul>
+    <div class="container">
+      <div class="row clearfix">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="content-box" style="margin-top: 56px">
+            <div class="col-lg-12 col-md-12 col-sm-12 team-block">
+              <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+                <div class="inner-box" style="padding: 0;">
+                  <div class="image-box" style="    border-radius: 25px;margin: auto;width: 233px;height: 233px;">
+                    <img
+                      v-lazy="{ src: teams[1].img, loading: teams[1].img }"
+                      width="140"
+                      height="140"
+                      style="    border-radius: 25px;"
+                      alt="ankur"
+                      class="wp-post-image is-lazy"
+                      :src="teams[1].img"
+                      @click="descption = i"
+                    >
+                    <ul class="contact-box clearfix" style="right: -60px;">
+                      <li class="email">
+                        <a :href="'mailto:http://' + teams[1].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[1].email }}</span> </a>
+                      </li>
+                      <li v-if="teams[1].linkedin || teams[1].researchgate|| teams[1].github" class="social-links">
+                        <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
+                        <ul class="list clearfix">
+                          <li v-if="teams[1].linkedin">
+                            <a :href="teams[1].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
+                          </li>
+                          <li v-if="teams[1].researchgate">
+                            <a :href="teams[1].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
+                          </li>
+                          <li v-if="teams[1].google">
+                            <a :href="teams[1].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
+                          </li>
+                          <li v-if="teams[1].github">
+                            <a :href="teams[1].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="lower-content">
+                    <NuxtLink :to="teams[1].link" title="giving" class="hvr-underline-from-left1">
+                      <h4>{{ teams[1].name }}</h4>
+                    </NuxtLink>
+                    <span class="designation">{{ teams[1].title }}</span>
+                    <div class="designation">
+                      <a target="_blank" :href="teams[1].cv" style="width: 44px;background-color:transparent; color: rgb(249,+50,+110)">
+                        <img style="width: 44px" alt="CV" title="CV" src="https://image.flaticon.com/icons/png/512/957/957342.png">
+                      </a>
+                    </div>
+                    <div style="padding: 18px 34px;">
+                      <p class="designation" style="text-align: center !important;">
+                        <b>Degrees & Affiliations</b>
+                      </p>
+                      <span class="designation">{{ teams[1].degree }}</span>
                     </div>
                   </div>
                 </div>
@@ -108,19 +66,80 @@
             </div>
           </div>
         </div>
-      </form>
+        <div class="col-lg-8 col-md-6 col-sm-12">
+          <div class="biography">
+            <h1>Biography</h1>
+            <p>
+              Jeff Gahan joined the Shalek Lab in February of 2020, bringing over 9 years of administrative and marketing experience to the team. Jeff graduated cum laude from Providence College with Bachelor of Arts degrees in Social Science and English. Jeff began his career in marketing at AAA, spending six years in the Publications department from 2012-2018. Jeff was also a founding member and manager of the independent band Last One Out from 2008-2014. Jeff moved to Boston from Providence in 2017 to be with his partner Sarah; they are now married and live in Harvard, Massachusetts. Jeff’s interests and hobbies include tennis, hiking, playing music with Sarah, and gardening.
+            </p>
+            <h2>Publications</h2>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
+
 <script>
 
 export default {
   layout: 'Default',
-  components: {
+  data () {
+    return {
+      descption: 0,
+      teams: [
+        {
+          name: 'Ankur Sharma',
+          title: 'Head of Lab',
+          img: './images/ankur.png',
+          link: '/team/ahmed-khalil',
+          email: 'asharmatelome@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
+          google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
+          description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
+        },
+        {
+          name: 'Ahmed Khalil',
+          title: 'Postdoc researcher',
+          email: 'ahmed.ibrahim@ntu.edu.sg',
+          degree: 'PhD in School of Computer Science and Engineering,NTU, Singapore.',
+          cv: 'https://drive.google.com/file/d/1JtKvY8OkaaaPu5sVK27VimWAiVK0DecB/view?usp=sharing',
+          link: '/team/ahmed-khalil',
+          img: '../images/ahmed.jpeg',
+          linkedin: ' www.linkedin.com/in/ahmed-i-s-khalil',
+          researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
+          github: 'https://github.com/AISKhalil/',
+          description: `Ahmed Khalil is a Postdoctoral Research Fellow at the School of Computer Science and Engineering, Nanyang Technological University in Singapore. He received the Ph.D. degree from the same school in 2020 when he introduced methods for accurate profiling of cancer cell lines. Earlier, he got a B.Sc. degree in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from Cairo University in Egypt. From early 2021, he will join Harry Perkins Institute of Medical Research to study the tumor evolution and ecosystem using single cell multi-omics data. Khalil’s research interests include a broad range of topics around computational biology, data science, and hardware acceleration.`
+        },
+        {
+          name: 'Rhea Pai',
+          link: '/team/rhea-pai',
+          title: 'Research Associate',
+          email: 'rheakedar@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',
+          img: './images/Rhea_pic.png',
+          description: `Rhea is a Research Officer at Genome Institute of Singapore (GIS), A*STAR. She received her B.Sc. degree in Biotechnology from Northumbria University in 2018.  She has worked extensively over the last two years in liver and breast cancer related projects primarily focused on optimizing single cell RNA-seq experiments on patient samples. She has also ventured into spatial transcriptomics and attained expertise in the area of multicolor fluorescent in situ mRNA hybridization (FISH) images. Her research interest is in studying tumor heterogeneity and evolution using single cell genomics. Rhea will be joining Sharmaalab at Harry Perkins Institute in early 2021. `
+        },
+        {
+          name: 'Shivani Sriva..',
+          title: 'Research Intern',
+          link: '/team/shivani-srivastava',
+          email: 'shivani1996srivastava1996@gmail.com',
+          linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',
+          researchgate: 'https://www.researchgate.net/profile/Shivani_Srivastava9',
+          img: './images/Shivani_pic.jpg',
+          description: `Shivani is a research intern at Sharmaalab. Her research interest includes applying computational approaches to understand heterogeneity of tumor tissues and cell-cell interactions, to discover the phenomenon causing togetherness of the different cells and what leads to selection of the driving mutations. She is currently tracking the pre and post treatment cell interactions in breast cancer. She completed her masters in bioinformatics from University of Allahabad, India. She recieved her Bachelor of Biotechnology degree from CSJM University, India. Apart from research, she is a zoophilist.`
+        }
+      ]
+    }
   }
 }
 </script>
 <style scoped>
+.biography {
+  padding: 24px;
+  margin-top: 56px;
+}
 .emp-profile{
     padding: 3%;
     margin-bottom: 3%;

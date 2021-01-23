@@ -9,6 +9,7 @@ module.exports = {
       journal: String
       authors: [String]
       exterlink: String
+      pdf: String
       tags: [Tag]
       componentName: String
       content: String
@@ -28,6 +29,7 @@ module.exports = {
       description: String
       h1: String
       journal: String
+      pdf: String
       authors: [String]
       exterlink: String
       componentName: String
@@ -49,6 +51,7 @@ module.exports = {
       h1: String
       componentName: String
       journal: String
+      pdf: String
       authors: [String]
       exterlink: String
       content: String
@@ -71,6 +74,7 @@ module.exports = {
       published: String
       description: String
       h1: String
+      pdf: String
       journal: String
       authors: [String]
       exterlink: String
@@ -92,6 +96,7 @@ module.exports = {
       tags: [String]
       componentName: String
       journal: String
+      pdf: String
       authors: [String]
       exterlink: String
       h1: String

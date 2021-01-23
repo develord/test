@@ -2,4 +2,4 @@ mutation ($file: Upload!) {
     uploadFile(file: $file) {
       filename
     }
-  }
+}

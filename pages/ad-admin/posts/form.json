@@ -48,6 +48,13 @@
       "placeholder": "Journal"
     },
     {
+      "name": "pdf",
+      "label": "Pdf",
+      "model": "pdf",
+      "type": "file",
+      "placeholder": "PDF"
+    },
+    {
       "name": "exterlink",
       "label": "exterlink",
       "model": "exterlink",

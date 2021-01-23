@@ -147,112 +147,42 @@
                 <div class="btn-box pull-right mt-60" />
               </div>
               <div class="row clearfix">
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
+                <div v-for="post in listNews" :key="post._id" class="col-lg-4 col-md-6 col-sm-12 news-block">
                   <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                     <div class="inner-box">
                       <figure class="image-box">
                         <img
+                          v-lazy="{ src: '/images/' + post.image_large.high, loading: '/images/' + post.image_large.low}"
+                          :alt="post.title"
+                          :title="post.title"
+                          :src="'/images/' + post.image_large.low"
                           width="370"
                           height="250"
-                          alt=""
-                          data-srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
-                          data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1"
                           data-sizes="(max-width: 370px) 100vw, 370px"
                           class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyloaded"
-                          src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1"
                           loading="lazy"
                           sizes="(max-width: 370px) 100vw, 370px"
-                          srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-1-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
                         >
-                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-1.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
                       </figure>
                       <div class="lower-content">
                         <div class="title-box">
                           <div class="post-date">
-                            <p>13</p>
-                            <span>Mar</span>
+                            <p>{{ post.created_at.substring(0,4) }}</p>
+                            <span>{{ post.created_at.substring(5,7) }}</span>
                           </div>
-                          <h4><a href="naxly-named-as-a-global-leader-in-big-data.html">Our team will be present at the 19th conference in bioinformatics</a></h4>
+                          <h4>
+                            <NuxtLink :to="post.link">
+                              {{ post.title }}
+                            </NuxtLink>
+                          </h4>
                         </div>
                         <div class="text">
-                          <p>Equal blame belongs too those who fail in their through weakness will shrinking duty the ...</p>
+                          <p>{{ post.description }} ...</p>
                         </div>
                         <div class="link">
-                          <a href="naxly-named-as-a-global-leader-in-big-data.html"><i class="flaticon-next" />Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                  <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                    <div class="inner-box">
-                      <figure class="image-box">
-                        <img
-                          width="370"
-                          height="250"
-                          alt=""
-                          data-srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
-                          data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1"
-                          data-sizes="(max-width: 370px) 100vw, 370px"
-                          class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyloaded"
-                          src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1"
-                          loading="lazy"
-                          sizes="(max-width: 370px) 100vw, 370px"
-                          srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-2-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
-                        >
-                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-2.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
-                      </figure>
-                      <div class="lower-content">
-                        <div class="title-box">
-                          <div class="post-date">
-                            <p>20</p>
-                            <span>Mar</span>
-                          </div>
-                          <h4><a href="the-current-state-of-artificial-intelligence-infographic.html">Happy to announce our collaboration with Sydney Hospital.</a></h4>
-                        </div>
-                        <div class="text">
-                          <p>Equal blame belongs too those who fail in their through weakness will shrinking duty the ...</p>
-                        </div>
-                        <div class="link">
-                          <a href="the-current-state-of-artificial-intelligence-infographic.html"><i class="flaticon-next" />Read More</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 news-block">
-                  <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                    <div class="inner-box">
-                      <figure class="image-box">
-                        <img
-                          width="370"
-                          height="250"
-                          alt=""
-                          data-srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
-                          data-src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1"
-                          data-sizes="(max-width: 370px) 100vw, 370px"
-                          class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyloaded"
-                          src="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1"
-                          loading="lazy"
-                          sizes="(max-width: 370px) 100vw, 370px"
-                          srcset="https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3.jpg?lossy=1&amp;strip=1&amp;webp=1 370w, https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/news-3-300x203.jpg?lossy=1&amp;strip=1&amp;webp=1 300w"
-                        >
-                        <a href="http://el.commonsupport.com/newwp/naxly/wp-content/uploads/2020/03/news-3.jpg" class="lightbox-image" data-fancybox="gallery"><i class="flaticon-zoom" /></a>
-                      </figure>
-                      <div class="lower-content">
-                        <div class="title-box">
-                          <div class="post-date">
-                            <p>13</p>
-                            <span>Mar</span>
-                          </div>
-                          <h4><a href="naxly-as-the-winners-in-global-agency-awards.html">Sharma Labas the Winner of best research paper .</a></h4>
-                        </div>
-                        <div class="text">
-                          <p>Equal blame belongs too those who fail in their through weakness will shrinking duty the ...</p>
-                        </div>
-                        <div class="link">
-                          <a href="naxly-as-the-winners-in-global-agency-awards.html"><i class="flaticon-next" />Read More</a>
+                          <NuxtLink :to="post.link">
+                            Read More
+                          </NuxtLink>
                         </div>
                       </div>
                     </div>
@@ -348,8 +278,25 @@ export default {
           { start: 768, end: 992, size: 3 },
           { size: 4 }
         ]
+      },
+      listNews: []
+    }
+  },
+  computed: {
+    posts () {
+      return this.$store.state.listePost
+    }
+  },
+  watch: {
+    posts: {
+      immediate: true,
+      handler (newVal) {
+        this.listNews = newVal.filter(el => el.category.name.toLowerCase() === 'news')
       }
     }
+  },
+  beforeMount () {
+    this.$store.dispatch('getPosts')
   }
 }
 </script>

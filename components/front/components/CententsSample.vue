@@ -14,7 +14,9 @@
                     v-bind="doc.json.content[i]"
                   />
                 </template>
-                <a class="journal-website" target="_blank" :href="exterlink">journal Website</a>
+                <a v-if="exterlink" class="journal-website" target="_blank" :href="exterlink">journal Website</a>
+                <a v-if="pdf" class="journal-website" target="_blank" :href="'../pdf/' + pdf">PDF</a>
+                
               </div>
             </div>
           </div>
@@ -56,6 +58,7 @@ export default {
 <style >
 .journal-website {
   margin-top: 18px;
+  text-align: center;
   width: 166px;
   display: block;
   background-image: linear-gradient(to right, #582ead 0%, #952ed0 50%, #582ead 100%);

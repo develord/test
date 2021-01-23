@@ -41,7 +41,7 @@ export const actions = {
   switchMode (context) {
     context.commit('INVERT_THEMES')
   },
-  async uploadFile (context, file) {
+  async uploadFile (_, file) {
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: uploadFile,
       variables: {
@@ -53,7 +53,7 @@ export const actions = {
     })
     return response
   },
-  async addNewPost (context, post) {
+  async addNewPost (_, post) {
     const { content, ...data } = post
     const str = JSON.stringify(content)
     const response = await this.app.apolloProvider.defaultClient.mutate({
@@ -106,6 +106,7 @@ export const actions = {
       fetchPolicy: 'network-only'
     })
     context.commit('SET_POSTS', response.data.posts)
+    return response.data.posts
   },
   async getImages (context) {
     const response = await this.app.apolloProvider.defaultClient.query({

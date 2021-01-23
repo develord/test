@@ -40,6 +40,10 @@ const postSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  pdf: {
+    type: String,
+    default: null
+  },
   exterlink: {
     type: String,
     default: null

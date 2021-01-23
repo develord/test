@@ -49,15 +49,28 @@
               </NuxtLink>
             </h2>
             <p class="article-desc" style="margin-top: 9px;flex-wrap: wrap;flex-direction: column;">
-              <span v-for="(item, i) in post.authors" :key="i" class="tag-name">
-                <template v-if="i < 3">{{ item }}</template>
-              </span>
+              <template v-for="(item, i) in post.authors">
+                <span v-if="i < 3" :key="i" class="tag-name">{{ item }}</span>
+              </template>
             </p>
             <p class="article-desc">
-              {{ post.journal }} ,<template v-if=" post.published">
+              {{ post.journal }} ,
+              <template v-if=" post.published">
                 {{ post.published.substring(0,4) }}
               </template>
             </p>
+            <div class="tags-box">
+              <div v-for="(tag, i) in post.tags" :key="i" class="tag-avatar">
+                <img
+                  v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
+                  class="is-lazy"
+                  width="50"
+                  :alt="tag.name"
+                  :title="tag.name"
+                  :src="'/images/' + tag.slug"
+                >
+              </div>
+            </div>
           </div>
         </article>
       </div>
@@ -116,10 +129,16 @@ export default {
 }
 </script>
 <style lang="scss">
+.article-content {
+  padding-right: 0 !important;
+}
+a {
+  text-align: justify !important;
+}
 .tag-name {
   background-color: #d2d2d2;
   color: #fff;
-  padding: 5px;
+  padding: 2px;
   display: block;
   width: max-content;
   flex: 1;
@@ -151,8 +170,8 @@ export default {
   width: 60px;
 }
 .artice-box {
- flex: 3 1 0ch;
- height: calc(106px + 5vw);
+ flex: 3 1 3ch;
+ height: calc(167px + 5vw);
  overflow: hidden;
 
  img {

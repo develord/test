@@ -111,6 +111,15 @@ module.exports = {
       }
       if (ctx.dev && ctx.isClient) {
         config.module.rules.push({
+          test: /\.pdf$/,
+          use: {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name].[ext]'
+            }
+          }
+        })
+        config.module.rules.push({
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',

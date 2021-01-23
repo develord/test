@@ -22,12 +22,20 @@ const Query = {
 const Mutation = {
   async uploadFile (_, { file }) {
     const { filename, mimetype, createReadStream, encoding } = await file
-    /* await createReadStream()
-      .pipe(
-        createWriteStream(
-          path.join(__dirname, '../../../../static/images', filename)
-        )
-      ) */
+    if (mimetype === 'application/pdf') {
+      const streampdf = createReadStream()
+      await new Promise((resolve, reject) => {
+        streampdf.on('error', (error) => {
+          unlinkSync(path, () => {
+            reject(error)
+          })
+        }).pipe(createWriteStream(path.join(__dirname, '../../../../static/pdf', filename)))
+          .on('error', reject)
+          .on('finish', resolve)
+      })
+      return { filename, mimetype, encoding }
+    }
+
     const stream = createReadStream()
     await new Promise((resolve, reject) => {
       stream.on('error', (error) => {
@@ -39,22 +47,9 @@ const Mutation = {
         .on('finish', resolve)
     })
     try {
-      // setTimeout(async () => {
       const img = `./static/images/${filename}`
       const black = await Jimp.read(img)
       await black.quality(20).greyscale().blur(15).writeAsync(`./static/images/low-${filename}`)
-      /* Jimp.read(img, (err, lenna) => {
-        if (err) {
-          console.error('**********', err)
-          throw err
-        }
-        lenna
-          .quality(20) // set JPEG quality
-          .greyscale() // set greyscale
-          .blur(15)
-          .write(`./static/images/low-${filename}`) // save
-      }) */
-
       await webp.cwebp(path.join(__dirname, '../../../../static/images', filename), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-high.webp`))
       await webp.cwebp(path.join(__dirname, '../../../../static/images', `low-${filename}`), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-low.webp`))
       await unlinkSync(path.join(__dirname, '../../../../static/images', filename))
@@ -64,7 +59,6 @@ const Mutation = {
         high: `${filename.split('.')[0]}-high.webp`
       })
       await image.save()
-      // }, 3000)
     } catch (e) { console.error('^========>', e) }
     return { filename, mimetype, encoding }
   },

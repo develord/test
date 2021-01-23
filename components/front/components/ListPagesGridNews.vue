@@ -33,25 +33,45 @@
       </div>
 
       <div v-else class="auto-container d-flex flex-wrap justify-content-start">
-        <div v-for="post in listPost" :key="post._id" class="first hero">
-          <img
-            v-lazy="{ src: '/images/' + post.image_large.high, loading: '/images/' + post.image_large.low}"
-            class="is-lazy hero-profile-img"
-            :alt="post.title"
-            :title="post.title"
-            :src="'/images/' + post.image_large.low"
-          >
-          <div class="hero-description-bk" />
-          <div class="hero-description">
-            <h5>
-              {{ post.title }}
-            </h5>
-          </div>
-          <div class="hero-date" />
-          <div class="hero-btn">
-            <NuxtLink class="btn-style-four" :to="post.link">
-              Read More
-            </NuxtLink>
+        <div v-for="post in listPost" :key="post._id" class="col-lg-4 col-md-6 col-sm-12 news-block">
+          <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
+            <div class="inner-box">
+              <figure class="image-box">
+                <img
+                  v-lazy="{ src: '/images/' + post.image_large.high, loading: '/images/' + post.image_large.low}"
+                  :alt="post.title"
+                  :title="post.title"
+                  :src="'/images/' + post.image_large.low"
+                  width="370"
+                  height="250"
+                  data-sizes="(max-width: 370px) 100vw, 370px"
+                  class="attachment-naxly_370x250 size-naxly_370x250 wp-post-image lazyloaded"
+                  loading="lazy"
+                  sizes="(max-width: 370px) 100vw, 370px"
+                >
+              </figure>
+              <div class="lower-content">
+                <div class="title-box">
+                  <div class="post-date">
+                    <p>{{ post.created_at.substring(0,4) }}</p>
+                    <span>{{ post.created_at.substring(5,7) }}</span>
+                  </div>
+                  <h4>
+                    <NuxtLink :to="post.link">
+                      {{ post.title }}
+                    </NuxtLink>
+                  </h4>
+                </div>
+                <div class="text">
+                  <p>{{ post.description }} ...</p>
+                </div>
+                <div class="link">
+                  <NuxtLink :to="post.link">
+                    Read More
+                  </NuxtLink>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -82,6 +102,12 @@ export default {
 </script>
 <style scoped>
 /* BEGIN CARD DESIGN */
+.text p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
 h5 {
   color: #eee;
 }
@@ -105,7 +131,7 @@ h5 {
 }
 
 .hero-description-bk {
-  background-image: linear-gradient(0deg , #3648a2, #110b44);
+  background-image: linear-gradient(0deg , #3f5efb, #fc466b);
   border-radius: 30px;
   position: absolute;
   top: 55%;

@@ -58,6 +58,7 @@
           "options": [
             "category",
             "research-list",
+            "publication-list",
             "news"
           ]
         }

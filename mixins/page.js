@@ -14,6 +14,12 @@ export default {
         return null
       }
     },
+    pdf: {
+      type: String,
+      default () {
+        return null
+      }
+    },
     exterlink: {
       type: String,
       default () {

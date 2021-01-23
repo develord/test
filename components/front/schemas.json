@@ -10,7 +10,7 @@
         "components": {
             "subHeader": "subHeaderSample",
             "centents": "cententsSample",
-            "listPage": "listPagesGrid"
+            "listPage": "listPagesGridNews"
         }
     },
     "publication": {
@@ -20,7 +20,7 @@
             "listPage": "listPagesGrid"
         }
     },
-    "research-list": {
+    "publication-list": {
         "components": {
             "subHeader": "subHeaderSample",
             "main": [
@@ -30,6 +30,13 @@
             "rigthSide": [
                 "filterResearch"
             ]
+        }
+    },
+    "research-list": {
+        "components": {
+            "subHeader": "subHeaderSample",
+            "centents": "cententsSample",
+            "listPage": "listPagesGrid"
         }
     },
     "publications": {

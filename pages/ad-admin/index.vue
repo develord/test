@@ -3,7 +3,7 @@
     <client-only>
       <el-card class="box-card">
         <div slot="header" class="clearfix">
-          <span>Welcome Fucker</span>
+          <span>Welcome to SharmaLab Admin</span>
         </div>
         <div class="text item" />
       </el-card>

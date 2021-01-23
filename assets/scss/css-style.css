@@ -1396,6 +1396,7 @@
 	font-weight: 500;
 	color: #fff;
 	line-height: 20px;
+	text-align: center !important;
 }
 
 .news-block-one .inner-box .lower-content .title-box .post-date span{

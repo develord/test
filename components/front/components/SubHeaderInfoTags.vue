@@ -38,11 +38,11 @@
             <div class="date-prefix">
               Author
             </div>
-            <p class="article-desc" style="flex-wrap: wrap;flex-direction: column;margin: 0;padding: 0;">
+            <div class="article-desc flex-wrap d-flex justify-content-start">
               <span v-for="(item, i) in authors" :key="i" class="tag-name">
-                <template v-if="i < 3">{{ item }}</template>
+                <template>{{ item }}</template>
               </span>
-            </p>
+            </div>
           </div>
         </div>
         <div class="article-tags">
@@ -72,6 +72,9 @@ export default {
 }
 </script>
 <style scoped>
+.article-desc {
+  width: 1035px;
+}
 .wallpaper-overlay {
   background-image: radial-gradient(ellipse closest-side, rgba(15, 14, 22, 0.5), #110b44);
   background-size: cover;
@@ -108,6 +111,7 @@ a {
 .author-name-area {
   grid-area: author;
   text-align: left;
+  padding: 0px 5px 45px 0px;
 }
 .date time {
     color: #fff;
@@ -198,6 +202,6 @@ svg:not(:root) {
     flex: 1;
     display: inline-block;
     border-radius: 24px;
-    margin: 0px 6px;
+    margin: 4px;
 }
 </style>

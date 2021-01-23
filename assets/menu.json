@@ -5,11 +5,6 @@
     "href": "/ad-admin"
   },
   {
-    "title": "Overview",
-    "icon": "el-icon-pie-chart",
-    "href": "/ad-admin/overview"
-  },
-  {
     "title": "Posts",
     "icon": "el-icon-document",
     "href": "/ad-admin/posts"
