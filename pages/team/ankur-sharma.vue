@@ -12,47 +12,47 @@
                 <div class="inner-box" style="padding: 24px 0px;">
                   <div class="image-box" style="    border-radius: 25px;margin: auto;width: 233px;height: 233px;">
                     <img
-                      v-lazy="{ src: teams[3].img, loading: teams[3].img }"
+                      v-lazy="{ src: teams[0].img, loading: teams[0].img }"
                       width="140"
                       height="140"
                       style=" border-radius: 25px;"
                       alt="ankur"
                       class="wp-post-image is-lazy"
-                      :src="teams[3].img"
+                      :src="teams[0].img"
                       @click="descption = i"
                     >
                     <ul class="contact-box clearfix" style="right: -60px;">
                       <li class="email">
-                        <a :href="'mailto:http://' + teams[3].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[3].email }}</span> </a>
+                        <a :href="'mailto:http://' + teams[0].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[0].email }}</span> </a>
                       </li>
-                      <li v-if="teams[3].linkedin || teams[3].researchgate|| teams[3].github" class="social-links">
+                      <li v-if="teams[0].linkedin || teams[0].researchgate|| teams[0].github" class="social-links">
                         <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
                         <ul class="list clearfix">
-                          <li v-if="teams[3].linkedin">
-                            <a :href="teams[3].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
+                          <li v-if="teams[0].linkedin">
+                            <a :href="teams[0].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
                           </li>
-                          <li v-if="teams[3].researchgate">
-                            <a :href="teams[3].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
+                          <li v-if="teams[0].researchgate">
+                            <a :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
                           </li>
-                          <li v-if="teams[3].google">
-                            <a :href="teams[3].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
+                          <li v-if="teams[0].google">
+                            <a :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
                           </li>
-                          <li v-if="teams[3].github">
-                            <a :href="teams[3].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
+                          <li v-if="teams[0].github">
+                            <a :href="teams[0].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
                           </li>
                         </ul>
                       </li>
                     </ul>
                   </div>
                   <div class="lower-content">
-                    <NuxtLink :to="teams[3].link" title="giving" class="hvr-underline-from-left1">
+                    <NuxtLink :to="teams[0].link" title="giving" class="hvr-underline-from-left1">
                       <h4 style="text-align: center;">
-                        {{ teams[3].name }}
+                        {{ teams[0].name }}
                       </h4>
                     </NuxtLink>
-                    <span class="designation">{{ teams[3].title }}</span>
+                    <span class="designation">{{ teams[0].title }}</span>
                     <div class="designation">
-                      <a target="_blank" :href="teams[3].cv" style="width: 44px;background-color:transparent; color: rgb(249,+50,+110)">
+                      <a target="_blank" :href="teams[0].cv" style="width: 44px;background-color:transparent; color: rgb(249,+50,+110)">
                         <img style="width: 44px" alt="CV" title="CV" src="https://image.flaticon.com/icons/png/512/957/957342.png">
                       </a>
                     </div>
@@ -60,7 +60,7 @@
                       <p class="designation" style="text-align: center !important;">
                         <b>Degrees & Affiliations</b>
                       </p>
-                      <span class="designation">{{ teams[3].degree }}</span>
+                      <span class="designation">{{ teams[0].degree }}</span>
                     </div>
                     <div class="designation">
                       <img
@@ -128,16 +128,26 @@
           <div class="biography">
             <h1>Biography</h1>
             <p>
-              Shivani is a research intern at Sharmaalab. Her research interest includes
-              applying computational approaches to understand heterogeneity of
-              tumor tissues and cell-cell interactions, to discover the phenomenon
-              causing togetherness of the different cells and what leads to selection of
-              the driving mutations. She is currently tracking the pre and post
-              treatment cell interactions in breast cancer and integration of the spatial
-              data. She completed her Masters in Bioinformatics from University of
-              Allahabad, India. She recieved her Bachelor of Science in Biotechnology
-              degree from CSJM University, India. Apart from research, she is a
-              zoophilist.
+              Ankur Sharma is currently a laboratory head and women’s cancer
+              senior fellow at Harry Perkins Institute of Medical Research and Senior lecture at Curtin
+              Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.
+              Ankur’s research is directed towards exploring the similarities between fetal and tumor
+              microenvironment. He is specifically interested in understanding the Onco-Fetal
+              reprogramming of tumor ecosystem. He is also investigating co-evolution of tumor and
+              their microenvironment under various section pressures. Ankur obtained his PhD from
+              the Indian Institute of Science, Bangalore. In 2015 he
+              joined Genome Institute of
+              Singapore (GIS) A*-star as post-doctoral fellow. He was one of the earlier adopter of
+              single-cell genomics to understand the impact of various selection pressures
+              (chemotherapy/immunotherapy) on evolution and ecosystem of tumours. In 2019 he was
+              awarded NMRC Young Investigator fellowship and in 2020 was appointed as Research
+              Scientist at Spatial and Single Cell Systems Domain at GIS, A*-star. He is member of
+              multidisciplinary Human Cell Atals team to build the liver atlas from development to
+              disease and among the first members of 10x Genomics Visium Clinical Translational
+              Research Network (CTRN). He has
+              received Best PhD thesis award in 2014, GIS-clinical
+              partnership award in 2019, Conquer Cancer The ASCO Foundation Merit Award 2019
+              and UBC Science co-op Supervisor Recognition Award 2019.
             </p>
             <h2>Publications</h2>
           </div>
@@ -158,8 +168,10 @@ export default {
         {
           name: 'Ankur Sharma',
           title: 'Head of Lab',
-          img: './images/ankur.png',
-          link: '/team/ahmed-khalil',
+          img: '../images/ankur.png',
+          link: '/team/ankur-sharma',
+          cv: 'http://oncofetal.com/pdf/ResumeAnkurSharma.pdf',
+          degree: 'PhD in Computer Science, Indian Institute of Science, Bangalor',
           email: 'asharmatelome@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',

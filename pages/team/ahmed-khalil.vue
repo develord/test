@@ -4,12 +4,12 @@
       <div v-lazy:background-image="{src: '/img/shape-62.webp', loading: '/img/shape-62.webp'}" class="pattern-layer" /><div class="auto-container" />
     </section>
     <div class="container">
-      <div class="row clearfix">
+      <div class="row clearfix" style="    padding-bottom: 37px;">
         <div class="col-lg-4 col-md-6 col-sm-12">
           <div class="content-box" style="margin-top: 56px">
             <div class="col-lg-12 col-md-12 col-sm-12 team-block">
               <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
-                <div class="inner-box" style="padding: 0;">
+                <div class="inner-box" style="padding: 24px 0px;">
                   <div class="image-box" style="    border-radius: 25px;margin: auto;width: 233px;height: 233px;">
                     <img
                       v-lazy="{ src: teams[1].img, loading: teams[1].img }"
@@ -46,7 +46,9 @@
                   </div>
                   <div class="lower-content">
                     <NuxtLink :to="teams[1].link" title="giving" class="hvr-underline-from-left1">
-                      <h4>{{ teams[1].name }}</h4>
+                      <h4 style="text-align: center;">
+                        {{ teams[1].name }}
+                      </h4>
                     </NuxtLink>
                     <span class="designation">{{ teams[1].title }}</span>
                     <div class="designation">
@@ -60,6 +62,62 @@
                       </p>
                       <span class="designation">{{ teams[1].degree }}</span>
                     </div>
+                    <div class="designation">
+                      <img
+                        width="65"
+                        alt="cell"
+                        title="cell"
+                        :src="'../images/tag-cell.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-cell.png"
+                        lazy="loaded"
+                      >
+                      <img
+                        width="65"
+                        alt="genomis"
+                        title="genomis"
+                        :src="'../images/tag-genomis.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-genomis.png"
+                        lazy="loaded"
+                      >
+                      <img
+                        width="65"
+                        alt="oncology"
+                        title="oncology"
+                        :src="'../images/tag-oncology.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-oncology.png"
+                        lazy="loaded"
+                      >
+                      <img
+                        width="65"
+                        alt="fetus"
+                        title="fetus"
+                        :src="'../images/tag-fetus.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-cell.png"
+                        lazy="loaded"
+                      >
+                      <img
+                        width="65"
+                        alt="cancer"
+                        title="cancer"
+                        :src="'../images/tag-cancer.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-cancer.png"
+                        lazy="loaded"
+                      >
+                      <img
+                        width="65"
+                        alt="biology"
+                        title="biology"
+                        :src="'../images/tag-biology.png'"
+                        class="is-lazy is-loaded"
+                        data-src="../images/tag-biology.png"
+                        lazy="loaded"
+                      >
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,7 +128,18 @@
           <div class="biography">
             <h1>Biography</h1>
             <p>
-              Jeff Gahan joined the Shalek Lab in February of 2020, bringing over 9 years of administrative and marketing experience to the team. Jeff graduated cum laude from Providence College with Bachelor of Arts degrees in Social Science and English. Jeff began his career in marketing at AAA, spending six years in the Publications department from 2012-2018. Jeff was also a founding member and manager of the independent band Last One Out from 2008-2014. Jeff moved to Boston from Providence in 2017 to be with his partner Sarah; they are now married and live in Harvard, Massachusetts. Jeff’s interests and hobbies include tennis, hiking, playing music with Sarah, and gardening.
+              Ahmed Khalil is a Postdoctoral Research Fellow at Harry Perkins Institute of Medical Research and
+              Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia. In
+              2020, he received the Ph.D. degree from the School of Computer Science and Engineering, Nanyang
+              Technological University in Singapore, when he developed computational methods for accurate copy
+              number profiling and Hi-C contact-map correction of cancer cell lines. Earlier, he got a B.Sc. degree
+              in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from
+              Cairo University in Egypt. <br>
+              Khalil’s current research studies the tumor evolution and oncofetal reprogramming of tumor
+              ecosystem by integrating single cell multi-omics data including spatial trabscriptomics, scRNA-seq,
+              and scATAC-seq data. He also explores the utilization of H&amp;E-stained histological images and spatial
+              transcriptomics for cancer diagonsis. Khalil’s research interests include a broad range of topics
+              around computational biology, data science, and hardware acceleration.
             </p>
             <h2>Publications</h2>
           </div>
@@ -102,8 +171,8 @@ export default {
           name: 'Ahmed Khalil',
           title: 'Postdoc researcher',
           email: 'ahmed.ibrahim@ntu.edu.sg',
-          degree: 'PhD in School of Computer Science and Engineering,NTU, Singapore.',
-          cv: 'https://drive.google.com/file/d/1JtKvY8OkaaaPu5sVK27VimWAiVK0DecB/view?usp=sharing',
+          degree: 'PhD in Computer Science. SCSE NTU Singapore.',
+          cv: 'http://oncofetal.com/pdf/ResumeAhmedKhalil.pdf',
           link: '/team/ahmed-khalil',
           img: '../images/ahmed.jpeg',
           linkedin: ' www.linkedin.com/in/ahmed-i-s-khalil',

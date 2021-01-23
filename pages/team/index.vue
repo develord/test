@@ -93,7 +93,7 @@ export default {
           name: 'Ankur Sharma',
           title: 'Head of Lab',
           img: './images/ankur.png',
-          link: '/team/ahmed-khalil',
+          link: '/team/ankur-sharma',
           email: 'asharmatelome@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
