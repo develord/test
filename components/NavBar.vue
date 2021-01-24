@@ -2,6 +2,7 @@
   <v-system-bar
     app
     height="60"
+    color="blue darken-4"
   >
     <v-app-bar-nav-icon @click="hideDrawer" />
 

@@ -3,6 +3,7 @@
     v-model="drawer"
     app
     clipped
+    dark
   >
     <v-list-item two-line>
       <v-list-item-avatar>
