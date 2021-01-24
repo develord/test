@@ -158,7 +158,7 @@ export default {
       try {
         return require('@/static/images/' + url)
       } catch (e) {
-        return require('@/static/images/' + url.replace('-high'))
+        return require('@/static/images/' + url.replace('-high', ''))
       }
     },
     // async
