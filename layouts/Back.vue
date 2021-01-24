@@ -1,5 +1,5 @@
 <template>
-  <div id="layout-container">
+  <v-app id="inspire">
     <!-- navBar Component -->
     <el-container>
       <nav-bar :drawer="collapsed" @update:drawer="collapsed = $event" />
@@ -15,7 +15,7 @@
         </transition>
       </el-main>
     </el-container>
-  </div>
+  </v-app>
 </template>
 
 <script>
