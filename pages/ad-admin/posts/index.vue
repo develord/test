@@ -1,88 +1,67 @@
 <template>
   <client-only>
-    <el-card class="box-card">
-      <div slot="header" class="clearfix">
-        <span>Posts List</span>
-        <el-button style="float: right;" type="success" @click="goto('ad-admin-posts-create')">
-          Add new post
-        </el-button>
-      </div>
-      <div class="text item">
-        <el-table :data="listePost.filter(data => !search || data.title.toLowerCase().includes(search.toLowerCase()))" style="width: 100%">
-          <el-table-column
-            label="Title"
-            prop="title"
-          />
-          <el-table-column
-            label="Description"
-            prop="description"
-          >
-            <template slot-scope="scope">
-              {{ extractText(scope.row.description, 0, 30) }}...
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Category"
-            prop="category"
-          >
-            <template slot-scope="scope">
-              {{ extractText(scope.row.category, 0, 30) }}
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Status"
-            prop="status"
-          />
-          <el-table-column
-            label="User"
-            prop="user"
-          />
-          <el-table-column
-            label="Created"
-            prop="created"
-          >
-            <template slot-scope="scope">
-              {{ extractText(scope.row.created, 0, 10) }}
-            </template>
-          </el-table-column>
-          <el-table-column
-            label="Updated"
-            prop="updated"
-          >
-            <template slot-scope="scope">
-              {{ extractText(scope.row.updated, 0, 10) }}
-            </template>
-          </el-table-column>
-          <el-table-column
-            align="right"
-          >
-            <template slot="header">
-              <el-input
-                v-model="search"
-                size="mini"
-                placeholder="Type to search"
-              />
-            </template>
-            <template slot-scope="scope">
-              <el-row>
-                <el-button type="success" icon="el-icon-view" circle @click="gotoLink(scope.row.link)" />
-                <el-button icon="el-icon-edit" circle @click="prepareUpdate(scope.row)" />
-                <el-popconfirm
-                  confirm-button-text="OK"
-                  cancel-button-text="No, Thanks"
-                  icon="el-icon-info"
-                  icon-color="red"
-                  title="Are you sure to delete this?"
-                  @onConfirm="deletePost(scope.row)"
-                >
-                  <el-button slot="reference" type="danger" icon="el-icon-delete" circle />
-                </el-popconfirm>
-              </el-row>
-            </template>
-          </el-table-column>
-        </el-table>
-      </div>
-    </el-card>
+    <v-row>
+      <v-col cols="12">
+        <v-card class="mx-auto">
+          <v-card-title>
+            <span>Posts List</span>
+            <v-btn
+              fab
+              absolute
+              top
+              right
+              color="blue lighten-4"
+              @click="goto('ad-admin-posts-create')"
+            >
+              <v-icon color="white">
+                mdi-plus
+              </v-icon>
+            </v-btn>
+          </v-card-title>
+          <v-card-text>
+            <v-data-table
+              :headers="headers"
+              :items="listePost"
+              :items-per-page="10"
+              class="elevation-1"
+            >
+              <template v-slot:[`item.created`]="{ item }">
+                {{ extractText(item.created, 0, 10) }}
+              </template>
+              <template v-slot:[`item.actions`]="{ item }">
+                <div class="text-center">
+                  <v-btn
+                    class="ma-2"
+                    fab
+                    small
+                    color="light-blue"
+                    @click="prepareUpdate(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-circle-edit-outline
+                    </v-icon>
+                  </v-btn>
+                  <v-btn
+                    class="ma-2"
+                    fab
+                    small
+                    color="red accent-3"
+                    @click="deletePost(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-trash-can-outline
+                    </v-icon>
+                  </v-btn>
+                </div>
+              </template>
+              <template v-slot:no-data>
+                No Data
+              </template>
+            </v-data-table>
+          </v-card-text>
+        </v-card>
+      </v-col>
+    </v-row>
   </client-only>
 </template>
 <script>
@@ -96,6 +75,14 @@ export default {
       search: null,
       drawer: null,
       listePost: [],
+      headers: [
+        { text: 'Title', value: 'title' },
+        { text: 'Category', value: 'category' },
+        { text: 'Status', value: 'status' },
+        { text: 'User', value: 'user' },
+        { text: 'Created', value: 'created' },
+        { text: 'Actions', value: 'actions', sortable: false }
+      ],
       selectedPost: {}
     }
   },
