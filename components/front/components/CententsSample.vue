@@ -6,7 +6,7 @@
           <div class="row clearfix">
             <div class="col-lg-11 col-md-12 col-sm-12 content-side">
               <div class="project-details-content">
-                <div v-html="contents">
+                <div v-if="contents" v-html="contents">
                 </div>
                 <a v-if="exterlink" class="journal-website" target="_blank" :href="exterlink">journal Website</a>
                 <a v-if="pdf" class="journal-website" target="_blank" :href="'../pdf/' + pdf">PDF</a>
@@ -35,7 +35,7 @@ export default {
       return doc
     },
     contents () {
-      if (this.doc.html && this.doc.html.length > 20) {
+      if (this.doc && this.doc.html && this.doc.html.length > 20) {
         return this.doc.html
       const componentList = []
       this.doc.json.content.forEach(item => {
