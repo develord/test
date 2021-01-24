@@ -4,14 +4,14 @@
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-title>
-            <span>Posts List</span>
+            <span>Category List</span>
             <v-btn
               fab
               absolute
               top
               right
               color="blue lighten-4"
-              @click="goto('ad-admin-posts-create')"
+              @click="goto('ad-admin-category-create')"
             >
               <v-icon color="white">
                 mdi-plus
@@ -21,12 +21,18 @@
           <v-card-text>
             <v-data-table
               :headers="headers"
-              :items="listePost"
+              :items="category"
               :items-per-page="10"
               class="elevation-1"
             >
+              <template v-slot:[`item.users`]="{ item }">
+                {{ item.users }}
+              </template>
+              <template v-slot:[`item.status`]="{ item }">
+                {{ item.status }}
+              </template>
               <template v-slot:[`item.created`]="{ item }">
-                {{ extractText(item.created, 0, 10) }}
+                {{ extractText(item.created_at, 0, 10) }}
               </template>
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
@@ -46,7 +52,7 @@
                     fab
                     small
                     color="red accent-3"
-                    @click="deletePost(item)"
+                    @click="deleteCategory(item)"
                   >
                     <v-icon color="white">
                       mdi-trash-can-outline
@@ -64,79 +70,65 @@
     </v-row>
   </client-only>
 </template>
-<script>
 
+<script>
 export default {
-  name: 'PostIndex',
+  name: 'CategoryIndex',
   layout: 'Back',
   middleware: 'auth',
-  data: () => {
+  data () {
     return {
-      search: null,
+      search: '',
       drawer: null,
-      listePost: [],
+      query: '',
       headers: [
         { text: 'Title', value: 'title' },
-        { text: 'Category', value: 'category' },
-        { text: 'Status', value: 'status' },
-        { text: 'User', value: 'user' },
         { text: 'Created', value: 'created' },
         { text: 'Actions', value: 'actions', sortable: false }
-      ],
-      selectedPost: {}
+      ]
     }
+  },
+  meta: {
+    pageName: 'FUCKER'
   },
   computed: {
-    posts () {
-      return this.$store.state.listePost
-    }
-  },
-  watch: {
-    posts: {
-      immediate: true,
-      handler (newVal) {
-        this.listePost = Object.freeze(
-          newVal.map((post, index) => {
-            return {
-              nb: index,
-              id: post._id,
-              title: post.title,
-              link: './../' + post.link,
-              description: post.description,
-              category: post.category ? post.category.name : 'none',
-              status: post.status ? post.status.name : 'none',
-              user: post.user ? post.user.name : 'none',
-              created: post.created_at,
-              updated: post.updated_at
-            }
-          })
-        )
+    category () {
+      return this.$store.state.category.listCategory
+    },
+    filtredCategory () {
+      if (this.search.length === 0) {
+        return this.category
+      } else {
+        return this.category.filter(cat => !this.search || cat.name.toLowerCase().includes(this.search.toLowerCase()))
       }
     }
   },
-  beforeMount () {
-    this.$store.dispatch('getPosts')
+  mounted () {
+    this.$store.dispatch('category/getCategories')
+    this.$store.dispatch('getImages')
   },
   methods: {
-    gotoLink (url) {
-      this.$router.push(url)
-    },
+    /** //TODO// Maybe we can extract goto and extractText to a mixin //TODO// */
     goto (url) {
       this.$router.push({ name: url })
     },
     extractText (str, from, to) {
       return str ? str.slice(from, to) : 'None'
     },
-    prepareUpdate (post) {
-      this.$router.push({ name: 'ad-admin-posts-create', query: { post: post.id } })
+    /** //ENDTODO// -- END REFACTOR -- //ENDTODO// */
+
+    prepareUpdate (category) {
+      this.$router.push({ name: 'ad-admin-category-create', query: { category: category._id } })
     },
-    deletePost (post) {
-      this.$store.dispatch('deletePost', post.id).then((res) => {
-        this.$store.dispatch('getPosts')
-        this.$notify({
-          title: 'Success',
-          message: 'Post Removed',
-          type: 'success'
+
+    deleteCategory (category) {
+      this.$store.dispatch('category/deleteCategory', category._id).then((res) => {
+        this.$store.dispatch('category/getCategories').then(() => {
+          this.$notify({
+            title: 'Success',
+            message: 'Category Removed',
+            type: 'success'
+          })
         })
       })
     }
