@@ -23,9 +23,9 @@
           </v-icon>
         </v-btn>
       </template>
-      <a target="_blank" href="https://www.skype.com/" style=" color: rgb(255, 255, 255)"><img style="width: 46px;" src="/images/fb.png"></a>
-      <a target="_blank" href="https://www.twitter.com/" style=" color: rgb(255, 255, 255)"><img style="width: 52px; margin-top: 3px;" src="/images/twitter.png"></a>
-      <a target="_blank" href="https://www.facebook.com/" style=" color: rgb(255, 255, 255)"><img style="width: 46px;" src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
+      <a target="_blank" href="https://twitter.com/Shar" style="width: 51px;; color: rgb(255, 255, 255)"><img style="width: 100%;" src="/images/twitter.png"></a>
+      <a target="_blank" href="https://github.com/sharmaalab" style="width: 43px;color: rgb(255, 255, 255)"><img style="width: 43px; margin-top: 3px;" :src="'./images/github.webp'"></a>
+      <a target="_blank" href="https://www.youtube.com/channel/UC4H2fZb64LXXOg5GbGstPKg" style="padding-top: 7px;width: 43px;color: rgb(255, 255, 255)"><img style="width: 43px;" :src="'./images/utube.webp'"></a>
     </v-speed-dial>
     <div data-elementor-type="wp-page" data-elementor-id="205" class="elementor elementor-205" data-elementor-settings="[]">
       <div class="elementor-inner">
@@ -83,7 +83,15 @@
                                       <template v-slot:default="{ item }">
                                         <div>
                                           <div class="image-container">
-                                            <img :src="item.image">
+                                            <img v-if="!item.vid" :src="item.image">
+                                            <iframe
+                                              v-else
+                                              style="margin-top: 40px;width: 104%;height: 336px;"
+                                              frameborder="0"
+                                              height="100%"
+                                              width="100%"
+                                              :src="item.vid"
+                                            />
                                           </div>
                                         </div>
                                       </template>
@@ -279,7 +287,7 @@ export default {
           name: 'Ankur',
           title: 'Director',
           img: './images/ankur.png',
-          email: 'asharmatelome@gmail.com',
+          email: 'sharmaalab1@gmail.com',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
         },
         {
@@ -312,17 +320,20 @@ export default {
       ],
       items: [
         {
+          image: './images/perkins.png'
+        },
+        {
           image: './images/2s_curtin.png'
         },
         {
           image: './images/1s_perth.png'
         },
         {
-          image: './images/perkins.png'
+          vid: 'https://youtube.com/embed/O-ByPYK-2fo?autoplay=1&controls=0&showinfo=0&autohide=1'
         }
       ],
       options: {
-        autoplay: { play: true, repeat: true, speed: 3000 },
+        autoplay: { play: false, repeat: true, speed: 3000 },
         responsive: [
           { end: 576, size: 1 },
           { start: 576, end: 768, size: 2 },

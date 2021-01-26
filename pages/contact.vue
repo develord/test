@@ -32,7 +32,7 @@
                                   class="is-lazy"
                                   style="width: 68px;margin-top: -10px;"
                                 >
-                              </div><h4>Location</h4> <span>Visit to explore the world</span>
+                              </div><h4>Location</h4>
                             </div><div class="text">
                               <p>16 Verdun St, Nedlands WA 6009, Australia</p>
                             </div>
@@ -54,7 +54,7 @@
                                   class="is-lazy"
                                   style="width: 68px;margin-top: -10px;"
                                 >
-                              </div><h4>Make a Call</h4> <span>Let’s talk with our experts</span>
+                              </div><h4>Make a Call</h4>
                             </div><div class="text">
                               <p><a href="tel:+44%20555%2067%20890">+65 8670 1153</a></p>
                             </div>
@@ -76,9 +76,9 @@
                                   class="is-lazy"
                                   style="width: 68px;margin-top: -10px;"
                                 >
-                              </div><h4>Send a Mail</h4> <span>Dont’s hesitate to mail</span>
+                              </div><h4>Send a Mail</h4>
                             </div><div class="text">
-                              <p><a href="mailto:asharmatelome@gmail.com">asharmatelome@gmail.com</a></p>
+                              <p><a href="mailto:sharmaalab1@gmail.com">sharmaalab1@gmail.com</a></p>
                             </div>
                           </div>
                         </div>

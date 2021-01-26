@@ -25,23 +25,12 @@
                       <li class="email">
                         <a :href="'mailto:http://' + teams[2].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[2].email }}</span> </a>
                       </li>
-                      <li v-if="teams[2].linkedin || teams[2].researchgate|| teams[2].github" class="social-links">
-                        <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
-                        <ul class="list clearfix">
-                          <li v-if="teams[2].linkedin">
-                            <a :href="teams[2].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
-                          </li>
-                          <li v-if="teams[2].researchgate">
-                            <a :href="teams[2].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
-                          </li>
-                          <li v-if="teams[2].google">
-                            <a :href="teams[2].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
-                          </li>
-                          <li v-if="teams[2].github">
-                            <a :href="teams[2].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
-                          </li>
-                        </ul>
-                      </li>
+                      <div v-if="teams[0].linkedin || teams[0].researchgate|| teams[0].github" class="social-links">
+                        <li> <a target="_blank" :href="teams[0].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].google" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a></li>
+                        <li> <a target="_blank" :href="teams[0].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a></li>
+                      </div>
                     </ul>
                   </div>
                   <div class="lower-content">
@@ -64,7 +53,7 @@
                     </div>
                     <div class="designation">
                       <img
-                        width="65"
+                        width="80"
                         alt="cell"
                         title="cell"
                         :src="'../images/tag-cell.png'"
@@ -73,7 +62,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="genomis"
                         title="genomis"
                         :src="'../images/tag-genomis.png'"
@@ -82,7 +71,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="oncology"
                         title="oncology"
                         :src="'../images/tag-oncology.png'"
@@ -91,7 +80,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="fetus"
                         title="fetus"
                         :src="'../images/tag-fetus.png'"
@@ -100,7 +89,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="cancer"
                         title="cancer"
                         :src="'../images/tag-cancer.png'"
@@ -109,7 +98,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="biology"
                         title="biology"
                         :src="'../images/tag-biology.png'"
@@ -128,7 +117,7 @@
           <div class="biography">
             <h1>Biography</h1>
             <p>
-              Rhea is a member of Sharmaalab pursuing her PhD from Curtin University and Harry Perkins
+              Rhea is a member of Sharma Lab pursuing her PhD from Curtin University and Harry Perkins
               Institute of Medical Research. She received her undergraduate degree in Biotechnology from
               Northumbria University in 2018. She brings with her two years of research experience at
               Genome Institute of Singapore (GIS), A*STAR. She was involved in liver and breast cancer
@@ -160,7 +149,7 @@ export default {
           title: 'Head of Lab',
           img: './images/ankur.png',
           link: '/team/ahmed-khalil',
-          email: 'asharmatelome@gmail.com',
+          email: 'sharmaalab1@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
@@ -181,8 +170,8 @@ export default {
         {
           name: 'Rhea Pai',
           link: '/team/rhea-pai',
-          title: 'Research Associate',
-          degree: 'PhD in Biomedical Science',
+          title: 'PhD student',
+          degree: 'PhD student in Biomedical Science, Curtin University and Harry Perkins Institute of Medical Research',
           email: 'rheakedar@gmail.com',
           cv: 'http://oncofetal.com/pdf/ResumeRheaPai.pdf',
           linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',

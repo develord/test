@@ -20,7 +20,7 @@
                           Harry Perkins Institute of Medical Research:<br>
                           6 Verdun St, Nedlands WA 6009, Australia<br>
                           Attn: Ankur sharma<br>
-                          Please note indicate the gift designation (Sharma Lab) on the memo line or with an attached note.
+                          Please indicate the gift designation (Sharma Lab) on the memo line or with an attached note.
                         </p>
                       </div>
                     </div>

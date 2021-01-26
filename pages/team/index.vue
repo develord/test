@@ -36,27 +36,16 @@
                         <li class="email">
                           <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
                         </li>
-                        <li v-if="item.linkedin || item.researchgate|| item.github" class="social-links">
-                          <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
-                          <ul class="list clearfix">
-                            <li v-if="item.linkedin">
-                              <a :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
-                            </li>
-                            <li v-if="item.researchgate">
-                              <a :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
-                            </li>
-                            <li v-if="item.google">
-                              <a :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
-                            </li>
-                            <li v-if="item.github">
-                              <a :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
-                            </li>
-                          </ul>
-                        </li>
+                        <div v-if="item.linkedin || item.researchgate|| item.github" class="social-links">
+                          <li> <a target="_blank" :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
+                          <li> <a target="_blank" :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a></li>
+                          <li> <a target="_blank" :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a></li>
+                          <li> <a target="_blank" :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a></li>
+                        </div>
                       </ul>
                     </div>
                     <div class="lower-content">
-                      <NuxtLink :to="item.link" title="giving" class="hvr-underline-from-left1">
+                      <NuxtLink :to="item.link" :title="item.name" class="hvr-underline-from-left1">
                         <h4>{{ item.name }}</h4>
                       </NuxtLink>
                       <span class="designation">{{ item.title }}</span>
@@ -72,8 +61,8 @@
                         >
                         <img
                           width="45"
-                          alt="genomis"
-                          title="genomis"
+                          alt="Genomics"
+                          title="Genomics"
                           :src="'./images/tag-genomis.png'"
                           class="is-lazy is-loaded"
                           data-src="./images/tag-genomis.png"
@@ -90,8 +79,8 @@
                         >
                         <img
                           width="45"
-                          alt="fetus"
-                          title="fetus"
+                          alt="Oncofetal"
+                          title="Oncofetal"
                           :src="'./images/tag-fetus.png'"
                           class="is-lazy is-loaded"
                           data-src="./images/tag-cell.png"
@@ -152,7 +141,7 @@ export default {
           title: 'Head of Lab',
           img: './images/ankur.png',
           link: '/team/ankur-sharma',
-          email: 'asharmatelome@gmail.com',
+          email: 'sharmaalab1@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
@@ -193,6 +182,18 @@ export default {
 }
 </script>
 
+<style lang="css" scoped>
+.team-block-two .inner-box .image-box .contact-box{
+    position: absolute;
+    right: -84px;
+    bottom: -90px;
+    width: 50px;
+    height: 224px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+</style>
 <style>
 .team-description {
     position: relative;

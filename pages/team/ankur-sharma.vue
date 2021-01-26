@@ -25,27 +25,16 @@
                       <li class="email">
                         <a :href="'mailto:http://' + teams[0].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[0].email }}</span> </a>
                       </li>
-                      <li v-if="teams[0].linkedin || teams[0].researchgate|| teams[0].github" class="social-links">
-                        <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
-                        <ul class="list clearfix">
-                          <li v-if="teams[0].linkedin">
-                            <a :href="teams[0].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
-                          </li>
-                          <li v-if="teams[0].researchgate">
-                            <a :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
-                          </li>
-                          <li v-if="teams[0].google">
-                            <a :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
-                          </li>
-                          <li v-if="teams[0].github">
-                            <a :href="teams[0].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
-                          </li>
-                        </ul>
-                      </li>
+                      <div v-if="teams[0].linkedin || teams[0].researchgate|| teams[0].github" class="social-links">
+                        <li> <a target="_blank" :href="teams[0].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].google" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a></li>
+                        <li> <a target="_blank" :href="teams[0].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a></li>
+                      </div>
                     </ul>
                   </div>
                   <div class="lower-content">
-                    <NuxtLink :to="teams[0].link" title="giving" class="hvr-underline-from-left1">
+                    <NuxtLink :to="teams[0].link" class="hvr-underline-from-left1">
                       <h4 style="text-align: center;">
                         {{ teams[0].name }}
                       </h4>
@@ -60,11 +49,11 @@
                       <p class="designation" style="text-align: center !important;">
                         <b>Degrees & Affiliations</b>
                       </p>
-                      <span class="designation">{{ teams[0].degree }}</span>
+                      <span class="designation" v-html="teams[0].degree" />
                     </div>
                     <div class="designation">
                       <img
-                        width="65"
+                        width="80"
                         alt="cell"
                         title="cell"
                         :src="'../images/tag-cell.png'"
@@ -73,7 +62,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="genomis"
                         title="genomis"
                         :src="'../images/tag-genomis.png'"
@@ -82,7 +71,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="oncology"
                         title="oncology"
                         :src="'../images/tag-oncology.png'"
@@ -91,7 +80,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="fetus"
                         title="fetus"
                         :src="'../images/tag-fetus.png'"
@@ -100,7 +89,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="cancer"
                         title="cancer"
                         :src="'../images/tag-cancer.png'"
@@ -109,7 +98,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="biology"
                         title="biology"
                         :src="'../images/tag-biology.png'"
@@ -128,26 +117,7 @@
           <div class="biography">
             <h1>Biography</h1>
             <p>
-              Ankur Sharma is currently a laboratory head and women’s cancer
-              senior fellow at Harry Perkins Institute of Medical Research and Senior lecture at Curtin
-              Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.
-              Ankur’s research is directed towards exploring the similarities between fetal and tumor
-              microenvironment. He is specifically interested in understanding the Onco-Fetal
-              reprogramming of tumor ecosystem. He is also investigating co-evolution of tumor and
-              their microenvironment under various section pressures. Ankur obtained his PhD from
-              the Indian Institute of Science, Bangalore. In 2015 he
-              joined Genome Institute of
-              Singapore (GIS) A*-star as post-doctoral fellow. He was one of the earlier adopter of
-              single-cell genomics to understand the impact of various selection pressures
-              (chemotherapy/immunotherapy) on evolution and ecosystem of tumours. In 2019 he was
-              awarded NMRC Young Investigator fellowship and in 2020 was appointed as Research
-              Scientist at Spatial and Single Cell Systems Domain at GIS, A*-star. He is member of
-              multidisciplinary Human Cell Atals team to build the liver atlas from development to
-              disease and among the first members of 10x Genomics Visium Clinical Translational
-              Research Network (CTRN). He has
-              received Best PhD thesis award in 2014, GIS-clinical
-              partnership award in 2019, Conquer Cancer The ASCO Foundation Merit Award 2019
-              and UBC Science co-op Supervisor Recognition Award 2019.
+              Ankur Sharma is currently a Laboratory Head and women’s cancer senior fellow at Harry Perkins Institute of Medical Research and Senior lecturer at Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia. Ankur’s research is directed towards exploring the similarities between fetal and tumor microenvironment. He is specifically interested in understanding the Onco-Fetal reprogramming of tumor ecosystem. He is also investigating the co-evolution of tumor and their microenvironment under various selection pressures. Ankur obtained his PhD from the Indian Institute of Science, Bangalore. In 2015, he joined Genome Institute of Singapore (GIS) A*STAR as a post-doctoral fellow. He was one of the earlier adopters of single-cell genomics to understand the impact of various selection pressures (chemotherapy/immunotherapy) on evolution and ecosystem of tumours. In 2019, he was awarded NMRC Young Investigator fellowship and in 2020, was appointed as a Research Scientist at Spatial and Single Cell Systems Domain at GIS, A*STAR. He is a member of multidisciplinary Human Cell Atlas team to build the liver atlas from development to disease and among the first members of 10x Genomics Visium Clinical Translational Research Network (CTRN). He received the best PhD thesis award in 2014, GIS-clinical partnership award in 2019, Conquer Cancer The ASCO Foundation Merit Award in 2019 and UBC Science co-op Supervisor Recognition Award in 2019.
             </p>
             <h2>Publications</h2>
           </div>
@@ -167,12 +137,12 @@ export default {
       teams: [
         {
           name: 'Ankur Sharma',
-          title: 'Head of Lab',
+          title: 'Laboratory Head',
           img: '../images/ankur.png',
           link: '/team/ankur-sharma',
           cv: 'http://oncofetal.com/pdf/ResumeAnkurSharma.pdf',
-          degree: 'PhD in Computer Science, Indian Institute of Science, Bangalor',
-          email: 'asharmatelome@gmail.com',
+          degree: 'Harry Perkins Institute of Medical Research<br> Senior Lecturer, Curtin University <br> PhD, Indian Institute of Science, Bangalore',
+          email: 'sharmaalab1@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`

@@ -25,23 +25,12 @@
                       <li class="email">
                         <a :href="'mailto:http://' + teams[3].email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams[3].email }}</span> </a>
                       </li>
-                      <li v-if="teams[3].linkedin || teams[3].researchgate|| teams[3].github" class="social-links">
-                        <a href="javascript:void(0)" class="share"><img style="width: 25px;" src="https://img.icons8.com/ultraviolet/40/000000/share.png"></a>
-                        <ul class="list clearfix">
-                          <li v-if="teams[3].linkedin">
-                            <a :href="teams[3].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a>
-                          </li>
-                          <li v-if="teams[3].researchgate">
-                            <a :href="teams[3].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a>
-                          </li>
-                          <li v-if="teams[3].google">
-                            <a :href="teams[3].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a>
-                          </li>
-                          <li v-if="teams[3].github">
-                            <a :href="teams[3].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a>
-                          </li>
-                        </ul>
-                      </li>
+                      <div v-if="teams[0].linkedin || teams[0].researchgate|| teams[0].github" class="social-links">
+                        <li> <a target="_blank" :href="teams[0].linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a></li>
+                        <li> <a target="_blank" :href="teams[0].google" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a></li>
+                        <li> <a target="_blank" :href="teams[0].github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a></li>
+                      </div>
                     </ul>
                   </div>
                   <div class="lower-content">
@@ -64,7 +53,7 @@
                     </div>
                     <div class="designation">
                       <img
-                        width="65"
+                        width="80"
                         alt="cell"
                         title="cell"
                         :src="'../images/tag-cell.png'"
@@ -73,7 +62,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="genomis"
                         title="genomis"
                         :src="'../images/tag-genomis.png'"
@@ -82,7 +71,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="oncology"
                         title="oncology"
                         :src="'../images/tag-oncology.png'"
@@ -91,7 +80,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="fetus"
                         title="fetus"
                         :src="'../images/tag-fetus.png'"
@@ -100,7 +89,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="cancer"
                         title="cancer"
                         :src="'../images/tag-cancer.png'"
@@ -109,7 +98,7 @@
                         lazy="loaded"
                       >
                       <img
-                        width="65"
+                        width="80"
                         alt="biology"
                         title="biology"
                         :src="'../images/tag-biology.png'"
@@ -160,7 +149,7 @@ export default {
           title: 'Head of Lab',
           img: './images/ankur.png',
           link: '/team/ahmed-khalil',
-          email: 'asharmatelome@gmail.com',
+          email: 'sharmaalab1@gmail.com',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
@@ -196,7 +185,7 @@ export default {
           cv: 'http://oncofetal.com/pdf/ResumeShivaniSrivastava.pdf',
           email: 'shivani1996srivastava1996@gmail.com',
           linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',
-          degree: 'M.Sc Bioinformatics',
+          degree: 'M.Sc in Bioinformatics, University of Allahabad, India.',
           researchgate: 'https://www.researchgate.net/profile/Shivani_Srivastava9',
           img: '../images/Shivani_pic.jpg',
           description: `Shivani is a research intern at Sharmaalab. Her research interest includes applying computational approaches to understand heterogeneity of tumor tissues and cell-cell interactions, to discover the phenomenon causing togetherness of the different cells and what leads to selection of the driving mutations. She is currently tracking the pre and post treatment cell interactions in breast cancer. She completed her masters in bioinformatics from University of Allahabad, India. She recieved her Bachelor of Biotechnology degree from CSJM University, India. Apart from research, she is a zoophilist.`

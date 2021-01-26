@@ -36,10 +36,15 @@
                   <div class="widget-content">
                     <ul class="clearfix">
                       <li><a target="_blank" href="https://perkins.org.au/">Perkins Institute</a></li>
-                      <li><a target="_blank" href="https://cancerdiscovery.aacrjournals.org/content/10/12/1788.1">Cancer Discovery</a></li>
-                      <li><a target="_blank" href="https://www.biospectrumasia.com/news/26/16864/singapore-identifies-pivotal-fetal-like-reprogramming-of-tumour-ecosystem.html?fbclid=IwAR20KpDw6Skq_aBtWZxcaKxhghDFLWpVxBjL0qaY-YkSWLWlrAe2d--9jyk">Cancer Development</a></li>
-                      <li><a target="_blank" href="https://www.singhealth.com.sg/news/tomorrows-medicine/singapore-scientists-discovered-how-liver-cancer-cells-hide-from-the-immune-system?fbclid=IwAR3nGMtLlmokVgoCdbUa4dXh4o7Xu6c_S6xD1ZNFDwsQZHQAdAdZhGSX2ZE">Tomorrows Medicine</a></li>
-                      <li><a target="_blank" href="https://bioturing.com/bbrowser/datasets?search=Onco-fetal%20Reprogramming%20of%20Endothelial%20Cells%20Drives%20Immunosuppressive%20Macrophages%20in%20Hepatocellular%20Carcinoma%20(14%20HCC)">Dataset on Bioturning server</a></li>
+                      <li><a target="_blank" href="https://www.curtin.edu.au/">Curtin University</a></li>
+                      <li><a target="_blank" href="#">Collaborators</a></li>
+                      <li><a target="_blank" href="https://www.humancellatlas.org/">HCA</a></li>
+                      <li><a target="_blank" href="https://www.ncbi.nlm.nih.gov/">NCBI</a></li>
+                      <li>
+                        <NuxtLink to="/contact" title="contact" class="hvr-underline-from-left1">
+                          Join us
+                        </NuxtLink>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -54,7 +59,7 @@
                   <div class="widget-content">
                     <ul class="clearfix">
                       <li> <span>Phone:</span> <a href="#">+65 8670 1153</a></li>
-                      <li> <span>Email:</span> <a href="mailto:asharmatelome@gmail.com">asharmatelome@gmail.com</a></li>
+                      <li> <span>Email:</span> <a href="mailto:sharmaalab1@gmail.com">sharmaalab1@gmail.com</a></li>
                       <li> <span>Address:</span> 6 Verdun St, Nedlands WA 6009, Australia</li>
                     </ul>
                   </div>
@@ -69,9 +74,14 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li> <a target="_blank" href="https://www.facebook.com/"><span>Facebook</span></a></li>
-                      <li> <a target="_blank" href="https://www.twitter.com/"><span>Twitter</span> </a></li>
-                      <li> <a target="_blank" href="https://www.linkedin.com/feed/"><span>LinkedIn</span> </a></li>
+                      <li> <a target="_blank" href="https://twitter.com/Shar"><span>Twitter</span> </a></li>
+                      <li> <a target="_blank" href="https://github.com/sharmaalab"><span>GitHub</span> </a></li>
+                      <li>
+                        <a
+                          target="_blank"
+                          href="https://www.youtube.com/channel/UC4H2fZb64LXXOg5GbGstPKg"
+                        ><span>Youtube</span> </a>
+                      </li>
                     </ul>
                   </div>
                 </div>

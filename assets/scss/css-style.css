@@ -7376,12 +7376,12 @@ h3 a{
 
 .team-block-two .inner-box .image-box .contact-box{
 	position: absolute;
-	right: -84px;
-	bottom: -58px;
-	width: 50px;
-	height: 110px;
-	background: #fff;
-	border-radius: 30px;
+    right: -84px;
+    bottom: -90px;
+    width: 50px;
+    height: 224px;
+    background: #fff;
+    border-radius: 30px;
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
