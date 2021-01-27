@@ -23,7 +23,7 @@
           </v-icon>
         </v-btn>
       </template>
-      <a target="_blank" href="https://twitter.com/Shar" style="width: 51px;; color: rgb(255, 255, 255)"><img style="width: 100%;" src="/images/twitter.png"></a>
+      <a target="_blank" href="https://twitter.com/SharmaaLab" style="width: 51px;; color: rgb(255, 255, 255)"><img style="width: 100%;" src="/images/twitter.png"></a>
       <a target="_blank" href="https://github.com/sharmaalab" style="width: 43px;color: rgb(255, 255, 255)"><img style="width: 43px; margin-top: 3px;" :src="'./images/github.webp'"></a>
       <a target="_blank" href="https://www.youtube.com/channel/UC4H2fZb64LXXOg5GbGstPKg" style="padding-top: 7px;width: 43px;color: rgb(255, 255, 255)"><img style="width: 43px;" :src="'./images/utube.webp'"></a>
     </v-speed-dial>

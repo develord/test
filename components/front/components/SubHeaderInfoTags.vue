@@ -23,17 +23,10 @@
         </ul>
         <div class="bread-crumb text-left clearfix">
           <p v-if="journal">
-            {{ journal }}
+            {{ journal }} ,{{ published.substring(0,4) }}
           </p>
         </div>
         <div class="article-content-meta">
-          <div class="author-name-area">
-            <div class="author-name-prefix">
-              Published
-            </div>
-            <a v-if="published" class="author-name" href="#">
-              {{ published.substring(0,4) }} </a>
-          </div>
           <div class="date">
             <div class="date-prefix">
               Author
@@ -102,6 +95,9 @@ export default {
   width: 100%;
   height: 100%;
 }
+.bread-crumb p {
+  color: #fff;
+}
 .image-couverture {
     z-index: 0;
     width: 75%;
@@ -136,6 +132,9 @@ a {
 }
 .date time {
     color: #fff;
+}
+.tag-avatar {
+  padding: 0px 3px;
 }
 .author-name-prefix, .comments-prefix, .date-prefix, .shared-by-prefix, .type-of-guide {
     font-style: normal;
@@ -172,7 +171,6 @@ img {
     grid-template-columns: 0px -webkit-min-content -webkit-min-content;
     grid-template-columns: 0px min-content min-content;
     grid-template-areas: "avatar author date comments";
-    grid-gap: .25rem 1rem;
     margin: 0 0 1.5rem;
 }
 .author-avatar {
@@ -212,8 +210,8 @@ svg:not(:root) {
     max-width: 381px;
 }
 .tag-name {
-    background-color: #a7a2a2;
-    color: #fff;
+    background-color: #5a2e6c;
+    color: #ffffff;
     padding: 1px 7px;
     display: block;
     width: -webkit-max-content;

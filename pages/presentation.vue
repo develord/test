@@ -13,7 +13,7 @@
                       <div class="auto-container">
                         <div class="row clearfix">
                           <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                            <div class="image-box">
+                            <div class="image-box" style="margin-top: 166px;">
                               <iframe
                                 width="560"
                                 height="315"
@@ -42,6 +42,33 @@
                                   </div>
                                 </div>
                               </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                            <div id="content_block_12">
+                              <div class="content-box">
+                                <div class="inner-box">
+                                  <div class="single-item">
+                                    <div class="box">
+                                      <p>From January 2021, I will start as Laboratory Head at Harry Perkins Institute of Medical Research and women’s cancer senior fellow/Senior lecture at Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.</p>
+                                      <p>We are interested in studying co-evolution of tumor and their ecosystem under the various selection pressures such as chemo/immuno-therapy and metastasis. I obtained my PhD from the Indian Institute of Science, Bangalore and in 2015 followed by post-doctoral training at Genome Institute of Singapore (GIS). I am employing single cell genomics to explore tumor evolution and ecosystem focusing on tumor-immune interactions.</p>
+                                      <p>I am closely working with Dr. Ramanuj DasGupta (GIS) and Dr. Florent Ginhoux (SIgN) to understand role of tumor associated macrophages in hepatocellular carcinoma. In 2019, I was awarded NMRC Young Investigator fellowship to work on mechanism of immune escape in triple negative breast cancers.</p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                            <div class="image-box" style="margin-top: 78px;">
+                              <iframe
+                                width="560"
+                                height="315"
+                                src="https://www.youtube.com/embed/rgG7wvDHuCs"
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                              />
                             </div>
                           </div>
                         </div>

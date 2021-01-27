@@ -37,10 +37,31 @@
                           <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
                         </li>
                         <div v-if="item.linkedin || item.researchgate|| item.github" class="social-links">
-                          <li> <a target="_blank" :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/linkedin.png"></a></li>
-                          <li> <a target="_blank" :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/windows/32/000000/researchgate.png"></a></li>
-                          <li> <a target="_blank" :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.favpng.com/15/23/14/google-scholar-academic-journal-google-logo-education-png-favpng-0uceM1mAtbc5DfsdtKmriNSDW.jpg"></a></li>
-                          <li> <a target="_blank" :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)"><img src="https://img.icons8.com/fluent/48/000000/github.png"></a></li>
+                          <li>
+                            <a target="_blank" :href="item.twitter" style="background-color:transparent; color: rgb(249,+50,+110)">
+                              <img style="width: 35px;" :src="'./images/icotwitter.png'">
+                            </a>
+                          </li>
+                          <li>
+                            <a target="_blank" :href="item.google" style="background-color:transparent; color: rgb(249,+50,+110)">
+                              <img style="width: 35px;" :src="'./images/icogooglesch.png'">
+                            </a>
+                          </li>
+                          <li>
+                            <a target="_blank" :href="item.linkedin" style="background-color:transparent; color: rgb(249,+50,+110)">
+                              <img style="width: 35px;" :src="'./images/icolinkedin.png'">
+                            </a>
+                          </li>
+                          <li>
+                            <a target="_blank" :href="item.github" style="background-color:transparent; color: rgb(249,+50,+110)">
+                              <img style="width: 35px;" :src="'./images/icogithub.png'">
+                            </a>
+                          </li>
+                          <li>
+                            <a target="_blank" :href="item.researchgate" style="background-color:transparent; color: rgb(249,+50,+110)">
+                              <img style="width: 35px;" :src="'./images/icorgate.png'">
+                            </a>
+                          </li>
                         </div>
                       </ul>
                     </div>
@@ -53,6 +74,7 @@
                         <img
                           width="45"
                           alt="cell"
+                          style="margin: 2px;"
                           title="cell"
                           :src="'./images/tag-cell.png'"
                           class="is-lazy is-loaded"
@@ -61,6 +83,7 @@
                         >
                         <img
                           width="45"
+                          style="margin: 2px;"
                           alt="Genomics"
                           title="Genomics"
                           :src="'./images/tag-genomis.png'"
@@ -97,11 +120,22 @@
                         >
                         <img
                           width="45"
+                          style="margin: 2px;"
                           alt="biology"
                           title="biology"
                           :src="'./images/tag-biology.png'"
                           class="is-lazy is-loaded"
                           data-src="./images/tag-biology.png"
+                          lazy="loaded"
+                        >
+                        <img
+                          width="45"
+                          style="margin: 2px;"
+                          alt="immunology"
+                          title="immunology"
+                          :src="'./images/immunology.png'"
+                          class="is-lazy is-loaded"
+                          data-src="./images/immunology.png"
                           lazy="loaded"
                         >
                       </div>
@@ -138,20 +172,29 @@ export default {
       teams: [
         {
           name: 'Ankur Sharma',
-          title: 'Head of Lab',
-          img: './images/ankur.png',
+          title: 'Laboratory Head',
+          img: '../images/ankur.png',
           link: '/team/ankur-sharma',
-          email: 'sharmaalab1@gmail.com',
+          twitter: 'https://twitter.com/asharmaiisc',
+          github: 'https://github.com/sharmaalab',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
+          researchgate: '',
+          cv: 'http://oncofetal.com/pdf/ResumeAnkurSharma.pdf',
+          degree: 'Harry Perkins Institute of Medical Research<br> Senior Lecturer, Curtin University <br> PhD, Indian Institute of Science, Bangalore',
+          email: 'sharmaalab1@gmail.com',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
         },
         {
           name: 'Ahmed Khalil',
           title: 'Postdoc researcher',
           email: 'ahmed.ibrahim@ntu.edu.sg',
+          degree: 'PhD in School of Computer Science and Engineering,NTU, Singapore.',
+          twitter: 'https://twitter.com/Ahmed_IS_Khalil',
+          cv: 'http://oncofetal.com/pdf/ResumeAhmedKhalil.pdf',
+          google: 'https://scholar.google.com/citations?user=1shSs64AAAAJ&hl=en&oi=ao',
           link: '/team/ahmed-khalil',
-          img: './images/ahmed.jpeg',
+          img: '../images/ahmed.jpeg',
           linkedin: ' www.linkedin.com/in/ahmed-i-s-khalil',
           researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
           github: 'https://github.com/AISKhalil/',
@@ -160,19 +203,27 @@ export default {
         {
           name: 'Rhea Pai',
           link: '/team/rhea-pai',
-          title: 'Research Associate',
+          title: 'PhD student',
+          degree: 'PhD student in Biomedical Science, Curtin University and Harry Perkins Institute of Medical Research',
           email: 'rheakedar@gmail.com',
+          twitter: 'https://twitter.com/rheapai1',
+          google: 'https://scholar.google.com/citations?view_op=list_works&hl=en&user=JCqhjAYAAAAJ',
           linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',
+          github: '#',
+          cv: 'http://oncofetal.com/pdf/ResumeRheaPai.pdf',
           img: './images/Rhea_pic.png',
           description: `Rhea is a Research Officer at Genome Institute of Singapore (GIS), A*STAR. She received her B.Sc. degree in Biotechnology from Northumbria University in 2018.  She has worked extensively over the last two years in liver and breast cancer related projects primarily focused on optimizing single cell RNA-seq experiments on patient samples. She has also ventured into spatial transcriptomics and attained expertise in the area of multicolor fluorescent in situ mRNA hybridization (FISH) images. Her research interest is in studying tumor heterogeneity and evolution using single cell genomics. Rhea will be joining Sharmaalab at Harry Perkins Institute in early 2021. `
         },
         {
           name: 'Shivani Sriva..',
           title: 'Research Intern',
+          twitter: 'https://twitter.com/rheapai1',
           link: '/team/shivani-srivastava',
+          cv: 'http://oncofetal.com/pdf/ResumeShivaniSrivastava.pdf',
           email: 'shivani1996srivastava1996@gmail.com',
           linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',
           researchgate: 'https://www.researchgate.net/profile/Shivani_Srivastava9',
+          degree: 'M.Sc in Bioinformatics, University of Allahabad, India.',
           img: './images/Shivani_pic.jpg',
           description: `Shivani is a research intern at Sharmaalab. Her research interest includes applying computational approaches to understand heterogeneity of tumor tissues and cell-cell interactions, to discover the phenomenon causing togetherness of the different cells and what leads to selection of the driving mutations. She is currently tracking the pre and post treatment cell interactions in breast cancer. She completed her masters in bioinformatics from University of Allahabad, India. She recieved her Bachelor of Biotechnology degree from CSJM University, India. Apart from research, she is a zoophilist.`
         }
@@ -195,6 +246,10 @@ export default {
 }
 </style>
 <style>
+.team-block-two .inner-box .image-box .contact-box .social-links {
+  width: 100%;
+  bottom: 5px !important;
+}
 .team-description {
     position: relative;
     display: block;

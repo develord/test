@@ -8,8 +8,10 @@
               <div class="project-details-content">
                 <div v-if="contents" v-html="contents">
                 </div>
-                <a v-if="exterlink" class="journal-website" target="_blank" :href="exterlink">journal Website</a>
-                <a v-if="pdf" class="journal-website" target="_blank" :href="'../pdf/' + pdf">PDF</a>
+                <div style="display: flex;flex-direction: column;">
+                  <a style="margin-left: auto;" v-if="exterlink" class="journal-website" target="_blank" :href="exterlink">journal Website</a>
+                  <a style="margin-left: auto;" v-if="pdf" class="journal-website" target="_blank" :href="'../pdf/' + pdf">PDF</a>
+                </div>
               </div>
             </div>
           </div>
