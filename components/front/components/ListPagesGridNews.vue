@@ -33,7 +33,18 @@
       </div>
 
       <div v-else class="auto-container d-flex flex-wrap justify-content-start">
-        <div v-for="post in listPost" :key="post._id" class="col-lg-4 col-md-6 col-sm-12 news-block">
+        <div class="article-desc flex-wrap d-flex justify-content-start">
+          <span v-for="(item, i) in listTag" :key="i" class="tag-name" @click="selected = item">
+            <template>{{ item }}</template>
+          </span>
+          <span v-for="(item) in listDate" :key="item" class="tag-name" @click="selected = item">
+            <template>{{ item }}</template>
+          </span>
+        </div>
+      </div>
+
+      <div v-if="!loading" class="auto-container d-flex flex-wrap justify-content-start">
+        <div v-for="post in filtredPost" :key="post._id" class="col-lg-4 col-md-6 col-sm-12 news-block">
           <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
             <div class="inner-box">
               <figure class="image-box">
@@ -90,7 +101,25 @@ export default {
   data () {
     return {
       listPost: null,
-      loading: true
+      loading: true,
+      selected: null,
+      listTag: null,
+      filtredPost: [],
+      listDate: null
+    }
+  },
+  watch: {
+    selected (newVal) {
+      this.filtredPost = this.listPost.filter(el => el.published?.substring(0, 4) === newVal || el.tagfilter === newVal)
+    },
+    listPost (newVal) {
+      this.filtredPost = newVal
+      this.listTag = [...new Set(newVal.map(el => el.tagfilter).flat())].filter(function (el) {
+        return el != null
+      })
+      this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el?.substring(0, 4)))].filter(function (el) {
+        return el != null
+      })
     }
   },
   async beforeMount () {
@@ -102,6 +131,14 @@ export default {
 </script>
 <style scoped>
 /* BEGIN CARD DESIGN */
+.tag-name {
+  padding: 6px 10px;
+    background: var(--secondary);
+    border-radius: 24px;
+    color: #fff;
+    cursor: pointer;
+    margin: 0px 5px;
+}
 .text p {
     overflow: hidden;
     display: -webkit-box;

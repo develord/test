@@ -45,6 +45,7 @@ export default {
         h1: null,
         journal: null,
         authors: null,
+        tagfilter: null,
         pdf: null,
         exterlink: null,
         tags: null,

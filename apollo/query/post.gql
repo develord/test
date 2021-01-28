@@ -10,6 +10,7 @@ query($_id: String) {
         pdf
         exterlink
         h1
+        tagfilter
         content
         tags {_id, name, slug}
         image_large {_id, low, high}

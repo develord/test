@@ -81,6 +81,22 @@
       "require": true,
       "placeholder": "Category Post"
     },
+    
+    {
+      "name": "tagfilter",
+      "label": "tagfilter",
+      "placeholder": "Category News",
+      "model": "tagfilter",
+      "type": {
+        "select": {
+          "options": [
+            "Members News",
+            "Lab News",
+            "Conferences"
+          ]
+        }
+      }
+    },
     {
       "name": "Type Component",
       "label": "Template",

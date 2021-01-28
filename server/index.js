@@ -19,7 +19,12 @@ async function start () {
   }
 
   // apply Apollo middleware
-  apollo.applyMiddleware({ app })
+  apollo.applyMiddleware({
+    app,
+    bodyParserConfig: {
+      limit: '10mb'
+    }
+  })
 
   // Give nuxt middleware to express
   app.use(nuxt.render)

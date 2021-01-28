@@ -9,6 +9,7 @@ query($link: String) {
         pdf
         authors
         exterlink
+        tagfilter
         published
         content
         tags {_id, name, slug}

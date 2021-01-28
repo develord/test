@@ -13,6 +13,10 @@ const postSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  tagfilter: {
+    type: String,
+    default: null
+  },
   h1: {
     type: String,
     default: null

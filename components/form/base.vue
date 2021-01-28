@@ -14,7 +14,7 @@
       </v-col>
       <v-col v-else-if="f.type.hasOwnProperty('select')" :key="f.model" cols="12" sm="12">
         <v-select
-          v-if="typeof f.type.select.options === 'object'"
+          v-if="typeof f.type.select.options === 'object' "
           v-model="formModel[f.model]"
           :items="f.type.select.options"
           :multiple="f.multiple"

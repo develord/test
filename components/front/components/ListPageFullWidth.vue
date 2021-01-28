@@ -137,9 +137,9 @@ a {
   text-align: justify !important;
 }
 .tag-name {
-  background-color: #d2d2d2;
-  color: #fff;
-  padding: 2px;
+  background-color: #5a2e6c;
+  color: #ffffff;
+  padding: 2px 5px;
   display: block;
   width: max-content;
   flex: 1;
