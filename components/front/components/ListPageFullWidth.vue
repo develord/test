@@ -37,6 +37,7 @@
             <img
               v-lazy="{ src: '/images/' + post.image_small.high, loading: '/images/' + post.image_small.low}"
               class="is-lazy"
+
               :alt="post.title"
               :title="post.title"
               :src="'/images/' + post.image_small.low"
@@ -185,7 +186,7 @@ a {
 }
 .tags-box {
   display: grid;
-  grid-template-columns: repeat(auto-fill,minmax(40px, 1fr));
+  grid-template-columns: repeat(auto-fill,minmax(50px, 1fr));
 }
 
 .article {

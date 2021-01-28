@@ -86,7 +86,6 @@
                                             <img v-if="!item.vid" :src="item.image">
                                             <iframe
                                               v-else
-                                              style="margin-top: 40px;width: 104%;height: 336px;"
                                               frameborder="0"
                                               height="100%"
                                               width="100%"
@@ -410,7 +409,17 @@ p {
 .sec-title.pull-left {
   padding-top: 53px;
 }
+iframe {
+  margin-top: 40px;
+  width: 104%;
+  height: 336px;
+}
 @media screen and (max-width: 484px) {
+  iframe {
+    margin-top: 0;
+    width: 98%;
+    height: 236px;
+  }
   .logo {
     margin-right: 0 !important;
     margin-top: 0 !important;
@@ -427,8 +436,34 @@ p {
   h1, h2, h3, h4, h5, h6 {
     color: #000000;
   }
+  iframe {
+    margin-top: 0px;
+    width: 104%;
+    height: 229px;
+  }
 }
-@media only screen and (max-width: 731px) {
+@media (max-width: 376px) and (min-width:100px) {
+
+    iframe {
+      margin-top: 0px;
+      width: 104%;
+      height: 236px  !important;
+    }
+}
+@media (max-width: 768px) and (min-width:377px) {
+
+    iframe {
+      margin-top: 0px;
+      width: 104%;
+      height: 251px !important;
+    }
+}
+@media only screen and (max-width: 731px)  {
+  iframe {
+    margin-top: 0px;
+    width: 104%;
+    height: 241px;
+  }
   .sec-title input {
     width: 100%;
   }
@@ -440,6 +475,11 @@ p {
   }
 }
 @media only screen and (max-width: 991px) {
+  iframe {
+    margin-top: 0px;
+    width: 104%;
+    height: 221px;
+  }
   .chooseus-style-two .title-inner .sec-title {
     width: 70%;
   }
@@ -474,7 +514,7 @@ p {
 }
 @media screen and (max-width: 1280px) {
   .main-menu .navigation > li {
-    margin: 0px 12px
+    margin: 0px 10px
   }
   .hvr-underline-from-left1 img {
         margin-left: 22px !important;

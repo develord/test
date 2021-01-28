@@ -105,3 +105,31 @@ export default {
   }
 }
 </script>
+<style lang="css" scoped>
+@media only screen and (max-width: 376px) {
+  iframe {
+      margin-top: 0px;
+      width: 101%;
+      height: 205px ;
+  }
+}
+@media  (max-width: 768px) and (min-width: 376px) {
+  .chooseus-style-four .image-box {
+      margin-top: 0px;
+      height: auto;
+  }
+  iframe {
+      margin-top: 0px;
+      width: 101%;
+      height: 393px !important;
+  }
+}
+
+@media only screen and (max-width: 991px) {
+  iframe {
+      margin-top: 0px;
+      width: 101%;
+      height: 192px;
+  }
+}
+</style>

@@ -219,6 +219,7 @@ svg:not(:root) {
     width: max-content;
     flex: 1;
     display: inline-block;
+    z-index: 2;
     border-radius: 24px;
     margin: 4px;
 }
