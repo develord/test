@@ -215,14 +215,14 @@ export default {
         {
           name: 'Ahmed Khalil',
           title: 'Postdoc researcher',
-          email: 'ahmed.ibrahim@ntu.edu.sg',
+          email: 'ahmedibr001@ntu.edu.sg',
           degree: 'PhD in School of Computer Science and Engineering,NTU, Singapore.',
           twitter: 'https://twitter.com/Ahmed_IS_Khalil',
           cv: 'http://oncofetal.com/pdf/ResumeAhmedKhalil.pdf',
           google: 'https://scholar.google.com/citations?user=1shSs64AAAAJ&hl=en&oi=ao',
           link: '/team/ahmed-khalil',
           img: '../images/ahmed.jpeg',
-          linkedin: ' www.linkedin.com/in/ahmed-i-s-khalil',
+          linkedin: 'https://www.linkedin.com/in/ahmed-i-s-khalil',
           researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
           github: 'https://github.com/AISKhalil/',
           description: `Ahmed Khalil is a Postdoctoral Research Fellow at the School of Computer Science and Engineering, Nanyang Technological University in Singapore. He received the Ph.D. degree from the same school in 2020 when he introduced methods for accurate profiling of cancer cell lines. Earlier, he got a B.Sc. degree in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from Cairo University in Egypt. From early 2021, he will join Harry Perkins Institute of Medical Research to study the tumor evolution and ecosystem using single cell multi-omics data. Khalil’s research interests include a broad range of topics around computational biology, data science, and hardware acceleration.`

@@ -203,10 +203,10 @@ export default {
           github: 'https://github.com/sharmaalab',
           linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
           google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
-          researchgate: '',
+          researchgate: 'https://www.researchgate.net/profile/Ankur_Sharma5',
           cv: 'http://oncofetal.com/pdf/ResumeAnkurSharma.pdf',
           degree: 'Harry Perkins Institute of Medical Research<br> Senior Lecturer, Curtin University <br> PhD, Indian Institute of Science, Bangalore',
-          email: 'sharmaalab1@gmail.com',
+          email: 'ankur.sharma@curtin.edu.au',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
         },
         {

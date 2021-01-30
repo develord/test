@@ -232,9 +232,10 @@ export default {
           description: `Rhea is a Research Officer at Genome Institute of Singapore (GIS), A*STAR. She received her B.Sc. degree in Biotechnology from Northumbria University in 2018.  She has worked extensively over the last two years in liver and breast cancer related projects primarily focused on optimizing single cell RNA-seq experiments on patient samples. She has also ventured into spatial transcriptomics and attained expertise in the area of multicolor fluorescent in situ mRNA hybridization (FISH) images. Her research interest is in studying tumor heterogeneity and evolution using single cell genomics. Rhea will be joining Sharmaalab at Harry Perkins Institute in early 2021. `
         },
         {
-          name: 'Shivani Sriva..',
+          name: 'Shivani Srivastava',
           title: 'Research Intern',
           link: '/team/shivani-srivastava',
+          twitter: 'https://twitter.com/Shivani35672796',
           cv: 'http://oncofetal.com/pdf/ResumeShivaniSrivastava.pdf',
           email: 'shivani1996srivastava1996@gmail.com',
           linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',

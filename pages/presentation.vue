@@ -35,9 +35,8 @@
                                 <div class="inner-box">
                                   <div class="single-item">
                                     <div class="box">
-                                      <p>From January 2021, I will start as Laboratory Head at Harry Perkins Institute of Medical Research and women’s cancer senior fellow/Senior lecture at Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.</p>
-                                      <p>We are interested in studying co-evolution of tumor and their ecosystem under the various selection pressures such as chemo/immuno-therapy and metastasis. I obtained my PhD from the Indian Institute of Science, Bangalore and in 2015 followed by post-doctoral training at Genome Institute of Singapore (GIS). I am employing single cell genomics to explore tumor evolution and ecosystem focusing on tumor-immune interactions.</p>
-                                      <p>I am closely working with Dr. Ramanuj DasGupta (GIS) and Dr. Florent Ginhoux (SIgN) to understand role of tumor associated macrophages in hepatocellular carcinoma. In 2019, I was awarded NMRC Young Investigator fellowship to work on mechanism of immune escape in triple negative breast cancers.</p>
+                                      <br><br><br><br><br><br><br><br>
+                                      <p>- Single-cell analysis of ~200,000 cells in HCC and fetal liver leads to the discovery of a shared onco-fetal ecosystem that drives immunosuppressive macrophages (Sharma et. al., 2020)</p>
                                     </div>
                                   </div>
                                 </div>
@@ -50,9 +49,8 @@
                                 <div class="inner-box">
                                   <div class="single-item">
                                     <div class="box">
-                                      <p>From January 2021, I will start as Laboratory Head at Harry Perkins Institute of Medical Research and women’s cancer senior fellow/Senior lecture at Curtin Health Innovation Research Institute (CHIRI), Curtin University, Perth, Western Australia.</p>
-                                      <p>We are interested in studying co-evolution of tumor and their ecosystem under the various selection pressures such as chemo/immuno-therapy and metastasis. I obtained my PhD from the Indian Institute of Science, Bangalore and in 2015 followed by post-doctoral training at Genome Institute of Singapore (GIS). I am employing single cell genomics to explore tumor evolution and ecosystem focusing on tumor-immune interactions.</p>
-                                      <p>I am closely working with Dr. Ramanuj DasGupta (GIS) and Dr. Florent Ginhoux (SIgN) to understand role of tumor associated macrophages in hepatocellular carcinoma. In 2019, I was awarded NMRC Young Investigator fellowship to work on mechanism of immune escape in triple negative breast cancers.</p>
+                                      <br><br><br><br><br><br>
+                                      <p> - Ever wondered why chemotherapy works for some patients but not for others? Well, we did, and discovered that tumors evolve differently under the selection pressure of same drug and ‘fate’ lies in the ‘fidelity of stem-cell hierarchy’.</p>
                                     </div>
                                   </div>
                                 </div>
