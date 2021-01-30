@@ -241,6 +241,7 @@ export default {
           email: 'rheakedar@gmail.com',
           twitter: 'https://twitter.com/rheapai1',
           google: 'https://scholar.google.com/citations?view_op=list_works&hl=en&user=JCqhjAYAAAAJ',
+          researchgate: 'https://www.researchgate.net/profile/Rhea_Pai5',
           linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',
           github: '#',
           cv: 'http://oncofetal.com/pdf/ResumeRheaPai.pdf',

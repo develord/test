@@ -23,23 +23,6 @@
         </ul>
 
         <div class="article-content-meta">
-          <div class="author-avatar">
-            <a href="#">
-              <img
-                v-lazy="{ src: 'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg', loading: 'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=160&amp;d=retro&amp;r=pg' }"
-                class="is-lazy"
-                :src="'https://secure.gravatar.com/avatar/d7a76198094edbb412cf4d525b16d545?s=80&amp;d=retro&amp;r=pg'"
-              >
-            </a>
-            <div class="half-circle" width="80px" height="80px" />
-          </div>
-          <div class="author-name-area">
-            <div class="author-name-prefix">
-              Author
-            </div>
-            <a class="author-name" href="#">
-              {{ user.name }} </a>
-          </div>
           <div class="date">
             <div class="date-prefix">
               Published
@@ -135,11 +118,7 @@ img {
 }
 .article-content-meta {
     font-size: .7rem;
-    display: grid;
-    grid-template-columns: 80px -webkit-min-content -webkit-min-content;
-    grid-template-columns: 80px min-content min-content;
-    grid-template-areas: "avatar author date comments";
-    grid-gap: .25rem 1rem;
+    display: flex;
     align-items: center;
     margin: 0 0 1.5rem;
 }

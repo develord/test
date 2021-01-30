@@ -74,7 +74,7 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li> <a target="_blank" href="https://twitter.com/Shar"><span>Twitter</span> </a></li>
+                      <li> <a target="_blank" href="https://twitter.com/SharmaaLab"><span>Twitter</span> </a></li>
                       <li> <a target="_blank" href="https://github.com/sharmaalab"><span>GitHub</span> </a></li>
                       <li>
                         <a

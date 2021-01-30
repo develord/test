@@ -136,6 +136,8 @@ export default {
     background: var(--secondary);
     border-radius: 24px;
     color: #fff;
+    display: flex;
+    flex: none;
     cursor: pointer;
     margin: 0px 5px;
 }
