@@ -1,7 +1,8 @@
 {
     tags {
-	  _id
+	    _id
       name
       slug
+      image {_id}
     }
 }

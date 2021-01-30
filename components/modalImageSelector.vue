@@ -10,6 +10,13 @@
       >
         <v-img :src="url" />
       </v-avatar>
+      <button
+        v-if="mode === 'editor'"
+        type="button"
+        class="menubar__button"
+      >
+        <el-button round icon="el-icon-s-grid" @click="visible = true" />
+      </button>
       <v-btn
         v-if="mode === 'form'"
         color="primary"
@@ -162,12 +169,9 @@ export default {
         this.$emit('update:file', this.imageSelected._id)
       } else {
         const imageData = {
-          command: this.command,
-          data: {
-            src: this.getImage(this.imageSelected.high),
-            alt: this.imageSelected.alt,
-            title: this.imageSelected.title
-          }
+          src: this.getImage(this.imageSelected.high),
+          alt: this.imageSelected.alt,
+          title: this.imageSelected.title
         }
         this.$emit('onConfirm', imageData)
       }

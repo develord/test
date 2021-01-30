@@ -6,6 +6,10 @@ const Query = {
   tags: async () => {
     const tags = await Tag.find()
     return tags
+  },
+  tag: async (_, { _id }) => {
+    const tag = await Tag.findOne({ _id }).populate(['image'])
+    return tag
   }
 }
 
@@ -15,16 +19,16 @@ const Query = {
  */
 
 const Mutation = {
-  createTag: async (_, { name, slug }) => {
-    const tagData = { name, slug }
+  createTag: async (_, { name, slug, image }) => {
+    const tagData = { name, slug, image }
     const tag = await new Tag(tagData)
     return tag.save()
   },
-  updateTag: async (_, { _id, name, slug }) => {
+  updateTag: async (_, { _id, name, image, slug }) => {
     // if we need to validate more, we destruct the args.data object (fields to update)
     /** We can make more validation here **/
     // it's better to pass a single object to updateOne to avoid checking on undefined
-    const data = { name, slug }
+    const data = { name, slug, image }
     const updated = await Tag.findOneAndUpdate({ _id }, data, {
       new: true
     })

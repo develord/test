@@ -1,8 +1,13 @@
 const mongoose = require('mongoose')
 
-const imageSchema = new mongoose.Schema({
+const TagSchema = new mongoose.Schema({
   name: String,
   slug: String,
+  image: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Image',
+    default: null
+  },
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,
@@ -11,4 +16,4 @@ const imageSchema = new mongoose.Schema({
   ]
 })
 
-module.exports = mongoose.model('Tag', imageSchema)
+module.exports = mongoose.model('Tag', TagSchema)

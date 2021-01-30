@@ -16,8 +16,13 @@
   },
   {
     "title": "Page Groups",
-    "icon": "el-icon-setting",
+    "icon": "el-icon-s-grid",
     "href": "/ad-admin/category"
+  },
+  {
+    "title": "Tags",
+    "icon": "el-icon-truck",
+    "href": "/ad-admin/tags"
   },
   {
     "title": "Users",
