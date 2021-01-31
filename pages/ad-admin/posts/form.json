@@ -97,6 +97,7 @@
       "name": "Post Cover Image",
       "label": "Post Cover",
       "model": "image_large",
+      "placeholder": "800x400",
       "type": "image",
       "require": true
     },
@@ -104,6 +105,7 @@
       "name": "Post Small Image",
       "label": "Post Image",
       "model": "image_small",
+      "placeholder": "126x126",
       "type": "image",
       "require": true
     },
