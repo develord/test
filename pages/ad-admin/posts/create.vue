@@ -116,7 +116,7 @@ export default {
         if (typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
         if (typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
         if (typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
-        if (typeof this.post.tags === 'object' && typeof this.post.tags[0] === 'object') {
+        if (typeof this.post.tags === 'object' && this.post.tags && typeof this.post.tags[0] === 'object') {
           y.tags = this.post.tags.map(el => el._id)
         } else {
           y.tags = this.post.tags
