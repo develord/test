@@ -352,7 +352,7 @@ export default {
     posts: {
       immediate: true,
       handler (newVal) {
-        this.listNews = newVal.filter(el => el.category.name.toLowerCase() === 'news')
+        this.listNews = newVal.filter(el => el.category.name.toLowerCase() === 'news').slice(0, 3)
       }
     }
   },
