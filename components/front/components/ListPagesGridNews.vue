@@ -133,13 +133,13 @@ export default {
 /* BEGIN CARD DESIGN */
 .tag-name {
   padding: 6px 10px;
-    background: var(--secondary);
-    border-radius: 24px;
-    color: #fff;
-    display: flex;
-    flex: none;
-    cursor: pointer;
-    margin: 0px 5px;
+  background-color: #5a2e6c;
+  color: #fff;
+  border-radius: 24px;
+  display: flex;
+  flex: none;
+  cursor: pointer;
+  margin: 0px 5px;
 }
 .text p {
     overflow: hidden;

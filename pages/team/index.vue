@@ -9,13 +9,6 @@
             <div class="row clearfix">
               <div class="col-lg-12" style="margin-bottom: 52px;">
                 <h2>Meet us</h2>
-                <p>
-                  We select our partners on their capabilities to set up world class strategies and execute them without any compromise to quality aspects. “Zero failure” is expected during our missions.
-
-                  Our team consists of highly renowned professionals  having all a minimum of 15 to 20 years experience in their field of expertise. Experience being also sanctioned by demonstrated  personal international achievements combined with  excellent academics records.
-
-                  We only work with professionals committed  to our values and those of our clients.
-                </p>
               </div>
               <div v-for="(item, i) in teams" :key="i" class="col-lg-3 col-md-6 col-sm-12 team-block">
                 <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
