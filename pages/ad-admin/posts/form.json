@@ -51,15 +51,14 @@
       "type": {
         "select": {
           "options": [
-            "news",
-            "category",
-            "publications",
-            "research"
+            "Bus",
+            "agence",
+            "actualite"
           ]
         }
       },
       "require": true,
-      "placeholder": "Category Status"
+      "placeholder": "Template Page"
     },
     {
       "name": "Tags Post",
