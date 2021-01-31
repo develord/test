@@ -99,10 +99,10 @@ export default {
         // eslint-disable-next-line camelcase
         const { status, image_large, image_small, user, ...y } = this.category
         if (!user) { this.category.user = this.$store.state.auth._id }
-        if (typeof this.category.user === 'object' && this.category.user._id) { y.user = this.category.user._id } else { y.user = this.category.user }
-        if (typeof this.category.status === 'object' && this.category.status._id) { y.status = this.category.status._id } else { y.status = this.category.status }
-        if (typeof this.category.image_small === 'object' && this.category.image_small._id) { y.image_small = this.category.image_small._id } else { y.image_small = this.category.image_small }
-        if (typeof this.category.image_large === 'object' && this.category.image_large._id) { y.image_large = this.category.image_large._id } else { y.image_large = this.category.image_large }
+        if (this.category.user && typeof this.category.user === 'object' && this.category.user._id) { y.user = this.category.user._id } else { y.user = this.category.user }
+        if (this.category.status && typeof this.category.status === 'object' && this.category.status._id) { y.status = this.category.status._id } else { y.status = this.category.status }
+        if (this.category.image_small && typeof this.category.image_small === 'object' && this.category.image_small._id) { y.image_small = this.category.image_small._id } else { y.image_small = this.category.image_small }
+        if (this.category.image_large && typeof this.category.image_large === 'object' && this.category.image_large._id) { y.image_large = this.category.image_large._id } else { y.image_large = this.category.image_large }
 
         await this.$store.dispatch(`category/${mut}`, y).then(async (res) => {
           this.$store.dispatch('category/getCategories')

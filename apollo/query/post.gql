@@ -6,6 +6,7 @@ query($_id: String) {
         description
         h1
         content
+        gallery {_id, low, high}
         tags {_id, name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}

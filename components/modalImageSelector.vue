@@ -67,7 +67,7 @@
         <v-card-text>
           <v-row>
             <v-col v-for="img in imagesList" :key="img._id" class="d-flex child-flex" cols="3">
-              <div :class="imageSelected._id === img._id ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
+              <div :class="imageSelected.find(el => el._id === img._id) ? 'vue-select-image__thumbnail vue-select-image__thumbnail--active' : 'image-box'">
                 <v-img
                   :src="'../../images/' + img.high"
                   :lazy-src=" '../../images/' + img.high.replace('high','low')"
@@ -108,8 +108,12 @@ export default {
   name: 'ModalImageSelector',
   props: {
     file: {
-      type: [String, Object],
+      type: [String, Object, Array],
       default: ''
+    },
+    multiple: {
+      type: Boolean,
+      default: false
     },
     mode: {
       type: String,
@@ -123,13 +127,7 @@ export default {
       loading: false,
       imagesList: [],
       command: null,
-      imageSelected: {
-        _id: null,
-        low: null,
-        high: null,
-        alt: null,
-        title: null
-      }
+      imageSelected: []
     }
   },
   computed: {
@@ -148,10 +146,26 @@ export default {
     file: {
       immediate: true,
       handler (newVal) {
-        if (newVal && newVal.high) {
-          this.url = this.getImage(this.file.high)
-        } else if (newVal) {
+        if (newVal && !Array.isArray(newVal) && typeof newVal === 'object') {
           const ff = this.images.find(img => img._id === newVal._id)
+          if (ff) {
+            this.url = this.getImage(ff.high)
+          }
+        } else if (newVal && Array.isArray(newVal)) {
+          if (typeof newVal[0] === 'object') {
+            this.imageSelected = newVal
+            const ff = this.images.find(img => img._id === newVal[0]._id)
+            if (ff) {
+              this.url = this.getImage(ff.high)
+            }
+          } else {
+            const ff = this.images.find(img => img._id === (this.multiple ? newVal[0] : newVal))
+            if (ff) {
+              this.url = this.getImage(ff.high)
+            }
+          }
+        } else if (typeof newVal === 'string') {
+          const ff = this.images.find(img => img._id === newVal)
           if (ff) {
             this.url = this.getImage(ff.high)
           }
@@ -163,10 +177,13 @@ export default {
     this.$store.dispatch('getImages')
   },
   methods: {
-    async insertImage () {
+    insertImage () {
       if (this.mode === 'form') {
-        this.url = await this.getImage(this.imageSelected.high)
-        this.$emit('update:file', this.imageSelected._id)
+        if (this.multiple) {
+          this.$emit('update:file', this.imageSelected.map(el => el._id))
+        } else {
+          this.$emit('update:file', this.imageSelected[0]._id)
+        }
       } else {
         const imageData = {
           src: this.getImage(this.imageSelected.high),
@@ -179,22 +196,25 @@ export default {
     },
     async deleteImage () {
       this.loading = true
-      await this.$store.dispatch('deleteImage', this.imageSelected._id).then((res) => {
-        this.$notify({
-          title: 'Success',
-          message: 'Image Removed',
-          type: 'success'
+      for (let i = 0; i < this.imageSelected.length; i++) {
+        await this.$store.dispatch('deleteImage', this.imageSelected[i]._id).then((res) => {
+          this.$notify({
+            title: 'Success',
+            message: 'Image Removed',
+            type: 'success'
+          })
+        }).then((el) => {
+          this.$store.dispatch('getImages').then(() => {
+            this.loading = false
+          })
         })
-      }).then((el) => {
-        this.$store.dispatch('getImages').then(() => {
-          this.loading = false
-        })
-      })
+      }
     },
     getImage (url) {
       try {
-        return require('@/static/images/' + url)
+        return require('~/static/images/' + url)
       } catch (e) {
+        console.log(e)
         return 'http://via.placeholder.com/300'
       }
     },
@@ -215,9 +235,21 @@ export default {
       this.loading = false
     },
     selectImage (img) {
-      this.imageSelected._id = img._id
-      this.imageSelected.low = img.low
-      this.imageSelected.high = img.high
+      if (this.imageSelected.find(el => el._id === img._id)) {
+        this.imageSelected = this.imageSelected.filter(el => el._id !== img._id)
+      } else if (this.multiple) {
+        this.imageSelected.push({
+          _id: img._id,
+          low: img.low,
+          high: img.high
+        })
+      } else {
+        this.imageSelected = [{
+          _id: img._id,
+          low: img.low,
+          high: img.high
+        }]
+      }
     },
     closeModal () {
       this.visible = false

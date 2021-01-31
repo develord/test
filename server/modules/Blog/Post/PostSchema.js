@@ -6,7 +6,7 @@ module.exports = {
       description: String
       h1: String
       tags: [Tag]
-      gelery: [Image]
+      gallery: [Image]
       componentName: String
       content: String
       image_large: Image
@@ -27,7 +27,7 @@ module.exports = {
       componentName: String
       content: String
       tags: [Tag]
-      gelery: [Image]
+      gallery: [Image]
       image_large: Image
       image_small: Image
       link: String
@@ -62,7 +62,7 @@ module.exports = {
       description: String
       h1: String
       tags: [String]
-      gelery: [String]
+      gallery: [String]
       content: String
       componentName: String
       image_large: String
@@ -77,7 +77,7 @@ module.exports = {
       title: String!
       description: String
       tags: [String]
-      gelery: [String]
+      gallery: [String]
       componentName: String
       h1: String
       content: String

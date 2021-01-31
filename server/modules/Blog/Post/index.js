@@ -34,7 +34,7 @@ const postSchema = new mongoose.Schema({
       default: null
     }
   ],
-  galery: [
+  gallery: [
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Image',

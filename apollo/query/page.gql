@@ -4,6 +4,7 @@ query($link: String) {
         title
         componentName
         description
+        gallery {_id, low, high}
         h1
         content
         tags {_id, name, slug}

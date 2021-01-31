@@ -54,6 +54,7 @@ export default {
         description: null,
         h1: null,
         tags: null,
+        gallery: null,
         content: null,
         image_large: null,
         image_small: null,
@@ -115,11 +116,11 @@ export default {
         }
         // eslint-disable-next-line camelcase
         const { status, image_large, image_small, category, ...y } = this.post
-        if (typeof this.post.user === 'object' && this.post.user._id) { y.user = this.post.user._id } else { y.user = this.post.user }
-        if (typeof this.post.category === 'object' && this.post.category._id) { y.category = this.post.category._id } else { y.category = this.post.category }
-        if (typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
-        if (typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
-        if (typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
+        if (this.post.user && typeof this.post.user === 'object' && this.post.user._id) { y.user = this.post.user._id } else { y.user = this.post.user }
+        if (this.post.category && typeof this.post.category === 'object' && this.post.category._id) { y.category = this.post.category._id } else { y.category = this.post.category }
+        if (this.post.status && typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
+        if (this.post.image_small && typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
+        if (this.post.image_large && typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getPosts')
           await this.$router.push({ name: 'ad-admin-posts' })

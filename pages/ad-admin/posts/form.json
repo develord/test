@@ -109,6 +109,13 @@
       "require": true
     },
     {
+      "name": "Post Gallery",
+      "label": "Post Gallery",
+      "model": "gallery",
+      "type": "gallery",
+      "require": true
+    },
+    {
       "name": "Post Content",
       "label": "Post Content",
       "model": "content",
