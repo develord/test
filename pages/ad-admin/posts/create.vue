@@ -115,13 +115,14 @@ export default {
           mut = 'addNewPost'
         }
         // eslint-disable-next-line camelcase
-        const { status, gallery, image_large, image_small, category, ...y } = this.post
+        const { status, gallery, tags, image_large, image_small, category, ...y } = this.post
         if (this.post.user && typeof this.post.user === 'object' && this.post.user._id) { y.user = this.post.user._id } else { y.user = this.post.user }
         if (this.post.category && typeof this.post.category === 'object' && this.post.category._id) { y.category = this.post.category._id } else { y.category = this.post.category }
         if (this.post.status && typeof this.post.status === 'object' && this.post.status._id) { y.status = this.post.status._id } else { y.status = this.post.status }
         if (this.post.image_small && typeof this.post.image_small === 'object' && this.post.image_small._id) { y.image_small = this.post.image_small._id } else { y.image_small = this.post.image_small }
         if (this.post.image_large && typeof this.post.image_large === 'object' && this.post.image_large._id) { y.image_large = this.post.image_large._id } else { y.image_large = this.post.image_large }
         if (this.post.gallery && Array.isArray(this.post.gallery) && this.post.gallery[0]._id) { y.gallery = this.post.gallery.map(el => el._id) } else { y.gallery = this.post.gallery }
+        if (this.post.tags && Array.isArray(this.post.tags) && this.post.tags[0]._id) { y.tags = this.post.tags.map(el => el._id) } else { y.tags = this.post.tags }
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getPosts')
           await this.$router.push({ name: 'ad-admin-posts' })
