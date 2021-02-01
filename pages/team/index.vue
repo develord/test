@@ -178,7 +178,7 @@ export default {
           email: 'ankur.sharma@curtin.edu.au',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
         },
-        {
+   /*     {
           name: 'Ahmed Khalil',
           title: 'Postdoc researcher',
           email: 'ahmedibr001@ntu.edu.sg',
@@ -192,7 +192,7 @@ export default {
           researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
           github: 'https://github.com/AISKhalil/',
           description: `Ahmed Khalil is a Postdoctoral Research Fellow at the School of Computer Science and Engineering, Nanyang Technological University in Singapore. He received the Ph.D. degree from the same school in 2020 when he introduced methods for accurate profiling of cancer cell lines. Earlier, he got a B.Sc. degree in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from Cairo University in Egypt. From early 2021, he will join Harry Perkins Institute of Medical Research to study the tumor evolution and ecosystem using single cell multi-omics data. Khalil’s research interests include a broad range of topics around computational biology, data science, and hardware acceleration.`
-        },
+        }, */
         {
           name: 'Rhea Pai',
           link: '/team/rhea-pai',
