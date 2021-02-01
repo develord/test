@@ -12,6 +12,11 @@
                     <div class="top-inner mb-55">
                       <div class="sec-title text-center">
                         <p>Contact Information</p><h2>We’d love to hear from you anytime</h2><div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
+                        <p>
+                          We are always looking for curious minds (Postdoctoral fellows, PhD students, Honours and undergraduate students) to join Sharma lab and research in the area of Oncofetal ecosystem and Tumor Evolution. We employ cutting edge technologies such as single cell genomics, spatial transcriptomics, machine learning to address translational and fundamental problems in the area of cancer biology.
+
+                          <br>Please write to Ankur (ankur.shrma@curtin.edu.au) or Tweet (@asharmaiisc) if you are interested in joining our group, along with your CV, publications and your innovative ideas.
+                        </p>
                       </div>
                     </div><div class="info-inner">
                       <div class="row clearfix">

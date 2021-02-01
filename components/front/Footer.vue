@@ -50,7 +50,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="col-lg-2 col-md-6 col-sm-12 footer-column">
               <div class="footer-widget widget_naxly_contact_us_two">
                 <div class="contact-widget">
                   <div class="widget-title">
@@ -66,7 +66,7 @@
                 </div>
               </div>
             </div>
-            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+            <div class="col-lg-1 col-md-6 col-sm-12 footer-column">
               <div class="footer-widget widget_naxly_contact_us_two">
                 <div class="contact-widget">
                   <div class="widget-title">
@@ -82,6 +82,18 @@
                           href="https://www.youtube.com/channel/UC4H2fZb64LXXOg5GbGstPKg"
                         ><span>Youtube</span> </a>
                       </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+              <div class="footer-widget widget_naxly_contact_us_two">
+                <div class="contact-widget">
+                  <div class="widget-content">
+                    <ul class="clearfix">
+                      <li><img alt="Awesome Image" data-src="pertik.jpg" class="lazyload" src="/pertik.jpg"></li>
+                      <li><img alt="Awesome Image" data-src="curtin.jpg" class="lazyload" src="/curtin.jpg"></li>
                     </ul>
                   </div>
                 </div>

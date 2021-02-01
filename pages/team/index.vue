@@ -10,7 +10,7 @@
               <div class="col-lg-12" style="margin-bottom: 52px;">
                 <h2>Meet us</h2>
               </div>
-              <div v-for="(item, i) in teams" :key="i" class="col-lg-3 col-md-6 col-sm-12 team-block">
+              <div v-for="(item, i) in teams" :key="i" class="col-lg-4 col-md-6 col-sm-12 team-block">
                 <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                   <div class="inner-box">
                     <div class="image-box">
@@ -178,7 +178,7 @@ export default {
           email: 'ankur.sharma@curtin.edu.au',
           description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
         },
-   /*     {
+        /*     {
           name: 'Ahmed Khalil',
           title: 'Postdoc researcher',
           email: 'ahmedibr001@ntu.edu.sg',
@@ -228,11 +228,23 @@ export default {
 </script>
 
 <style lang="css" scoped>
+.designation {
+  text-align: center;
+}
+.designation img, .team-block-two .inner-box .image-box {
+  margin: auto;
+}
+.team-block-two .inner-box .image-box {
+  width: 220px;
+  height: 220px;
+}
+
 .team-block-two .inner-box .image-box .contact-box{
     position: absolute;
-    right: -84px;
+    right: -93px;
     bottom: -90px;
     width: 50px;
+    margin: auto;
     height: 224px;
     background: #fff;
     border-radius: 30px;
@@ -240,6 +252,23 @@ export default {
 }
 </style>
 <style>
+.designation {
+  text-align: center;
+}
+.designation img {
+  margin: auto;
+}
+.team-block-two .inner-box .image-box .contact-box{
+    position: absolute;
+    right: -93px;
+    bottom: -90px;
+    width: 50px;
+    margin: auto;
+    height: 224px;
+    background: #fff;
+    border-radius: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
 .team-block-two .inner-box .image-box .contact-box .social-links {
   width: 100%;
   bottom: 5px !important;
