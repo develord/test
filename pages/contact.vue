@@ -128,4 +128,7 @@ export default {
 .chooseus-style-four .image-box {
     margin-top: 0;
 }
+.sec-title p {
+  text-transform: none;
+}
 </style>

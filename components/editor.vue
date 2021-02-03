@@ -63,7 +63,7 @@ import 'codemirror/mode/xml/xml.js' // language
 import 'codemirror/addon/selection/active-line.js' // require active-line.js
 import 'codemirror/addon/edit/closetag.js'
 import ImageseNode from './EditorImageSelector.js' // autoCloseTags
-Vue.use(ElementTiptapPlugin, { lang: 'fr' })
+Vue.use(ElementTiptapPlugin, { lang: 'en' })
 export default {
   name: 'Editor',
   props: {
