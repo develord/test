@@ -15,13 +15,18 @@
     "href": "/ad-admin/category"
   },
   {
-    "title": "Users",
-    "icon": "el-icon-user",
-    "href": "/ad-admin/users"
+    "title": "Tags",
+    "icon": "el-icon-collection-tag",
+    "href": "/ad-admin/tags"
   },
   {
-    "title": "Mailling",
-    "icon": "el-icon-message",
-    "href": "/ad-admin/mailling"
+    "title": "Teams",
+    "icon": "el-icon-user",
+    "href": "/ad-admin/teams"
+  },
+  {
+    "title": "Contact",
+    "icon": "el-icon-phone",
+    "href": "/ad-admin/contact"
   }
 ]

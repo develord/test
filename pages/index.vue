@@ -368,6 +368,9 @@ export default {
 </script>
 
 <style>
+.v-speed-dial--top {
+  z-index: 1002;
+}
 .purple {
 background-color: var(--purple)  !important;
 }

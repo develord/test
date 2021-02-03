@@ -1,0 +1,105 @@
+{
+  "name": "Add Team",
+  "model": "team",
+  "fields": [
+    {
+      "name": "name Teams",
+      "label": "name Teams",
+      "model": "name",
+      "placeholder": "name Teams",
+      "type": "text",
+      "require": true
+    },
+    {
+      "name": "Title Teams",
+      "label": "Title Teams",
+      "model": "title",
+      "placeholder": "Title Teams",
+      "type": "text",
+      "require": true
+    },
+    {
+      "name": "Tags Teams",
+      "label": "Tags Teams",
+      "model": "tags",
+      "type": {
+        "select": {
+          "options": "tags"
+        }
+      },
+      "multiple": true,
+      "require": true,
+      "placeholder": "Teams Tags"
+    },
+    {
+      "name": "degree",
+      "label": "degree",
+      "model": "degree",
+      "type": "array",
+      "placeholder": "degree"
+    },
+    {
+      "name": "email",
+      "label": "email",
+      "model": "email",
+      "type": "text",
+      "placeholder": "email"
+    },
+    {
+      "name": "cv",
+      "label": "cv",
+      "model": "cv",
+      "type": "file",
+      "placeholder": "cv"
+    },
+    {
+      "name": "twitter",
+      "label": "twitter",
+      "model": "twitter",
+      "type": "text",
+      "placeholder": "twitter"
+    },
+    {
+      "name": "google",
+      "label": "google",
+      "model": "google",
+      "type": "text",
+      "placeholder": "google"
+    },
+    {
+      "name": "linkedin",
+      "label": "linkedin",
+      "model": "linkedin",
+      "type": "text",
+      "placeholder": "linkedin"
+    },
+    {
+      "name": "researchgate",
+      "label": "researchgate",
+      "model": "researchgate",
+      "type": "text",
+      "placeholder": "researchgate"
+    },
+    {
+      "name": "github",
+      "label": "github",
+      "model": "github",
+      "type": "text",
+      "placeholder": "github"
+    },
+    {
+      "name": "Teams Cover Image",
+      "label": "Teams Cover",
+      "model": "image_large",
+      "type": "image",
+      "require": true
+    },
+    {
+      "name": "content",
+      "label": "content",
+      "model": "content",
+      "type": "content",
+      "placeholder": "content"
+    }
+  ]
+}

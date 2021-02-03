@@ -1,0 +1,22 @@
+
+query($_id: String) {
+    team(_id: $_id) {
+        _id
+        name
+        title
+        degree
+        tags {_id name slug}
+        image_large {_id low high}
+        link
+        content
+        email
+        twitter
+        cv
+        google
+        linkedin
+        researchgate
+        github
+        created_at
+        updated_at
+    }
+  }

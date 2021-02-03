@@ -14,14 +14,14 @@
                 <div class="team-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms" style="visibility: visible; animation-duration: 1500ms; animation-delay: 0ms; animation-name: fadeInUp;">
                   <div class="inner-box">
                     <div class="image-box">
-                      <NuxtLink :to="item.link">
+                      <NuxtLink :to="'team/' + item.link">
                         <img
-                          v-lazy="{ src: item.img, loading: item.img }"
+                          v-lazy="{ src: 'images/' + item.image_large.high, loading: 'images/' + item.image_large.low }"
                           width="140"
                           height="140"
                           alt="ankur"
                           class="wp-post-image is-lazy"
-                          :src="item.img"
+                          :src="'images/' + item.image_large.high"
                           @click="descption = i"
                         >
                       </NuxtLink>
@@ -59,76 +59,22 @@
                       </ul>
                     </div>
                     <div class="lower-content">
-                      <NuxtLink :to="item.link" :title="item.name" class="hvr-underline-from-left1">
+                      <NuxtLink :to=" 'team/' +item.link" :title="item.name" class="hvr-underline-from-left1">
                         <h4>{{ item.name }}</h4>
                       </NuxtLink>
                       <span class="designation">{{ item.title }}</span>
                       <div class="designation">
+                        {{ teams.tags }}
                         <img
+                          v-for="(tag, j) in item.tags"
+                          :key="j"
                           width="45"
                           alt="cell"
                           style="margin: 2px;"
                           title="cell"
-                          :src="'./images/tag-cell.png'"
+                          :src="'./images/' + tag.slug "
                           class="is-lazy is-loaded"
                           data-src="./images/tag-cell.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          style="margin: 2px;"
-                          alt="Genomics"
-                          title="Genomics"
-                          :src="'./images/tag-genomis.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/tag-genomis.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          alt="oncology"
-                          title="oncology"
-                          :src="'./images/tag-oncology.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/tag-oncology.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          alt="Oncofetal"
-                          title="Oncofetal"
-                          :src="'./images/tag-fetus.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/tag-cell.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          alt="cancer"
-                          title="cancer"
-                          :src="'./images/tag-cancer.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/tag-cancer.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          style="margin: 2px;"
-                          alt="biology"
-                          title="biology"
-                          :src="'./images/tag-biology.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/tag-biology.png"
-                          lazy="loaded"
-                        >
-                        <img
-                          width="45"
-                          style="margin: 2px;"
-                          alt="immunology"
-                          title="immunology"
-                          :src="'./images/immunology.png'"
-                          class="is-lazy is-loaded"
-                          data-src="./images/immunology.png"
                           lazy="loaded"
                         >
                       </div>
@@ -163,66 +109,16 @@ export default {
     return {
       descption: 0,
       teams: [
-        {
-          name: 'Ankur Sharma',
-          title: 'Laboratory Head',
-          img: '../images/ankur.png',
-          link: '/team/ankur-sharma',
-          twitter: 'https://twitter.com/asharmaiisc',
-          github: 'https://github.com/sharmaalab',
-          linkedin: 'https://www.linkedin.com/in/ankur-sharma-4141971a/',
-          google: 'https://scholar.google.com/citations?user=hXhCBW4AAAAJ&hl=en&oi=ao&fbclid=IwAR0ONNvmWFV8oBkU04GVONNxn1aoovIJjERGd6_Wc7DCuxymDsI5KrWYp54',
-          researchgate: 'https://www.researchgate.net/profile/Ankur_Sharma5',
-          cv: 'http://oncofetal.com/pdf/ResumeAnkurSharma.pdf',
-          degree: 'Harry Perkins Institute of Medical Research<br> Senior Lecturer, Curtin University <br> PhD, Indian Institute of Science, Bangalore',
-          email: 'ankur.sharma@curtin.edu.au',
-          description: `NMRC Young Investigator, Spatial & Single Cell Systems Domain, Genome Institute of Singapore`
-        },
-        /*     {
-          name: 'Ahmed Khalil',
-          title: 'Postdoc researcher',
-          email: 'ahmedibr001@ntu.edu.sg',
-          degree: 'PhD in School of Computer Science and Engineering,NTU, Singapore.',
-          twitter: 'https://twitter.com/Ahmed_IS_Khalil',
-          cv: 'http://oncofetal.com/pdf/ResumeAhmedKhalil.pdf',
-          google: 'https://scholar.google.com/citations?user=1shSs64AAAAJ&hl=en&oi=ao',
-          link: '/team/ahmed-khalil',
-          img: '../images/ahmed.jpeg',
-          linkedin: 'https://www.linkedin.com/in/ahmed-i-s-khalil',
-          researchgate: 'https://www.researchgate.net/profile/Ahmed_Khalil114',
-          github: 'https://github.com/AISKhalil/',
-          description: `Ahmed Khalil is a Postdoctoral Research Fellow at the School of Computer Science and Engineering, Nanyang Technological University in Singapore. He received the Ph.D. degree from the same school in 2020 when he introduced methods for accurate profiling of cancer cell lines. Earlier, he got a B.Sc. degree in 2011 and an M.Sc. degree in 2015 in Electronics and Electrical Communications Engineering from Cairo University in Egypt. From early 2021, he will join Harry Perkins Institute of Medical Research to study the tumor evolution and ecosystem using single cell multi-omics data. Khalil’s research interests include a broad range of topics around computational biology, data science, and hardware acceleration.`
-        }, */
-        {
-          name: 'Rhea Pai',
-          link: '/team/rhea-pai',
-          title: 'PhD student',
-          degree: 'PhD student in Biomedical Science, Curtin University and Harry Perkins Institute of Medical Research',
-          email: 'rheakedar@gmail.com',
-          twitter: 'https://twitter.com/rheapai1',
-          google: 'https://scholar.google.com/citations?view_op=list_works&hl=en&user=JCqhjAYAAAAJ',
-          linkedin: 'https://www.linkedin.com/in/rhea-pai-74aa24143/',
-          researchgate: 'https://www.researchgate.net/profile/Rhea_Pai5',
-          github: '#',
-          cv: 'http://oncofetal.com/pdf/ResumeRheaPai.pdf',
-          img: './images/Rhea_pic.png',
-          description: `Rhea is a Research Officer at Genome Institute of Singapore (GIS), A*STAR. She received her B.Sc. degree in Biotechnology from Northumbria University in 2018.  She has worked extensively over the last two years in liver and breast cancer related projects primarily focused on optimizing single cell RNA-seq experiments on patient samples. She has also ventured into spatial transcriptomics and attained expertise in the area of multicolor fluorescent in situ mRNA hybridization (FISH) images. Her research interest is in studying tumor heterogeneity and evolution using single cell genomics. Rhea will be joining Sharmaalab at Harry Perkins Institute in early 2021. `
-        },
-        {
-          name: 'Shivani Sriva..',
-          title: 'Research Intern',
-          twitter: 'https://twitter.com/Shivani35672796',
-          link: '/team/shivani-srivastava',
-          cv: 'http://oncofetal.com/pdf/ResumeShivaniSrivastava.pdf',
-          email: 'shivani1996srivastava1996@gmail.com',
-          linkedin: 'https://www.linkedin.com/in/shivani-srivastava-316b91175/',
-          researchgate: 'https://www.researchgate.net/profile/Shivani_Srivastava9',
-          degree: 'M.Sc in Bioinformatics, University of Allahabad, India.',
-          img: './images/Shivani_pic.jpg',
-          description: `Shivani is a research intern at Sharmaalab. Her research interest includes applying computational approaches to understand heterogeneity of tumor tissues and cell-cell interactions, to discover the phenomenon causing togetherness of the different cells and what leads to selection of the driving mutations. She is currently tracking the pre and post treatment cell interactions in breast cancer. She completed her masters in bioinformatics from University of Allahabad, India. She recieved her Bachelor of Biotechnology degree from CSJM University, India. Apart from research, she is a zoophilist.`
-        }
       ]
     }
+  },
+  async beforeMount () {
+    const ListTeam = await this.$store.dispatch('getTeams')
+    ListTeam.forEach((el) => {
+      const { content, ...data } = el
+      data.content = JSON.parse(content)
+      this.teams.push(data)
+    })
   }
 }
 </script>

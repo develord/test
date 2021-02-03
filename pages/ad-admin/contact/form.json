@@ -1,0 +1,39 @@
+{
+  "name": "Add Contact",
+  "model": "Contact",
+  "fields": [
+    {
+      "name": "location Contact",
+      "label": "location Contact",
+      "model": "location",
+      "type": "text",
+      "require": true,
+      "placeholder": "location Contact"
+    },
+    {
+      "name": "mail Contact",
+      "label": "mail Contact",
+      "model": "mail",
+      "type": "text",
+      "require": true,
+      "placeholder": "mail Contact"
+    },
+    {
+      "name": "tel Contact",
+      "label": "tel Contact",
+      "model": "tel",
+      "type": "text",
+      "require": true,
+      "placeholder": "tel Contact"
+    },
+    {
+      "name": "content Contact",
+      "label": "content Contact",
+      "model": "content",
+      "type": "content",
+      "require": true,
+      "placeholder": "content"
+    }
+    
+  ]
+}

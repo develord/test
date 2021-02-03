@@ -1,0 +1,29 @@
+{
+  "name": "Add Tag",
+  "model": "tag",
+  "fields": [
+    {
+      "name": "name Tag",
+      "label": "name Tag",
+      "model": "name",
+      "type": "text",
+      "require": true,
+      "placeholder": "Name Tag"
+    },
+    {
+      "name": "slug Tag",
+      "label": "slug Tag",
+      "model": "slug",
+      "type": "text",
+      "require": true,
+      "placeholder": "Name of the file"
+    },
+    {
+      "name": "Tag Image",
+      "label": "Tag Image",
+      "model": "image",
+      "type": "image",
+      "require": true
+    }
+  ]
+}

@@ -12,11 +12,7 @@
                     <div class="top-inner mb-55">
                       <div class="sec-title text-center">
                         <p>Contact Information</p><h2>We’d love to hear from you anytime</h2><div class="decor" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/themes/naxly/assets/images/icons/decor-1.png?lossy=1&amp;strip=1&amp;webp=1);" />
-                        <p>
-                          We are always looking for curious minds (Postdoctoral fellows, PhD students, Honours and undergraduate students) to join Sharma lab and research in the area of Oncofetal ecosystem and Tumor Evolution. We employ cutting edge technologies such as single cell genomics, spatial transcriptomics, machine learning to address translational and fundamental problems in the area of cancer biology.
-
-                          <br>Please write to Ankur (ankur.shrma@curtin.edu.au) or Tweet (@asharmaiisc) if you are interested in joining our group, along with your CV, publications and your innovative ideas.
-                        </p>
+                        <div v-if="contact" v-html="JSON.parse(contact[0].content).html" />
                       </div>
                     </div><div class="info-inner">
                       <div class="row clearfix">
@@ -39,7 +35,9 @@
                                 >
                               </div><h4>Location</h4>
                             </div><div class="text">
-                              <p>16 Verdun St, Nedlands WA 6009, Australia</p>
+                              <p v-if="contact">
+                                {{ contact[0].location }}
+                              </p>
                             </div>
                           </div>
                         </div><div class="col-lg-4 col-md-6 col-sm-12 info-column">
@@ -61,7 +59,7 @@
                                 >
                               </div><h4>Make a Call</h4>
                             </div><div class="text">
-                              <p><a href="tel:+44%20555%2067%20890">+65 8670 1153</a></p>
+                              <p><a v-if="contact" href="tel:+44%20555%2067%20890">{{ contact[0].tel }}</a></p>
                             </div>
                           </div>
                         </div><div class="col-lg-4 col-md-6 col-sm-12 info-column">
@@ -83,7 +81,9 @@
                                 >
                               </div><h4>Send a Mail</h4>
                             </div><div class="text">
-                              <p><a href="mailto:sharmaalab1@gmail.com">sharmaalab1@gmail.com</a></p>
+                              <p v-if="contact">
+                                <a :href="'mailto:' + contact[0].location ">{{ contact[0].mail }}</a>
+                              </p>
                             </div>
                           </div>
                         </div>
@@ -116,7 +116,11 @@ export default {
   },
   data () {
     return {
+      contact: null
     }
+  },
+  async beforeMount () {
+    this.contact = await this.$store.dispatch('getContact')
   }
 }
 </script>

@@ -1,0 +1,10 @@
+mutation ($name: String!,$slug:String!, $image: String) {
+    createTag(name: $name, slug: $slug , image: $image) {
+    _id
+    name
+    slug
+    image{
+      _id
+    }
+  }
+}

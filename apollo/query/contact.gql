@@ -1,0 +1,9 @@
+{
+    contact {
+	    _id
+      location
+      mail
+      tel
+      content
+    }
+}

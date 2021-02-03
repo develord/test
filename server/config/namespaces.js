@@ -5,6 +5,8 @@ module.exports = [
   'Blog/Tag',
   'Blog/Post',
   'Blog/Image',
+  'Blog/Team',
+  'Blog/Contact',
   'Access/User',
   'Access/Permission',
   'Access/Role',
