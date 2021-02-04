@@ -5,7 +5,7 @@
         name
         title
         degree
-        tags {_id name slug}
+        tags {_id name slug image { _id}}
         image_large {_id low high}
         link
         content

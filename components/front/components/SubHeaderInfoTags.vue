@@ -38,13 +38,15 @@
             </div>
           </div>
         </div>
-        <div class="article-tags">
+        <div class="article-tags" v-if="images.length > 0">
           <div v-for="(tag, i) in tags" :key="i" class="tag-avatar">
             <img
-              v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
+              v-lazy="{ src: '/images/' + getImages(tag).high, loading: '/images/' + getImages(tag).low}"
               class="is-lazy"
               width="50"
-              :src="'/images/' + tag.slug"
+              :title="tag.name"
+              :alt="tag.name"
+              :src="'/images/' +  getImages(tag).high"
             >
           </div>
         </div>
@@ -57,10 +59,21 @@
 import page from '~/mixins/page.js'
 export default {
   mixins: [page],
+  computed: {
+    images () {
+      return this.$store.state.images
+    }
+  },
   methods: {
     reverseLink (link) {
       return link.replace(/-/g, ' ')
+    },
+    getImages(tag) {
+      if(this.images) return this.images.filter(el => el._id === tag.image._id)[0]
     }
+  },
+  async beforeMount () {
+    await this.$store.dispatch('getImages')
   }
 }
 </script>

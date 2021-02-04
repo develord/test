@@ -63,12 +63,12 @@
             <div class="tags-box">
               <div v-for="(tag, i) in post.tags" :key="i" class="tag-avatar">
                 <img
-                  v-lazy="{ src: '/images/' + tag.slug, loading: '/images/' + tag.slug }"
+                  v-lazy="{ src: '/images/' + getImages(tag), loading: '/images/' +getImages(tag)}"
                   class="is-lazy"
                   width="50"
                   :alt="tag.name"
                   :title="tag.name"
-                  :src="'/images/' + tag.slug"
+                  :src="'/images/' + getImages(tag)"
                 >
               </div>
             </div>
@@ -97,6 +97,9 @@ export default {
   computed: {
     listPublication () {
       return this.$store.state.listPublication
+    },
+    images () {
+      return this.$store.state.images
     }
   },
   watch: {
@@ -122,9 +125,15 @@ export default {
       }
     }
   },
+  methods: {
+    getImages(tag) {
+      return this.images.filter(el => el._id === tag.image._id)[0].high
+    }
+  },
   beforeMount () {
     const url = this.$route.path.replace('/', '')
     this.$store.dispatch('getCategoryElement', url)
+    this.$store.dispatch('getImages')
     this.loading = false
   }
 }

@@ -81,12 +81,12 @@
                         v-for="(item, i) in teams.tags"
                         :key="i"
                         width="80"
-                        alt="cell"
-                        title="cell"
-                        :src="'../images/' + item.slug "
+                        :title="item.name"
+                        :alt="item.name"
+                        :src="'../images/' + getImages(item).high "
                         style="margin: 2px;"
                         class="is-lazy is-loaded"
-                        :data-src="'../images/' + item.slug "
+                        :data-src="'../images/' + getImages(item).high "
                         lazy="loaded"
                       >
                     </div>
@@ -114,7 +114,18 @@ export default {
       teams: null
     }
   },
+  computed: {
+    images () {
+      return this.$store.state.images
+    }
+  },
+  methods: {
+    getImages(tag) {
+      if(this.images) return this.images.filter(el => el._id === tag.image._id)[0]
+    }
+  },
   async beforeMount () {
+    await this.$store.dispatch('getImages')
     const aa = await this.$store.dispatch('getTeams')
     const { content, ...data } = aa.filter(el => el.link === this.$route.path.replace('/team/', ''))[0]
     data.content = JSON.parse(content)

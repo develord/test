@@ -139,24 +139,18 @@
                     <div class="elementor-widget-wrap">
                       <div class="elementor-element elementor-element-6b19ffc elementor-widget elementor-widget-naxly_why_choose_us_v2" data-id="6b19ffc" data-element_type="widget" data-widget_type="naxly_why_choose_us_v2.default">
                         <div class="elementor-widget-container">
-                          <section class="chooseus-style-two bg-color-3">
-                            <div class="bg-layer" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/choose-bg.png?lossy=1&amp;strip=1&amp;webp=1);" />
+                          <section class="chooseus-style-two bg-color-3" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/choose-bg.png?lossy=1&strip=1&webp=1);left: 0px;top: 0px;right: 0px;width: 100%;height: 100%;background-size: cover;background-repeat: no-repeat;">
+                            <div class="bg-layer"  />
                             <div class="auto-container">
                               <div class="title-inner mb-35 clearfix">
-                                <div class="sec-title light text-left pull-left">
-                                  <br>
-                                  <h2>Subscribe to our Newsletter to get our latest blogs and articles.</h2>
-                                  <div class="decor" style="background-image: url(./images/LogoValidation.png);" />
-                                  <div class="subscribe-box">
-                                    <div class="form-group">
-                                      <input v-model="email" type="email" name="email" placeholder="Email Address..." required="">
-                                    </div>
-                                    <button class="theme-btn style-one" @click="subscribe">
-                                      Subscribe
-                                    </button>
-                                    <br><br><br>
-                                  </div>
-                                </div>
+                                <a 
+                                  data-width="50%"
+                                  data-height="350"
+                                  data-chrome="noheader nofooter"
+                                  class="twitter-timeline" 
+                                  href="https://twitter.com/asharmaiisc">
+                                  Tweets by asharmaiisc
+                                </a>
                               </div>
                             </div>
                           </section>
@@ -363,11 +357,48 @@ export default {
     subscribe () {
       if (this.email) { this.snackbar = true }
     }
+  },
+  mounted () {
+    let ckeditor = document.createElement('script')
+    ckeditor.setAttribute('src',"https://platform.twitter.com/widgets.js")
+    document.head.appendChild(ckeditor)
+    
   }
 }
 </script>
 
 <style>
+.twitter-timeline {
+  max-width: 100%;
+  max-height: 1000px;
+}
+.fa {
+  font-size: 25px;
+  color: #FFFFFF;
+}
+.panel-title {
+ font-size: 25px; 
+ color: #FFFFFF;
+ font-family: 'Open Sans', sans-serif;
+}
+.panel-heading {
+ background-color: #1da1f2 !important;;
+ color: #1da1f2 !important;;
+}
+.panel {
+ margin-top: 25px;
+}
+.twitter-block .tweet-list {
+    column-count: 2;
+}
+div#block-yui_3_17_2_1_1597840315726_20085 {
+    width: 100%;
+}
+.js-inViewportScribingTarget {
+  display: none;
+}
+
+
 .v-speed-dial--top, .v-speed-dial--right {
   z-index: 1002  !important;
 }

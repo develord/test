@@ -112,7 +112,7 @@
         }
       },
       "require": true,
-      "placeholder": "Category Status"
+      "placeholder": "Template Name"
     },
     {
       "name": "Tags Post",

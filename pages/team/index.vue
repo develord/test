@@ -69,10 +69,10 @@
                           v-for="(tag, j) in item.tags"
                           :key="j"
                           width="45"
-                          alt="cell"
+                          :title="tag.name"
+                          :alt="tag.name"
                           style="margin: 2px;"
-                          title="cell"
-                          :src="'./images/' + tag.slug "
+                          :src="'./images/' + getImages(tag).high"
                           class="is-lazy is-loaded"
                           data-src="./images/tag-cell.png"
                           lazy="loaded"
@@ -112,7 +112,18 @@ export default {
       ]
     }
   },
+  computed: {
+    images () {
+      return this.$store.state.images
+    }
+  },
+  methods: {
+    getImages(tag) {
+      if(this.images) return this.images.filter(el => el._id === tag.image._id)[0]
+    }
+  },
   async beforeMount () {
+    await this.$store.dispatch('getImages')
     const ListTeam = await this.$store.dispatch('getTeams')
     ListTeam.forEach((el) => {
       const { content, ...data } = el
