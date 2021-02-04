@@ -13,6 +13,11 @@ module.exports = {
     ]
   },
 
+  server: {
+    port: 8000, // par défaut : 3000
+    host: '0.0.0.0' // par défaut : localhost
+  },
+
   loading: {
     color: '#00C48D'
   },
