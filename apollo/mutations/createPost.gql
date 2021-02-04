@@ -1,0 +1,21 @@
+mutation ($title: String!,$tagfilter: String ,$pdf: String,$tags:[String],$authors:[String] ,$journal: String,$exterlink: String, $published: String, $description: String, $componentName: String, $h1: String, $content: String, $image_large: String, $image_small: String, $link: String, $user: String, $category: String, $status: String) {
+    createPost(title: $title,tags: $tags ,tagfilter: $tagfilter, pdf: $pdf, authors: $authors, journal: $journal, exterlink: $exterlink, published: $published, componentName: $componentName , description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, link: $link, user: $user, category: $category, status: $status) {
+    _id
+    title
+    description
+    tags{
+      _id
+    }
+    published
+    tagfilter
+    h1
+    pdf
+    content
+    image_large {_id}
+    image_small {_id}
+    link
+    user {_id}
+    category {_id}
+    status {_id}
+  }
+}

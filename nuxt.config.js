@@ -32,11 +32,14 @@ module.exports = {
 
   buildModules: [
     '@nuxtjs/pwa',
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/apollo'
   ],
 
-  axios: {
-    baseURL: 'https://api.hackerwebapp.com'
+  apollo: {
+    clientConfigs: {
+      default: '~/apollo/config/apolloConfig.js'
+    }
   },
 
   plugins: [

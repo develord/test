@@ -1,0 +1,23 @@
+query($link: String) {
+    page(link: $link) {
+        _id
+        title
+        componentName
+        description
+        h1
+        journal
+        pdf
+        authors
+        exterlink
+        tagfilter
+        published
+        content
+        tags {_id, name, slug image {_id}}
+        image_large {_id, low, high}
+        image_small {_id, low, high}
+        link
+        user {_id, name, image}
+        created_at
+        updated_at
+    }
+  }

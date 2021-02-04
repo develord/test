@@ -1,0 +1,7 @@
+query($_id: String) {
+    tag(_id: $_id) {
+        _id
+        name
+        slug
+    }
+  }

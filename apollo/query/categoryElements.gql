@@ -1,0 +1,17 @@
+query ($link: String!) {
+    categoryElements(link: $link){
+        _id
+        title
+        description
+        tags {name, slug, image {_id}}
+        image_large {_id, low, high}
+        image_small {_id, low, high}
+        link
+        tagfilter
+        journal
+        authors
+        published
+        created_at
+        updated_at
+    }
+}

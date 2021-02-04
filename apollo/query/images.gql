@@ -1,0 +1,9 @@
+{
+    images{
+        _id
+        low
+        high
+        created_at
+        updated_at
+    }
+}
