@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'bus front 8000',
+      name: 'bus front 3000',
       exec_mode: 'cluster',
       instances: '1', // Or a number of instances
       script: 'nuxt start',
