@@ -16,13 +16,15 @@
     }
   ],
   "scripts": {
-    "dev": "nuxt dev",
+    "dev": "cross-env NODE_ENV=development NUXT_TELEMETRY_DISABLED=1 nodemon server/index.js --watch server",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "cross-env NODE_ENV=production NUXT_TELEMETRY_DISABLED=1 node server/index.js",
+    "heroku-postbuild": "yarn run build",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "dev-spa": "nuxt dev --spa",
     "build-spa": "nuxt build --spa",
     "start-spa": "nuxt start --spa",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lintfix": "eslint --fix --ext .js,.vue --ignore-path .gitignore ."
   },
   "engines": {
