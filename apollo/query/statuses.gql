@@ -1,7 +1,0 @@
-{
-    statuses {
-	  _id
-      name
-      desc
-    }
-}

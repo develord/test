@@ -1,3 +1,0 @@
-mutation ($_id: String!) {
-    deleteImage(_id: $_id)
-}
