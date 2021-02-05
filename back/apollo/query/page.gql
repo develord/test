@@ -1,0 +1,18 @@
+query($link: String) {
+    page(link: $link) {
+        _id
+        title
+        componentName
+        description
+        gallery {_id, low, high}
+        h1
+        content
+        tags {_id, name, slug}
+        image_large {_id, low, high}
+        image_small {_id, low, high}
+        link
+        user {_id, name, image}
+        created_at
+        updated_at
+    }
+  }

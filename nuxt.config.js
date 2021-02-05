@@ -2,14 +2,15 @@ module.exports = {
   head: {
     titleTemplate: 'Nuxt HN | %s',
     meta: [
+      { name: 'robots', content: 'noindex'},
       { property: 'og:image', content: 'https://user-images.githubusercontent.com/904724/58238637-f189ca00-7d47-11e9-8213-ae072d7cd3aa.png' },
       { property: 'twitter:card', content: 'summary_large_image' },
       { property: 'twitter:site', content: '@nuxt_js' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: 'https://api.hackerwebapp.com' },
-      { rel: 'preconnect', href: 'https://api.hackerwebapp.com' }
+      { rel: 'dns-prefetch', href: 'http://bus-world.fr' },
+      { rel: 'preconnect', href: 'http://bus-world.fr' }
     ]
   },
 

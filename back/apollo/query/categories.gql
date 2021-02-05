@@ -1,0 +1,18 @@
+{
+    categories {
+      _id
+      name
+      title
+      componentName
+      description
+      h1
+      content
+      image_large {_id }
+      image_small {_id }
+      user {_id}
+      status {_id}
+      link
+      created_at
+      updated_at
+    }
+}

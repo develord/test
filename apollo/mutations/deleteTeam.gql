@@ -1,3 +1,0 @@
-mutation ($_id: String!) {
-    deleteTeam(_id: $_id)
-}

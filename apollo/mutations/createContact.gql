@@ -1,9 +1,0 @@
-mutation ($location: String, $tel:String, $mail: String, $content: String) {
-    createContact(location: $location, tel: $tel , mail: $mail, content:$content) {
-    _id
-    location
-    mail
-    tel
-    content
-  }
-}

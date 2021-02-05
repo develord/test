@@ -1,5 +1,0 @@
-mutation ($name: String!, $title: String!, $degree: [String], $tags: [String], $image_large: String, $content: String, $email: String, $twitter: String, $cv: String, $google: String, $linkedin: String, $researchgate: String, $github: String) {
-    createTeam(name: $name, title: $title, degree: $degree, tags: $tags, image_large: $image_large, content: $content, email: $email, twitter: $twitter, cv: $cv, google: $google, linkedin: $linkedin, researchgate: $researchgate, github: $github){
-        _id
-    }
-}

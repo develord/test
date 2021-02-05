@@ -1,0 +1,127 @@
+{
+  "name": "Add Post",
+  "model": "post",
+  "fields": [
+    {
+      "name": "Title Post",
+      "label": "Title Post",
+      "model": "title",
+      "type": "text",
+      "require": true,
+      "placeholder": "Title Post"
+    },
+    {
+      "name": "H1 Post",
+      "label": "H1 Post",
+      "model": "h1",
+      "type": "text",
+      "require": true,
+      "placeholder": "H1 Post"
+    },
+    {
+      "name": "H1 Link",
+      "label": "H1 Link",
+      "model": "link",
+      "type": "text",
+      "require": true,
+      "placeholder": "Link Page",
+      "value": {
+        "from": "h1",
+        "params": "category",
+        "fn": "slugify"
+      },
+      "readonly": true
+    },
+    {
+      "name": "Post Category",
+      "label": "Post Category",
+      "model": "category",
+      "type": {
+        "select": {
+          "options": "category"
+        }
+      },
+      "require": true,
+      "placeholder": "Category Post"
+    },
+    {
+      "name": "Type Component",
+      "label": "Template",
+      "model": "componentName",
+      "type": {
+        "select": {
+          "options": [
+            "Bus",
+            "agence",
+            "actualite"
+          ]
+        }
+      },
+      "require": true,
+      "placeholder": "Template Page"
+    },
+    {
+      "name": "Tags Post",
+      "label": "Tags Post",
+      "model": "tags",
+      "type": {
+        "select": {
+          "options": "tags"
+        }
+      },
+      "multiple": true,
+      "require": true,
+      "placeholder": "Post Tags"
+    },
+    {
+      "name": "Status Post",
+      "label": "Status Post",
+      "model": "status",
+      "type": {
+        "select": {
+          "options": "status"
+        }
+      },
+      "require": true,
+      "placeholder": "Post Status"
+    },
+    {
+      "name": "Post Description",
+      "label": "Post Description",
+      "model": "description",
+      "type": "textarea",
+      "require": true,
+      "placeholder": "Post Description"
+    },
+    {
+      "name": "Post Cover Image",
+      "label": "Post Cover",
+      "model": "image_large",
+      "placeholder": "800x400",
+      "type": "image",
+      "require": true
+    },
+    {
+      "name": "Post Small Image",
+      "label": "Post Image",
+      "model": "image_small",
+      "placeholder": "126x126",
+      "type": "image",
+      "require": true
+    },
+    {
+      "name": "Post Gallery",
+      "label": "Post Gallery",
+      "model": "gallery",
+      "type": "gallery",
+      "require": true
+    },
+    {
+      "name": "Post Content",
+      "label": "Post Content",
+      "model": "content",
+      "type": "content",
+      "require": true
+    }
+  ]
+}

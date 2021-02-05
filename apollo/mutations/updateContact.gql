@@ -1,3 +1,0 @@
-mutation ($_id: String!, $location: String, $tel:String, $mail: String, $content: String) {
-    updateContact(_id: $_id, location: $location, tel: $tel , mail: $mail, content:$content)
-}

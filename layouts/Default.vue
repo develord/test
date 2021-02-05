@@ -1,77 +1,14 @@
 <template>
   <div id="app">
-    <!--------------------------------------
-    NAVBAR
-    --------------------------------------->
-    <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
-      <div class="container">
-        <a class="navbar-brand" href="#"><strong>Mundana</strong></a>
-        <button
-          class="navbar-toggler collapsed"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarColor02"
-          aria-controls="navbarColor02"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon" />
-        </button>
-        <div id="navbarColor02" class="navbar-collapse collapse">
-          <ul class="navbar-nav mr-auto d-flex align-items-center">
-            <li class="nav-item">
-              <a class="nav-link" href="#">Intro <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Culture</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tech</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Politics</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Health</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Collections</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./docs.html">Template <span class="badge badge-secondary">docs</span></a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End Navbar -->
-  
+    <NavTop />
     <nuxt nuxt-child-key="none" role="main" />
-    <!--------------------------------------
-    FOOTER
-    --------------------------------------->
-    <div class="container mt-5">
-      <footer class="bg-white border-top p-3 text-muted small">
-        <div class="row align-items-center justify-content-between">
-          <div>
-            <span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
-            . All rights reserved.
-          </div>
-          <div>
-            Made with <a target="_blank" class="text-secondary font-weight-bold">Mundana Theme</a> by WowThemes.net.
-          </div>
-        </div>
-      </footer>
-    </div>
-    <!-- End Footer -->
+    <Footer />
   </div>
 </template>
 
 <script>
-
+import Footer from '~/components/Footer'
+import NavTop from '~/components/NavTop'
 export default {
   head () {
     const host = process.server
@@ -85,7 +22,9 @@ export default {
       ]
     }
   },
-  computed: {
+  components: {
+    Footer,
+    NavTop
   }
 }
 </script>
