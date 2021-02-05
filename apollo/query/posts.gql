@@ -1,18 +1,25 @@
-query($link: String) {
-    page(link: $link) {
+{
+    posts{
         _id
         title
-        componentName
         description
-        gallery {_id, low, high}
         h1
         content
+        published
+        journal
+        authors
+        pdf
+        exterlink
+        tagfilter
         tags {_id, name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}
         link
+        componentName
         user {_id, name, image}
+        category {_id, name, description, title}
+        status {_id, name, desc}
         created_at
         updated_at
     }
-  }
+}
