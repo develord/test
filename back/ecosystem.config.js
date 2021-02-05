@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'BackOffice 8000',
+      name: 'Back Bus 4000',
       exec_mode: 'cluster',
       instances: '1', // Or a number of instances
       script: './server/index.js',
