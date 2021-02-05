@@ -156,7 +156,7 @@ export default {
       query: page,
       fetchPolicy: 'cache-and-network',
       variables() {
-        return { link: '/news/ttgh-ghjs-dfy-sd' }
+        return { link: '/man/man-lions-coach--coach-de-lanne-2020-lefficacit-et-la-fluidit' }
       }
     }
   },
