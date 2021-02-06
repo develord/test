@@ -8,8 +8,8 @@ module.exports = {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      { rel: 'dns-prefetch', href: 'https://api.hackerwebapp.com' },
-      { rel: 'preconnect', href: 'https://api.hackerwebapp.com' }
+      { rel: 'dns-prefetch', href: 'http://bus-world.fr/' },
+      { rel: 'preconnect', href: 'http://bus-world.fr/' }
     ]
   },
 
