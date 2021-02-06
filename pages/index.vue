@@ -7,7 +7,7 @@
       <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
         <div class="h-100 tofront">
           <div class="row justify-content-between">
-            <div class="col-md-6 pt-6 pb-6 pr-6 align-self-center">
+            <div class="col-md-12 pt-6 pb-6 pr-6 align-self-center">
               <p class="text-uppercase font-weight-bold">
                 <a class="text-danger" href="#">Stories</a>
               </p>
@@ -23,7 +23,7 @@
                 </small>
               </div>
             </div>
-            <div class="col-md-6 pr-0">
+            <div class="col-md-12 pr-0">
               <img :src="'./img/demo/intro.jpg'">
             </div>
           </div>
