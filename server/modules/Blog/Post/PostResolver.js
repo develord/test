@@ -1,3 +1,4 @@
+const helpers = require('../../../../helpers/slugify')
 const Category = require('../Category')
 const Post = require('.')
 /**
@@ -32,16 +33,17 @@ const Query = {
  */
 const Mutation = {
   // eslint-disable-next-line camelcase
-  createPost: async (_, { title, tags, gallery, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
+  createPost: async (_, { title, tags, gallery, description, h1, content, componentName, image_large, image_small, user, category, status }) => {
+    const link = helpers.slugify(componentName) + '/' + helpers.slugify(h1)
     const postData = { title, tags, description, gallery, h1, componentName, content, image_large, image_small, link, user, category, status }
     const post = await new Post(postData)
     return post.save()
   },
   // eslint-disable-next-line camelcase
-  updatePost: async (_, { _id, tags, title, gallery, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
+  updatePost: async (_, { _id, tags, title, gallery, description, h1, content, componentName, image_large, image_small, user, category, status }) => {
     // if we need to validate more, we destruct the args.data object (fields to update)
     /** We can make more validation here **/
-    console.log(gallery)
+    const link = helpers.slugify(componentName) + '/' + helpers.slugify(h1)
     // it's better to pass a single object to updateOne to avoid checking on undefined
     const data = { title, description, tags, h1, gallery, content, componentName, image_large, image_small, link, user, category, status }
     const updated = await Post.findOneAndUpdate({ _id }, data, {

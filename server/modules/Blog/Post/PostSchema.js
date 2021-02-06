@@ -67,7 +67,6 @@ module.exports = {
       componentName: String
       image_large: String
       image_small: String
-      link: String
       user: String
       category: String
       status: String
@@ -83,7 +82,6 @@ module.exports = {
       content: String
       image_large: String
       image_small: String
-      link: String
       user: String
       category: String
       status: String

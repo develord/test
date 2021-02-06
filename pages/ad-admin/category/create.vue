@@ -48,7 +48,6 @@ export default {
         name: null,
         status: null,
         user: this.$store.state.auth._id,
-        link: null,
         description: null,
         h1: null,
         content: null,

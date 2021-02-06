@@ -101,7 +101,6 @@ export default {
               nb: index,
               id: post._id,
               title: post.title,
-              link: './../' + post.link,
               description: post.description,
               category: post.category ? post.category.name : 'none',
               status: post.status ? post.status.name : 'none',

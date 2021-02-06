@@ -58,7 +58,6 @@ export default {
         content: null,
         image_large: null,
         image_small: null,
-        link: null,
         user: this.$store.state.auth._id,
         category: null,
         status: null

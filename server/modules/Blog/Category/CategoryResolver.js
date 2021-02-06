@@ -6,6 +6,7 @@
 // ForbiddenError,
 // UserInputError
 // } = require('apollo-server-express')
+const helpers = require('../../../../helpers/slugify')
 const Post = require('./../Post')
 const Category = require('.')
 /**
@@ -37,14 +38,16 @@ const Query = {
  */
 const Mutation = {
   // eslint-disable-next-line camelcase
-  createCategory: async (_, { title, name, description, componentName, h1, user, status, content, image_large, image_small, link }) => {
+  createCategory: async (_, { title, name, description, componentName, h1, user, status, content, image_large, image_small }) => {
+    const link = helpers.slugify(h1)
     const postData = { title, name, description, h1, content, componentName, image_large, image_small, link, user, status }
     const category = await new Category(postData).populate(['user', 'status', 'image_large', 'image_small'])
     return category.save()
   },
   // eslint-disable-next-line camelcase
-  updateCategory: async (_, { _id, title, name, description, componentName, h1, user, status, content, image_large, image_small, link }) => {
+  updateCategory: async (_, { _id, title, name, description, componentName, h1, user, status, content, image_large, image_small }) => {
     /** Make more validation **/
+    const link = helpers.slugify(h1)
     const data = { title, name, description, componentName, h1, user, status, content, image_large, image_small, link }
     const updated = await Category.findOneAndUpdate({ _id }, data, {
       new: true

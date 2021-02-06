@@ -26,7 +26,7 @@
         Select Image
       </v-btn>
     </slot>
-    <v-dialog v-model="visible" :loading="loading" persistent max-width="1200">
+    <v-dialog v-model="visible" :loading="loading" max-width="1200">
       <v-card>
         <v-card-title class="headline">
           <v-row>
@@ -186,9 +186,9 @@ export default {
         }
       } else {
         const imageData = {
-          src: this.getImage(this.imageSelected.high),
-          alt: this.imageSelected.alt,
-          title: this.imageSelected.title
+          src: this.getImage(Array.isArray(this.imageSelected) ? this.imageSelected[0].high : this.imageSelected.high),
+          alt: Array.isArray(this.imageSelected) ? this.imageSelected[0].alt : this.imageSelected.alt,
+          title: Array.isArray(this.imageSelected) ? this.imageSelected[0].title : this.imageSelected.title
         }
         this.$emit('onConfirm', imageData)
       }
@@ -214,7 +214,6 @@ export default {
       try {
         return require('~/static/images/' + url)
       } catch (e) {
-        console.log(e)
         return 'http://via.placeholder.com/300'
       }
     },

@@ -19,20 +19,6 @@
       "placeholder": "H1 Post"
     },
     {
-      "name": "H1 Link",
-      "label": "H1 Link",
-      "model": "link",
-      "type": "text",
-      "require": true,
-      "placeholder": "Link Page",
-      "value": {
-        "from": "h1",
-        "params": "category",
-        "fn": "slugify"
-      },
-      "readonly": true
-    },
-    {
       "name": "Post Category",
       "label": "Post Category",
       "model": "category",

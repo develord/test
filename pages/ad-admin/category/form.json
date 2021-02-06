@@ -27,19 +27,6 @@
       "placeholder": "H1"
     },
     {
-      "name": "Link",
-      "label": "Link",
-      "model": "link",
-      "type": "text",
-      "require": true,
-      "placeholder": "Link Category",
-      "value": {
-        "from": "h1",
-        "fn": "slugify"
-      },
-      "readonly": true
-    },
-    {
       "name": "Status Post",
       "label": "Status Post",
       "model": "status",

@@ -75,4 +75,8 @@ export default {
 body {
   margin: 0;
 }
+td .text-center {
+    flex-wrap: nowrap;
+    display: flex;
+}
 </style>

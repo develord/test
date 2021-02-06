@@ -28,6 +28,10 @@ body {
     overflow-x: hidden;
     padding-top: 69.75px;
 }
+td .text-center {
+    flex-wrap: nowrap;
+    display: flex;
+}
 .sticky-top {
     top: 69.75px;
 }

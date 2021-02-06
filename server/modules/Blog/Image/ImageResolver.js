@@ -1,5 +1,5 @@
 const path = require('path')
-const { createWriteStream, unlinkSync } = require('fs')
+const { createWriteStream, copyFileSync, unlinkSync } = require('fs')
 const webp = require('webp-converter')
 const Jimp = require('jimp')
 const Image = require('.')
@@ -39,24 +39,14 @@ const Mutation = {
         .on('finish', resolve)
     })
     try {
-      // setTimeout(async () => {
       const img = `./static/images/${filename}`
       const black = await Jimp.read(img)
-      await black.quality(20).greyscale().blur(15).writeAsync(`./static/images/low-${filename}`)
-      /* Jimp.read(img, (err, lenna) => {
-        if (err) {
-          console.error('**********', err)
-          throw err
-        }
-        lenna
-          .quality(20) // set JPEG quality
-          .greyscale() // set greyscale
-          .blur(15)
-          .write(`./static/images/low-${filename}`) // save
-      }) */
+      await black.quality(10).blur(15).writeAsync(`./static/images/low-${filename}`)
 
       await webp.cwebp(path.join(__dirname, '../../../../static/images', filename), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-high.webp`))
       await webp.cwebp(path.join(__dirname, '../../../../static/images', `low-${filename}`), path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-low.webp`))
+      await copyFileSync(path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-high.webp`), path.join(__dirname, '../../../../../front/static/images', `${filename.split('.')[0]}-high.webp`))
+      await copyFileSync(path.join(__dirname, '../../../../static/images', `${filename.split('.')[0]}-low.webp`), path.join(__dirname, '../../../../../front/static/images', `${filename.split('.')[0]}-low.webp`))
       await unlinkSync(path.join(__dirname, '../../../../static/images', filename))
       await unlinkSync(path.join(__dirname, '../../../../static/images', `low-${filename}`))
       const image = new Image({

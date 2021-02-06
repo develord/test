@@ -48,7 +48,6 @@ module.exports = {
       content: String
       image_large: String
       image_small: String
-      link: String
     ): Category
     updateCategory(
       _id: String!
@@ -62,7 +61,6 @@ module.exports = {
       content: String
       image_large: String
       image_small: String
-      link: String
     ): Int
     deleteCategory(_id: String!): Int
   `
