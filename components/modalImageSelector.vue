@@ -169,9 +169,9 @@ export default {
         this.$emit('update:file', this.imageSelected._id)
       } else {
         const imageData = {
-          src: this.getImage(this.imageSelected.high),
-          alt: this.imageSelected.alt,
-          title: this.imageSelected.title
+          src: this.getImage(Array.isArray(this.imageSelected) ? this.imageSelected[0].high : this.imageSelected.high),
+          alt: Array.isArray(this.imageSelected) ? this.imageSelected[0].alt : this.imageSelected.alt,
+          title: Array.isArray(this.imageSelected) ? this.imageSelected[0].title : this.imageSelected.title
         }
         this.$emit('onConfirm', imageData)
       }
