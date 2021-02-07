@@ -45,6 +45,7 @@ module.exports = {
   plugins: [
   //  '~/plugins/swr',
   //  '~/plugins/filters'
+    { src: '~/plugins/vue-progressive-image', mode: 'client' }
   ],
 
   serverMiddleware: [

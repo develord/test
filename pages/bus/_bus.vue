@@ -18,13 +18,19 @@
                 {{page.description}}
               </p>
               <div class="d-flex align-items-center">
-                <img class="rounded-circle" :src="'./img/demo/avatar2.jpg'" width="70">
+                <img class="rounded-circle" :src="'../img/demo/avatar2.jpg'" width="70">
                 <small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5 min. read</span>
                 </small>
               </div>
             </div>
             <div class="col-md-12 pr-0">
-              <img :src="'./img/demo/intro.jpg'">
+              <img
+                v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
+                class="is-lazy"
+                :alt="page.title"
+                :title="page.title"
+                :src="'/images/' + page.image_large.low"
+              >
             </div>
           </div>
         </div>
@@ -53,6 +59,7 @@
         </div>
         <div class="col-md-12 col-lg-8">
           <article class="article-post" v-html="content">
+            
           </article>
           <div class="border p-5 bg-lightblue">
             <div class="row justify-content-between">

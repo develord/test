@@ -90,6 +90,36 @@ export default {
 }
 </script>
 
+<style lang="scss" scoped>
+$_lazy-radius: 4px;
+$animation-speed-default: 0.5s;
+@mixin lazy-loading($radius: $_lazy-radius) {
+  background-color: rgb(204, 204, 204);
+  filter: blur($radius);
+  transition: filter ease-out $animation-speed-default;
+
+  &.is-loaded[lazy='loaded'],
+  &[lazy='error'] {
+    filter: blur(0);
+    transition: all ease-out $animation-speed-default;
+  }
+}
+
+img[lazy='loading'],
+img.is-lazy {
+  width: 100%;
+  height: auto;
+  filter: blur($_lazy-radius);
+  transition: filter ease-out $animation-speed-default;
+}
+
+img[lazy='loaded'].is-lazy.is-loaded,
+img[lazy='error'].is-lazy.is-loaded,
+img[lazy='error'].is-lazy {
+  filter: blur(0);
+}
+</style>
+
 <style lang="css">
 @charset "UTF-8";
 /*!
