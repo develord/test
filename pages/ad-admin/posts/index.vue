@@ -30,6 +30,19 @@
               </template>
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
+                  <client-only>
+                    <v-btn
+                      class="ma-2"
+                      fab
+                      small
+                      color="light-green"
+                      @click="openlink(item.link)"
+                    >
+                      <v-icon color="white">
+                        mdi-eye
+                      </v-icon>
+                    </v-btn>
+                  </client-only>
                   <v-btn
                     class="ma-2"
                     fab
@@ -102,6 +115,7 @@ export default {
               id: post._id,
               title: post.title,
               description: post.description,
+              link: post.link,
               category: post.category ? post.category.name : 'none',
               status: post.status ? post.status.name : 'none',
               user: post.user ? post.user.name : 'none',
@@ -117,6 +131,9 @@ export default {
     this.$store.dispatch('getPosts')
   },
   methods: {
+    openlink (link) {
+      window.open('http://bus-world.fr/' + link, '_blank')
+    },
     gotoLink (url) {
       this.$router.push(url)
     },
