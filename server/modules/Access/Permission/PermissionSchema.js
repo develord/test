@@ -19,7 +19,7 @@ module.exports = {
   `,
   mutation: `
     createPermission(name: String!, desc: String): Permission
-    updatePermission(_id: String!, data: UpdatePermissionData): Int
+    updatePermission(_id: String!, name: String, desc: String): Int
     deletePermission(_id: String!): Int
   `
 }

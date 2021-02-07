@@ -6,6 +6,7 @@
           <v-card-title>
             <span>Posts List</span>
             <v-btn
+              v-if="permissions.includes('canWrite')"
               fab
               absolute
               top
@@ -31,6 +32,7 @@
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
                   <v-btn
+                    v-if="permissions.includes('canWrite')"
                     class="ma-2"
                     fab
                     small
@@ -42,6 +44,7 @@
                     </v-icon>
                   </v-btn>
                   <v-btn
+                    v-if="permissions.includes('canDelete')"
                     class="ma-2"
                     fab
                     small
@@ -87,6 +90,9 @@ export default {
     }
   },
   computed: {
+    permissions () {
+      return this.$store.state.auth.permission
+    },
     posts () {
       return this.$store.state.listePost
     }

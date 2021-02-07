@@ -10,8 +10,8 @@ const Query = {
     const rolesAll = await Role.find().populate('permissions')
     return rolesAll
   },
-  role: async (_, args) => {
-    const rol = await Role.findOne({ name: args.name })
+  role: async (_, _id) => {
+    const rol = await Role.findOne({ _id }).populate('permissions')
     return rol
   }
 }
@@ -27,10 +27,11 @@ const Mutation = {
     const role = await new Role({ name, desc, permissions })
     return role.save()
   },
-  updateRole: async (_, args) => {
-    const _id = args._id
-    const { name, desc } = args.data
-    const updated = await Role.updateOne({ _id }, { name, desc })
+  updateRole: async (_, { _id, name, desc, permissions }) => {
+    console.log(permissions)
+    const updated = await Role.findOneAndUpdate({ _id }, { name, desc, permissions }, {
+      new: true
+    })
     return updated.n
   },
   deleteRole: async (_, args) => {

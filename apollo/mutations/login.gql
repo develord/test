@@ -4,8 +4,8 @@ mutation($email: String!, $password: String!) {
     user {
       _id
       name
-      image
       email
+      role { name}
     }
   }
 }

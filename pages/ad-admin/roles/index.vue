@@ -4,15 +4,15 @@
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-title>
-            <span>Contact List</span>
+            <span>Roles List</span>
             <v-btn
-              v-if="permissions.includes('canWrite')"
+              v-if="permissions.includes('canDelete')"
               fab
               absolute
               top
               right
               color="blue lighten-4"
-              @click="goto('ad-admin-contact-create')"
+              @click="goto('ad-admin-roles-create')"
             >
               <v-icon color="white">
                 mdi-plus
@@ -22,7 +22,7 @@
           <v-card-text>
             <v-data-table
               :headers="headers"
-              :items="listeContact"
+              :items="listeRole"
               :items-per-page="10"
               class="elevation-1"
             >
@@ -32,7 +32,7 @@
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
                   <v-btn
-                    v-if="permissions.includes('canWrite')"
+                    v-if="permissions.includes('canDelete')"
                     class="ma-2"
                     fab
                     small
@@ -41,6 +41,18 @@
                   >
                     <v-icon color="white">
                       mdi-circle-edit-outline
+                    </v-icon>
+                  </v-btn>
+                  <v-btn
+                    v-if="permissions.includes('canDelete')"
+                    class="ma-2"
+                    fab
+                    small
+                    color="red accent-3"
+                    @click="deleteRole(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-trash-can-outline
                     </v-icon>
                   </v-btn>
                 </div>
@@ -58,42 +70,51 @@
 <script>
 
 export default {
-  name: 'ContactIndex',
+  name: 'UsersIndex',
   layout: 'Back',
   middleware: 'auth',
   data: () => {
     return {
       search: null,
       drawer: null,
-      listeContact: null,
+      listeRole: [],
       headers: [
-        { text: 'location', value: 'location' },
-        { text: 'mail', value: 'mail' },
-        { text: 'tel', value: 'tel' },
+        { text: 'Name', value: 'name' },
+        { text: 'Desc', value: 'desc' },
         { text: 'Created', value: 'created' },
         { text: 'Actions', value: 'actions', sortable: false }
-      ],
-      selectedTag: {}
+      ]
     }
   },
   computed: {
+    roles () {
+      return this.$store.state.listeRole
+    },
     permissions () {
       return this.$store.state.auth.permission
-    },
-    contact () {
-      return this.$store.state.listeContact
     }
   },
   watch: {
-    contact: {
+    roles: {
       immediate: true,
       handler (newVal) {
-        this.listeContact = newVal
+        this.listeRole = Object.freeze(
+          newVal.map((tag, index) => {
+            return {
+              nb: index,
+              id: tag._id,
+              name: tag.name,
+              desc: tag.slug,
+              created: tag.created_at,
+              updated: tag.updated_at
+            }
+          })
+        )
       }
     }
   },
   beforeMount () {
-    this.$store.dispatch('getContact')
+    this.$store.dispatch('getRoles')
   },
   methods: {
     gotoLink (url) {
@@ -105,15 +126,15 @@ export default {
     extractText (str, from, to) {
       return str ? str.slice(from, to) : 'None'
     },
-    prepareUpdate (contact) {
-      this.$router.push({ name: 'ad-admin-contact-create', query: { contact: contact._id } })
+    prepareUpdate (role) {
+      this.$router.push({ name: 'ad-admin-roles-create', query: { role: role.id } })
     },
-    deleteTag (tag) {
-      this.$store.dispatch('deleteTag', tag.id).then((res) => {
-        this.$store.dispatch('getContact')
+    deleteRole (tag) {
+      this.$store.dispatch('deleteRole', tag.id).then((res) => {
+        this.$store.dispatch('getRoles')
         this.$notify({
           title: 'Success',
-          message: 'Tag Removed',
+          message: 'Role Removed',
           type: 'success'
         })
       })

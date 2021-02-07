@@ -34,7 +34,6 @@ const Mutation = {
     if (!validpass) {
       throw new UserInputError('Incorrect Password')
     }
-
     const token = jwt.sign(
       {
         id: user.id,

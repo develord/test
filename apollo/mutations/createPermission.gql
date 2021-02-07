@@ -1,0 +1,7 @@
+mutation ($name: String!, $desc: String, $permissions: [String]) {
+    createPermission(name: $name, desc: $desc, permissions: $permissions) {
+    _id
+    name
+    desc
+  }
+}

@@ -39,6 +39,9 @@ export default {
     isDark () {
       return this.$store.state.dark
     },
+    roles () {
+      return this.$store.state.listeRole
+    },
     newSnackbar () {
       return this.$store.state.snackbar
     },
@@ -47,6 +50,10 @@ export default {
     }
   },
   watch: {
+    roles (newVal) {
+      const permission = newVal.filter(el => el.name === this.$store.state.auth.role.name)
+      this.$store.dispatch('auth/setPermissions', permission[0].permissions.map(el => el.name))
+    },
     newSnackbar (newVal) {
       this.snackbar = newVal
     },
@@ -56,6 +63,9 @@ export default {
   },
   beforeCreate () {
     elementUi()
+  },
+  mounted () {
+    this.$store.dispatch('getRoles')
   },
   methods: {
     handleSelect (key, keyPath) {

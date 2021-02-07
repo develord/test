@@ -1,0 +1,9 @@
+{
+    users {
+        _id
+        name
+        email
+        password
+        role {_id, name}
+    }
+}

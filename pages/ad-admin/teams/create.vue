@@ -101,7 +101,7 @@ export default {
         }
         await this.$store.dispatch(`${mut}`, y).then(async (res) => {
           await this.$store.dispatch('getTeams')
-          await this.$router.push({ name: 'ad-admin-contact' })
+          await this.$router.push({ name: 'ad-admin-teams' })
           this.$notify({
             title: 'Success',
             message: 'Adding New Page Group',

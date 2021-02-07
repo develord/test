@@ -1,0 +1,42 @@
+{
+  "name": "Add User",
+  "model": "user",
+  "fields": [
+    {
+      "name": "name User",
+      "label": "name User",
+      "model": "name",
+      "type": "text",
+      "require": true,
+      "placeholder": "Name User"
+    },
+    {
+      "name": "email User",
+      "label": "email User",
+      "model": "email",
+      "type": "text",
+      "require": true,
+      "placeholder": "email User"
+    },
+    {
+      "name": "password User",
+      "label": "password User",
+      "model": "password",
+      "type": "password",
+      "require": true,
+      "placeholder": "Can not see the password, but you can update it"
+    },
+    {
+      "name": "User Role",
+      "label": "User Role",
+      "model": "role",
+      "type": {
+        "select": {
+          "options": "roles"
+        }
+      },
+      "require": true,
+      "placeholder": "User Role"
+    }
+  ]
+}

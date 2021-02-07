@@ -5,6 +5,8 @@ import { getProviderMutate } from '@/helpers/getProviderQuery'
 export const state = () => ({
   email: null,
   token: '',
+  role: null,
+  permission: [],
   loggedIn: false,
   _id: ''
 })
@@ -24,6 +26,7 @@ export const mutations = {
     state.email = user.email
     state.token = user.token
     state._id = user._id
+    state.role = user.role
     state.loggedIn = true
     Cookies.set('user', JSON.stringify({ user: { token: state.token } }))
   },
@@ -33,10 +36,16 @@ export const mutations = {
     state.loggedIn = false
     Cookies.remove('user')
     await true
+  },
+  SET_PERMISSIONS (state, data) {
+    state.permission = data
   }
 }
 
 export const actions = {
+  setPermissions (context, data) {
+    context.commit('auth/SET_PERMISSIONS', data, { root: true })
+  },
   async login (context, logpass) {
     const auth = await getProviderMutate.call(this, login, { ...logpass })
     if (auth.data.login) {

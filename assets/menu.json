@@ -28,5 +28,20 @@
     "title": "Contact",
     "icon": "el-icon-phone",
     "href": "/ad-admin/contact"
+  },
+  {
+    "title": "Permission",
+    "icon": "el-icon-unlock",
+    "href": "/ad-admin/permission"
+  },
+  {
+    "title": "Roles",
+    "icon": "el-icon-key",
+    "href": "/ad-admin/roles"
+  },
+  {
+    "title": "Users",
+    "icon": "el-icon-s-custom",
+    "href": "/ad-admin/users"
   }
 ]

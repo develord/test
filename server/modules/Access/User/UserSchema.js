@@ -8,7 +8,6 @@ module.exports = {
       email: String!
       password: String!
       role: Role!
-      image: String
       confirmed_at: Date
       created_at: Date
       updated_at: Date
@@ -19,7 +18,6 @@ module.exports = {
       email: String
       password: String
       role: String!
-      image: String
       confirmed_at: Date
     }
   `,
@@ -28,8 +26,8 @@ module.exports = {
     user(_id: String!): User
   `,
   mutation: `
-    createUser(name: String!, email: String!, password: String!,image: String, roleId: String!): User
-    updateUser(_id: String!, data: UpdateUserData): Int
+    createUser(name: String!, email: String!, password: String!, roleId: String!): User
+    updateUser(_id: String!, name: String!, email: String!, password: String, roleId: String!): Int
     deleteUser(_id: String!): Int
   `
 }

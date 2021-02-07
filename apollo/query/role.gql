@@ -1,0 +1,8 @@
+query($_id: String!) {
+    role(_id: $_id) {
+        _id
+        name
+        desc
+        permissions {_id name desc}
+    }
+  }

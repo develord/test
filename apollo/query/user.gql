@@ -1,0 +1,10 @@
+
+query($_id: String!) {
+    user(_id: $_id) {
+        _id
+        name
+        email
+        password
+        role {_id, name}
+    }
+  }

@@ -1,0 +1,8 @@
+{
+    roles {
+	    _id
+      name
+      desc
+      permissions {_id name}
+    }
+}

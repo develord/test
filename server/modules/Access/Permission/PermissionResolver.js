@@ -7,7 +7,7 @@ const Permission = require('.')
  */
 const Query = {
   permissions: (_, args, { auth }) => {
-    if (!auth) { return null }
+    // if (!auth) { return null }
     return Permission.find()
   },
   permission: (_, { _id }) => Permission.findOne({ _id })
@@ -21,10 +21,10 @@ const Query = {
  */
 const Mutation = {
   createPermission: (_, { name, desc }) => new Permission({ name, desc }).save(),
-  updatePermission: async (_, args) => {
-    const _id = args._id
-    const { name, desc } = args.data
-    const updated = await Permission.updateOne({ _id }, { name, desc })
+  updatePermission: async (_, { _id, name, desc }) => {
+    const updated = await Permission.findOneAndUpdate({ _id }, { name, desc }, {
+      new: true
+    })
     return updated.n
   },
   deletePermission: (_, { _id }) => Permission.deleteOne({ _id })

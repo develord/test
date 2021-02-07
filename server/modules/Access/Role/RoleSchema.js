@@ -20,7 +20,7 @@ module.exports = {
   `,
   mutation: `
     createRole(name: String!, desc: String, permissions: [String]): Role
-    updateRole(_id: String!, data: UpdateRoleData): Int
+    updateRole(_id: String!, name: String, desc: String , permissions: [String]): Int
     deleteRole(_id: String!): Int
   `
 }

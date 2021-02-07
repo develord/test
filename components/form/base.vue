@@ -85,6 +85,14 @@
           :hint="f.placeholder ? f.placeholder : 'Input'"
         />
       </v-col>
+      <v-col v-else-if="f.type === 'password'" :key="f.model" cols="12" sm="12">
+        <v-text-field
+          v-model="formModel[f.model]"
+          type="password"
+          :label="f.placeholder ? f.placeholder : 'Input'"
+          :placeholder="f.placeholder ? f.placeholder : 'Input'"
+        />
+      </v-col>
       <v-col v-else :key="f.model" cols="12" sm="12">
         <v-text-field
           v-model="formModel[f.model]"

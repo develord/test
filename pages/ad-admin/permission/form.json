@@ -1,0 +1,22 @@
+{
+  "name": "Add Permission",
+  "model": "permission",
+  "fields": [
+    {
+      "name": "name Permission",
+      "label": "name Permission",
+      "model": "name",
+      "type": "text",
+      "require": true,
+      "placeholder": "Name Permission"
+    },
+    {
+      "name": "desc Permission",
+      "label": "desc Permission",
+      "model": "desc",
+      "type": "text",
+      "require": true,
+      "placeholder": "Desc Permission"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-import { posts, contact, tagById, tags, teams, teamById, postById, images, page, categoryElements } from '~/apollo/query'
-import { createTag, updateContact, createContact, deleteTag, updateTag, createTeam, updateTeam, deleteTeam, deletePost, createPost, updatePost, uploadFile, deleteImage } from '~/apollo/mutations'
+import { posts, users, user, role, roles, contact, permissions, permission, tagById, tags, teams, teamById, postById, images, page, categoryElements } from '~/apollo/query'
+import { createTag, createUser, updateUser, deleteUser, createRole, deleteRole, updateRole, createPermission, deletePermission, updateContact, updatePermission, createContact, deleteTag, updateTag, createTeam, updateTeam, deleteTeam, deletePost, createPost, updatePost, uploadFile, deleteImage } from '~/apollo/mutations'
 const _ = require('lodash')
 
 export const state = () => ({
@@ -7,8 +7,11 @@ export const state = () => ({
   snackbar: null,
   listePost: [],
   listeTag: [],
+  listeRole: [],
+  listeUser: [],
   teams: [],
   listeContact: [],
+  listePermission: [],
   listPublication: [],
   images: []
 })
@@ -43,6 +46,15 @@ export const mutations = {
   },
   SET_Contact (state, data) {
     state.listeContact = data
+  },
+  SET_PERMISSIONS (state, data) {
+    state.listePermission = data
+  },
+  SET_ROLES (state, data) {
+    state.listeRole = data
+  },
+  SET_USERS (state, data) {
+    state.listeUser = data
   }
 }
 
@@ -58,6 +70,52 @@ export const actions = {
       },
       context: {
         hasUpload: true
+      }
+    })
+    return response
+  },
+  // User Crud
+  async addNewUser (_, user) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: createUser,
+      variables: {
+        ...user
+      }
+    })
+    return response.data.createUser
+  },
+  async updateUser (_, user) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: updateUser,
+      variables: {
+        ...user
+      }
+    })
+    return response.data.updateUser
+  },
+  async getUsers (context) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: users,
+      fetchPolicy: 'network-only'
+    })
+    context.commit('SET_USERS', response.data.users)
+    return response.data.users
+  },
+  async getUser (_, userId) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: user,
+      fetchPolicy: 'network-only',
+      variables: {
+        _id: userId
+      }
+    })
+    return response.data.user
+  },
+  async deleteUser (_, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deleteUser,
+      variables: {
+        _id: data
       }
     })
     return response
@@ -99,6 +157,16 @@ export const actions = {
     post.content = JSON.parse(content)
     return post
   },
+  async getPermission (_, permissionId) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: permission,
+      fetchPolicy: 'network-only',
+      variables: {
+        _id: permissionId
+      }
+    })
+    return response.data.permission
+  },
   async getPosts (context) {
     const response = await this.app.apolloProvider.defaultClient.query({
       query: posts,
@@ -107,7 +175,61 @@ export const actions = {
     context.commit('SET_POSTS', response.data.posts)
     return response.data.posts
   },
+  async getPermissions (context) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: permissions,
+      fetchPolicy: 'network-only'
+    })
+    context.commit('SET_PERMISSIONS', response.data.permissions)
+    return response.data.permissions
+  },
+  async addNewPermission (_, permission) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: createPermission,
+      variables: {
+        ...permission
+      }
+    })
+    return response.data.createPermission
+  },
   // Team Crud
+  async getRole (_, roleId) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: role,
+      fetchPolicy: 'network-only',
+      variables: {
+        _id: roleId
+      }
+    })
+    return response.data.role
+  },
+  async getRoles (context) {
+    const response = await this.app.apolloProvider.defaultClient.query({
+      query: roles,
+      fetchPolicy: 'network-only'
+    })
+    context.commit('SET_ROLES', response.data.roles)
+    return response.data.roles
+  },
+  async addNewRole (_, role) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: createRole,
+      variables: {
+        ...role
+      }
+    })
+    return response.data.createRole
+  },
+  async updateRole (_, role) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: updateRole,
+      variables: {
+        ...role
+      }
+    })
+    return response.data.updateRole
+  },
+
   async addNewTeam (_, post) {
     const { content, ...data } = post
     const str = JSON.stringify(content)
@@ -123,7 +245,6 @@ export const actions = {
   async updateTeam (_, post) {
     const { content, ...data } = post
     const str = JSON.stringify(content)
-    console.log(post)
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updateTeam,
       variables: {
@@ -141,7 +262,7 @@ export const actions = {
         _id: teamId
       }
     })
-    const { content, ...team } = response.data.teams[0]
+    const { content, ...team } = response.data.team
     team.content = JSON.parse(content)
     return team
   },
@@ -230,6 +351,33 @@ export const actions = {
       }
     })
     return response.data.updateTag
+  },
+  async updatePermission (_, permission) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: updatePermission,
+      variables: {
+        ...permission
+      }
+    })
+    return response.data.updatePermission
+  },
+  async deleteRole  (_, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deleteRole,
+      variables: {
+        _id: data
+      }
+    })
+    return response
+  },
+  async deletePermission  (_, data) {
+    const response = await this.app.apolloProvider.defaultClient.mutate({
+      mutation: deletePermission,
+      variables: {
+        _id: data
+      }
+    })
+    return response
   },
   async deleteTag (context, data) {
     const response = await this.app.apolloProvider.defaultClient.mutate({

@@ -51,14 +51,22 @@ const Mutation = {
     const usr = await new User(userData)
     return usr.save()
   },
-  updateUser: async (_, args) => {
-    const _id = args._id
-    const data = args.data
-    const updated = await User.updateOne({ _id }, data)
-    return updated.n
+  updateUser: async (_, { _id, name, email, password, roleId }) => {
+    if (password) {
+      const saltRounds = 10
+      const salt = bcrypt.genSaltSync(saltRounds)
+      const hashpassword = bcrypt.hashSync(password, salt)
+      const updated = await User.findOneAndUpdate({ _id }, { name, email, password: hashpassword, role: roleId }, {
+        new: true
+      })
+      return updated.n
+    } else {
+      const updated = await User.findOneAndUpdate({ _id }, { name, email, role: roleId })
+      return updated.n
+    }
   },
-  deleteUser: async (_, args) => {
-    const removed = await User.deleteOne({ _id: args._id })
+  deleteUser: async (_, _id) => {
+    const removed = await User.deleteOne({ _id })
     return removed.deletedCount
   }
 }

@@ -24,8 +24,9 @@ const Query = {
     const teams = await Team.find().populate(['image_large', 'tags'])
     return teams
   },
-  team: (_, { _id }) => {
-    return Team.findOne({ _id }).populate(['image_large', 'tags'])
+  team: async (_, { _id }) => {
+    const team = await Team.findOne({ _id }).populate(['image_large', 'tags'])
+    return team
   }
 }
 

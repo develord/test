@@ -4,15 +4,15 @@
       <v-col cols="12">
         <v-card class="mx-auto">
           <v-card-title>
-            <span>Contact List</span>
+            <span>Permission List</span>
             <v-btn
-              v-if="permissions.includes('canWrite')"
+              v-if="permissionList.includes('canDelete')"
               fab
               absolute
               top
               right
               color="blue lighten-4"
-              @click="goto('ad-admin-contact-create')"
+              @click="goto('ad-admin-permission-create')"
             >
               <v-icon color="white">
                 mdi-plus
@@ -22,7 +22,7 @@
           <v-card-text>
             <v-data-table
               :headers="headers"
-              :items="listeContact"
+              :items="listePermission"
               :items-per-page="10"
               class="elevation-1"
             >
@@ -32,7 +32,7 @@
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
                   <v-btn
-                    v-if="permissions.includes('canWrite')"
+                    v-if="permissionList.includes('canDelete')"
                     class="ma-2"
                     fab
                     small
@@ -41,6 +41,18 @@
                   >
                     <v-icon color="white">
                       mdi-circle-edit-outline
+                    </v-icon>
+                  </v-btn>
+                  <v-btn
+                    v-if="permissionList.includes('canDelete')"
+                    class="ma-2"
+                    fab
+                    small
+                    color="red accent-3"
+                    @click="deleteTag(item)"
+                  >
+                    <v-icon color="white">
+                      mdi-trash-can-outline
                     </v-icon>
                   </v-btn>
                 </div>
@@ -58,18 +70,17 @@
 <script>
 
 export default {
-  name: 'ContactIndex',
+  name: 'PermissionIndex',
   layout: 'Back',
   middleware: 'auth',
   data: () => {
     return {
       search: null,
       drawer: null,
-      listeContact: null,
+      listePermission: [],
       headers: [
-        { text: 'location', value: 'location' },
-        { text: 'mail', value: 'mail' },
-        { text: 'tel', value: 'tel' },
+        { text: 'Name', value: 'name' },
+        { text: 'Desc', value: 'desc' },
         { text: 'Created', value: 'created' },
         { text: 'Actions', value: 'actions', sortable: false }
       ],
@@ -78,22 +89,33 @@ export default {
   },
   computed: {
     permissions () {
-      return this.$store.state.auth.permission
+      return this.$store.state.listePermission
     },
-    contact () {
-      return this.$store.state.listeContact
+    permissionList () {
+      return this.$store.state.auth.permission
     }
   },
   watch: {
-    contact: {
+    permissions: {
       immediate: true,
       handler (newVal) {
-        this.listeContact = newVal
+        this.listePermission = Object.freeze(
+          newVal.map((tag, index) => {
+            return {
+              nb: index,
+              id: tag._id,
+              name: tag.name,
+              desc: tag.desc,
+              created: tag.created_at,
+              updated: tag.updated_at
+            }
+          })
+        )
       }
     }
   },
   beforeMount () {
-    this.$store.dispatch('getContact')
+    this.$store.dispatch('getPermissions')
   },
   methods: {
     gotoLink (url) {
@@ -105,12 +127,12 @@ export default {
     extractText (str, from, to) {
       return str ? str.slice(from, to) : 'None'
     },
-    prepareUpdate (contact) {
-      this.$router.push({ name: 'ad-admin-contact-create', query: { contact: contact._id } })
+    prepareUpdate (permission) {
+      this.$router.push({ name: 'ad-admin-permission-create', query: { permission: permission.id } })
     },
     deleteTag (tag) {
-      this.$store.dispatch('deleteTag', tag.id).then((res) => {
-        this.$store.dispatch('getContact')
+      this.$store.dispatch('deletePermission', tag.id).then((res) => {
+        this.$store.dispatch('getPermissions')
         this.$notify({
           title: 'Success',
           message: 'Tag Removed',

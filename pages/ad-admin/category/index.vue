@@ -6,6 +6,7 @@
           <v-card-title>
             <span>Category List</span>
             <v-btn
+              v-if="permissions.includes('canWrite')"
               fab
               absolute
               top
@@ -37,6 +38,7 @@
               <template v-slot:[`item.actions`]="{ item }">
                 <div class="text-center">
                   <v-btn
+                    v-if="permissions.includes('canWrite')"
                     class="ma-2"
                     fab
                     small
@@ -48,6 +50,7 @@
                     </v-icon>
                   </v-btn>
                   <v-btn
+                    v-if="permissions.includes('canDelete')"
                     class="ma-2"
                     fab
                     small
@@ -92,6 +95,9 @@ export default {
     pageName: 'FUCKER'
   },
   computed: {
+    permissions () {
+      return this.$store.state.auth.permission
+    },
     category () {
       return this.$store.state.category.listCategory
     },

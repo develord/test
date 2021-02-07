@@ -18,5 +18,14 @@ const createContact = require('./createContact.gql')
 const updateTeam = require('./updateTeam.gql')
 const deleteTeam = require('./deleteTeam.gql')
 const createTeam = require('./createTeam.gql')
+const createPermission = require('./createPermission.gql')
+const updatePermission = require('./updatePermission.gql')
 
-module.exports = { updateContact, createContact, createTag, deleteTag, updateTag, updateTeam, deleteTeam, createTeam, createPost, deletePost, login, uploadFile, deleteImage, updatePost, createCategory, deleteCategory, updateCategory }
+const createRole = require('./createRole.gql')
+const updateRole = require('./updateRole.gql')
+const deleteRole = require('./deleteRole.gql')
+
+const updateUser = require('./updateUser.gql')
+const createUser = require('./createUser.gql')
+const deleteUser = require('./deleteUser.gql')
+module.exports = { deleteUser, updateUser, createUser, updateRole, deleteRole, createRole, updateContact, createPermission, updatePermission, createContact, createTag, deleteTag, updateTag, updateTeam, deleteTeam, createTeam, createPost, deletePost, login, uploadFile, deleteImage, updatePost, createCategory, deleteCategory, updateCategory }

@@ -16,7 +16,7 @@
         image_small {_id, low, high}
         link
         componentName
-        user {_id, name, image}
+        user {_id, name}
         category {_id, name, description, title}
         status {_id, name, desc}
         created_at

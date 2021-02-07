@@ -1,0 +1,35 @@
+{
+  "name": "Add Role",
+  "model": "role",
+  "fields": [
+    {
+      "name": "name Role",
+      "label": "name Role",
+      "model": "name",
+      "type": "text",
+      "require": true,
+      "placeholder": "Name Role"
+    },
+    {
+      "name": "desc Role",
+      "label": "desc Role",
+      "model": "desc",
+      "type": "text",
+      "require": true,
+      "placeholder": "Desc Role"
+    },
+    {
+      "name": "Role permissions",
+      "label": "Role permissions",
+      "model": "permissions",
+      "multiple": true,
+      "type": {
+        "select": {
+          "options": "permissions"
+        }
+      },
+      "require": true,
+      "placeholder": "Role permissions"
+    }
+  ]
+}
