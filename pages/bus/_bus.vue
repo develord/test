@@ -180,3 +180,33 @@ export default {
   }
 }
 </script>
+<style>
+article td p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+table td {
+  padding: 12px;
+  border: solid 1px #dadadaaa;
+}
+
+
+table {
+  width: 100%;
+}
+
+tr:nth-child(odd) {
+  background-color: #eee;
+}
+
+th {
+  background-color: #555;
+  color: #fff;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5em 1em;
+}
+</style>
