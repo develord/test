@@ -4,6 +4,7 @@ node_modules
 /src/lang
 .nuxt
 nuxt
+static/
 sw.*
 # local env files
 #.env.local
