@@ -8,6 +8,7 @@ module.exports = {
       tags: [Tag]
       gallery: [Image]
       componentName: String
+      fiche: String
       content: String
       image_large: Image
       image_small: Image
@@ -25,6 +26,7 @@ module.exports = {
       description: String
       h1: String
       componentName: String
+      fiche: String
       content: String
       tags: [Tag]
       gallery: [Image]
@@ -42,6 +44,7 @@ module.exports = {
       description: String
       h1: String
       componentName: String
+      fiche: String
       content: String
       image_large: String
       image_small: String
@@ -63,6 +66,7 @@ module.exports = {
       h1: String
       tags: [String]
       gallery: [String]
+      fiche: String
       content: String
       componentName: String
       image_large: String
@@ -79,6 +83,7 @@ module.exports = {
       gallery: [String]
       componentName: String
       h1: String
+      fiche: String
       content: String
       image_large: String
       image_small: String

@@ -108,6 +108,13 @@
       "model": "content",
       "type": "content",
       "require": true
+    },
+    {
+      "name": "Post fiche",
+      "label": "Post fiche",
+      "model": "fiche",
+      "type": "content",
+      "require": true
     }
   ]
 }

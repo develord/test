@@ -5,6 +5,7 @@
         description
         h1
         content
+        fiche
         tags {_id, name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}

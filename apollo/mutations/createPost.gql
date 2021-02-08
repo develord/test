@@ -1,5 +1,5 @@
-mutation ($title: String!,$tags:[String] ,$gallery: [String] , $description: String, $componentName: String, $h1: String, $content: String, $image_large: String, $image_small: String, $user: String, $category: String, $status: String) {
-    createPost(title: $title,tags: $tags ,gallery: $gallery componentName: $componentName , description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, user: $user, category: $category, status: $status) {
+mutation ($title: String!,$tags:[String] , $fiche: String, $gallery: [String] , $description: String, $componentName: String, $h1: String, $content: String, $image_large: String, $image_small: String, $user: String, $category: String, $status: String) {
+    createPost(title: $title,tags: $tags ,fiche: $fiche, gallery: $gallery componentName: $componentName , description: $description, h1: $h1, content: $content, image_large: $image_large, image_small: $image_small, user: $user, category: $category, status: $status) {
     _id
     title
     description
@@ -8,6 +8,7 @@ mutation ($title: String!,$tags:[String] ,$gallery: [String] , $description: Str
     }
     h1
     content
+    fiche
     image_large {_id}
     image_small {_id}
     link

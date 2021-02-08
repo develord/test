@@ -17,6 +17,10 @@ const postSchema = new mongoose.Schema({
     type: String,
     default: null
   },
+  fiche: {
+    type: String,
+    default: null
+  },
   image_large: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Image',

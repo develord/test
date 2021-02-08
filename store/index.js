@@ -58,25 +58,29 @@ export const actions = {
   },
   // Crud posts
   async addNewPost (context, post) {
-    const { content, ...data } = post
+    const { content, fiche, ...data } = post
     const str = JSON.stringify(content)
+    const strFiche = JSON.stringify(fiche)
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: createPost,
       variables: {
         ...data,
-        content: str
+        content: str,
+        fiche: strFiche
       }
     })
     return response.data.createPost
   },
   async updatePost (context, post) {
-    const { content, ...data } = post
+    const { content, fiche, ...data } = post
     const str = JSON.stringify(content)
+    const strFiche = JSON.stringify(fiche)
     const response = await this.app.apolloProvider.defaultClient.mutate({
       mutation: updatePost,
       variables: {
         ...data,
-        content: str
+        content: str,
+        fiche: strFiche
       }
     })
     return response.data.updatePost
@@ -105,7 +109,8 @@ export const actions = {
         _id: postId
       }
     })
-    const { content, ...post } = response.data.post
+    const { content, fiche, ...post } = response.data.post
+    post.fiche = JSON.parse(fiche)
     post.content = JSON.parse(content)
     return post
   },

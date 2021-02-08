@@ -56,6 +56,7 @@ export default {
         tags: null,
         gallery: null,
         content: null,
+        fiche: null,
         image_large: null,
         image_small: null,
         user: this.$store.state.auth._id,
@@ -138,3 +139,12 @@ export default {
   }
 }
 </script>
+<style>
+table {
+  width: 100%;
+}
+article td p {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+</style>
