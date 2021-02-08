@@ -31,6 +31,7 @@
     "node": ">=8.0"
   },
   "dependencies": {
+    "@morioh/v-lightbox": "^1.0.3",
     "@nuxtjs/apollo": "^4.0.1-rc.5",
     "@nuxtjs/axios": "^5.13.0",
     "apollo-link-batch-http": "^1.2.14",

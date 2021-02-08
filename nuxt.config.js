@@ -4,7 +4,8 @@ module.exports = {
     meta: [
       { property: 'og:image', content: 'https://user-images.githubusercontent.com/904724/58238637-f189ca00-7d47-11e9-8213-ae072d7cd3aa.png' },
       { property: 'twitter:card', content: 'summary_large_image' },
-      { property: 'twitter:site', content: '@nuxt_js' }
+      { property: 'twitter:site', content: '@nuxt_js' },
+      { name: 'robots', content: 'noindex, nofollow' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -43,8 +44,6 @@ module.exports = {
   },
 
   plugins: [
-  //  '~/plugins/swr',
-  //  '~/plugins/filters'
     { src: '~/plugins/vue-progressive-image', mode: 'client' }
   ],
 

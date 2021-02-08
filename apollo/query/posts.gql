@@ -5,6 +5,7 @@
         description
         h1
         content
+        fiche
         published
         journal
         authors

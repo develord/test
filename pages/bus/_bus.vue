@@ -9,7 +9,7 @@
           <div class="row justify-content-between">
             <div class="col-md-12 pt-6 pb-6 pr-6 align-self-center">
               <p class="text-uppercase font-weight-bold">
-                <a class="text-danger" href="#">Stories</a>
+                <a class="text-danger" href="#">{{ page.tags[0].name }}</a>
               </p>
               <h1 class="display-4 secondfont mb-3 font-weight-bold">
                 {{page.h1}}
@@ -45,7 +45,7 @@
         <div class="col-lg-2 pr-4 mb-4 col-md-12">
           <div class="sticky-top text-center">
             <div class="text-muted">
-              Share this
+              Partager ce article
             </div>
             <div class="share d-inline-block">
               <!-- AddToAny BEGIN -->
@@ -57,10 +57,14 @@
             </div>
           </div>
         </div>
-        <div class="col-md-12 col-lg-8">
+        <div class="col-lg-10 col-md-12">
           <article class="article-post" v-html="content">
-            
           </article>
+          <h2>Gallery images</h2>
+          <client-only>
+            <lightbox class="pb-4" :items="page.gallery.map(el => '/images/' + el.high)" :cells="3"></lightbox>
+          </client-only>
+          <div v-html="ficheTechnique" />
           <div class="border p-5 bg-lightblue">
             <div class="row justify-content-between">
               <div class="col-md-5 mb-2 mb-md-0">
@@ -93,7 +97,7 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="card border-0 mb-4 box-shadow h-xl-300">
-            <div style="background-image: url(./img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;" />
+            <div style="background-image: url(../img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;" />
             <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
               <h2 class="h4 font-weight-bold">
                 <a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
@@ -111,7 +115,7 @@
         <div class="col-lg-6">
           <div class="flex-md-row mb-4 box-shadow h-xl-300">
             <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'./img/demo/blog4.jpg'">
+              <img height="80" :src="'../img/demo/blog4.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Nasa's IceSat space laser makes height maps of Earth</a>
@@ -123,7 +127,7 @@
               </div>
             </div>
             <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'./img/demo/blog5.jpg'">
+              <img height="80" :src="'../img/demo/blog5.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Underwater museum brings hope to Lake Titicaca</a>
@@ -135,7 +139,7 @@
               </div>
             </div>
             <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'./img/demo/blog6.jpg'">
+              <img height="80" :src="'../img/demo/blog6.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Sun-skimming probe starts calling home</a>
@@ -155,9 +159,13 @@
 </template>
 <script>
 import { page } from '@/apollo/query'
+import Lightbox from '@/components/Lightbox.vue'
 
 export default {
   layout: 'Default',
+  components: {
+    Lightbox
+  },
   apollo: {
     page: {
       query: page,
@@ -169,13 +177,14 @@ export default {
   },
    data: () => {
     return {
-      content: null
+      content: null,
+      ficheTechnique: null
     }
   },
   watch: {
     page(val) {
-
       this.content = JSON.parse(val.content).html
+      this.ficheTechnique = JSON.parse(val.fiche).html
     }
   }
 }
@@ -193,6 +202,7 @@ table td {
 
 table {
   width: 100%;
+  margin-bottom: 28px;
 }
 
 tr:nth-child(odd) {
@@ -200,8 +210,7 @@ tr:nth-child(odd) {
 }
 
 th {
-  background-color: #555;
-  color: #fff;
+  background-color: #eee;
 }
 
 th,

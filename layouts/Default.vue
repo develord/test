@@ -5,7 +5,7 @@
     --------------------------------------->
     <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#"><strong>Mundana</strong></a>
+        <a class="navbar-brand" href="#"><strong>#BusWorld</strong></a>
         <button
           class="navbar-toggler collapsed"
           type="button"

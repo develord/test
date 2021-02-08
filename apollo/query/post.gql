@@ -12,6 +12,7 @@ query($_id: String) {
         h1
         tagfilter
         content
+        fiche
         image_large {_id, low, high}
         image_small {_id, low, high}
         category {_id, name, description, title}
