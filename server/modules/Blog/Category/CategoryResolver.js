@@ -17,7 +17,7 @@ const Category = require('.')
 const Query = {
   categories: (_, args, context) => {
     // if (!context.auth) { throw new AuthenticationError('AuthenticationError: not token provided') }
-    const listCategory = Category.find()
+    const listCategory = Category.find().populate(['user', 'tags', 'status', 'image_large', 'image_small'])
     return listCategory
   },
   category: (_, { _id }) => Category.findOne({ _id }),
