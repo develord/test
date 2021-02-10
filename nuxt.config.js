@@ -40,8 +40,9 @@ module.exports = {
     name: 'Bus-World',
     short_name: 'Bus World',
     description: 'Bus World',
+    lang: 'fr',
+    start_url: '/',
     theme_color: '#2F495E',
-    start_url: '/'
   },
 
   buildModules: [
