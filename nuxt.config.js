@@ -51,6 +51,15 @@ module.exports = {
     '@nuxtjs/apollo'
   ],
 
+  'nuxt-compress': {
+    gzip: {
+      cache: true
+    },
+    brotli: {
+      threshold: 10240
+    }
+  },
+
   apollo: {
     clientConfigs: {
       default: '~/apollo/config/apolloConfig.js'
