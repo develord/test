@@ -23,12 +23,23 @@ module.exports = {
     color: '#00C48D'
   },
 
-  manifest: {
-    name: 'Nuxt Hacker News',
-    short_name: 'Nuxt HN',
-    description: 'HackerNews clone built with Nuxt.js',
-    theme_color: '#2F495E',
-    start_url: '/news'
+  pwa: {
+    manifest: {
+      name: 'Bus world',
+      short_name: 'Bus world',
+      description: 'Bus world',
+      lang: 'fr',
+      start_url: '/',
+      display: 'standalone',
+      useWebmanifestExtension: false,
+      theme_color: '#188269',
+      background_color: '#000'
+    },
+    workbox: {
+      /* workbox options */
+      dev: false,
+      offlineStrategy: 'StaleWhileRevalidate'
+    }
   },
 
   buildModules: [
