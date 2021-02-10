@@ -47,6 +47,7 @@ module.exports = {
 
   buildModules: [
     '@nuxtjs/pwa',
+    'nuxt-compress',
     '@nuxtjs/axios',
     '@nuxtjs/apollo'
   ],
