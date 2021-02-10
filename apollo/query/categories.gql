@@ -7,8 +7,8 @@
       description
       h1
       content
-      image_large {_id }
-      image_small {_id }
+      image_large {_id, low, high}
+      image_small {_id, low, high}
       user {_id}
       status {_id}
       link

@@ -19,16 +19,29 @@ module.exports = {
     host: '0.0.0.0' // par défaut : localhost
   },
 
+  router: {
+    prefetchLinks: true,
+    trailingSlash: false,
+    linkActiveClass: 'active-link',
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: '404',
+        path: '*',
+        component: resolve(__dirname, 'components/404.vue')
+      })
+    }
+  },
+
   loading: {
     color: '#00C48D'
   },
 
   manifest: {
-    name: 'Nuxt Hacker News',
-    short_name: 'Nuxt HN',
-    description: 'HackerNews clone built with Nuxt.js',
+    name: 'Bus-World',
+    short_name: 'Bus World',
+    description: 'Bus World',
     theme_color: '#2F495E',
-    start_url: '/news'
+    start_url: '/'
   },
 
   buildModules: [

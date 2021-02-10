@@ -8,22 +8,14 @@
         <div class="h-100 tofront">
           <div class="row justify-content-between">
             <div class="col-md-12 pt-6 pb-6 pr-6 align-self-center">
-              <p class="text-uppercase font-weight-bold">
-                <a class="text-danger" href="#">{{ page.tags[0].name }}</a>
-              </p>
-              <h1 class="display-4 secondfont mb-3 font-weight-bold">
+              <h1 v-if="page" class="display-4 secondfont mb-3 text-center font-weight-bold">
                 {{page.h1}}
               </h1>
-              <p class="mb-3">
+              <p v-if="page" class="mb-3">
                 {{page.description}}
               </p>
-              <div class="d-flex align-items-center">
-                <img class="rounded-circle" :src="'../img/demo/avatar2.jpg'" width="70">
-                <small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5 min. read</span>
-                </small>
-              </div>
             </div>
-            <div class="col-md-12 pr-0">
+            <div class="col-md-12 pr-0 text-center">
               <img
                 v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
                 class="is-lazy"
@@ -40,8 +32,8 @@
  <!--------------------------------------
     MAIN
     --------------------------------------->
-    <div class="container pt-1 pb-1">
-      <div class="row">
+    <div class="container pt-4 pb-4">
+      <div class="row justify-content-center">
         <div class="col-lg-2 pr-4 mb-4 col-md-12">
           <div class="sticky-top text-center">
             <div class="text-muted">
@@ -57,65 +49,22 @@
             </div>
           </div>
         </div>
-        <div class="col-lg-8 col-md-12">
-          <article class="article-post" v-html="content">
+        <div class="col-lg-10 col-md-12">
+          <article class="article-post" v-pre>
+            {{ content }}
           </article>
-          <h2>Gallery images</h2>
-          <client-only>
-            <lightbox class="pb-4" :items="page.gallery.map(el => '/images/' + el.high)" :cells="3"></lightbox>
-          </client-only>
-          <div v-html="ficheTechnique" />
-          <div class="border p-5 bg-lightblue">
-            <div class="row justify-content-between">
-              <div class="col-md-5 mb-2 mb-md-0">
-                <h5 class="font-weight-bold secondfont">
-                  Become a member
-                </h5>
-                Get the latest news right in your inbox. We never spam!
-              </div>
-              <div class="col-md-7">
-                <div class="row">
-                  <div class="col-md-12">
-                    <input type="text" class="form-control" placeholder="Enter your e-mail address">
-                  </div>
-                  <div class="col-md-12 mt-2">
-                    <button type="submit" class="btn btn-success btn-block">
-                      Subscribe
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>
-    <div class="container pt-4 pb-4">
+    <div class="container pb-1">
       <h5 class="font-weight-bold spanborder">
-        <span>Read next</span>
+        <span>Autobus</span>
       </h5>
       <div class="row">
-        <div class="col-lg-6">
-          <div class="card border-0 mb-4 box-shadow h-xl-300">
-            <div style="background-image: url(../img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;" />
-            <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-              <h2 class="h4 font-weight-bold">
-                <a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
-              </h2>
-              <p class="card-text">
-                Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
-              </p>
-              <div>
-                <small class="d-block"><a class="text-muted" href="#">Favid Rick</a></small>
-                <small class="text-muted">Dec 12 · 5 min read</small>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="flex-md-row mb-4 box-shadow h-xl-300">
-            <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog4.jpg'">
+        <div class="col-lg-12">
+          <div class="d-flex flex-row mb-4 box-shadow">
+            <div class="mb-1 pr-2 d-flex align-items-center">
+              <img height="80" :src="'./img/demo/blog4.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Nasa's IceSat space laser makes height maps of Earth</a>
@@ -127,7 +76,7 @@
               </div>
             </div>
             <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog5.jpg'">
+              <img height="80" :src="'./img/demo/blog5.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Underwater museum brings hope to Lake Titicaca</a>
@@ -139,7 +88,54 @@
               </div>
             </div>
             <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog6.jpg'">
+              <img height="80" :src="'./img/demo/blog6.jpg'">
+              <div class="pl-3">
+                <h2 class="mb-2 h6 font-weight-bold">
+                  <a class="text-dark" href="#">Sun-skimming probe starts calling home</a>
+                </h2>
+                <div class="card-text text-muted small">
+                  Jake Bittle in LOVE/HATE
+                </div>
+                <small class="text-muted">Dec 12 · 5 min read</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container pb-1">
+      <h5 class="font-weight-bold spanborder">
+        <span>Autocar</span>
+      </h5>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="d-flex flex-row mb-4 box-shadow">
+            <div class="mb-1 pr-2 d-flex align-items-center">
+              <img height="80" :src="'./img/demo/blog4.jpg'">
+              <div class="pl-3">
+                <h2 class="mb-2 h6 font-weight-bold">
+                  <a class="text-dark" href="#">Nasa's IceSat space laser makes height maps of Earth</a>
+                </h2>
+                <div class="card-text text-muted small">
+                  Jake Bittle in LOVE/HATE
+                </div>
+                <small class="text-muted">Dec 12 · 5 min read</small>
+              </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center">
+              <img height="80" :src="'./img/demo/blog5.jpg'">
+              <div class="pl-3">
+                <h2 class="mb-2 h6 font-weight-bold">
+                  <a class="text-dark" href="#">Underwater museum brings hope to Lake Titicaca</a>
+                </h2>
+                <div class="card-text text-muted small">
+                  Jake Bittle in LOVE/HATE
+                </div>
+                <small class="text-muted">Dec 12 · 5 min read</small>
+              </div>
+            </div>
+            <div class="mb-3 d-flex align-items-center">
+              <img height="80" :src="'./img/demo/blog6.jpg'">
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
                   <a class="text-dark" href="#">Sun-skimming probe starts calling home</a>
@@ -177,14 +173,14 @@ export default {
   },
    data: () => {
     return {
-      content: null,
-      ficheTechnique: null
+      content: null
     }
   },
   watch: {
     page(val) {
-      this.content = JSON.parse(val.content).html
-      this.ficheTechnique = JSON.parse(val.fiche).html
+      if (val.content && val.content != "null") {
+         this.content = JSON.parse(val.content).html
+      }
     }
   }
 }

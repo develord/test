@@ -20,28 +20,29 @@
         <div id="navbarColor02" class="navbar-collapse collapse">
           <ul class="navbar-nav mr-auto d-flex align-items-center">
             <li class="nav-item">
-              <a class="nav-link" href="#">Intro <span class="sr-only">(current)</span></a>
+              <NuxtLink class="nav-link" to="/">
+                Acceuil
+              </NuxtLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Culture</a>
+              <NuxtLink class="nav-link" to="bus">
+                Bus
+              </NuxtLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Tech</a>
+              <NuxtLink class="nav-link" to="agences">
+                Agences
+              </NuxtLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Politics</a>
+              <NuxtLink class="nav-link" to="actualiter">
+                Actualiter
+              </NuxtLink>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Health</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Collections</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./docs.html">Template <span class="badge badge-secondary">docs</span></a>
+              <NuxtLink class="nav-link" to="qui-sommes-nous">
+                Qui Somme Nous
+              </NuxtLink>
             </li>
           </ul>
         </div>
@@ -57,11 +58,8 @@
       <footer class="bg-white border-top p-3 text-muted small">
         <div class="row align-items-center justify-content-between">
           <div>
-            <span class="navbar-brand mr-2"><strong>Mundana</strong></span> Copyright &copy;
+            <span class="navbar-brand mr-2"><strong>BusWorld</strong></span> Copyright &copy;
             . All rights reserved.
-          </div>
-          <div>
-            Made with <a target="_blank" class="text-secondary font-weight-bold">Mundana Theme</a> by WowThemes.net.
           </div>
         </div>
       </footer>
