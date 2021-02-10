@@ -112,7 +112,7 @@ export default {
           this.listPost = this.listPublication
         } else {
           this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
-            (parseInt(this.$route.query.req) - 1 === el.published.substring(0, 4) ? parseInt(el.published.substring(0, 4)) - 1 : tag.name) === newVal
+            (parseInt(this.$route.query.req) === parseInt(el.published.substring(0, 4)) + 1 ? parseInt(el.published.substring(0, 4)) + 1 : tag.name) === newVal
           ).length > 0)
         }
       }
