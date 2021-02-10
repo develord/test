@@ -108,12 +108,11 @@ export default {
       deep: true,
       handler (newVal) {
         newVal = this.$route.query.req
-        newVal = parseInt(newVal) - 1
         if (newVal === 'all' || !newVal) {
           this.listPost = this.listPublication
         } else {
           this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
-            (this.$route.query.req === el.published.substring(0, 4) ? el.published.substring(0, 4) : tag.name) === newVal
+            (parseInt(this.$route.query.req) - 1 === el.published.substring(0, 4) ? parseInt(el.published.substring(0, 4)) - 1 : tag.name) === newVal
           ).length > 0)
         }
       }
