@@ -64,8 +64,8 @@
               <div class="lower-content">
                 <div class="title-box">
                   <div class="post-date">
-                    <p>{{ parseInt(post.created_at.substring(0,4)) + 1 }}</p>
-                    <span>{{ post.created_at.substring(5,7) }}</span>
+                    <p>{{ parseInt(post.published.substring(0,4)) + 1 }}</p>
+                    <span>{{ post.published.substring(5,7) }}</span>
                   </div>
                   <h4>
                     <NuxtLink :to="post.link">
@@ -110,14 +110,14 @@ export default {
   },
   watch: {
     selected (newVal) {
-      this.filtredPost = this.listPost.filter(el => parseInt(el.published?.substring(0, 4) - 1) === newVal || el.tagfilter === newVal)
+      this.filtredPost = this.listPost.filter(el => parseInt(el.published?.substring(0, 4)) + 1 === newVal || el.tagfilter === newVal)
     },
     listPost (newVal) {
       this.filtredPost = newVal
       this.listTag = [...new Set(newVal.map(el => el.tagfilter).flat())].filter(function (el) {
         return el != null
       })
-      this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => parseInt(el?.substring(0, 4) + 1)))].filter(function (el) {
+      this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => parseInt(el?.substring(0, 4)) + 1))].filter(function (el) {
         return el != null
       })
     }
