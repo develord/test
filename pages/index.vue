@@ -140,15 +140,16 @@
                       <div class="elementor-element elementor-element-6b19ffc elementor-widget elementor-widget-naxly_why_choose_us_v2" data-id="6b19ffc" data-element_type="widget" data-widget_type="naxly_why_choose_us_v2.default">
                         <div class="elementor-widget-container">
                           <section class="chooseus-style-two bg-color-3" style="background-image: url(https://727512.smushcdn.com/1872762/wp-content/uploads/2020/03/choose-bg.png?lossy=1&strip=1&webp=1);left: 0px;top: 0px;right: 0px;width: 100%;height: 100%;background-size: cover;background-repeat: no-repeat;">
-                            <div class="bg-layer"  />
+                            <div class="bg-layer" />
                             <div class="auto-container">
                               <div class="title-inner mb-35 clearfix">
-                                <a 
+                                <a
                                   data-width="50%"
                                   data-height="350"
                                   data-chrome="noheader nofooter"
-                                  class="twitter-timeline" 
-                                  href="https://twitter.com/asharmaiisc">
+                                  class="twitter-timeline"
+                                  href="https://twitter.com/asharmaiisc"
+                                >
                                   Tweets by asharmaiisc
                                 </a>
                               </div>
@@ -346,23 +347,22 @@ export default {
     posts: {
       immediate: true,
       handler (newVal) {
-        this.listNews = newVal.filter(el => el.category.name.toLowerCase() === 'news').slice(0, 3)
+        this.listNews = newVal.filter(el => el.category.name.toLowerCase() === 'news').reverse().slice(0, 3)
       }
     }
   },
   beforeMount () {
     this.$store.dispatch('getPosts')
   },
+  mounted () {
+    const ckeditor = document.createElement('script')
+    ckeditor.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    document.head.appendChild(ckeditor)
+  },
   methods: {
     subscribe () {
       if (this.email) { this.snackbar = true }
     }
-  },
-  mounted () {
-    let ckeditor = document.createElement('script')
-    ckeditor.setAttribute('src',"https://platform.twitter.com/widgets.js")
-    document.head.appendChild(ckeditor)
-    
   }
 }
 </script>
@@ -377,7 +377,7 @@ export default {
   color: #FFFFFF;
 }
 .panel-title {
- font-size: 25px; 
+ font-size: 25px;
  color: #FFFFFF;
  font-family: 'Open Sans', sans-serif;
 }
@@ -397,7 +397,6 @@ div#block-yui_3_17_2_1_1597840315726_20085 {
 .js-inViewportScribingTarget {
   display: none;
 }
-
 
 .v-speed-dial--top, .v-speed-dial--right {
   z-index: 1002  !important;

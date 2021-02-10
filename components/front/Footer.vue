@@ -58,7 +58,7 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li> <span>Phone:</span> <a href="#">+65 8670 1153</a></li>
+                      <li> <span>Phone:</span> <a v-if="contact && contact[0]" href="#">{{ contact[0].tel }}</a></li>
                       <li> <span>Email:</span> <a href="mailto:sharmaalab1@gmail.com">sharmaalab1@gmail.com</a></li>
                       <li> <span>Address:</span> 6 Verdun St, Nedlands WA 6009, Australia</li>
                     </ul>
@@ -117,6 +117,14 @@
 <script>
 
 export default {
-  name: 'Footer'
+  name: 'Footer',
+  data () {
+    return {
+      contact: null
+    }
+  },
+  async beforeMount () {
+    this.contact = await this.$store.dispatch('getContact')
+  }
 }
 </script>

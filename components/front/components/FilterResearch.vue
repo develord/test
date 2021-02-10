@@ -40,7 +40,7 @@ export default {
       handler (newVal) {
         if (newVal) {
           this.listTag = [...new Set(newVal.map(el => el.tags).flat().map(el => el.name))]
-          this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el?.substring(0, 4)))]
+          this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => parseInt(el?.substring(0, 4)) + 1))]
         }
       }
     }

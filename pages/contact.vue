@@ -59,7 +59,7 @@
                                 >
                               </div><h4>Make a Call</h4>
                             </div><div class="text">
-                              <p><a v-if="contact" href="tel:+44%20555%2067%20890">{{ contact[0].tel }}</a></p>
+                              <p><a v-if="contact" :href="'tel:'+contact[0].tel">{{ contact[0].tel }}</a></p>
                             </div>
                           </div>
                         </div><div class="col-lg-4 col-md-6 col-sm-12 info-column">

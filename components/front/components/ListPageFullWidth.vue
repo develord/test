@@ -57,7 +57,7 @@
             <p class="article-desc">
               {{ post.journal }} ,
               <template v-if=" post.published">
-                {{ post.published.substring(0,4) }}
+                {{ parseInt(post.published.substring(0,4)) + 1 }}
               </template>
             </p>
             <div class="tags-box">
@@ -108,6 +108,7 @@ export default {
       deep: true,
       handler (newVal) {
         newVal = this.$route.query.req
+        newVal = parseInt(newVal) - 1
         if (newVal === 'all' || !newVal) {
           this.listPost = this.listPublication
         } else {
@@ -125,16 +126,16 @@ export default {
       }
     }
   },
-  methods: {
-    getImages(tag) {
-      return this.images.filter(el => el._id === tag.image._id)[0].high
-    }
-  },
   beforeMount () {
     const url = this.$route.path.replace('/', '')
     this.$store.dispatch('getCategoryElement', url)
     this.$store.dispatch('getImages')
     this.loading = false
+  },
+  methods: {
+    getImages (tag) {
+      return this.images.filter(el => el._id === tag.image._id)[0].high
+    }
   }
 }
 </script>
