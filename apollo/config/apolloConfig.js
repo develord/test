@@ -8,7 +8,7 @@ import ApolloLogger from './ApolloLogger'
 export default (ctx) => {
   const loggerLink = process.env.NODE_ENV !== 'production' ? [new ApolloLogger()] : []
   const httpOptions = {
-    uri: 'http://localhost:4000/graphql'
+    uri: (process.browser || process.static) ?  'http://145.14.158.101:4000/graphql' : 'http://localhost:4000/graphql'
   }
 
   const httpLink = ApolloLink.split(
