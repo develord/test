@@ -19,7 +19,7 @@ const Query = {
     if (!link.includes('/')) {
       return Category.findOne({ link }).populate(['user', 'status', 'image_large', 'image_small'])
     } else {
-      const post = await Post.findOne({ link }).populate(['user', 'gallery', 'tags', 'status', 'image_large', 'image_small'])
+      const post = await Post.findOne({ link }).populate(['user', 'category', 'gallery', 'tags', 'status', 'image_large', 'image_small'])
       return post
     }
   }

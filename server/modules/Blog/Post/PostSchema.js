@@ -28,6 +28,7 @@ module.exports = {
       componentName: String
       fiche: String
       content: String
+      category: Category
       tags: [Tag]
       gallery: [Image]
       image_large: Image
