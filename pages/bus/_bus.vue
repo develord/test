@@ -7,24 +7,32 @@
       <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
         <div class="h-100 tofront">
           <div class="row justify-content-between">
-            <div class="col-md-12 pt-6 pb-6 pr-6 align-self-center">
+            <div class="col-md-12 pt-6 pb-6 align-self-center">
               <p class="text-uppercase font-weight-bold">
-                <a class="text-danger" href="#">{{ page.tags[0].name }}</a>
+                <a class="text-danger" href="#" v-if="page">{{ page.tags[0].name }}</a>
               </p>
-              <h1 class="display-4 secondfont mb-3 font-weight-bold">
+              <h1 v-if="page" class="display-4 secondfont mb-3 font-weight-bold">
                 {{page.h1}}
               </h1>
-              <p class="mb-3">
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb" v-if="page">
+                  <li class="breadcrumb-item"><NuxtLink class="breadcrumb-item" to="/">Acceuil</NuxtLink></li>
+                  <li class="breadcrumb-item"><NuxtLink class="breadcrumb-item" :to="'../'+page.category.link">{{ page.category.name }}</NuxtLink></li>
+                  <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                </ol>
+              </nav>
+              <p class="mb-3" v-if="page">
                 {{page.description}}
               </p>
               <div class="d-flex align-items-center">
                 <img class="rounded-circle" :src="'../img/demo/avatar2.jpg'" width="70">
-                <small class="ml-2">Jane Seymour <span class="text-muted d-block">A few hours ago &middot; 5 min. read</span>
+                <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. read</span>
                 </small>
               </div>
             </div>
             <div class="col-md-12 pr-0">
               <img
+                 v-if="page"
                 v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
                 class="is-lazy"
                 :alt="page.title"
@@ -43,28 +51,62 @@
     <div class="container pt-1 pb-1">
       <div class="row">
         <div class="col-lg-2 pr-4 mb-4 col-md-12">
-          <div class="sticky-top text-center">
-            <div class="text-muted">
-              Partager ce article
-            </div>
-            <div class="share d-inline-block">
-              <!-- AddToAny BEGIN -->
-              <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-                <a class="a2a_button_facebook" />
-                <a class="a2a_button_twitter" />
+          <div class="sticky-top sticky-sidebar-offset">
+            <div class="share text-center">
+              <div class="sidebarapplause">
+                  <div id="pt-claps-applause-161" class="pt-claps-applause">
+                    <a class="claps-button" href="https://www.themepush.com/demo-mundana/a-paris-street-set-design-for-act-ii-of-la-boheme/" data-id="161"></a>
+                    <span id="claps-count-161" class="claps-count">136</span><input type="hidden" id="_wpnonce" name="_wpnonce" value="e688d36211"><input type="hidden" name="_wp_http_referer" value="/demo-mundana/a-paris-street-set-design-for-act-ii-of-la-boheme/">
+                  </div>
               </div>
-              <!-- AddToAny END -->
+              <p class="sharecolour">
+                  Share                            
+              </p>
+              <ul class="shareitnow" v-if="page">
+                  <li>
+                    <a target="_blank" :href="'https://twitter.com/intent/tweet?text='+ this.page.h1 + '&amp;url=' + 'https://bus-world.fr' + this.$route.fullPath ">
+                    <i class="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" :href="'https://www.facebook.com/sharer/sharer.php?u=' + 'https://bus-world.fr' + this.$route.fullPath">        
+                    <i class="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a target="_blank" :href="'https://www.linkedin.com/shareArticle?mini=true&amp;url=' + 'https://bus-world.fr' + this.$route.fullPath + '&amp;title=' + this.page.h1 ">
+                    <i class="fa fa-linkedin"></i>
+                    </a>
+                  </li>
+              </ul>
+              <div class="sep"></div>
+              <div class="d-none d-md-block">
+                  <p>
+                    Reply                                
+                  </p>
+                  <ul>
+                    <li>
+                        <a class="smoothscroll" href="#comments">
+                          0<br>
+                          <svg class="svgIcon-use" width="29" height="29" viewBox="0 0 29 29">
+                              <path d="M21.27 20.058c1.89-1.826 2.754-4.17 2.754-6.674C24.024 8.21 19.67 4 14.1 4 8.53 4 4 8.21 4 13.384c0 5.175 4.53 9.385 10.1 9.385 1.007 0 2-.14 2.95-.41.285.25.592.49.918.7 1.306.87 2.716 1.31 4.19 1.31.276-.01.494-.14.6-.36a.625.625 0 0 0-.052-.65c-.61-.84-1.042-1.71-1.282-2.58a5.417 5.417 0 0 1-.154-.75zm-3.85 1.324l-.083-.28-.388.12a9.72 9.72 0 0 1-2.85.424c-4.96 0-8.99-3.706-8.99-8.262 0-4.556 4.03-8.263 8.99-8.263 4.95 0 8.77 3.71 8.77 8.27 0 2.25-.75 4.35-2.5 5.92l-.24.21v.32c0 .07 0 .19.02.37.03.29.1.6.19.92.19.7.49 1.4.89 2.08-.93-.14-1.83-.49-2.67-1.06-.34-.22-.88-.48-1.16-.74z">
+                              </path>
+                          </svg>
+                        </a>
+                    </li>
+                  </ul>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
-          <article class="article-post" v-html="content">
+          <article class="article-post" v-if="page" v-html="content">
           </article>
           <h2>Gallery images</h2>
           <client-only>
-            <lightbox class="pb-4" :items="page.gallery.map(el => '/images/' + el.high)" :cells="3"></lightbox>
+            <lightbox  v-if="page" class="pb-4" :items="page.gallery.map(el => '/images/' + el.high)" :cells="3"></lightbox>
           </client-only>
-          <div v-html="ficheTechnique" />
+          <div v-if="page" v-html="ficheTechnique" />
           <div class="border p-5 bg-lightblue">
             <div class="row justify-content-between">
               <div class="col-md-5 mb-2 mb-md-0">
@@ -169,7 +211,7 @@ export default {
   apollo: {
     page: {
       query: page,
-      fetchPolicy: 'cache-and-network',
+      fetchPolicy: 'cache-first',
       variables() {
         return { link: this.$route.path }
       }
@@ -186,10 +228,28 @@ export default {
       this.content = JSON.parse(val.content).html
       this.ficheTechnique = JSON.parse(val.fiche).html
     }
+  },
+  mounted() {
+    this.$apolloProvider.defaultClient.query({ query: page, fetchPolicy: 'cache-first', variables: { link:'/' + this.page.category.link }})
   }
 }
 </script>
 <style>
+.claps-button:before {
+    content: url(../../assets/applaud.svg);
+}
+.fa-twitter {
+  content: url(../../assets/twitter.svg);
+  width: 22px;
+}
+.fa-facebook {
+  content: url(../../assets/facebook.svg);
+  width: 22px;
+}
+.fa-linkedin {
+  content: url(../../assets/linkedin.svg);
+  width: 20px;
+}
 .fa-angle-right:before {
     content: "\f105";
 }

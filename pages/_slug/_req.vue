@@ -17,6 +17,7 @@
             </div>
             <div class="col-md-12 pr-0 text-center">
               <img
+                v-if="page"
                 v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
                 class="is-lazy"
                 :alt="page.title"
@@ -50,8 +51,7 @@
           </div>
         </div>
         <div class="col-lg-10 col-md-12">
-          <article class="article-post" v-pre>
-            {{ content }}
+          <article class="article-post" v-html="content">
           </article>
         </div>
       </div>
@@ -165,7 +165,7 @@ export default {
   apollo: {
     page: {
       query: page,
-      fetchPolicy: 'cache-and-network',
+      fetchPolicy: 'cache-first',
       variables() {
         return { link: this.$route.path }
       }

@@ -7,12 +7,14 @@ const defaultLogger = ({ operation, response, graphQLErrors, networkError }) => 
   if (graphQLErrors) {
     graphQLErrors.map(({ message, locations, path }) =>
       // new Error(message)
-      console.log('Youssef')
-      // console.error(`[GraphQL Error] Message: "${message}", Locations: ${JSON.stringify(locations)}, Path: "${path}"`)
+      //nsole.log('Youssef')
+      console.error(`[GraphQL Error] Message: "${message}", Locations: ${JSON.stringify(locations)}, Path: "${path}"`)
     )
   }
 
   if (networkError) {
+    console.error(response)
+    console.error(operation)
     console.error(`[Network Error] "${networkError}"`)
   }
 }

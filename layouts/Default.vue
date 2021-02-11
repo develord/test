@@ -5,7 +5,7 @@
     --------------------------------------->
     <nav class="topnav navbar navbar-expand-lg navbar-light bg-white fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#"><strong>#BusWorld</strong></a>
+        <a class="navbar-brand" href="#"><strong>Busworld<mark>.</mark></strong></a>
         <button
           class="navbar-toggler collapsed"
           type="button"
@@ -131,7 +131,11 @@ img[lazy='error'].is-lazy {
 *::before,
 *::after {
   box-sizing: border-box; }
-
+mark, p mark {
+    padding: 0;
+    background-color: transparent;
+    color: var(--theme-primary-color);
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
@@ -391,6 +395,70 @@ template {
 [hidden] {
   display: none !important; }
 
+.pt-claps-applause {
+    height: 60px;
+    line-height: 60px;
+    width: 60px;
+    padding: 0;
+    font-size: 25px;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    display: inline-block;
+    position: relative;
+    background: none;
+    outline: 1px solid transparent;
+    border-radius: 50%;
+    border: 1px solid #d2d2d2;
+    text-align: center;
+    transition: border-color 0.3s ease-in;
+}
+.pt-claps-applause .claps-button {
+    display: block;
+    margin-top: 7px;
+}
+.pt-claps-applause:hover {
+    cursor: pointer;
+    border: 1px solid #27ae60;
+    transition: border-color 0.3s ease-in;
+}
+.share ul li {
+    display: block;
+    margin-bottom: 5px;
+}
+ul {
+    list-style-type: disc;
+}
+.shareitnow li a {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #212529;
+    line-height: 39px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    color: #212529;
+    font-size: 13px;
+    opacity: .3;
+}
+.shareitnow li a:hover {
+    opacity: 1;
+}
+.share ul {
+    padding-left: 0;
+    margin-left: 0;
+}
+.pt-claps-applause .claps-count {
+    font-size: 13px;
+    position: relative;
+    margin-top: -113px;
+    margin-left: 0;
+    color: #bdc3c7;
+    display: block;
+    font-family: Tahoma;
+}
+a, a:hover {
+    color: #03a87c;
+}
 /*!
  * Bootstrap v4.1.3 (https://getbootstrap.com/)
  * Copyright 2011-2018 The Bootstrap Authors
@@ -403,6 +471,7 @@ template {
   --purple: #ad6edd;
   --pink: #ff0266;
   --red: #ea2f65;
+  --theme-primary-color: #ff5959;
   --orange: #fbb500;
   --yellow: #ffde03;
   --green: #03a87c;
@@ -763,8 +832,7 @@ small,
 
 mark,
 .mark {
-  padding: 0.2em;
-  background-color: #fcf8e3; }
+  padding: 0.2em; }
 
 .list-unstyled {
   padding-left: 0;
@@ -4128,7 +4196,6 @@ input[type="button"].btn-block {
   padding: 0.75rem 1rem;
   margin-bottom: 1rem;
   list-style: none;
-  background-color: #e9ecef;
   border-radius: 0.25rem; }
 
 .breadcrumb-item + .breadcrumb-item {

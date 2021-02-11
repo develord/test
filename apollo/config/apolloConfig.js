@@ -8,7 +8,7 @@ import ApolloLogger from './ApolloLogger'
 export default (ctx) => {
   const loggerLink = process.env.NODE_ENV !== 'production' ? [new ApolloLogger()] : []
   const httpOptions = {
-    uri: process.env.BASE_URL_GQL
+    uri: 'http://localhost:4000/graphql'
   }
 
   const httpLink = ApolloLink.split(
@@ -34,6 +34,7 @@ export default (ctx) => {
       authLink,
       httpLink
     ]),
+    persisting: true,
     cache: new InMemoryCache(),
     defaultHttpLink: false
   }

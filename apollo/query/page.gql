@@ -8,6 +8,7 @@ query($link: String) {
         h1
         content
         fiche
+        category {name , link}
         tags {_id, name, slug}
         image_large {_id, low, high}
         image_small {_id, low, high}
