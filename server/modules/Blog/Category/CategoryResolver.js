@@ -39,7 +39,7 @@ const Query = {
 const Mutation = {
   // eslint-disable-next-line camelcase
   createCategory: async (_, { title, name, description, componentName, h1, user, status, content, image_large, image_small }) => {
-    const link = helpers.slugify(h1)
+    const link = helpers.slugify(name)
     const postData = { title, name, description, h1, content, componentName, image_large, image_small, link, user, status }
     const category = await new Category(postData).populate(['user', 'status', 'image_large', 'image_small'])
     return category.save()
@@ -47,7 +47,7 @@ const Mutation = {
   // eslint-disable-next-line camelcase
   updateCategory: async (_, { _id, title, name, description, componentName, h1, user, status, content, image_large, image_small }) => {
     /** Make more validation **/
-    const link = helpers.slugify(h1)
+    const link = helpers.slugify(name)
     const data = { title, name, description, componentName, h1, user, status, content, image_large, image_small, link }
     const updated = await Category.findOneAndUpdate({ _id }, data, {
       new: true
