@@ -26,7 +26,7 @@
               </p>
               <div class="d-flex align-items-center">
                 <img class="rounded-circle" :src="'../img/demo/avatar2.jpg'" width="70">
-                <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. read</span>
+                <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. lire</span>
                 </small>
               </div>
             </div>
@@ -134,62 +134,46 @@
     </div>
     <div class="container pt-4 pb-4">
       <h5 class="font-weight-bold spanborder">
-        <span>Read next</span>
+        <span>Articles Similaires</span>
       </h5>
       <div class="row">
         <div class="col-lg-6">
-          <div class="card border-0 mb-4 box-shadow h-xl-300">
-            <div style="background-image: url(../img/demo/3.jpg); height: 150px; background-size: cover; background-repeat: no-repeat;" />
+          <div class="card border-0 mb-4 box-shadow h-xl-300" v-if="relatedArticle.length">
+            <div v-lazy:background-image="{ src: '../images/' + relatedArticle[0].image_large.high, loading: '../images/' + relatedArticle[0].image_large.low}" style="height: 150px; background-size: cover; background-repeat: no-repeat;" />
             <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
               <h2 class="h4 font-weight-bold">
-                <a class="text-dark" href="#">Brain Stimulation Relieves Depression Symptoms</a>
+                <a class="text-dark" href="#">{{ relatedArticle[0].h1 }}</a>
               </h2>
               <p class="card-text">
-                Researchers have found an effective target in the brain for electrical stimulation to improve mood in people suffering from depression.
+                {{ relatedArticle[0].description.substring(0,125) }}...
               </p>
               <div>
-                <small class="d-block"><a class="text-muted" href="#">Favid Rick</a></small>
-                <small class="text-muted">Dec 12 · 5 min read</small>
+                <small class="d-block"><a class="text-muted" href="#">{{relatedArticle[0].tags[0].name}}</a></small>
+                <small class="text-muted">{{ new Date(relatedArticle[0].created_at).getFullYear() }} &middot; 5 min. lire </small>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="flex-md-row mb-4 box-shadow h-xl-300">
-            <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog4.jpg'">
+            <div class="mb-3 d-flex align-items-center" v-for="item in relatedArticle.slice(1)" :key="item._id">
+              <img
+                v-lazy="{ src: '../images/' + item.image_small.high, loading: '../images/' + item.image_small.low}"
+                height="90"
+                width="125"
+                class="is-lazy"
+                :alt="item.title"
+                :title="item.title"
+                :src="'../images/' + item.image_small.low"
+              >
               <div class="pl-3">
                 <h2 class="mb-2 h6 font-weight-bold">
-                  <a class="text-dark" href="#">Nasa's IceSat space laser makes height maps of Earth</a>
+                  <a class="text-dark" href="#">{{item.h1}}</a>
                 </h2>
                 <div class="card-text text-muted small">
-                  Jake Bittle in LOVE/HATE
+                  {{item.category.name}} - {{item.tags[0].name}}
                 </div>
-                <small class="text-muted">Dec 12 · 5 min read</small>
-              </div>
-            </div>
-            <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog5.jpg'">
-              <div class="pl-3">
-                <h2 class="mb-2 h6 font-weight-bold">
-                  <a class="text-dark" href="#">Underwater museum brings hope to Lake Titicaca</a>
-                </h2>
-                <div class="card-text text-muted small">
-                  Jake Bittle in LOVE/HATE
-                </div>
-                <small class="text-muted">Dec 12 · 5 min read</small>
-              </div>
-            </div>
-            <div class="mb-3 d-flex align-items-center">
-              <img height="80" :src="'../img/demo/blog6.jpg'">
-              <div class="pl-3">
-                <h2 class="mb-2 h6 font-weight-bold">
-                  <a class="text-dark" href="#">Sun-skimming probe starts calling home</a>
-                </h2>
-                <div class="card-text text-muted small">
-                  Jake Bittle in LOVE/HATE
-                </div>
-                <small class="text-muted">Dec 12 · 5 min read</small>
+                <small class="text-muted">{{ new Date(item.created_at).getFullYear() }} &middot; 5 min. lire </small>
               </div>
             </div>
           </div>
@@ -200,7 +184,7 @@
 </div>
 </template>
 <script>
-import { page } from '@/apollo/query'
+import { page, categoryElements } from '@/apollo/query'
 import Lightbox from '@/components/Lightbox.vue'
 
 export default {
@@ -220,13 +204,15 @@ export default {
    data: () => {
     return {
       content: null,
-      ficheTechnique: null
+      ficheTechnique: null,
+      relatedArticle: []
     }
   },
   watch: {
-    page(val) {
+    async page(val) {
       this.content = JSON.parse(val.content).html
       this.ficheTechnique = JSON.parse(val.fiche).html
+      this.relatedArticle = await this.$store.dispatch('getCategoryElement', val.category.link)
     }
   },
   mounted() {
