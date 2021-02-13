@@ -15,6 +15,7 @@
 </template>
 
 <script>
+
 import SideBar from '~/components/SideBar.vue'
 import NavBar from '~/components/NavBar.vue'
 import 'element-ui/lib/theme-chalk/index.css'

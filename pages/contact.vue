@@ -82,7 +82,7 @@
                               </div><h4>Send a Mail</h4>
                             </div><div class="text">
                               <p v-if="contact">
-                                <a :href="'mailto:' + contact[0].location ">{{ contact[0].mail }}</a>
+                                <a :href="'mailto:' + contact[0].mail ">{{ contact[0].mail }}</a>
                               </p>
                             </div>
                           </div>

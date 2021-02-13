@@ -1,3 +1,4 @@
+const moment = require('moment-timezone')
 const Category = require('../Category')
 const Post = require('.')
 /**
@@ -34,6 +35,7 @@ const Mutation = {
   // eslint-disable-next-line camelcase
   createPost: async (_, { journal, pdf, tagfilter, exterlink, authors, title, published, tags, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
     const postData = { title, journal, pdf, tagfilter, exterlink, published, authors, tags, description, h1, componentName, content, image_large, image_small, link, user, category, status }
+    postData.published = moment(postData.published).utcOffset('+12:00').format('YYYY-MM-DD HH:mm')
     const post = await new Post(postData)
     return post.save()
   },
@@ -41,8 +43,9 @@ const Mutation = {
   updatePost: async (_, { _id, journal, pdf, tagfilter, exterlink, authors, published, tags, title, description, h1, content, componentName, image_large, image_small, link, user, category, status }) => {
     // if we need to validate more, we destruct the args.data object (fields to update)
     /** We can make more validation here **/
+    const utcDate = moment(published).utcOffset('+12:00').format('YYYY-MM-DD HH:mm')
     // it's better to pass a single object to updateOne to avoid checking on undefined
-    const data = { title, published, journal, tagfilter, pdf, exterlink, authors, description, tags, h1, content, componentName, image_large, image_small, link, user, category, status }
+    const data = { title, published: utcDate, journal, tagfilter, pdf, exterlink, authors, description, tags, h1, content, componentName, image_large, image_small, link, user, category, status }
     const updated = await Post.findOneAndUpdate({ _id }, data, {
       new: true
     })

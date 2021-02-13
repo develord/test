@@ -13,9 +13,11 @@
   </fragment>
 </template>
 <script>
+import moment from 'moment-timezone'
 import { categories, statuses, tags } from '@/apollo/query'
 import formObject from './form.json'
 import FormBase from '~/components/form/base'
+moment.tz.setDefault('Etc/UTC')
 
 export default {
   name: 'PostCreate',
@@ -64,6 +66,9 @@ export default {
     }
   },
   watch: {
+    'post.published': (val) => {
+      console.log(moment(val).zone('+0100').format('YYYY-MM-DD HH:mm'))
+    },
     categories (newVal) {
       this.listCategories = newVal
     },

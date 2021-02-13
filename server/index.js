@@ -1,10 +1,11 @@
 const app = require('express')()
 const { Nuxt, Builder } = require('nuxt')
 const consola = require('consola')
+const moment = require('moment-timezone')
 const apollo = require('./apollo/index')
 const { config, dev } = require('./config')
 require('./db')()
-
+moment.tz.setDefault('Etc/UTC')
 async function start () {
   // Init Nuxt.js
   const nuxt = new Nuxt(config)

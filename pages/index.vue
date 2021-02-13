@@ -323,7 +323,7 @@ export default {
           image: './images/1s_perth.png'
         },
         {
-          vid: 'https://youtube.com/embed/O-ByPYK-2fo?autoplay=1&controls=0&showinfo=0&autohide=1'
+          vid: 'https://youtube.com/embed/O-ByPYK-2fo?autoplay=0&controls=0&showinfo=0&autohide=1'
         }
       ],
       options: {

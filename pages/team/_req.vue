@@ -23,7 +23,7 @@
                     >
                     <ul class="contact-box clearfix" style="right: -60px;">
                       <li class="email">
-                        <a :href="'mailto:http://' + teams.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams.email }}</span> </a>
+                        <a :href="'mailto:' + teams.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ teams.email }}</span> </a>
                       </li>
                       <div v-if="teams.linkedin || teams.researchgate|| teams.github" class="social-links">
                         <li>
@@ -62,7 +62,7 @@
                     </NuxtLink>
                     <span class="designation">{{ teams.title }}</span>
                     <div class="designation">
-                      <a target="_blank" :href="teams.cv" style="width: 44px;background-color:transparent; color: rgb(249,+50,+110)">
+                      <a target="_blank" :href="'../pdf/'+teams.cv" style="width: 44px;background-color:transparent; color: rgb(249,+50,+110)">
                         <img style="width: 44px" alt="CV" title="CV" src="https://image.flaticon.com/icons/png/512/957/957342.png">
                       </a>
                     </div>
@@ -119,17 +119,17 @@ export default {
       return this.$store.state.images
     }
   },
-  methods: {
-    getImages(tag) {
-      if(this.images) return this.images.filter(el => el._id === tag.image._id)[0]
-    }
-  },
   async beforeMount () {
     await this.$store.dispatch('getImages')
     const aa = await this.$store.dispatch('getTeams')
     const { content, ...data } = aa.filter(el => el.link === this.$route.path.replace('/team/', ''))[0]
     data.content = JSON.parse(content)
     this.teams = data
+  },
+  methods: {
+    getImages (tag) {
+      if (this.images) { return this.images.filter(el => el._id === tag.image._id)[0] }
+    }
   }
 }
 </script>

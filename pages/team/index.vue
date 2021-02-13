@@ -27,7 +27,7 @@
                       </NuxtLink>
                       <ul class="contact-box clearfix">
                         <li class="email">
-                          <a :href="'mailto:http://' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
+                          <a :href="'mailto:' + item.email"> <img style="width: 34px;margin: 10px 5px 13px 12px;" src="https://img.icons8.com/nolan/64/email.png"> <span>{{ item.email }}</span> </a>
                         </li>
                         <div v-if="item.linkedin || item.researchgate|| item.github" class="social-links">
                           <li>
@@ -117,11 +117,6 @@ export default {
       return this.$store.state.images
     }
   },
-  methods: {
-    getImages(tag) {
-      if(this.images) return this.images.filter(el => el._id === tag.image._id)[0]
-    }
-  },
   async beforeMount () {
     await this.$store.dispatch('getImages')
     const ListTeam = await this.$store.dispatch('getTeams')
@@ -130,6 +125,11 @@ export default {
       data.content = JSON.parse(content)
       this.teams.push(data)
     })
+  },
+  methods: {
+    getImages (tag) {
+      if (this.images) { return this.images.filter(el => el._id === tag.image._id)[0] }
+    }
   }
 }
 </script>
