@@ -38,8 +38,9 @@
         "select": {
           "options": [
             "Bus",
-            "agence",
-            "actualite"
+            "Agence",
+            "Actu",
+            "autre"
           ]
         }
       },
