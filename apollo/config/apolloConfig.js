@@ -9,7 +9,7 @@ export default (ctx) => {
   const loggerLink = process.env.NODE_ENV !== 'production' ? [new ApolloLogger()] : []
 
   const httpOptions = {
-    uri: 'http://localhost:3000/graphql'
+    uri: process.env.BASE_URL_GQL
   }
 
   const httpLink = ApolloLink.split(
