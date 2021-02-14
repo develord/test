@@ -122,9 +122,8 @@ export default {
       if (this.$route.query.req && this.$route.query.req !== 'all') {
         this.listPost = this.listPublication.filter(el => el.tags.filter(tag => (tag.name) === this.$route.query.req).length > 0)
       } else {
-        this.listPost = this.listPublication
+        this.listPost = this.listPublication.sort((a, b) => (parseInt(a.published.substring(0, 4)) <= parseInt(b.published.substring(0, 4))) ? 1 : ((parseInt(b.published.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
       }
-      this.listPost = this.listPost.sort((a, b) => (parseInt(a.published.substring(0, 4)) <= parseInt(b.published.substring(0, 4))) ? 1 : ((parseInt(b.published.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
     }
   },
   beforeMount () {
