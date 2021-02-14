@@ -3,7 +3,7 @@ import VueLazyload from 'vue-lazyload'
 
 if (process.browser || process.static) {
   Vue.use(VueLazyload, {
-    error: '/img/fake-thumbnail.png',
+    error: '/img/placeholder.jpg',
     observer: false,
     adapter: {
       loaded ({ el, Init }) {

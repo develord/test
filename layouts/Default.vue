@@ -25,22 +25,22 @@
               </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="bus">
+              <NuxtLink class="nav-link" :to="{ name: 'bus'}">
                 Bus
               </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="agences">
+              <NuxtLink class="nav-link" to="/agences">
                 Agences
               </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="actualiter">
+              <NuxtLink class="nav-link" to="/actu">
                 Actualiter
               </NuxtLink>
             </li>
             <li class="nav-item">
-              <NuxtLink class="nav-link" to="qui-sommes-nous">
+              <NuxtLink class="nav-link" to="/qui-sommes-nous">
                 Qui Somme Nous
               </NuxtLink>
             </li>
@@ -58,9 +58,12 @@
       <footer class="bg-white border-top p-3 text-muted small">
         <div class="row align-items-center justify-content-between">
           <div>
-            <span class="navbar-brand mr-2"><strong>BusWorld</strong></span> Copyright &copy;
+            <span class="navbar-brand mr-2"><strong>Busworld</strong></span> Copyright &copy;
             . All rights reserved.
-          </div>
+            
+          </div><NuxtLink class="nav-link" to="/montion-legale">
+                Montion legale
+            </NuxtLink>
         </div>
       </footer>
     </div>
