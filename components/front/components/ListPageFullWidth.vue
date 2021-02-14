@@ -124,6 +124,7 @@ export default {
       } else {
         this.listPost = this.listPublication
       }
+      this.listPost = this.listPost.sort((a, b) => (parseInt(a.published.substring(0, 4)) <= parseInt(b.published.substring(0, 4))) ? 1 : ((parseInt(b.published.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
     }
   },
   beforeMount () {
