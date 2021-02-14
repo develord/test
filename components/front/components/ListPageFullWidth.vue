@@ -112,18 +112,15 @@ export default {
           this.listPost = this.listPublication
         } else {
           this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
-            (parseInt(this.$route.query.req) === parseInt(el.published.substring(0, 4)) ? parseInt(el.published.substring(0, 4)) : tag.name) === parseInt(newVal)
+            (parseInt(this.$route.query.req) === parseInt(el.published?.substring(0, 4)) ? parseInt(el.published?.substring(0, 4)) : tag.name) === parseInt(newVal)
           ).length > 0)
         }
-        this.listPost = this.listPost.sort((a, b) => (parseInt(a.published.substring(0, 4)) <= parseInt(b.published.substring(0, 4))) ? 1 : ((parseInt(b.published.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
+        this.listPost = this.listPost.sort((a, b) => (parseInt(a.published?.substring(0, 4)) <= parseInt(b.published?.substring(0, 4))) ? 1 : ((parseInt(b.published?.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
       }
     },
     listPublication (newval) {
-      if (this.$route.query.req && this.$route.query.req !== 'all') {
-        this.listPost = this.listPublication.filter(el => el.tags.filter(tag => (tag.name) === this.$route.query.req).length > 0)
-      } else {
-        this.listPost = this.listPublication.sort((a, b) => (parseInt(a.published.substring(0, 4)) <= parseInt(b.published.substring(0, 4))) ? 1 : ((parseInt(b.published.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
-      }
+      const list = JSON.parse(JSON.stringify(newval))
+      this.listPost = list.sort((a, b) => (parseInt(a.published?.substring(0, 4)) <= parseInt(b.published?.substring(0, 4))) ? 1 : ((parseInt(b.published?.substring(0, 4)) <= parseInt(a.published.substring(0, 4))) ? -1 : 0))
     }
   },
   beforeMount () {
