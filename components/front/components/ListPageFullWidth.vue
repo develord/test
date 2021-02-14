@@ -109,11 +109,11 @@ export default {
       handler (newVal) {
         newVal = this.$route.query.req
         if (newVal === 'all' || !newVal) {
-          this.listPost = this.listPublication
+          this.listPost = this.listPublication.sort((a, b) => (a.published < b.published) ? 1 : ((b.published < a.published) ? -1 : 0))
         } else {
           this.listPost = this.listPublication.filter(el => el.tags.filter(tag =>
             (parseInt(this.$route.query.req) === parseInt(el.published.substring(0, 4)) ? parseInt(el.published.substring(0, 4)) : tag.name) === parseInt(newVal)
-          ).length > 0)
+          ).length > 0).sort((a, b) => (a.published < b.published) ? 1 : ((b.published < a.published) ? -1 : 0))
         }
       }
     },
