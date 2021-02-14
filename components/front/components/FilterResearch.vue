@@ -40,7 +40,8 @@ export default {
       handler (newVal) {
         if (newVal) {
           this.listTag = [...new Set(newVal.map(el => el.tags).flat().map(el => el.name))]
-          this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => el?.substring(0, 4)))].sort((a, b) => (a.published < b.published) ? 1 : ((b.published < a.published) ? -1 : 0))
+          this.listDate = [...new Set(newVal.map(el => el.published).flat().map(el => parseInt(el?.substring(0, 4))))]
+          this.listDate.sort(function (a, b) { return b - a })
         }
       }
     }
