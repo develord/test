@@ -3,26 +3,41 @@
 <div class="container mt-5 mb-5">
 	<div class="row">
 		<div class="col-md-8">
-			<h5 class="font-weight-bold spanborder"><span>Latest</span></h5>
-			<div class="mb-3 d-flex justify-content-between">
+			<h5 class="font-weight-bold spanborder"><span>Nos dernière actualité</span></h5>
+			<div class="mb-3 d-flex justify-content-between" v-for="item in listArticle" :key="item._id">
 				<div class="pr-3">
 					<h2 class="mb-1 h4 font-weight-bold">
-					<a class="text-dark" href="#">Nearly 200 Great Barrier Reef coral species also live in the deep sea</a>
+						<NuxtLink class="text-dark" :to="item.link">{{item.h1}}</NuxtLink>
 					</h2>
 					<p>
-						 There are more coral species lurking in the deep ocean that previously thought.
+						 {{item.description}}
 					</p>
 					<div class="card-text text-muted small">
-						 Jake Bittle in SCIENCE
+						 {{item.tags[0].name}}
 					</div>
-					<small class="text-muted">Dec 12 · 5 min read</small>
+					<small class="text-muted">{{ new Date(item.created_at).getFullYear() }} · 5 min read</small>
 				</div>
-				<img height="120" :src="'../images/blog8.jpg'">
+				<img
+					v-lazy="{ src: './images/' + item.image_small.high, loading: './images/' + item.image_small.low}"
+					height="120"
+					width="125"
+					class="is-lazy"
+					:alt="item.title"
+					:title="item.title"
+					:src="'../images/' + item.image_small.low"
+				>
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-auto me-auto">
+				</div>
+				<div class="col-auto">
+					<NuxtLink class="text-dark" :to="'/actu/1'">page suivante</NuxtLink>
+				</div>
 			</div>
 		</div>
 		<div class="col-md-4 pl-4">
 			<div class="sticky-top">
-				<h5 class="font-weight-bold spanborder"><span>Popular in Science</span></h5>
+				<h5 class="font-weight-bold spanborder"><span>Les plus visités</span></h5>
 				<ol class="list-featured">
 					<li>
 					<span>
@@ -72,18 +87,29 @@
 </div>
 </template>
 <script>
-import { categories } from '@/apollo/query'
+import { categoryElements } from '@/apollo/query'
 export default {
   layout: 'Default',
   apollo: {
-    categories: {
-      query: categories,
-      fetchPolicy: 'cache-and-network',
+    categoryElements: {
+      query: categoryElements,
+      fetchPolicy: 'cache-first',
       variables() {
-        return { link: this.$route.path }
+        return { link: this.$route.name, page: 0 }
       }
+    },
+  },
+  data: () => {
+    return {
+      content: null,
+      listArticle: []
     }
   },
+  watch: {
+	 categoryElements(val) {
+		this.listArticle =  val
+	},
+  }
 }
 </script>
 <style>

@@ -22,14 +22,7 @@ module.exports = {
   router: {
     prefetchLinks: true,
     trailingSlash: false,
-    linkActiveClass: 'active-link',
-    extendRoutes(routes, resolve) {
-      routes.push({
-        name: '404',
-        path: '*',
-        component: resolve(__dirname, 'components/404.vue')
-      })
-    }
+    linkActiveClass: 'active-link'
   },
 
   loading: {

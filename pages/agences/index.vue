@@ -1,59 +1,115 @@
 <template>
 <div>
-    <!--------------------------------------
-    HEADER
-    --------------------------------------->
-    <div class="container">
-      <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
-        <div class="h-100 tofront">
-          <div class="row justify-content-between">
-            <div class="col-md-12 pt-6 pb-1 pr-6 align-self-center">
-              <h1 class="display-4 secondfont mb-3 bloc-title text-center font-weight-bold">
-                Marques construction des bus
-              </h1>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Header -->
- <!--------------------------------------
-    MAIN
-    --------------------------------------->
-    <div class="container pt-4 pb-4">
-      <div class="row justify-content-center">
-        <div class="col-lg-2 pb-1 col-md-4 " v-for="(item,i) in categories" :key="i">
-            <NuxtLink :to="item.link">
-            <img
-                v-lazy="{ src:  (item.image_small ? '/images/' + item.image_small.high : '/img/placeholder.jpg'), loading:  (item.image_small ? '/images/' + item.image_small.high : '/img/placeholder.jpg')}"
-                class="is-lazy logo-brand-constructor"
-                width="150"
-                height="150"
-                :alt="item.h1"
-                :title="item.h1"
-                :src=" (item.image_small ? item.image_small.high + '/images/': '/img/placeholder.jpg')"
-            >
-            <span class="text-center bus-name">{{item.name}}</span>
-            </NuxtLink>
-        </div>
-      </div>
-    </div>
-    <!-- End Main -->
+<div class="container mt-5 mb-5">
+	<div class="row">
+		<div class="col-md-8">
+			<h5 class="font-weight-bold spanborder"><span>Agences</span></h5>
+			<div class="mb-3 d-flex justify-content-between" v-for="item in listArticle" :key="item._id">
+				<div class="pr-3">
+					<h2 class="mb-1 h4 font-weight-bold">
+						<NuxtLink class="text-dark" :to="item.link">{{item.h1}}</NuxtLink>
+					</h2>
+					<p>
+						 {{item.description}}
+					</p>
+					<div class="card-text text-muted small">
+						 {{item.tags[0].name}}
+					</div>
+					<small class="text-muted">{{ new Date(item.created_at).getFullYear() }} · 5 min read</small>
+				</div>
+				<img
+					v-lazy="{ src: './images/' + item.image_small.high, loading: './images/' + item.image_small.low}"
+					height="120"
+					width="125"
+					class="is-lazy"
+					:alt="item.title"
+					:title="item.title"
+					:src="'../images/' + item.image_small.low"
+				>
+			</div>
+			<div class="row justify-content-between">
+				<div class="col-auto me-auto">
+				</div>
+				<div class="col-auto">
+					<NuxtLink class="text-dark" :to="'/agences/1'">page suivante</NuxtLink>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 pl-4">
+			<div class="sticky-top">
+				<h5 class="font-weight-bold spanborder"><span>Les plus visités</span></h5>
+				<ol class="list-featured">
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Did Supernovae Kill Off Large Ocean Animals?</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Humans Reversing Climate Clock: 50 Million Years</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Unprecedented Views of the Birth of Planets</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+					<li>
+					<span>
+					<h6 class="font-weight-bold">
+					<a href="./article.html" class="text-dark">Effective New Target for Mood-Boosting Brain Stimulation Found</a>
+					</h6>
+					<p class="text-muted">
+						 Jake Bittle in SCIENCE
+					</p>
+					</span>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</div>
+</div>
 </div>
 </template>
 <script>
-import { categories } from '@/apollo/query'
+import { categoryElements } from '@/apollo/query'
 export default {
   layout: 'Default',
   apollo: {
-    categories: {
-      query: categories,
-      fetchPolicy: 'cache-and-network',
+    categoryElements: {
+      query: categoryElements,
+      fetchPolicy: 'cache-first',
       variables() {
-        return { link: this.$route.path }
+        return { link: this.$route.name, page: 0 }
       }
+    },
+  },
+  data: () => {
+    return {
+      content: null,
+      listArticle: []
     }
   },
+  watch: {
+	 categoryElements(val) {
+		this.listArticle =  val
+	},
+  }
 }
 </script>
 <style>

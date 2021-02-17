@@ -25,7 +25,7 @@
                 {{page.description}}
               </p>
               <div class="d-flex align-items-center">
-                <img class="rounded-circle" :src="'../img/demo/avatar2.jpg'" width="70">
+                <img class="rounded-circle" :src="'../img/avatar2.jpg'" width="70">
                 <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. lire</span>
                 </small>
               </div>
@@ -136,9 +136,9 @@
       <h5 class="font-weight-bold spanborder">
         <span>Articles Similaires</span>
       </h5>
-      <div class="row">
+      <div class="row" v-if="relatedArticle.length">
         <div class="col-lg-6">
-          <div class="card border-0 mb-4 box-shadow h-xl-300" v-if="relatedArticle.length">
+          <div class="card border-0 mb-4 box-shadow h-xl-300">
             <div v-lazy:background-image="{ src: '../images/' + relatedArticle[0].image_large.high, loading: '../images/' + relatedArticle[0].image_large.low}" style="height: 150px; background-size: cover; background-repeat: no-repeat;" />
             <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
               <h2 class="h4 font-weight-bold">
