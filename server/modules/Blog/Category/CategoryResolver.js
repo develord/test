@@ -21,11 +21,19 @@ const Query = {
     return listCategory
   },
   category: (_, { _id }) => Category.findOne({ _id }),
-  categoryElements: async (_, { link }) => {
-    const cat = await Category.findOne({ link })
-    if (cat) {
-      const posts = await Post.find({ 'category': cat._id }).populate(['user', 'category', 'tags', 'status', 'image_large', 'image_small']).limit(4)
-      return posts
+  categoryElements: async (_, { link, page }) => {
+    if (!page) {
+      const cat = await Category.findOne({ link })
+      if (cat) {
+        const posts = await Post.find({ 'category': cat._id }).populate(['user', 'category', 'tags', 'status', 'image_large', 'image_small']).limit(4)
+        return posts
+      }
+    } else {
+      const cat = await Category.findOne({ link })
+      if (cat) {
+        const posts = await Post.find({ 'category': cat._id }).populate(['user', 'category', 'tags', 'status', 'image_large', 'image_small']).skip(page * 4).limit(4)
+        return posts
+      }
     }
   }
 }
