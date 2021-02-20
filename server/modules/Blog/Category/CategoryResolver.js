@@ -32,7 +32,7 @@ const Query = {
       const cat = await Category.findOne({ link })
       if (cat) {
         const n = await Post.find({ 'category': cat._id }).count()
-        const posts = await Post.find({ 'category': cat._id }).populate(['user', 'category', 'tags', 'status', 'image_large', 'image_small']).limit(nb).skip(n - 5).sort({ created_at: 1 })
+        const posts = await Post.find({ 'category': cat._id }).populate(['user', 'category', 'tags', 'status', 'image_large', 'image_small']).limit(nb).skip(n - 5 < 0 ? 0 : n - 5).sort({ created_at: 1 })
         return posts
       }
     }
