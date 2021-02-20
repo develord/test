@@ -1,51 +1,51 @@
 <template>
 <div>
-<div class="container" v-if="isPage">
-   <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
-      <div class="h-100 tofront">
-         <div class="row justify-content-between">
-            <div class="col-md-12 pt-6 pb-6 align-self-center">
-               <p class="text-uppercase font-weight-bold">
-                  <a class="text-danger" href="#" v-if="page">{{ page.tags[0].name }}</a>
-               </p>
-               <h1 v-if="page" class="display-4 secondfont mb-3 font-weight-bold">
-                  {{page.h1}}
-               </h1>
-               <nav aria-label="breadcrumb">
-                  <ol class="breadcrumb" v-if="page">
-                     <li class="breadcrumb-item">
-                        <NuxtLink class="breadcrumb-item" to="/">Acceuil</NuxtLink>
-                     </li>
-                     <li class="breadcrumb-item">
-                        <NuxtLink class="breadcrumb-item" :to="'../'+page.category.link">{{ page.category.name }}</NuxtLink>
-                     </li>
-                     <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
-                  </ol>
-               </nav>
-               <p class="mb-3" v-if="page">
-                  {{page.description}}
-               </p>
-               <div class="d-flex align-items-center">
-                  <img class="rounded-circle" :src="'../../img/avatar2.jpg'" width="70">
-                  <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. lire</span>
-                  </small>
+   <div class="container">
+      <div class="jumbotron jumbotron-fluid mb-3 pl-0 pt-0 pb-0 bg-white position-relative">
+         <div class="h-100 tofront">
+            <div class="row justify-content-between">
+               <div class="col-md-12 pt-6 pb-6 align-self-center">
+                  <p class="text-uppercase font-weight-bold">
+                     <a class="text-danger" href="#" v-if="page">{{ page.tags[0].name }}</a>
+                  </p>
+                  <h1 v-if="page" class="display-4 secondfont mb-3 font-weight-bold">
+                     {{page.h1}}
+                  </h1>
+                  <nav aria-label="breadcrumb">
+                     <ol class="breadcrumb" v-if="page">
+                        <li class="breadcrumb-item">
+                           <NuxtLink class="breadcrumb-item" to="/">Acceuil</NuxtLink>
+                        </li>
+                        <li class="breadcrumb-item">
+                           <NuxtLink class="breadcrumb-item" :to="'../'+page.category.link">{{ page.category.name }}</NuxtLink>
+                        </li>
+                        <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+                     </ol>
+                  </nav>
+                  <p class="mb-3" v-if="page">
+                     {{page.description}}
+                  </p>
+                  <div class="d-flex align-items-center">
+                     <img class="rounded-circle" :src="'../../img/avatar2.jpg'" width="70">
+                     <small class="ml-2">Jane Seymour <span class="text-muted d-block" v-if="page">{{ new Date(page.created_at).getFullYear() }} &middot; 5 min. lire</span>
+                     </small>
+                  </div>
                </div>
-            </div>
-            <div class="col-md-12 pr-0">
-               <img
-                  v-if="page"
-                  v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
-                  class="is-lazy"
-                  :alt="page.title"
-                  :title="page.title"
-                  :src="'/images/' + page.image_large.low"
-                  >
+               <div class="col-md-12 pr-0">
+                  <img
+                     v-if="page"
+                     v-lazy="{ src: '/images/' + page.image_large.high, loading: '/images/' + page.image_large.low}"
+                     class="is-lazy"
+                     :alt="page.title"
+                     :title="page.title"
+                     :src="'/images/' + page.image_large.low"
+                     >
+               </div>
             </div>
          </div>
       </div>
    </div>
-</div>
-<div class="container pt-1 pb-1" v-if="isPage">
+   <div class="container pt-1 pb-1">
    <div class="row">
       <div class="col-lg-2 pr-4 mb-4 col-md-12">
          <div class="sticky-top sticky-sidebar-offset">
@@ -129,139 +129,50 @@
          </div>
       </div>
    </div>
-   <div class="container pt-4 pb-4" v-if="isPage">
-      <h5 class="font-weight-bold spanborder">
-         <span>Articles Similaires</span>
-      </h5>
-      <div class="row" v-if="relatedArticle.length">
-         <div class="col-lg-6">
-            <div class="card border-0 mb-4 box-shadow h-xl-300">
-               <div v-lazy:background-image="{ src: '../images/' + relatedArticle[0].image_large.high, loading: '../images/' + relatedArticle[0].image_large.low}" style="height: 150px; background-size: cover; background-repeat: no-repeat;" />
-                  <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
-                     <h2 class="h4 font-weight-bold">
-                        <NuxtLink class="text-dark" :to="'../' + relatedArticle[0].link">{{relatedArticle[0].h1}}</NuxtLink>
-                     </h2>
-                     <p class="card-text">
-                        {{ relatedArticle[0].description.substring(0,125) }}...
-                     </p>
-                     <div>
-                        <small class="d-block"><a class="text-muted" href="#">{{relatedArticle[0].tags[0].name}}</a></small>
-                        <small class="text-muted">{{ new Date(relatedArticle[0].created_at).getFullYear() }} &middot; 5 min. lire </small>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="col-lg-6">
-               <div class="flex-md-row mb-4 box-shadow h-xl-300">
-                  <div class="mb-3 d-flex align-items-center" v-for="item in relatedArticle.slice(1)" :key="item._id">
-                     <img
-                        v-lazy="{ src: '../images/' + item.image_small.high, loading: '../images/' + item.image_small.low}"
-                        height="90"
-                        width="125"
-                        class="is-lazy"
-                        :alt="item.title"
-                        :title="item.title"
-                        :src="'../images/' + item.image_small.low"
-                        >
-                     <div class="pl-3">
-                        <h2 class="mb-2 h6 font-weight-bold">
-                           <NuxtLink class="text-dark" :to="'../'+item.link">{{item.h1}}</NuxtLink>
-                        </h2>
-                        <div class="card-text text-muted small">
-                           {{item.category.name}} - {{item.tags[0].name}}
-                        </div>
-                        <small class="text-muted">{{ new Date(item.created_at).getFullYear() }} &middot; 5 min. lire </small>
-                     </div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   <!-- End Header -->
-   <!--------------------------------------
-      MAIN
-      --------------------------------------->
-   <div class="container mt-5 mb-5" v-if="!isPage">
-      <div class="row">
-         <div class="col-md-8">
-            <h5 class="font-weight-bold spanborder"><span>Agences</span></h5>
-            <div class="mb-3 d-flex justify-content-between" v-for="item in listArticle" :key="item._id">
-               <div class="pr-3">
-                  <h2 class="mb-1 h4 font-weight-bold">
-                     <NuxtLink class="text-dark" :to="'../'+item.link">{{item.h1}}</NuxtLink>
+   <div class="container pt-4 pb-4">
+   <h5 class="font-weight-bold spanborder">
+      <span>Articles Similaires</span>
+   </h5>
+   <div class="row" v-if="relatedArticle.length">
+      <div class="col-lg-6">
+         <div class="card border-0 mb-4 box-shadow h-xl-300">
+            <div v-lazy:background-image="{ src: '../images/' + relatedArticle[0].image_large.high, loading: '../images/' + relatedArticle[0].image_large.low}" style="height: 150px; background-size: cover; background-repeat: no-repeat;" />
+               <div class="card-body px-0 pb-0 d-flex flex-column align-items-start">
+                  <h2 class="h4 font-weight-bold">
+                     <NuxtLink class="text-dark" :to="'../' + relatedArticle[0].link">{{relatedArticle[0].h1}}</NuxtLink>
                   </h2>
-                  <p>
-                     {{item.description}}
+                  <p class="card-text">
+                     {{ relatedArticle[0].description.substring(0,125) }}...
                   </p>
-                  <div class="card-text text-muted small">
-                     {{item.tags[0].name}}
+                  <div>
+                     <small class="d-block"><a class="text-muted" href="#">{{relatedArticle[0].tags[0].name}}</a></small>
+                     <small class="text-muted">{{ new Date(relatedArticle[0].created_at).getFullYear() }} &middot; 5 min. lire </small>
                   </div>
-                  <small class="text-muted">{{ new Date(item.created_at).getFullYear() }} · 5 min read</small>
-               </div>
-               <img
-                  v-lazy="{ src: './images/' + item.image_small.high, loading: './images/' + item.image_small.low}"
-                  height="120"
-                  width="125"
-                  class="is-lazy"
-                  :alt="item.title"
-                  :title="item.title"
-                  :src="'../images/' + item.image_small.low"
-                  >
-            </div>
-            <div class="row justify-content-between">
-               <div class="col-auto me-auto">
-                  <NuxtLink v-if="parseInt(this.$route.params.agences) > 0" class="text-dark" :to="'' + (parseInt(this.$route.params.agences) - 1 )">page président</NuxtLink>
-               </div>
-               <div class="col-auto">
-                  <NuxtLink v-if="listArticle.length === 4" class="text-dark" :to="'' + (parseInt(this.$route.params.agences) + 1 )">page suivante</NuxtLink>
                </div>
             </div>
          </div>
-         <div class="col-md-4 pl-4">
-            <div class="sticky-top">
-               <h5 class="font-weight-bold spanborder"><span>Les plus visités</span></h5>
-               <ol class="list-featured">
-                  <li>
-                     <span>
-                        <h6 class="font-weight-bold">
-                           <a href="./article.html" class="text-dark">Did Supernovae Kill Off Large Ocean Animals?</a>
-                        </h6>
-                        <p class="text-muted">
-                           Jake Bittle in SCIENCE
-                        </p>
-                     </span>
-                  </li>
-                  <li>
-                     <span>
-                        <h6 class="font-weight-bold">
-                           <a href="./article.html" class="text-dark">Humans Reversing Climate Clock: 50 Million Years</a>
-                        </h6>
-                        <p class="text-muted">
-                           Jake Bittle in SCIENCE
-                        </p>
-                     </span>
-                  </li>
-                  <li>
-                     <span>
-                        <h6 class="font-weight-bold">
-                           <a href="./article.html" class="text-dark">Unprecedented Views of the Birth of Planets</a>
-                        </h6>
-                        <p class="text-muted">
-                           Jake Bittle in SCIENCE
-                        </p>
-                     </span>
-                  </li>
-                  <li>
-                     <span>
-                        <h6 class="font-weight-bold">
-                           <a href="./article.html" class="text-dark">Effective New Target for Mood-Boosting Brain Stimulation Found</a>
-                        </h6>
-                        <p class="text-muted">
-                           Jake Bittle in SCIENCE
-                        </p>
-                     </span>
-                  </li>
-               </ol>
+         <div class="col-lg-6">
+            <div class="flex-md-row mb-4 box-shadow h-xl-300">
+               <div class="mb-3 d-flex align-items-center" v-for="item in relatedArticle.slice(1)" :key="item._id">
+                  <img
+                     v-lazy="{ src: '../images/' + item.image_small.high, loading: '../images/' + item.image_small.low}"
+                     height="90"
+                     width="125"
+                     class="is-lazy"
+                     :alt="item.title"
+                     :title="item.title"
+                     :src="'../images/' + item.image_small.low"
+                     >
+                  <div class="pl-3">
+                     <h2 class="mb-2 h6 font-weight-bold">
+                        <NuxtLink class="text-dark" :to="'../'+item.link">{{item.h1}}</NuxtLink>
+                     </h2>
+                     <div class="card-text text-muted small">
+                        {{item.category.name}} - {{item.tags[0].name}}
+                     </div>
+                     <small class="text-muted">{{ new Date(item.created_at).getFullYear() }} &middot; 5 min. lire </small>
+                  </div>
+               </div>
             </div>
          </div>
       </div>
@@ -287,7 +198,7 @@ export default {
       query: categoryElements,
       fetchPolicy: 'cache-first',
       variables() {
-        return { link: this.$route.name.split('-')[0], page: parseInt(this.$route.params.agences) }
+        return { link: this.$route.name.split('-')[0], nb: 10 }
       }
     },
   },
@@ -295,7 +206,6 @@ export default {
     return {
       content: null,
       listArticle: [],
-      isPage: false,
       content: null,
       ficheTechnique: null,
       relatedArticle: []
@@ -303,30 +213,14 @@ export default {
   },
   watch: {
     async page(val) {
-      if (!val && isNaN(this.$route.params.agences)) window.location.href = "/404"
-      if(!isNaN(this.$route.params.agences)) {
-        this.isPage = false
-      } else{
-        this.isPage = true
-        this.content = val.content && JSON.parse(val.content) ? JSON.parse(val.content).html : ''
-        this.ficheTechnique = val.fiche && JSON.parse(val.fiche) ? JSON.parse(val.fiche).html : ''
-        this.relatedArticle = await this.$store.dispatch('getCategoryElement', val.category.link)
-      }
+      if (!val ) window.location.href = "/404"
+      this.content = val.content && JSON.parse(val.content) ? JSON.parse(val.content).html : ''
+      this.ficheTechnique = val.fiche && JSON.parse(val.fiche) ? JSON.parse(val.fiche).html : ''
+      this.relatedArticle = await this.$store.dispatch('getCategoryElement', val.category.link)
     },
 	  categoryElements(val) {
 		  this.listArticle =  val
-	  },
-    '$route.params.agences': {
-      immediate: true,
-      handler(val) {
-        if(parseInt(val) === 0) {
-          this.$router.push('/agences')
-          this.isPage = false
-        } else if(!isNaN(val)) {
-          this.isPage = true
-        }
-      }
-    }
+	  }
   }
 }
 </script>

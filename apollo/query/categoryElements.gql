@@ -1,5 +1,5 @@
-query ($link: String!, $page: Int) {
-    categoryElements(link: $link, page: $page){
+query ($link: String!, $nb: Int) {
+    categoryElements(link: $link, nb: $nb){
         _id
         title
         h1

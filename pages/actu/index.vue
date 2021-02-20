@@ -27,13 +27,6 @@
 					:src="'../images/' + item.image_small.low"
 				>
 			</div>
-			<div class="row justify-content-between">
-				<div class="col-auto me-auto">
-				</div>
-				<div class="col-auto">
-					<NuxtLink class="text-dark" :to="'/actu/1'">page suivante</NuxtLink>
-				</div>
-			</div>
 		</div>
 		<div class="col-md-4 pl-4">
 			<div class="sticky-top">
@@ -95,7 +88,7 @@ export default {
       query: categoryElements,
       fetchPolicy: 'cache-first',
       variables() {
-        return { link: this.$route.name, page: 0 }
+        return { link: this.$route.name, nb: 10 }
       }
     },
   },
