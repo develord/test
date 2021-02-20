@@ -34,7 +34,7 @@ module.exports = {
   query: `
     categories: [Category]
     category(_id: String!): Category
-    categoryElements(link: String!, page: Int): [Post]
+    categoryElements(link: String!, nb: Int): [Post]
   `,
   mutation: `
     createCategory(
