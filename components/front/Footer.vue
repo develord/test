@@ -35,8 +35,8 @@
                   </div>
                   <div class="widget-content">
                     <ul class="clearfix">
-                      <li><a target="_blank" href="https://perkins.org.au/">Perkins Institute</a></li>
-                      <li><a target="_blank" href="https://www.curtin.edu.au/">Curtin University</a></li>
+                      <li><a target="_blank" href="https://perkins.org.au/person/ankur-sharma/">Perkins Institute</a></li>
+                      <li><a target="_blank" href="https://staffportal.curtin.edu.au/staff/profile/view/ankur-sharma-3c7ebc27/">Curtin University</a></li>
                       <li><a target="_blank" href="#">Collaborators</a></li>
                       <li><a target="_blank" href="https://www.humancellatlas.org/">HCA</a></li>
                       <li><a target="_blank" href="https://www.ncbi.nlm.nih.gov/">NCBI</a></li>
