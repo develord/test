@@ -192,6 +192,12 @@ export default {
   components: {
     Lightbox
   },
+  head() {
+    return { 
+      title: this.page && this.page.title ? this.page.title : 'ffff',
+      
+    }
+  },
   apollo: {
     page: {
       query: page,
