@@ -100,13 +100,13 @@
           </div>
         </div>
         <div class="col-lg-8 col-md-12">
-          <article class="article-post" v-if="page" v-html="content">
+          <article class="article-post" v-html="JSON.parse(page.content).html">
           </article>
           <h2>Gallery images</h2>
           <client-only>
             <lightbox  v-if="page" class="pb-4" :items="page.gallery.map(el => '/images/' + el.high)" :cells="3"></lightbox>
           </client-only>
-          <div v-if="page" v-html="ficheTechnique" />
+          <div v-if="page" v-html="JSON.parse(page.fiche).html" />
           <div class="border p-5 bg-lightblue">
             <div class="row justify-content-between">
               <div class="col-md-5 mb-2 mb-md-0">
