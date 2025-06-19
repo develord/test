@@ -1,0 +1,74 @@
+.bids-container {
+  padding: 1rem;
+  max-width: 36rem;
+  margin: 0 auto;
+}
+
+.bids-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.reserve-price {
+  margin-bottom: 1rem;
+}
+
+.reserve-price-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.input-field {
+  border: 1px solid var(--color-border);
+  padding: 0.5rem;
+  width: 100%;
+  background: var(--color-background-soft);
+  color: var(--color-text);
+}
+
+.bidder-section {
+  margin-bottom: 1rem;
+}
+
+.bidder-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.bidder-input {
+  margin-bottom: 0.5rem;
+}
+
+.add-button {
+  background-color: var(--vt-c-indigo);
+  color: var(--vt-c-white);
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: 1px solid var(--color-border);
+}
+
+.bidders-list {
+  margin-bottom: 1.5rem;
+}
+
+.bidders-list-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.bidders-items {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.result-section {
+  margin-top: 1rem;
+}
+
+.result-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--color-heading);
+}
