@@ -1,45 +1,43 @@
-# ccc
+# Vickrey Auction
 
-This template should help get you started developing with Vue 3 in Vite.
+Ce projet a été réalisé avec **Vue.js 3** car la mission imposait un front en Vue.js. J'ai choisi de garder le projet aussi simple que possible :
 
-## Recommended IDE Setup
+- **Pas de router** : inutile pour une application mono-page.
+- **Pas de store (ex: Vuex, Pinia)** : la gestion d'état globale n'est pas nécessaire ici.
+- **Pas de factorisation de composants** : il n'y a pas de composants réutilisables, donc pas de sur-ingénierie.
+- **Keep it simple, keep it stupid (Régle KISS)** : le code reste lisible, direct et facile à maintenir.
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Démo en ligne
 
-## Type Support for `.vue` Imports in TS
+<a href="https://test-five-sigma-26.vercel.app/" style="color:#4F46E5;font-weight:bold;" target="_blank">Accéder à la démo https://test-five-sigma-26.vercel.app/</a>
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Scénarios de test
 
-## Customize configuration
+J'ai créé 4 scénarios de test unitaires principaux :
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+1. Affichage initial du composant
+2. Ajout d'un nouvel enchérisseur avec ses offres
+3. Calcul du gagnant et du prix gagnant
+4. Réinitialisation du formulaire après soumission
 
-## Project Setup
+## Prérequis
+
+- Node.js **v22**
+
+## Installation
 
 ```sh
 npm install
 ```
 
-### Compile and Hot-Reload for Development
+## Lancer le projet en développement
 
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+## Lancer les tests unitaires
 
 ```sh
 npm run test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
 ```
